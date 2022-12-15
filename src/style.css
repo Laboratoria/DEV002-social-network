@@ -6,17 +6,19 @@
 
 :root{
 /* creamos "constantes" con colores, tipografia, etc. que utilizaremos en el proyecto */
---blue: #4B81D1;
---blue-hover: #1c53a6;
---red: #841818;
---red-hover: #610808;
---yellow: #E0BB20;
---yellow-hover: #b4920a;
+--lightIvory: #f5f2eb;
+--dogBrown: #563c2e;
+--palePink: #dcc5b6;
+--lightPink: #d7a799;
+--redCollar: #a91918;
+--blue: #086680;
+--chocolate: #492319;
+--fallOrange: #a24c33;
+--ivory: #dfcfab;
+--pigPink: #e5a5a4;
+--cherryRed: #901921;
 --black: #000000;
---gray: #8F8F95;
---gray-dark: #3a3c4a;
---beige: #f8f3e3;
---font-base: 'Montserrat', sans-serif;
+--font-family: 'Merriweather', serif
 }
 
 /* responsive */
