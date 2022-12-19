@@ -76,3 +76,4 @@
 * Añadir el CONTADOR de LIKES
 * Estudiar FIREBASE. Algunas ventanas que se consideraron en el diseño ya van a ser dadas por Firebase.
 Hola Soy Ingrid :)
+Y yo soy Pris ^^
