@@ -43,7 +43,7 @@ main{
 /* main logo */
 main .main-logo .main-logo-text{
     text-align: center;
-    margin-top: 20%;
+    margin-top: 6rem;
     font-size: 6.5rem;
 }
 
@@ -58,19 +58,19 @@ main .home .home-div{
 main .home .home-div .home-create-account-intro{
     width: 70%;
     text-align: center;
-    margin-top: 10%;
+    margin-top: 5rem;
     font-size: 1.5rem;
 }
 
 main .home .home-div .home-welcome{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3rem;
     font-size: 2rem;
 }
 
 main .home .home-div .home-question{
     text-align: center;
-    margin-top: 5%;
+    margin-top: 3rem;
     font-size: 1.5rem;
 }
 
@@ -83,18 +83,18 @@ main .home .home-div button{
 }
 
 main .home .home-div .home-create-account{
-    margin-top:10%;
+    margin-top: 5rem;
     font-size: 1.4rem;
 }
 
-/* Gmail/Facebook LogIn */
+/* google/Facebook LogIn */
 
-main .gmail-facebook-page .gmail-facebook-div{
+main .google-facebook-page .google-facebook-div{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-main .gmail-facebook-page .gmail-facebook-div button{
+main .google-facebook-page .google-facebook-div button{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,12 +105,12 @@ main .gmail-facebook-page .gmail-facebook-div button{
     width: 13rem;
 }
 
-main .gmail-facebook-page .gmail-facebook-div .gmail-btn{
-    margin-top: 40%;
+main .google-facebook-page .google-facebook-div .google-btn{
+    margin-top: 16rem;
 }
 
-main .gmail-facebook-page .gmail-facebook-div .facebook-btn{
-    margin-top: 6%;
+main .google-facebook-page .google-facebook-div .facebook-btn{
+    margin-top: 1rem;
 }
 
 /* log in form */
@@ -127,7 +127,7 @@ main .login-section .login-form input{
     background: none;
     font-size: 2rem;
     text-indent: 1rem;
-    margin-top: 2%;
+    margin-top: 0.5rem;
 }
 
 main .login-section .login-form label{
@@ -136,12 +136,12 @@ main .login-section .login-form label{
 
 main .login-section .login-form .login-form-email{
     font-size: 2rem;
-    margin-top: 10%;
+    margin-top: 9rem;
 }
 
 main .login-section .login-form .login-form-password{
     font-size: 2rem;
-    margin-top: 2%;
+    margin-top: 0.5rem;
 }
 
 main .login-section .login-form button{
@@ -153,7 +153,7 @@ main .login-section .login-form button{
     width: 13rem;
     background: none;
     cursor: pointer;
-    margin-top: 6%;
+    margin-top: 1rem;
 }
 
 /* sign up form */
@@ -170,21 +170,21 @@ main .signup-section .signup-form input{
     background: none;
     font-size: 2rem;
     text-indent: 1rem;
-    margin-top: 2%;
+    margin-top: 0.5rem;
 }
 
 main .signup-section .signup-form label{
-    font-size: 20px;
+    font-size: 2.5rem;
 }
 
 main .signup-section .signup-form .signup-form-email{
     font-size: 2rem;
-    margin-top: 10%;
+    margin-top: 9rem;
 }
 
 main .signup-section .signup-form .signup-form-password{
     font-size: 2rem;
-    margin-top: 2%;
+    margin-top: 0.5rem;
 }
 
 main .signup-section .signup-form button{
@@ -196,7 +196,7 @@ main .signup-section .signup-form button{
     width: 13rem;
     background: none;
     cursor: pointer;
-    margin-top: 6%;
+    margin-top: 1rem;
 }
 
 /* Log In/Sign Up */
@@ -218,11 +218,11 @@ main .log-in-sign-up .log-in-sign-up-div button{
 }
 
 main .log-in-sign-up .log-in-sign-up-div .nav-link-log-in {
-    margin-top: 40%;
+    margin-top: 16rem;
 }
 
 main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
-    margin-top: 6%;
+    margin-top: 1rem;
 }
 
 /* responsive */

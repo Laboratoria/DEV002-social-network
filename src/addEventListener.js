@@ -1,18 +1,18 @@
 const homeSignInBtn = document.getElementById("navLinkCreateAccount");
-const gmailBtn = document.getElementById("gmailBtn");
+const googleBtn = document.getElementById("googleBtn");
 const facebookBtn = document.getElementById("facebookBtn");
 
 homeSignInBtn.addEventListener("click", () => {
         document.getElementById("home").hidden = true;
-        document.getElementById("gmailFacebookPage").classList.remove("hidden");
+        document.getElementById("googleFacebookPage").classList.remove("hidden");
 });
 
-gmailBtn.addEventListener("click", () => {
-    document.getElementById("gmailFacebookPage").hidden = true;
+googleBtn.addEventListener("click", () => {
+    document.getElementById("googleFacebookPage").hidden = true;
     document.getElementById("signupSection").classList.remove("hidden");
 })
 
 facebookBtn.addEventListener("click", () => {
-    document.getElementById("gmailFacebookPage").hidden = true;
+    document.getElementById("googleFacebookPage").hidden = true;
     document.getElementById("signupSection").classList.remove("hidden");
 })
