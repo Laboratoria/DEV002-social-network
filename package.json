@@ -3,10 +3,13 @@
   "version": "1.0.0",
   "description": "Social Network @ Laboratoria",
   "main": "src/index.html",
+  "author": "Ingrid, Sharon, Priscila",
   "keywords": [
     "javascript",
     "firebase",
-    "jest"
+    "jest",
+    "html",
+    "css"
   ],
   "license": "MIT",
   "scripts": {
