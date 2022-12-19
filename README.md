@@ -61,3 +61,17 @@
 6. El código está en el repositorio.
 7. Se desplegó la aplicación y etiquetó la versión (git tag). 
 8. La historia ha sido testeada con mínimo 2 usuarios(as) y se han incorporado las mejoras identificadas en ese testeo de usabilidad. 
+
+## Feedback recibido  en OH
+
+* Simplificar vista de  Recuperar Contraseña (Opción: Modal).
+    - Es necesario reducir algunas HU
+    - Puede eliminarse el recuperar y cambiar contraseña
+* Falta la opción: CERRAR SESIÓN
+    - El usuario debe poder Cerrar su Sesión, incluso antes de habilitarle el publicar, para evitar errores en el código
+    - Habilitarlo inmediatamente después de habilitar el iniciar sesión.
+* Falta la opción: EDITAR PUBLICACIÓN
+* Falta la opción: ELIMINAR PUBLICACIÓN
+* Hacker Edition para el Final
+* Añadir el CONTADOR de LIKES
+* Estudiar FIREBASE. Algunas ventanas que se consideraron en el diseño ya van a ser dadas por Firebase.
