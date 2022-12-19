@@ -1,7 +1,7 @@
 {
-  "name": "social-network",
+  "name": "petblr",
   "version": "1.0.0",
-  "description": "Social Network @ Laboratoria",
+  "description": "página para mascotas",
   "main": "src/index.html",
   "keywords": [
     "javascript",
