@@ -22,95 +22,98 @@
 --font-family: 'Merriweather', serif
 }
 
- /* inactive components */
-
+/* inactive components */
 .hidden {
     display: none;
 }
 
+/* para utilizar rem = 1, ayuda para responsive */
 html{
     font-size: 62.5%;
 }
 
 main{
-width: 100vw;
+    width: 100vw;
 }
 
-main .log-in{
-width: 100vw;
-}
+/* main .log-in{
+    width: 100vw;
+} */
 
 /* main logo */
 main .main-logo .main-logo-text{
     text-align: center;
     margin-top: 20%;
-    font-size: 64px;
+    font-size: 6.5rem;
 }
 
 /* Home */
-
-main .home .home-create-account-intro{
+main .home .home-div{
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
+}
+
+main .home .home-div .home-create-account-intro{
+    width: 70%;
     text-align: center;
     margin-top: 10%;
+    font-size: 1.5rem;
 }
 
-main .home .home-welcome{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+main .home .home-div .home-welcome{
     text-align: center;
     margin-top: 5%;
+    font-size: 2rem;
 }
 
-main .home .home-question{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
+main .home .home-div .home-question{
     text-align: center;
     margin-top: 5%;
+    font-size: 1.5rem;
 }
 
-main .home button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border: none;
+main .home .home-div button{
     background: none;
     cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: 13rem;
 }
 
-main .home .home-create-account{
-    margin-top: 20%;
+main .home .home-div .home-create-account{
+    margin-top:10%;
+    font-size: 1.4rem;
 }
 
 /* Gmail/Facebook LogIn */
-main .gmail-facebook-page button{
+
+main .gmail-facebook-page .gmail-facebook-div{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    border: none;
+}
+main .gmail-facebook-page .gmail-facebook-div button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background: none;
     cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: 13rem;
 }
 
-main .gmail-facebook-page .gmail-btn{
+main .gmail-facebook-page .gmail-facebook-div .gmail-btn{
     margin-top: 40%;
 }
 
-main .gmail-facebook-page .facebook-btn{
+main .gmail-facebook-page .gmail-facebook-div .facebook-btn{
     margin-top: 6%;
 }
 
 /* log in form */
-
 main .login-section .login-form{
     display: flex;
     flex-direction: column;
@@ -122,32 +125,38 @@ main .login-section .login-form{
 main .login-section .login-form input{
     outline: none;
     background: none;
+    font-size: 2rem;
     text-indent: 1rem;
     margin-top: 2%;
 }
 
 main .login-section .login-form label{
-    font-size: 20px;
+    font-size: 2rem;
 }
 
 main .login-section .login-form .login-form-email{
+    font-size: 2rem;
     margin-top: 10%;
 }
 
 main .login-section .login-form .login-form-password{
+    font-size: 2rem;
     margin-top: 2%;
 }
 
 main .login-section .login-form button{
-    font-size: 12px;
-    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: 13rem;
     background: none;
     cursor: pointer;
     margin-top: 6%;
 }
 
 /* sign up form */
-
 main .signup-section .signup-form{
     display: flex;
     flex-direction: column;
@@ -159,6 +168,7 @@ main .signup-section .signup-form{
 main .signup-section .signup-form input{
     outline: none;
     background: none;
+    font-size: 2rem;
     text-indent: 1rem;
     margin-top: 2%;
 }
@@ -168,38 +178,50 @@ main .signup-section .signup-form label{
 }
 
 main .signup-section .signup-form .signup-form-email{
+    font-size: 2rem;
     margin-top: 10%;
 }
 
 main .signup-section .signup-form .signup-form-password{
+    font-size: 2rem;
     margin-top: 2%;
 }
 
 main .signup-section .signup-form button{
-    font-size: 12px;
-    border: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: 13rem;
     background: none;
     cursor: pointer;
     margin-top: 6%;
 }
 
 /* Log In/Sign Up */
-
-main .log-in button{
+main .log-in-sign-up .log-in-sign-up-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    border: none;
-    background: none;
-    cursor: pointer;
 }
 
-main .log-in .nav-link-log-in {
+main .log-in-sign-up .log-in-sign-up-div button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    cursor: pointer;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: 13rem;
+}
+
+main .log-in-sign-up .log-in-sign-up-div .nav-link-log-in {
     margin-top: 40%;
 }
 
-main .log-in .nav-link-sign-up {
+main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     margin-top: 6%;
 }
 

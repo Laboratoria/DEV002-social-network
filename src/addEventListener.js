@@ -1,12 +1,11 @@
-const homeSignInBtn = document.getElementById("navLinkCreateAccount")
+const homeSignInBtn = document.getElementById("navLinkCreateAccount");
+const gmailBtn = document.getElementById("gmailBtn");
+const facebookBtn = document.getElementById("facebookBtn");
 
 homeSignInBtn.addEventListener("click", () => {
-    document.getElementById("home").hidden = true;
-    document.getElementById("gmailFacebookPage").classList.remove("hidden");
-})
-
-const gmailBtn = document.getElementById("gmailBtn")
-const facebookBtn = document.getElementById("facebookBtn")
+        document.getElementById("home").hidden = true;
+        document.getElementById("gmailFacebookPage").classList.remove("hidden");
+});
 
 gmailBtn.addEventListener("click", () => {
     document.getElementById("gmailFacebookPage").hidden = true;
