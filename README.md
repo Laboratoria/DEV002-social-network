@@ -74,7 +74,7 @@
 * Falta la opción: ELIMINAR PUBLICACIÓN
 * Hacker Edition para el Final
 * Añadir el CONTADOR de LIKES
-* Estudiar FIREBASE
+* Estudiar FIREBASE. Algunas ventanas que se consideraron en el diseño ya van a ser dadas por Firebase.
 
 
 
