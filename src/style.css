@@ -22,6 +22,12 @@
 --font-family: 'Merriweather', serif
 }
 
+/* Placeholder */
+::placeholder{
+    color: var(--dogBrown);
+    font-family: 'Merriweather', serif;
+}
+
 /* inactive components */
 .hidden {
     display: none;
@@ -35,10 +41,6 @@ html{
 main{
     width: 100vw;
 }
-
-/* main .log-in{
-    width: 100vw;
-} */
 
 /* main logo */
 main .main-logo .main-logo-text{
@@ -87,14 +89,14 @@ main .home .home-div .home-create-account{
     font-size: 1.4rem;
 }
 
-/* google/Facebook LogIn */
+/* email/Facebook LogIn */
 
-main .google-facebook-page .google-facebook-div{
+main .email-facebook-page .email-facebook-div{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
-main .google-facebook-page .google-facebook-div button{
+main .email-facebook-page .email-facebook-div button{
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,11 +107,11 @@ main .google-facebook-page .google-facebook-div button{
     width: 13rem;
 }
 
-main .google-facebook-page .google-facebook-div .google-btn{
+main .email-facebook-page .email-facebook-div .email-btn{
     margin-top: 16rem;
 }
 
-main .google-facebook-page .google-facebook-div .facebook-btn{
+main .email-facebook-page .email-facebook-div .facebook-btn{
     margin-top: 1rem;
 }
 
@@ -156,16 +158,41 @@ main .login-section .login-form button{
     margin-top: 1rem;
 }
 
-/* sign up form */
-main .signup-section .signup-form{
+/* Register section */
+/* main .register{
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
-    text-align: center;
+} */
+
+main .register .register-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-main .signup-section .signup-form input{
+main .register .register-form label{
+    font-size: 1.5rem;
+    margin-top: 1rem;
+}
+
+main .register .register-form .register-form-psw-recomendation{
+    font-size: 1rem;
+    width: 80%;
+    text-align: center;
+    color: var(--chocolate);
+}
+
+main .register .register-form .register-form-repeat-psw{
+    font-size: 1rem;
+    color: var(--cherryRed);
+}
+
+main .register .register-form ::placeholder{
+    font-size: 1.3rem;
+}
+
+main .register .register-form input{
     outline: none;
     background: none;
     font-size: 2rem;
@@ -173,30 +200,40 @@ main .signup-section .signup-form input{
     margin-top: 0.5rem;
 }
 
-main .signup-section .signup-form label{
-    font-size: 2.5rem;
-}
-
-main .signup-section .signup-form .signup-form-email{
-    font-size: 2rem;
-    margin-top: 9rem;
-}
-
-main .signup-section .signup-form .signup-form-password{
-    font-size: 2rem;
-    margin-top: 0.5rem;
-}
-
-main .signup-section .signup-form button{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+main .register .register-form button{
+    background: none;
+    cursor: pointer;
     font-size: 1.5rem;
     border-radius: 1rem;
     width: 13rem;
-    background: none;
-    cursor: pointer;
-    margin-top: 1rem;
+    margin-top: 2rem;
+    color: var(--blue);
+}
+
+/* auth error */
+main .auth-error .auth-error-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+main .auth-error .auth-error-div .auth-error-text{
+    font-size: 2rem;
+    margin-top: 2rem;
+}
+
+/* auth funciona */
+main .auth-funciona .auth-error-div{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+main .auth-funciona .auth-error-div .auth-funciona-text{
+    font-size: 2rem;
+    margin-top: 2rem;
 }
 
 /* Log In/Sign Up */
