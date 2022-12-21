@@ -1,0 +1,25 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root{
+    --blanco: #F2F1F6;
+    --rosa: #E05D6F;
+    --rosa-oscuro: #D4355B;
+    --jade: #10A19D;
+    --jade-claro: #85F0ED;
+    --morado: #9D7AE7;
+    --morado-oscuro: #6A45B9;
+    --amarillo: #F2BE22;
+    --amarillo-claro: #FFD557;
+    --font-gris: #535458;
+    --font-gris-claro: #A3A6B1;
+    --font-negro: #01000C;
+    --font-base: 'Nunito', sans-serif;
+}
+
+::placeholder{
+    color: var(--font-gris-claro);
+}
