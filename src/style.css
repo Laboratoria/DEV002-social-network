@@ -96,6 +96,12 @@ main .email-facebook-page .email-facebook-div{
     flex-direction: column;
     align-items: center;
 }
+
+main .email-facebook-page .email-facebook-div .email-facebook-description{
+    font-size: 2rem;
+    margin-top: 8rem;
+}
+
 main .email-facebook-page .email-facebook-div button{
     display: flex;
     flex-direction: column;
@@ -108,7 +114,7 @@ main .email-facebook-page .email-facebook-div button{
 }
 
 main .email-facebook-page .email-facebook-div .email-btn{
-    margin-top: 16rem;
+    margin-top: 4rem;
 }
 
 main .email-facebook-page .email-facebook-div .facebook-btn{
