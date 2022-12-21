@@ -1,4 +1,4 @@
-const Inicio = () => {
+const Bienvenida = () => {
     const view = `
         <section class="inicio">
         <figure class="inicio-logo">
@@ -8,13 +8,15 @@ const Inicio = () => {
             <img src="" alt="imagen de bienvenida"/>
         </figure>
         <div class="inicio-botones">
-            <button class="registro-btn">Registrate</button>
+            <button class="registro-btn">
+                <a href='#/registro-usuario/'>Registrate</a>
+            </button>
             <span>|</span>
             <button class="iniciarSesion-btn">Inicia sesión</button>
         </div>
         </section>
     `;
     return view;
-}
+};
 
-export default Inicio;
+export default Bienvenida;

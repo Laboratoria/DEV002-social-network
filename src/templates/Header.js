@@ -25,5 +25,5 @@ const Header = () => {
         </section>
     `;
     return view;
-    }
+};
 export default Header;

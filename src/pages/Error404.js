@@ -5,6 +5,6 @@ const Error404 = () => {
         </div>
     `;
     return view;
-}
+};
 
 export default Error404;
