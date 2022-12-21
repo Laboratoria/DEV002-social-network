@@ -9,7 +9,7 @@ const Bienvenida = () => {
         </figure>
         <div class="inicio-botones">
             <button class="registro-btn">
-                <a href='#/registro-usuario/'>Registrate</a>
+                <a href='registro-usuario'>Registrate</a>
             </button>
             <span>|</span>
             <button class="iniciarSesion-btn">Inicia sesión</button>
