@@ -16,3 +16,12 @@ facebookBtn.addEventListener("click", () => {
     document.getElementById("emailFacebookPage").hidden = true;
     document.getElementById("register").classList.remove("hidden");
 })
+
+
+
+
+function AuthAccountFacebook(){
+    //const provider = new fiere
+    console.log("error");
+};
+
