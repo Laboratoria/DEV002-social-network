@@ -5,7 +5,7 @@ const registerForm = document.getElementById("registerForm")
 
 // async indica que la función es asincrona, esto también se puede hacer con .then(), pero async/await es más moderno
 // las funciones asincronas SIEMPRE dan promesas, que sería lo que va con await o .then()
-registerForm.addEventListener("submit", async (e)=>{
+export const registerFormFun = registerForm.addEventListener("submit", async (e)=>{
     // evita que se actialice la pag una vez se presiona "enter" o REGISTRARSE
     e.preventDefault()
     const email = registerForm['registerFormPetEmailInput'].value
