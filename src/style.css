@@ -26,7 +26,7 @@
 ::placeholder{
     color: var(--dogBrown);
     font-family: 'Merriweather', serif;
-}
+    }
 
 /* inactive components */
 .hidden {
@@ -96,10 +96,11 @@ main .email-facebook-page .email-facebook-div{
     align-items: center;
 }
 
-main .email-facebook-page .email-facebook-div .email-facebook-description{
+
+main .email-facebook-page .email-facebook-div label{
     font-size: 2rem;
-    margin-top: 8rem;
-}
+    margin-top:11rem;
+    }
 
 main .email-facebook-page .email-facebook-div button{
     display: flex;
@@ -113,8 +114,7 @@ main .email-facebook-page .email-facebook-div button{
 }
 
 main .email-facebook-page .email-facebook-div .email-btn{
-    margin-top: 4rem;
-}
+    margin-top: 5rem;
 
 main .email-facebook-page .email-facebook-div .facebook-btn{
     margin-top: 1rem;
@@ -132,9 +132,11 @@ main .login-section .login-form{
 main .login-section .login-form input{
     outline: none;
     background: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-indent: 1rem;
     margin-top: 0.5rem;
+    color: var(--dogBrown);
+    font-family: 'Merriweather', serif;
 }
 
 main .login-section .login-form label{
@@ -200,9 +202,11 @@ main .register .register-form ::placeholder{
 main .register .register-form input{
     outline: none;
     background: none;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-indent: 1rem;
     margin-top: 0.5rem;
+    color: var(--dogBrown);
+    font-family: 'Merriweather', serif;
 }
 
 main .register .register-form button{
