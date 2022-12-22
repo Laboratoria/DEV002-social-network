@@ -90,7 +90,6 @@ main .home .home-div .home-create-account{
 }
 
 /* email/Facebook LogIn */
-
 main .email-facebook-page .email-facebook-div{
     display: flex;
     flex-direction: column;
