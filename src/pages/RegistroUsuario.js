@@ -7,23 +7,23 @@ const RegistroUsuario = () => {
             <div class="campos-registro">
                 <div>
                     <label>Nombre</label>
-                    <input type="text" placeholder="Sharon Arana">
+                    <input id="nombre-usuario" type="text" placeholder="Sharon Arana">
                 </div>
                 <div>
                     <label>Usuario</label>
-                    <input type="text" placeholder="@elsully">
+                    <input id="id-usuario" type="text" placeholder="@elsully">
                 </div>
                 <div>
                     <label>Correo electrónico</label>
-                    <input type="text" placeholder="sharendoza@gmail.com">
+                    <input id="correo-usuario" type="text" placeholder="sharendoza@gmail.com">
                 </div>
                 <div>
                     <label>Contraseña</label>
-                    <input type="password" placeholder="***********">
+                    <input id="contrasena-usuario" type="password" placeholder="***********">
                 </div>
                 <div>
                     <label>Confirma tu contraseña</label>
-                    <input type="password" placeholder="***********">
+                    <input id="confirmacion-contrasena" type="password" placeholder="***********">
                 </div>
             </div>
             <div class="botones-registro">
@@ -44,3 +44,10 @@ const RegistroUsuario = () => {
 };
 
 export default RegistroUsuario;
+// const datosUsuario = {
+//     nombre: document.getElementById('nombre-usuario'),
+//     usuario: document.getElementById('id-usuario'),
+//     correo: document.getElementById('correo-usuario'),
+//     contrasena: document.getElementById('contrasena-usuario'),
+//     confirmacionContrasena: document.getElementById('confirmacion-contrasena'),
+// }
