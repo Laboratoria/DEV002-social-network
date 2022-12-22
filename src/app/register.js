@@ -8,8 +8,8 @@ const registerForm = document.getElementById("registerForm")
 registerForm.addEventListener("submit", async (e)=>{
     // evita que se actialice la pag una vez se presiona "enter" o REGISTRARSE
     e.preventDefault()
-    const email = registerForm['registerDivPetEmailInput'].value
-    const psw = registerForm['registerDivPasswordInput'].value
+    const email = registerForm['registerFormPetEmailInput'].value
+    const psw = registerForm['registerFormPasswordInput'].value
     // try{} catch (error){} es como el .then() y .catch() respectivamente
     // catch (error) solo corre si la función falla
     // await SIEMPRE se usa con async, de lo contrario tira error.
