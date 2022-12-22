@@ -22,5 +22,5 @@ export const resolveRoutes = (route) => {
         const validRoute = routesList.includes(route) ? route : '/404';
         return validRoute;
     }
-    return `/${route}`; // /match (otra que no sea / o /bienvenida)
+    return `/${route}`;
 };
