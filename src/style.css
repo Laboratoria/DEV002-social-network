@@ -90,17 +90,18 @@ main .home .home-div .home-create-account{
 }
 
 /* email/Facebook LogIn */
-
 main .email-facebook-page .email-facebook-div{
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
+
 main .email-facebook-page .email-facebook-div label{
     font-size: 2rem;
     margin-top:11rem;
     }
+
 main .email-facebook-page .email-facebook-div button{
     display: flex;
     flex-direction: column;
@@ -114,7 +115,6 @@ main .email-facebook-page .email-facebook-div button{
 
 main .email-facebook-page .email-facebook-div .email-btn{
     margin-top: 5rem;
-}
 
 main .email-facebook-page .email-facebook-div .facebook-btn{
     margin-top: 1rem;
