@@ -1,7 +1,7 @@
-import Header from '../templates/Header.js';
 import Bienvenida from '../pages/Bienvenida.js';
 import RegistroUsuario from '../pages/RegistroUsuario.js';
 import Error404 from '../pages/Error404.js';
+import FormularioRegistroMascota from '../pages/FormularioRegistroMascota.js';
 
 export const routes = {
     '/': 'Home',
@@ -9,7 +9,7 @@ export const routes = {
     '/bienvenida': Bienvenida,
     '/inicio-sesion': 'InicioSesion',
     '/registro-usuario': RegistroUsuario,
-    '/formulario-registro': 'FormularioRegistro',
+    '/formulario-registro': FormularioRegistroMascota,
     '/match': 'Match',
     '/:id': 'PerfilUsuario',
     '/:id-match': 'PerfilMatch',
