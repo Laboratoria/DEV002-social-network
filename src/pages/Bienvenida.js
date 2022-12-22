@@ -2,17 +2,15 @@ const Bienvenida = () => {
     const view = `
         <section class="inicio">
         <figure class="inicio-logo">
-            <img src="" alt="imagen de logo: tindog"/>
+            <img src="../assets/tindog_logo_b.png" alt="imagen de logo: tindog"/>
         </figure>
         <figure class="inicio-bienvenida">
-            <img src="" alt="imagen de bienvenida"/>
+            <img src="../assets/dog-iniciosesion.png" alt="imagen de bienvenida"/>
         </figure>
         <div class="inicio-botones">
-            <button class="registro-btn">
-                <a href='registro-usuario'>Registrate</a>
-            </button>
+            <a class="registro-btn" href='registro-usuario'>Registrate</a>
             <span>|</span>
-            <button class="iniciarSesion-btn">Inicia sesión</button>
+            <a class="iniciarSesion-btn" href='inicio-sesion'>Inicia sesión</a>
         </div>
         </section>
     `;

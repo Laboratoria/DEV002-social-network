@@ -23,3 +23,71 @@
 ::placeholder{
     color: var(--font-gris-claro);
 }
+
+body{
+    width: 100vw;
+    height: 100vh;
+    font-family: var(--font-base);
+}
+
+main {
+    width: 100vw;
+    height: 100vh;
+    background-color: var(--blanco);
+}
+
+/* Pantalla: Bienvenida */
+main #content{
+    width: 100vw;
+    height: 100vh;
+}
+
+main #content .inicio{
+    width: 100vw;
+    height: 100vh;
+    background-image: linear-gradient(to bottom, #f5a293, #ee8a81, #e67172, #de5665, #d4355b);
+}
+
+main #content .inicio .inicio-logo{
+    width: 100%;
+    height: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+main #content .inicio .inicio-logo img{
+    width: 75%;
+}
+
+main #content .inicio .inicio-bienvenida{
+    width: 100%;
+    height: 55%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main #content .inicio .inicio-bienvenida img{
+    width: 85%;
+}
+
+main #content .inicio .inicio-botones{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 8vw;
+    color: var(--blanco);
+}
+
+main #content .inicio .inicio-botones a{
+    font-size: 6vw;
+    color: var(--blanco);
+    text-decoration: none;
+}
+
+main #content .inicio .inicio-botones span{
+    margin: 0 5vw;
+}
