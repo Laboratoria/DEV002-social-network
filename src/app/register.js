@@ -1,4 +1,4 @@
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"
+import { createUserWithEmailAndPassword, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"
 import { firebaseAuth } from "./firebase.js"
 
 const registerForm = document.getElementById("registerForm")
@@ -23,10 +23,11 @@ export const registerFormFun = registerForm.addEventListener("submit", async (e)
         if(psw.length > 6 && psw == repeatPsw){
             /[A-Z]/.test(psw) && /[a-z]/.test(psw) && /[0-9]/.test(psw)
             const userCredential = await createUserWithEmailAndPassword(firebaseAuth, email, psw)
+            await sendEmailVerification(firebaseAuth.currentUser)
             document.getElementById("registerFormRepeatPsw").classList.add("hidden")
             document.getElementById("registerFormRepeatPasswordInput").classList.remove("wrongAlert")
             document.getElementById("authFunciona").classList.remove("hidden")
-            console.log(userCredential)
+            console.log({userCredential})
         } else if(psw !== repeatPsw) {
             document.getElementById("registerFormRepeatPsw").classList.remove("hidden")
             document.getElementById("registerFormRepeatPasswordInput").classList.add("wrongAlert")
