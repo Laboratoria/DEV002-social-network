@@ -1,0 +1,35 @@
+.modal {
+    display: none;
+    /* Hidden by default */
+    background: rgba(0, 0, 0, 0.4);
+    width: 100%;
+    /* Full width */
+    height: 100%;
+    /* Full height */
+    top: 0;
+    left: 0;
+    position: fixed;
+    padding: 20px;
+    justify-content: center;
+    align-items: center;
+    z-index: 2;
+    /*posicionarlo hacia el frente, por encima de todos los elementos*/
+  
+  }
+  
+  .modal-container {
+    background: linear-gradient(294deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    width: 90%;
+    height: 60%;
+    font-family: 'Poppins light', sans-serif;
+    /*(sans-serif=sin) serifaslos medios impresos necesitan serifas(las puntitas de las letras que las hacen mas elegantes y que dan la impresion de estar conectadas)*/
+    font-size: .75rem;
+    padding: 20px;
+    border-radius: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+  }
