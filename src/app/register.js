@@ -5,11 +5,12 @@ const registerForm = document.getElementById("registerForm")
 
 // async indica que la función es asincrona, esto también se puede hacer con .then(), pero async/await es más moderno
 // las funciones asincronas SIEMPRE dan promesas, que sería lo que va con await o .then()
-registerForm.addEventListener("submit", async (e)=>{
+export const registerFormFun = registerForm.addEventListener("submit", async (e)=>{
     // evita que se actialice la pag una vez se presiona "enter" o REGISTRARSE
     e.preventDefault()
-    const email = registerForm['registerDivPetEmailInput'].value
-    const psw = registerForm['registerDivPasswordInput'].value
+    const email = registerForm["registerFormPetEmailInput"].value
+    const psw = registerForm["registerFormPasswordInput"].value
+    const repeatPsw = registerForm["registerFormRepeatPasswordInput"].value
     // try{} catch (error){} es como el .then() y .catch() respectivamente
     // catch (error) solo corre si la función falla
     // await SIEMPRE se usa con async, de lo contrario tira error.
@@ -19,9 +20,19 @@ registerForm.addEventListener("submit", async (e)=>{
         // 2. correo (email)
         // 3. contraseña (psw)
     try{
-        const userCredential = await createUserWithEmailAndPassword(firebaseAuth, email, psw)
-        document.getElementById("authFunciona").classList.remove("hidden")
-        console.log(userCredential)
+        if(psw.length > 6 && psw == repeatPsw){
+            /[A-Z]/.test(psw) && /[a-z]/.test(psw) && /[0-9]/.test(psw)
+            const userCredential = await createUserWithEmailAndPassword(firebaseAuth, email, psw)
+            document.getElementById("registerFormRepeatPsw").classList.add("hidden")
+            document.getElementById("registerFormRepeatPasswordInput").classList.remove("wrongAlert")
+            document.getElementById("authFunciona").classList.remove("hidden")
+            console.log(userCredential)
+        } else if(psw !== repeatPsw) {
+            document.getElementById("registerFormRepeatPsw").classList.remove("hidden")
+            document.getElementById("registerFormRepeatPasswordInput").classList.add("wrongAlert")
+        } else {
+            console.log("Contraseña inválida")
+        }
     } catch (error) {
         document.getElementById("authError").classList.remove("hidden")
         console.log(error)
