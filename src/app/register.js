@@ -24,6 +24,7 @@ export const registerFormFun = registerForm.addEventListener("submit", async (e)
             /[A-Z]/.test(psw) && /[a-z]/.test(psw) && /[0-9]/.test(psw)
             const userCredential = await createUserWithEmailAndPassword(firebaseAuth, email, psw)
             document.getElementById("registerFormRepeatPsw").classList.add("hidden")
+            document.getElementById("registerFormRepeatPasswordInput").classList.remove("wrongAlert")
             document.getElementById("authFunciona").classList.remove("hidden")
             console.log(userCredential)
         } else if(psw !== repeatPsw) {
