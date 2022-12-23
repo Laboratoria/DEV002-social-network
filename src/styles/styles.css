@@ -36,12 +36,26 @@ main {
     background-color: var(--blanco);
 }
 
-/* Pantalla: Bienvenida */
+
 main #content{
     width: 100vw;
     height: 100vh;
 }
 
+/* Pantalla de carga */
+main #content .loading{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main #content .loading img{
+    width: 75%;
+}
+
+/* Pantalla: Bienvenida */
 main #content .inicio{
     width: 100vw;
     height: 100vh;
@@ -91,3 +105,80 @@ main #content .inicio .inicio-botones a{
 main #content .inicio .inicio-botones span{
     margin: 0 5vw;
 }
+
+ /* Responsive Design */
+@media screen and (min-width: 640px){
+    main #content .loading img{
+        width: 55%;
+    }
+
+    main #content .inicio .inicio-logo img{
+        width: 60%;
+    }
+
+    main #content .inicio .inicio-bienvenida img{
+        width: 70%;
+    }
+
+    main #content .inicio .inicio-botones{
+        font-size: 6vw;
+    }
+
+    main #content .inicio .inicio-botones a{
+        font-size: 5vw;
+    }
+}
+
+@media screen and (min-width: 960px){
+    main #content .loading img{
+        width: 40%;
+    }
+
+    main #content .inicio .inicio-logo{
+        align-items: center;
+    }
+
+    main #content .inicio .inicio-logo img{
+        width: 40%;
+    }
+
+    main #content .inicio .inicio-bienvenida{
+        align-items: flex-end;
+    }
+
+    main #content .inicio .inicio-bienvenida img{
+        width: 50%;
+    }
+
+    main #content .inicio .inicio-botones{
+        font-size: 4.5vw;
+    }
+
+    main #content .inicio .inicio-botones a{
+        font-size: 4vw;
+    }
+}
+
+@media screen and (min-width: 1200px){
+    main #content .loading img{
+        width: 30%;
+    }
+
+    main #content .inicio .inicio-logo img{
+        width: 32%;
+    }
+
+    main #content .inicio .inicio-bienvenida img{
+        width: 40%;
+    }
+
+    main #content .inicio .inicio-botones{
+        font-size: 3.5vw;
+    }
+
+    main #content .inicio .inicio-botones a{
+        font-size: 3vw;
+    }
+}
+
+/* @media screen and (min-width: 1800px){} */
