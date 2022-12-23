@@ -16,7 +16,7 @@
       </section>
 
       <!--Home-->
-      <section class="home" id="home">
+      <section class="home hidden" id="home">
         <div class="home-div" id="homeDiv">
           <a class="home-create-account-intro">
             ¡Hola!<br />
@@ -32,7 +32,7 @@
       </section>
 
       <!--email/Facebook LogIn-->
-      <section class="email-facebook-page hidden" id="emailFacebookPage">
+      <section class="email-facebook-page" id="emailFacebookPage">
         <div class="email-facebook-div" id="emailFacebookDiv">
           <label>¿Con qué quieres registrarte?</label>
           <button class="email-btn" id="emailBtn">CORREO</button>
@@ -50,7 +50,11 @@
             placeholder="Correo"
             required />
           <label for="password" class="login-form-password">Contraseña:</label>
-          <input type="password" class="login-form-password-input" placeholder="********" required />
+          <input
+            type="password"
+            class="login-form-password-input"
+            placeholder="********"
+            required />
           <button>INGRESAR</button>
         </form>
       </section>
