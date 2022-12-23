@@ -1,6 +1,7 @@
 const Bienvenida = () => {
+    const contenedor = document.createElement('section');
+    contenedor.classList.add('inicio');
     const view = `
-        <section class="inicio">
         <figure class="inicio-logo">
             <img src="../assets/tindog_logo_b.png" alt="imagen de logo: tindog"/>
         </figure>
@@ -12,9 +13,9 @@ const Bienvenida = () => {
             <span>|</span>
             <a class="iniciarSesion-btn" href='inicio-sesion'>Inicia sesión</a>
         </div>
-        </section>
     `;
-    return view;
+    contenedor.innerHTML = view;
+    return contenedor;
 };
 
 export default Bienvenida;
