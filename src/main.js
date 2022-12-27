@@ -1,9 +1,10 @@
 // Este es el punto de entrada de tu aplicacion
 import { myFunction } from './lib/index.js';
 myFunction();
-
+// Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword,signInUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -14,11 +15,9 @@ const firebaseConfig = {
   projectId: "redsocialnvj-47db7",
   storageBucket: "redsocialnvj-47db7.appspot.com",
   messagingSenderId: "161909447570",
-  appId: "1:161909447570:web:69157c48f89e6889947f4b"
+  appId: "1:161909447570:web:b126b68b577520ab947f4b"
 };
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+
 
 /*abrieno modal sign up*/
 const openModalSU = () => {
@@ -36,7 +35,7 @@ btnOpenModalSU.addEventListener('click', openModalSU);
 const btnCloseModalSU = document.getElementById('botonCerrarModalSU');
 btnCloseModalSU.addEventListener('click', closeModalSU);
 
-/* ariendo modal sign in */
+//funciones de apertura y cerrado del modal de SI
 const openModalSI = () => {
   modalSI.style.display = 'flex';
 }
@@ -50,48 +49,67 @@ btnOpenModalSI.addEventListener('click', openModalSI);
 const btnCloseModalSI = document.getElementById('botonCerrarModalSI');
 btnCloseModalSI.addEventListener('click', closeModalSI);
 
-/* auth user */
+// Initialize Firebase
+const app = initializeApp(firebaseConfig);
+const auth = getAuth(app);
+
+
+//SIGN UP
 const signupForm = document.getElementById('formularioSU');
 signupForm.addEventListener('submit', (e) => {
-  e.preventDefault();
+  e.preventDefault(); //para cancelar el evento de reinicio del formulario
 
-  const emailSU = document.getElementById('idCorreoSU').value
-  const passwordSU = document.getElementById('idContraseñaSU').value
+  const signupEmail = document.getElementById('idCorreoSU').value;
+  const signupPassword = document.getElementById('idContraseñaSU').value;
 
+  //función de Firebase para registrar un usuario
 
-  createUserWithEmailAndPassword(auth, emailSU, passwordSU)
+  createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
     .then((userCredential) => {
-      userCredential.user;
-
+      // Signed in 
+      const user = userCredential.user;
+      // ...
     })
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+
+  // console.log(signupEmail,signupPassword)
+  console.log('signUp');
+  //clear the form
   signupForm.reset();
-  console.log('sign up')
-
+  //close the modal
   closeModalSU();
-});
+})
 
-/* sing in - login*/
+
+//SIGN IN
 
 const signinForm = document.getElementById('formularioSI');
 signinForm.addEventListener('submit', (e) => {
   e.preventDefault();
-  const emailSI = document.getElementById('idCorreoSI').value
-  const passwordSI = document.getElementById('idContraseñaSI').value
+  const email = document.getElementById('idCorreoSI').value;
+  const password = document.getElementById('idContraseñaSI').value;
+  //console.log(email,password)
 
+  signInWithEmailAndPassword(auth, email, password)
 
-  signInUserWithEmailAndPassword(auth, emailSI, passwordSI)
     .then((userCredential) => {
-
+      // Signed in 
       const user = userCredential.user;
     })
-  signupForm.reset();
-  console.log('sign in')
+    .catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      // ..
+    });
+  //clear the form
+  signinForm.reset();
 
-
+  //close the modal
   closeModalSI();
-});
-
-
-
-
+  console.log('sign in')
+})
 
