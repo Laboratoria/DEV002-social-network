@@ -66,23 +66,27 @@ signupForm.addEventListener('submit', (e) => {
 
   createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
     .then((userCredential) => {
+
       // Signed in 
       const user = userCredential.user;
       // ...
+      //Clear the form
+      signupForm.reset();
+      signupForm.querySelector('.message-error').innerHTML = '';
+
     })
     .catch((error) => {
-      const errorCode = error.code;
+      // const errorCode = error.code;
       const errorMessage = error.message;
-      // ..
+      signupForm.querySelector('.message-error').innerHTML = errorMessage;
     });
 
   // console.log(signupEmail,signupPassword)
   console.log('signUp');
-  //clear the form
-  signupForm.reset();
-  //close the modal
-  closeModalSU();
+  
 })
+//close the modal
+closeModalSU();
 
 
 //SIGN IN
