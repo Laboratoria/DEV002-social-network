@@ -1,32 +1,32 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
     background-color: var(--lightIvory);
 }
 
-:root{
-/* creamos "constantes" con colores, tipografia, etc. que utilizaremos en el proyecto */
---lightIvory: #f5f2eb;
---dogBrown: #563c2e;
---palePink: #dcc5b6;
---lightPink: #d7a799;
---redCollar: #a91918;
---blue: #086680;
---chocolate: #492319;
---fallOrange: #a24c33;
---ivory: #dfcfab;
---pigPink: #e5a5a4;
---cherryRed: #901921;
---black: #000000;
---font-family: 'Merriweather', serif
+:root {
+    /* creamos "constantes" con colores, tipografia, etc. que utilizaremos en el proyecto */
+    --lightIvory: #f5f2eb;
+    --dogBrown: #563c2e;
+    --palePink: #dcc5b6;
+    --lightPink: #d7a799;
+    --redCollar: #a91918;
+    --blue: #086680;
+    --chocolate: #492319;
+    --fallOrange: #a24c33;
+    --ivory: #dfcfab;
+    --pigPink: #e5a5a4;
+    --cherryRed: #901921;
+    --black: #000000;
+    --font-family: 'Merriweather', serif
 }
 
 /* Placeholder */
-::placeholder{
+::placeholder {
     color: var(--dogBrown);
     font-family: 'Merriweather', serif;
-    }
+}
 
 /* inactive components */
 .hidden {
@@ -40,49 +40,49 @@
 }
 
 /* para utilizar rem = 1, ayuda para responsive */
-html{
+html {
     font-size: 62.5%;
 }
 
-main{
+main {
     width: 100vw;
 }
 
 /* main logo */
-main .main-logo .main-logo-text{
+main .main-logo .main-logo-text {
     text-align: center;
     margin-top: 6rem;
     font-size: 6.5rem;
 }
 
 /* Home */
-main .home .home-div{
+main .home .home-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-main .home .home-div .home-create-account-intro{
+main .home .home-div .home-create-account-intro {
     width: 70%;
     text-align: center;
     margin-top: 5rem;
     font-size: 1.5rem;
 }
 
-main .home .home-div .home-welcome{
+main .home .home-div .home-welcome {
     text-align: center;
     margin-top: 3rem;
     font-size: 2rem;
 }
 
-main .home .home-div .home-question{
+main .home .home-div .home-question {
     text-align: center;
     margin-top: 3rem;
     font-size: 1.5rem;
 }
 
-main .home .home-div button{
+main .home .home-div button {
     background: none;
     cursor: pointer;
     border: 1px solid #000000;
@@ -91,25 +91,25 @@ main .home .home-div button{
     width: 13rem;
 }
 
-main .home .home-div .home-create-account{
+main .home .home-div .home-create-account {
     margin-top: 5rem;
     font-size: 1.4rem;
 }
 
 /* email/Facebook LogIn */
-main .email-facebook-page .email-facebook-div{
+main .email-facebook-page .email-facebook-div {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 
-main .email-facebook-page .email-facebook-div label{
+main .email-facebook-page .email-facebook-div label {
     font-size: 2rem;
-    margin-top:11rem;
-    }
+    margin-top: 11rem;
+}
 
-main .email-facebook-page .email-facebook-div button{
+main .email-facebook-page .email-facebook-div button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -121,16 +121,16 @@ main .email-facebook-page .email-facebook-div button{
     width: 13rem;
 }
 
-main .email-facebook-page .email-facebook-div .email-btn{
+main .email-facebook-page .email-facebook-div .email-btn {
     margin-top: 5rem;
 }
 
-main .email-facebook-page .email-facebook-div .facebook-btn{
+main .email-facebook-page .email-facebook-div .facebook-btn {
     margin-top: 1rem;
 }
 
 /* log in form */
-main .login-section .login-form{
+main .login-section .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -138,7 +138,7 @@ main .login-section .login-form{
     text-align: center;
 }
 
-main .login-section .login-form input{
+main .login-section .login-form input {
     outline: none;
     background: none;
     border: 1px solid #000000;
@@ -149,21 +149,21 @@ main .login-section .login-form input{
     font-family: 'Merriweather', serif;
 }
 
-main .login-section .login-form label{
+main .login-section .login-form label {
     font-size: 2rem;
 }
 
-main .login-section .login-form .login-form-email{
+main .login-section .login-form .login-form-email {
     font-size: 2rem;
     margin-top: 9rem;
 }
 
-main .login-section .login-form .login-form-password{
+main .login-section .login-form .login-form-password {
     font-size: 2rem;
     margin-top: 0.5rem;
 }
 
-main .login-section .login-form button{
+main .login-section .login-form button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -183,34 +183,34 @@ main .login-section .login-form button{
     align-items: center;
 } */
 
-main .register .register-form{
+main .register .register-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-main .register .register-form label{
+main .register .register-form label {
     font-size: 1.5rem;
     margin-top: 1rem;
 }
 
-main .register .register-form .register-form-psw-recomendation{
+main .register .register-form .register-form-psw-recomendation {
     font-size: 1rem;
     width: 80%;
     text-align: center;
     color: var(--dogBrown);
 }
 
-main .register .register-form .register-form-repeat-psw{
+main .register .register-form .register-form-repeat-psw {
     font-size: 1rem;
     color: var(--redCollar);
 }
 
-main .register .register-form ::placeholder{
+main .register .register-form ::placeholder {
     font-size: 1.3rem;
 }
 
-main .register .register-form input{
+main .register .register-form input {
     outline: none;
     background: none;
     border: 1px solid #000000;
@@ -221,7 +221,7 @@ main .register .register-form input{
     font-family: 'Merriweather', serif;
 }
 
-main .register .register-form button{
+main .register .register-form button {
     background: none;
     cursor: pointer;
     border: 1px solid #000000;
@@ -233,27 +233,27 @@ main .register .register-form button{
 }
 
 /* auth error */
-main .auth-error .auth-error-div{
+main .auth-error .auth-error-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-main .auth-error .auth-error-div .auth-error-text{
+main .auth-error .auth-error-div .auth-error-text {
     font-size: 2rem;
     margin-top: 2rem;
 }
 
 /* auth funciona */
-main .auth-funciona .auth-error-div{
+main .auth-funciona .auth-error-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-main .auth-funciona .auth-error-div .auth-funciona-text{
+main .auth-funciona .auth-error-div .auth-funciona-text {
     font-size: 2rem;
     margin-top: 2rem;
 }
@@ -265,7 +265,7 @@ main .log-in-sign-up .log-in-sign-up-div {
     align-items: center;
 }
 
-main .log-in-sign-up .log-in-sign-up-div button{
+main .log-in-sign-up .log-in-sign-up-div button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -287,14 +287,8 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
 
 /* responsive */
 
-@media screen and (min-width: 640px){
+@media screen and (min-width: 640px) {}
 
-}
+@media screen and (min-width: 960px) {}
 
-@media screen and (min-width: 960px){
-
-}
-
-@media screen and (min-width: 1366px){
-    
-}
+@media screen and (min-width: 1366px) {}
