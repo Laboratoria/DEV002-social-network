@@ -2,12 +2,13 @@ import Bienvenida from '../pages/Bienvenida.js';
 import RegistroUsuario from '../pages/RegistroUsuario.js';
 import Error404 from '../pages/Error404.js';
 import FormularioRegistroMascota from '../pages/FormularioRegistroMascota.js';
+import InicioSesion from '../pages/InicioSesion.js'; //--
 
 export const routes = {
     '/': 'Home',
     '/404': Error404,
     '/bienvenida': Bienvenida,
-    '/inicio-sesion': 'InicioSesion',
+    '/inicio-sesion': InicioSesion, //--
     '/registro-usuario': RegistroUsuario,
     '/formulario-registro': FormularioRegistroMascota,
     '/match': 'Match',

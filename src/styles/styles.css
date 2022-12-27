@@ -28,6 +28,7 @@ body{
     width: 100vw;
     height: 100vh;
     font-family: var(--font-base);
+    font-size:62.5%;
 }
 
 main {
@@ -106,8 +107,266 @@ main #content .inicio .inicio-botones span{
     margin: 0 5vw;
 }
 
+/* Pantalla: Registro Usuario */      /* Empieza Ingrid */
+main #content #registro-usuario  { /* revisar contenedor registro usuario en pagina registro mascota */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main #content .registro-usuario .imagen {
+    height: 20vh;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    align-items: center;
+}
+
+main #content .registro-usuario .imagen img {
+    height: 70%;   
+}
+
+main #content .registro-usuario .campos-registro {
+    height: 52vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+main #content .registro-usuario .campos-registro div {
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+main #content .registro-usuario .campos-registro div label{
+    font-size: 2vh;
+}
+main #content .registro-usuario .campos-registro div input{
+    border-top: transparent;
+    border-right: transparent;
+    border-left: transparent;
+    border-bottom-color: var(--rosa);
+    margin-top: 2vh;
+    padding-bottom: 0.4vh;
+    background: var(--blanco);
+    font-size: 2vh;
+    outline: none;
+}
+
+main #content .registro-usuario .botones-registro {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+main #content .registro-usuario .botones-registro #registroCorreoBtn  {
+    height: 80%;
+    width: 70%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-color: transparent;
+    background: var(--jade);
+    color: var(--blanco);
+    font-size: 2.1vh;
+}
+
+main #content .registro-usuario .botones-registro #registroCorreoBtn a {
+    color: var(--blanco);
+    font-weight: 100;
+    text-decoration: none;
+
+}
+
+main #content .registro-usuario .botones-registro-google {
+    height: 8vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main #content .registro-usuario .botones-registro-google #registroGmailBtn {
+    height: 80%;
+    width: 70%;
+    box-sizing: border-box;
+    border-radius: 10px;
+    border-color: var(--jade);
+    background: transparent;
+    color: var(--jade);
+    font-size: 2.1vh;
+    display: flex;
+    align-items: center;
+    justify-content: center
+}
+
+main #content .registro-usuario .botones-registro-google #registroGmailBtn img {
+    height: 50%;
+    margin: 0 1.5vw;
+}
+
+main #content .registro-usuario .botones-registro-inicio {
+    height: 10vh;
+    padding: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    font-size: 2vh;
+}
+
+main #content .registro-usuario .botones-registro-inicio button {
+    color: var(--jade);
+    margin: 0 2vw;
+    font-size: 2vh;
+}
+
+/* Pantalla: Inicio Sesion */
+
+main #content .inicio-sesion{
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+}
+
+main #content .inicio-sesion .imagen {
+    height: 20vh;
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+}
+
+main #content .inicio-sesion .imagen img {
+    height: 70%;
+}
+
+main #content .inicio-sesion .campos-inicio-sesion {
+    height: 35vh;
+    width: 80vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: flex-start;
+}
+
+main #content .inicio-sesion .campos-inicio-sesion div {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 80vw;
+}
+
+main #content .inicio-sesion .campos-inicio-sesion div label {
+    color: var(--font-gris);
+    font-size: 4.5vw;
+}
+
+main #content .inicio-sesion .campos-inicio-sesion div input {
+    width: 100%;
+    height: 4vh;
+    margin-top: 6%;
+    border: 0;
+    border-bottom: solid 0.1rem var(--rosa-oscuro);
+    background: none;
+    font-size: 4vw;
+    outline: none;
+    color: var(--font-negro);
+}
+
+
+main #content .inicio-sesion .botones-inicio-sesion {
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+main #content .inicio-sesion .botones-inicio-sesion #inicioSesionBtn {
+    height: 70%;
+    width: 70%;
+    border-radius: 0.6rem;
+    border: none;
+    background: var(--jade);
+    
+}
+
+main #content .inicio-sesion .botones-inicio-sesion #inicioSesionBtn a {
+    height: 100%;
+    width: 100%;
+    text-decoration: none;
+    font-size: 3.8vw;
+    color: var(--blanco);
+}
+
+main #content .inicio-sesion .botones-inicio-google {
+    height: 10vh;
+    display: flex;
+    height: 10vh;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+}
+
+main #content .inicio-sesion .botones-inicio-google #inicioGmailBtn {
+    height: 70%;
+    width: 70%;
+    border-radius: 0.6rem;
+    border: 0.1rem solid var(--jade);
+    background: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.8vw;
+    cursor: pointer;
+    color: var(--jade);
+}
+
+main #content .inicio-sesion .botones-inicio-google #inicioGmailBtn img {
+    height: 1.5rem;
+    margin-right: 3vw;
+}
+
+
+main #content .inicio-sesion .botones-volver-registro {
+    height: 5vh;
+    font-size: 3.8vw;
+}
+main #content .inicio-sesion .botones-volver-registro #volverRegistroBtn{
+    border: none;
+}
+main #content .inicio-sesion .botones-volver-registro #volverRegistroBtn a {
+    font-size: 3.8vw;
+    color: var(--jade);
+    text-decoration: none;
+}
+
+
+main #content .inicio-sesion .resetear-contrasena {
+    height: 10vh;
+}
+
+main #content .inicio-sesion .resetear-contrasena button {
+    font-size: 3.8vw;  
+    border: none; 
+}
+main #content .inicio-sesion .resetear-contrasena #resetearBtn a {
+    color: var(--jade);
+    text-decoration: none;
+}
+
+/* termina Ingrid*/
+
+
  /* Responsive Design */
 @media screen and (min-width: 640px){
+    /* Pantalla: Bienvenida */
     main #content .loading img{
         width: 55%;
     }
@@ -127,6 +386,20 @@ main #content .inicio .inicio-botones span{
     main #content .inicio .inicio-botones a{
         font-size: 5vw;
     }
+
+    /* Pantalla: Registro Usuario */   
+    main #content .registro-usuario .campos-registro div {
+        width: 60%;
+    }
+
+    main #content .registro-usuario .botones-registro #registroCorreoBtn {
+        width: 50%;
+    }
+
+    main #content .registro-usuario .botones-registro-google #registroGmailBtn {
+        width: 50%;
+    }
+    /* Termina: Registro Usuario */
 }
 
 @media screen and (min-width: 960px){
@@ -157,6 +430,15 @@ main #content .inicio .inicio-botones span{
     main #content .inicio .inicio-botones a{
         font-size: 4vw;
     }
+    
+    /* Pantalla: Registro Usuario */   
+    main #content .registro-usuario  {
+        width: 50%;
+        display: block;
+        margin: 0 0 0 auto ;
+        /*background-image: url(../assets/dog-iniciosesion.png);*/
+    }
+    /* Termina: Registro Usuario */
 }
 
 @media screen and (min-width: 1200px){
