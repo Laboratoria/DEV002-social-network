@@ -4,13 +4,13 @@ const RegistroUsuario = () => {
     const contenedor = document.createElement('section');
     contenedor.classList.add('registro-usuario');
     const view = `
-        <div>
-            <img src="" alt="logo">
+        <div class ="imagen">
+            <img src="../assets/tindog_logo_r.png" alt="imagen de logo: tindog"/>
         </div>
         <div class="campos-registro">
             <div>
                 <label>Nombre</label>
-                <input id="nombreUsuario" type="text" placeholder="Sharon Arana">
+                <input id="nombreUsuario" type="text" placeholder="Sharon Gizela Arana Mendoza">
             </div>
             <div>
                 <label>Usuario</label>
@@ -34,10 +34,10 @@ const RegistroUsuario = () => {
                 <a href="formulario-registro">Registrarse</a>
             </button>
         </div>
-        <div>
-            <button id="registroGmailBtn">Registrarse con Google</button>
+        <div class="botones-registro-google">
+            <button id="registroGmailBtn"><img src="../assets/logo-google.png" alt="G " />Registrarse con Google</button>
         </div>
-        <div>
+        <div class="botones-registro-inicio">
             <span>¿Ya tienes cuenta?</span>
             <button id="inicioSesionBtn">Iniciar Sesión</button>
         </div>
