@@ -1,5 +1,4 @@
 const homeSignInBtn = document.getElementById("navLinkCreateAccount");
-const emailBtn = document.getElementById("emailBtn");
 const facebookBtn = document.getElementById("facebookBtn");
 
 homeSignInBtn.addEventListener("click", () => {
@@ -11,17 +10,3 @@ emailBtn.addEventListener("click", () => {
     document.getElementById("emailFacebookPage").hidden = true;
     document.getElementById("register").classList.remove("hidden");
 })
-
-facebookBtn.addEventListener("click", () => {
-    document.getElementById("emailFacebookPage").hidden = true;
-    document.getElementById("register").classList.remove("hidden");
-})
-
-
-
-
-function AuthAccountFacebook(){
-    //const provider = new fiere
-    console.log("error");
-};
-

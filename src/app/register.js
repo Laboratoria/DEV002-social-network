@@ -1,5 +1,4 @@
-import { createUserWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"
-import { firebaseAuth } from "./firebase.js"
+import { firebaseAuth, createUserWithEmailAndPassword } from "./firebase.js"
 
 const registerForm = document.getElementById("registerForm")
 
@@ -38,3 +37,4 @@ export const registerFormFun = registerForm.addEventListener("submit", async (e)
         console.log(error)
     }
 })
+
