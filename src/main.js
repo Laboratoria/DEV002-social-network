@@ -69,16 +69,21 @@ signupForm.addEventListener('submit', (e) => {
 
       // Signed in 
       const user = userCredential.user;
-      // ...
       //Clear the form
       signupForm.reset();
       signupForm.querySelector('.message-error').innerHTML = '';
 
     })
     .catch((error) => {
-      // const errorCode = error.code;
+      const errorCode = error.code;
       const errorMessage = error.message;
-      signupForm.querySelector('.message-error').innerHTML = errorMessage;
+
+      if(errorCode === 'auth/email-already-in-use'){
+        signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
+      }else if(errorCode === 'auth/weak-password'){
+        signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
+      }
+      //signupForm.querySelector('.message-error').innerHTML = errorMessage;
     });
 
   // console.log(signupEmail,signupPassword)
