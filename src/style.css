@@ -91,3 +91,11 @@ h2 {
   padding-left:15px ;
   cursor: pointer;
 }
+
+.message-error{
+  font-size: 12px;
+  font-family: sans-serif;
+  margin-top: 30px;
+  color: brown;
+  text-align:justify;
+}
