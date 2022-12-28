@@ -11,22 +11,27 @@ const RegistroUsuario = () => {
             <div>
                 <label>Nombre</label>
                 <input id="nombreUsuario" type="text" placeholder="Sharon Gizela Arana Mendoza">
+                <p id='mensajeErrorNombre' class='hide'>Ingresa tu nombre</p>
             </div>
             <div>
                 <label>Usuario</label>
                 <input id="idUsuario" type="text" placeholder="@elsully">
+                <p id='mensajeErrorUsuario' class='hide'>Ingresa tu usuario</p>
             </div>
             <div>
                 <label>Correo electrónico</label>
                 <input id="correoUsuario" type="text" placeholder="sharendoza@gmail.com">
+                <p id='mensajeErrorCorreo' class='hide'>Ingresa un correo</p>
             </div>
             <div>
                 <label>Contraseña</label>
                 <input id="contrasenaUsuario" type="password" placeholder="***********">
+                <p id='mensajeErrorContrasena' class='hide'>Ingresa un correo</p>
             </div>
             <div>
                 <label>Confirma tu contraseña</label>
                 <input id="confirmacionContrasena" type="password" placeholder="***********">
+                <p id='mensajeErrorConfirmacion' class='hide'>Por favor, confirma tu contraseña</p>
             </div>
         </div>
         <div class="botones-registro">
