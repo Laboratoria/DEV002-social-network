@@ -111,16 +111,16 @@ main #content .inicio .inicio-botones span{
     margin: 0 5vw;
 }
 
-/* Pantalla: Registro Usuario */      /* Empieza Ingrid */
-main #content #registro-usuario  { /* revisar contenedor registro usuario en pagina registro mascota */
+/* Pantalla: Registro Usuario */
+main #content .registro-usuario{
     width: 100%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
-main #content .registro-usuario .imagen {
-    height: 20vh;
+main #content .registro-usuario .imagen{
+    height: 20%;
     width: 100%;
     display: flex;
     justify-content: flex-end;
@@ -128,7 +128,7 @@ main #content .registro-usuario .imagen {
     align-items: center;
 }
 
-main #content .registro-usuario .imagen img {
+main #content .registro-usuario .imagen img{
     height: 70%;
 }
 
@@ -188,7 +188,7 @@ main #content .registro-usuario .botonesRegistro .registroCorreo button{
     border: 0;
     border-radius: 1rem;
     background-color: var(--jade);
-    font-size: 2.1vh;
+    font-size: 2.1vw;
 }
 
 main #content .registro-usuario .botonesRegistro .registroCorreo a{
@@ -248,136 +248,140 @@ main #content .inicio-sesion{
     height: 100vh;
     width: 100vw;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
+}
+
+main #content .inicio-sesion .imagen{
+    height: 20%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
     flex-direction: column;
     align-items: center;
 }
 
-main #content .inicio-sesion .imagen {
-    height: 20vh;
-    width: 100vw;
+main #content .inicio-sesion .imagen img{
+    width: 70%;
+}
+
+main #content .inicio-sesion .camposInicioSesion{
+    height: 30%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-direction: column;
+    width: 100%;
+}
+
+main #content .inicio-sesion .camposInicioSesion div{
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+}
+
+main #content .inicio-sesion .camposInicioSesion div input{
+    border: 0;
+    border-bottom: .1rem solid var(--rosa);
+    margin-top: 2%;
+    padding-bottom: 0.4vh;
+    background: none;
+    font-size: 3.5vw;
+    outline: none;
+}
+
+main #content .inicio-sesion .camposInicioSesion label{
+    font-size: 3.5vw;
+    color: var(--font-gris);
+}
+
+main #content .inicio-sesion .botonesInicioSesion{
+    width: 100%;
+    height: 28%;
+}
+
+main #content .inicio-sesion .botonesInicioSesion .iniciarSesion{
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main #content .inicio-sesion .botonesInicioSesion .iniciarSesion button{
+    height: 90%;
+    width: 70%;
+    border: 0;
+    border-radius: 1rem;
+    background-color: var(--jade);
+    font-size: 2.1vw;
+}
+
+main #content .inicio-sesion .botonesInicioSesion .iniciarSesion button a{
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 3.5vw;
+    font-weight: 600;
+}
+
+main #content .inicio-sesion .botonesInicioSesion .iniciarGoogle{
+    height: 25%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-main #content .inicio-sesion .imagen img {
-    height: 70%;
-}
-
-main #content .inicio-sesion .campos-inicio-sesion {
-    height: 35vh;
-    width: 80vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-evenly;
-    align-items: flex-start;
-}
-
-main #content .inicio-sesion .campos-inicio-sesion div {
-    display: flex;
-    justify-content: space-evenly;
-    flex-direction: column;
-    width: 80vw;
-}
-
-main #content .inicio-sesion .campos-inicio-sesion div label {
-    color: var(--font-gris);
-    font-size: 4.5vw;
-}
-
-main #content .inicio-sesion .campos-inicio-sesion div input {
-    width: 100%;
-    height: 4vh;
-    margin-top: 6%;
-    border: 0;
-    border-bottom: solid 0.1rem var(--rosa-oscuro);
+main #content .inicio-sesion .botonesInicioSesion .iniciarGoogle button{
+    height: 90%;
+    width: 70%;
+    border: .15rem solid var(--jade);
+    border-radius: 1rem;
     background: none;
-    font-size: 4vw;
-    outline: none;
+    color: var(--jade);
+    font-size: 3.5vw;
+    font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+main #content .inicio-sesion .botonesInicioSesion .iniciarGoogle button img{
+    width: 10%;
+    margin: 0 1.5vw;
+}
+
+main #content .inicio-sesion .botonesInicioSesion .volverRegistro{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 3.5vw;
     color: var(--font-negro);
 }
 
-
-main #content .inicio-sesion .botones-inicio-sesion {
-    display: flex;
-    height: 10vh;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-main #content .inicio-sesion .botones-inicio-sesion #inicioSesionBtn {
-    height: 70%;
-    width: 70%;
-    border-radius: 0.6rem;
-    border: none;
-    background: var(--jade);
-    
-}
-
-main #content .inicio-sesion .botones-inicio-sesion #inicioSesionBtn a {
-    height: 100%;
-    width: 100%;
+main #content .inicio-sesion .botonesInicioSesion .volverRegistro a{
     text-decoration: none;
-    font-size: 3.8vw;
-    color: var(--blanco);
-}
-
-main #content .inicio-sesion .botones-inicio-google {
-    height: 10vh;
-    display: flex;
-    height: 10vh;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-}
-
-main #content .inicio-sesion .botones-inicio-google #inicioGmailBtn {
-    height: 70%;
-    width: 70%;
-    border-radius: 0.6rem;
-    border: 0.1rem solid var(--jade);
-    background: none;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 3.8vw;
-    cursor: pointer;
+    padding-left: .5rem;
     color: var(--jade);
 }
 
-main #content .inicio-sesion .botones-inicio-google #inicioGmailBtn img {
-    height: 1.5rem;
-    margin-right: 3vw;
+main #content .inicio-sesion .botonesInicioSesion .resetContrasena{
+    height: 10%;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3.5vw;
 }
 
-
-main #content .inicio-sesion .botones-volver-registro {
-    height: 5vh;
-    font-size: 3.8vw;
-}
-main #content .inicio-sesion .botones-volver-registro #volverRegistroBtn{
-    border: none;
-}
-main #content .inicio-sesion .botones-volver-registro #volverRegistroBtn a {
-    font-size: 3.8vw;
-    color: var(--jade);
+main #content .inicio-sesion .botonesInicioSesion .resetContrasena a{
     text-decoration: none;
-}
-
-
-main #content .inicio-sesion .resetear-contrasena {
-    height: 10vh;
-}
-
-main #content .inicio-sesion .resetear-contrasena button {
-    font-size: 3.8vw;  
-    border: none; 
-}
-main #content .inicio-sesion .resetear-contrasena #resetearBtn a {
+    padding-left: .5rem;
     color: var(--jade);
-    text-decoration: none;
 }
 
 /* 404 */
@@ -399,8 +403,6 @@ main #content .error404 h3{
     color: var(--rosa);
     font-size: 3.5vw;
 }
-
-
 
  /* Responsive Design */
 @media screen and (min-width: 500px){

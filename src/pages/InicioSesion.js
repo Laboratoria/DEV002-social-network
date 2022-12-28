@@ -7,7 +7,7 @@ const InicioSesion = () => {
         <div class ="imagen">
             <img src="../assets/tindog_logo_r.png" alt="imagen de logo: tindog"/>
         </div>
-        <div class="campos-inicio-sesion"> 
+        <div class="camposInicioSesion">
             <div>
                 <label>Usuario | Correo </label>
                 <input id="correoUsuarioInicio" type="text" placeholder="@pulguitas18">
@@ -17,25 +17,26 @@ const InicioSesion = () => {
                 <input id="contrasenaUsuarioInicio" type="password" placeholder="***********">
             </div>
         </div>
-        <div class="botones-inicio-sesion">
-            <button id="inicioSesionBtn">
-                <a href="">Iniciar Sesión</a>
-            </button>
-        </div>
-        <div class="botones-inicio-google">
-            <button id="inicioGmailBtn"><img src="../assets/logo-google.png" alt="G " />Iniciar con Google</button>
-        </div>
-        <div class="botones-volver-registro">
-            <span>¿No tienes cuenta?</span>
-            <button id="volverRegistroBtn"><a href="registro-usuario">Regístrate</a>
-            </button>
-        </div>
-        <div class="resetear-contrasena">
-            <button id="resetearBtn">
+        <div class="botonesInicioSesion">
+            <div class="iniciarSesion">
+                <button id="inicioSesionBtn">
+                    <a href="">Iniciar Sesión</a>
+                </button>
+            </div>
+            <div class="iniciarGoogle">
+                <button id="inicioGmailBtn">
+                    <img src="../assets/logo-google.png" alt="G " />
+                    Iniciar con Google
+                </button>
+            </div>
+            <div class="volverRegistro">
+                <span>¿No tienes cuenta?</span>
+                <a href="registro-usuario">Regístrate</a>
+            </div>
+            <div class="resetContrasena">
                 <a href="">Olvidé mi contraseña</a>
-            </button>
+            </div>
         </div>
-
     `;
     contenedor.innerHTML = view;
     inicioSesionLogica(contenedor);

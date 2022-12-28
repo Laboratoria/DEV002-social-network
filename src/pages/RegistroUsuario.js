@@ -26,7 +26,7 @@ const RegistroUsuario = () => {
             <div>
                 <label>Contraseña</label>
                 <input id="contrasenaUsuario" type="password" placeholder="***********">
-                <p id='mensajeErrorContrasena' class='hide'>Ingresa un correo</p>
+                <p id='mensajeErrorContrasena' class='hide'>Ingresa una conotraseña</p>
             </div>
             <div>
                 <label>Confirma tu contraseña</label>
