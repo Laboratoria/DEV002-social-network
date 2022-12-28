@@ -3,7 +3,7 @@ import { myFunction } from './lib/index.js';
 myFunction();
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -17,7 +17,6 @@ const firebaseConfig = {
   messagingSenderId: "161909447570",
   appId: "1:161909447570:web:b126b68b577520ab947f4b"
 };
-
 
 /*abrieno modal sign up*/
 const openModalSU = () => {
@@ -66,8 +65,7 @@ signupForm.addEventListener('submit', (e) => {
 
   createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
     .then((userCredential) => {
-
-      // Signed in 
+      // Signed up
       const user = userCredential.user;
       //close the modal
       closeModalSU();
@@ -80,19 +78,18 @@ signupForm.addEventListener('submit', (e) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
+      //personalizando los mensajes de los 2 errores mas comunes
       if (errorCode === 'auth/email-already-in-use') {
         signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
       } else if (errorCode === 'auth/weak-password') {
         signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
       } else {
-        signupForm.querySelector('.message-error').innerHTML = errorMessage;
+        signupForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
       }
-
     });
 
   // console.log(signupEmail,signupPassword)
   console.log('signUp');
-
 })
 
 
@@ -110,39 +107,43 @@ signinForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
-      //close the modal
       closeModalSI();
 
-      console.log('sign in');
-
+      console.log('sign in')
+      //clear the form
       signinForm.reset();
       signinForm.querySelector('.message-error').innerHTML = '';
+
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
+      //personalizando los mensajes de los 2 errores mas comunes
       if (errorCode === 'auth/user-not-found') {
-        signinForm.querySelector('.message-error').innerHTML = 'El usuario no se encuentra registrado'
+        signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado'
       } else if (errorCode === 'auth/wrong-password') {
-        signinForm.querySelector('.message-error').innerHTML = 'La contraseña no corresponde al usuario'
+        signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario'
       } else {
-        signinForm.querySelector('.message-error').innerHTML = errorMessage;
+        signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
       }
     });
+  //console.log(email,password)
 
 })
 
-//------------LOGOUT--------------
+
+//LOG OUT
 const logout = document.getElementById('salir');
+
 logout.addEventListener('click', e => {
   e.preventDefault();
-  auth.signOut().then(() => {
-    console.log('SignOut')
-  })
-});
+  auth.signOut().then(() =>
+    console.log('sign out'))
+})
 
-//----------GOOGLE LOGIN--------
+
+//GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
 googleButton.addEventListener('click', e => {
 
@@ -152,11 +153,11 @@ googleButton.addEventListener('click', e => {
     .then(result => {
       const user = result.user;
       closeModalSI();
-      console.log('google sign in')
+      console.log('sign in Google')
       signinForm.querySelector('.message-error').innerHTML = '';
     })
     .catch((error) => {
       const errorMessage = error.message;
-      signinForm.querySelector('.message-error').innerHTML = errorMessage;
+      signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
     })
 })
