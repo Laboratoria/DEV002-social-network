@@ -1,10 +1,11 @@
 const FormularioRegistroMascota = () => {
+    const contenedor = document.createElement('section');
+    contenedor.classList.add('formularioMascota');
     const view = `
-        <section class="registro-usuario">
-            <p>Aqui va tu perrito</p>
-        </section>
+        <p>Aqui van los datos de tu perrito</p>
     `;
-    return view;
+    contenedor.innerHTML = view;
+    return contenedor;
 };
 
 export default FormularioRegistroMascota;
