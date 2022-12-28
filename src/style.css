@@ -36,14 +36,14 @@ img {
     margin: 0;
 }
 .welcome{
-    padding: 3rem 3.6rem;
+    padding: 3rem 3.6rem 0;
     text-align: center;
 }
 .welcome h1{
     font-family: var(--fFamilyOleo);
     margin: 0;
     font-size: 3.2rem;
-    line-height: 0.555;
+    line-height: 1;
     color: var(--colorWhite);
     padding: 0 0.5rem;
     margin-bottom: 3rem;

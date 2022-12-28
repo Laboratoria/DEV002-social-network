@@ -27,7 +27,7 @@ $inputBtnClickHere.setAttribute('value','CLICK HERE')
 $sectionHome.appendChild($divLogoContainer).appendChild($figureLogo).appendChild($imgLogo)
 $sectionHome.appendChild($divWelcomeContainer).appendChild($h1Slogan)
 $sectionHome.appendChild($divWelcomeContainer).appendChild($imgCat)
-$sectionHome.appendChild($divBtnClickHere).appendChild($inputBtnClickHere)
+$sectionHome.appendChild($divWelcomeContainer).appendChild($divBtnClickHere).appendChild($inputBtnClickHere)
 
 return $sectionHome;
 };
