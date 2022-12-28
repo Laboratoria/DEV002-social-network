@@ -129,7 +129,7 @@ main #content .registro-usuario .imagen {
 }
 
 main #content .registro-usuario .imagen img {
-    height: 70%;   
+    height: 70%;
 }
 
 main #content .registro-usuario .campos-registro {
@@ -140,95 +140,110 @@ main #content .registro-usuario .campos-registro {
     justify-content: space-evenly;
 }
 
+main #content .registro-usuario .campos-registro p{
+    font-size: 2.5vw;
+    color: var(--rosa-oscuro);
+    margin-top: .3rem;
+}
+
+main #content .registro-usuario .campos-registro label{
+    font-size: 3.5vw;
+    color: var(--font-gris);
+}
+
 main #content .registro-usuario .campos-registro div {
     width: 80%;
     display: flex;
     flex-direction: column;
 }
 
-main #content .registro-usuario .campos-registro div label{
-    font-size: 2vh;
-}
 main #content .registro-usuario .campos-registro div input{
-    border-top: transparent;
-    border-right: transparent;
-    border-left: transparent;
-    border-bottom-color: var(--rosa);
-    margin-top: 2vh;
+    border: 0;
+    border-bottom: .1rem solid var(--rosa);
+    margin-top: 2%;
     padding-bottom: 0.4vh;
-    background: var(--blanco);
-    font-size: 2vh;
+    background: none;
+    font-size: 3.5vw;
     outline: none;
 }
 
-main #content .registro-usuario .botones-registro {
-    height: 8vh;
+main #content .registro-usuario .botonesRegistro{
+    height: 28vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+main #content .registro-usuario .botonesRegistro .registroCorreo{
+    height: 25%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main #content .registro-usuario .botonesRegistro .registroCorreo button{
+    height: 90%;
+    width: 70%;
+    border: 0;
+    border-radius: 1rem;
+    background-color: var(--jade);
+    font-size: 2.1vh;
+}
+
+main #content .registro-usuario .botonesRegistro .registroCorreo a{
+    text-decoration: none;
+    color: var(--blanco);
+    font-size: 3.5vw;
+    font-weight: 600;
+}
+
+main #content .registro-usuario .botonesRegistro .registroGoogle{
+    height: 25%;
+    width: 100%;
     display: flex;
     justify-content: center;
     align-items: flex-end;
 }
 
-main #content .registro-usuario .botones-registro #registroCorreoBtn  {
-    height: 80%;
+main #content .registro-usuario .botonesRegistro .registroGoogle button{
+    height: 90%;
     width: 70%;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border-color: transparent;
-    background: var(--jade);
-    color: var(--blanco);
-    font-size: 2.1vh;
-}
-
-main #content .registro-usuario .botones-registro #registroCorreoBtn a {
-    color: var(--blanco);
-    font-weight: 100;
-    text-decoration: none;
-
-}
-
-main #content .registro-usuario .botones-registro-google {
-    height: 8vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-main #content .registro-usuario .botones-registro-google #registroGmailBtn {
-    height: 80%;
-    width: 70%;
-    box-sizing: border-box;
-    border-radius: 10px;
-    border-color: var(--jade);
-    background: transparent;
+    border: .15rem solid var(--jade);
+    border-radius: 1rem;
+    background: none;
     color: var(--jade);
-    font-size: 2.1vh;
+    font-size: 3.5vw;
+    font-weight: 600;
     display: flex;
     align-items: center;
-    justify-content: center
+    justify-content: center;
+    cursor: pointer;
 }
 
-main #content .registro-usuario .botones-registro-google #registroGmailBtn img {
-    height: 50%;
+main #content .registro-usuario .botonesRegistro .registroGoogle button img{
+    width: 10%;
     margin: 0 1.5vw;
 }
 
-main #content .registro-usuario .botones-registro-inicio {
-    height: 10vh;
-    padding: 1vh;
+main #content .registro-usuario .botonesRegistro .volverInicioSesion{
+    height: 25%;
+    width: 100%;
     display: flex;
-    justify-content: center;
     align-items: flex-start;
-    font-size: 2vh;
+    justify-content: center;
+    margin-top: 1rem;
+    font-size: 3.5vw;
+    color: var(--font-negro);
 }
 
-main #content .registro-usuario .botones-registro-inicio button {
+main #content .registro-usuario .botonesRegistro .volverInicioSesion a{
+    text-decoration: none;
+    padding-left: .5rem;
     color: var(--jade);
-    margin: 0 2vw;
-    font-size: 2vh;
 }
 
 /* Pantalla: Inicio Sesion */
-
 main #content .inicio-sesion{
     height: 100vh;
     width: 100vw;
@@ -369,14 +384,17 @@ main #content .inicio-sesion .resetear-contrasena #resetearBtn a {
 
 
  /* Responsive Design */
-@media screen and (min-width: 640px){
+@media screen and (min-width: 500px){
     /* Pantalla: Bienvenida */
     main #content .loading img{
         width: 55%;
     }
-
     main #content .inicio .inicio-logo img{
         width: 60%;
+    }
+
+    main #content .inicio .inicio-bienvenida{
+        margin-top: 5%;
     }
 
     main #content .inicio .inicio-bienvenida img{
@@ -385,13 +403,14 @@ main #content .inicio-sesion .resetear-contrasena #resetearBtn a {
 
     main #content .inicio .inicio-botones{
         font-size: 6vw;
+        height: 15%;
     }
 
     main #content .inicio .inicio-botones a{
         font-size: 5vw;
     }
 
-    /* Pantalla: Registro Usuario */   
+    /* Pantalla: Registro Usuario */
     main #content .registro-usuario .campos-registro div {
         width: 60%;
     }
@@ -445,7 +464,7 @@ main #content .inicio-sesion .resetear-contrasena #resetearBtn a {
     /* Termina: Registro Usuario */
 }
 
-@media screen and (min-width: 1200px){
+@media screen and (min-width: 1350px){
     main #content .loading img{
         width: 30%;
     }

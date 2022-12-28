@@ -34,17 +34,22 @@ const RegistroUsuario = () => {
                 <p id='mensajeErrorConfirmacion' class='hide'>Por favor, confirma tu contraseña</p>
             </div>
         </div>
-        <div class="botones-registro">
-            <button id="registroCorreoBtn">
-                <a href="formulario-registro">Registrarse</a>
-            </button>
-        </div>
-        <div class="botones-registro-google">
-            <button id="registroGmailBtn"><img src="../assets/logo-google.png" alt="G " />Registrarse con Google</button>
-        </div>
-        <div class="botones-registro-inicio">
-            <span>¿Ya tienes cuenta?</span>
-            <button id="inicioSesionBtn">Iniciar Sesión</button>
+        <div class="botonesRegistro">
+            <div class="registroCorreo">
+                <button id="registroCorreoBtn">
+                    <a href="formulario-registro">Registrarse</a>
+                </button>
+            </div>
+            <div class="registroGoogle">
+                <button id="registroGmailBtn">
+                    <img src="../assets/logo-google.png" alt="G " />
+                    Registrarse con Google
+                </button>
+            </div>
+            <div class="volverInicioSesion">
+                <span>¿Ya tienes cuenta?</span>
+                <a href="inicio-sesion">Iniciar Sesión</a>
+            </div>
         </div>
     `;
     contenedor.innerHTML = view;
