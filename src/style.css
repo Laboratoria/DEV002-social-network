@@ -68,7 +68,21 @@ main{
     justify-content: center;
     align-items: center;
 }
-.bg-manchitas {
+figure{
+    position: relative;
+}
+
+figure::after{
+    position: absolute;
+    content:  "";
+    background-image: url("img/Vector\ 4.png");
+    display: block;
+    width: 349px;
+    height: 372px;
+    top: -29vh;
+    left: -91px;
+}
+/* .bg-manchitas {
     background-image: url("img/Vector\ 4.png");
     background-repeat: no-repeat;
     background-size:  20%;
@@ -100,7 +114,7 @@ main{
     width: 100%;
     top: 0;
     left: 15%;
-}
+} */
 .home{
     display: flex;
     justify-content: center;
