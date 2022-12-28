@@ -1,0 +1,122 @@
+:root{
+    --colorOrange: #FF9F00;
+    --colorTurquois: #03A7BB;
+    --colorDarkGrey: #C4C4C4;
+    --colorBlueLight:#A9D2F0;
+    --colorOlive:#C5D2B0;
+    --colorWhite:#FFF;
+    --colorBlack:#000000;
+    --colorGreen:#6ED788;
+    --colorForm: #546E85;
+    /*---------- colors-----------------*/
+    --fFamilyOleo:  'Oleo Script', cursive;
+    /*-------------tipos de letras-------------*/
+}
+html{
+    box-sizing: border-box;
+    font-size: 16px;
+}
+*,
+*::before,
+*::after{
+    box-sizing: inherit;
+}
+body{
+    margin: 0;
+    background-color: var(--colorTurquois);
+}
+img {
+    max-width: 100%;
+}
+.home{
+    margin-top: 1rem;
+}
+.logo{
+    padding: 2.2rem 2.2rem 0;
+    margin: 0;
+}
+.welcome{
+    padding: 3rem 3.6rem 0;
+    text-align: center;
+}
+.welcome h1{
+    font-family: var(--fFamilyOleo);
+    margin: 0;
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--colorWhite);
+    padding: 0 0.5rem;
+    margin-bottom: 3rem;
+}
+.welcome img{
+    max-width: 4.5rem;
+    margin-bottom: -0.5rem;
+}
+.btn_click{
+    background: none;
+    width: 11rem;
+    border-radius: 1.4rem;
+    border: thick solid var(--colorOrange);
+    height: 3.6rem;
+    color: var(--colorWhite);
+    font-weight: bold;
+}
+@media  screen and ((min-width: 500px)) {
+main{
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.bg-manchitas {
+    background-image: url("img/Vector\ 4.png");
+    background-repeat: no-repeat;
+    background-size:  20%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+.bg-manchitas::after{
+    content: "";
+    background-image: url("img/Vector\ 5.png");
+    background-repeat: no-repeat;
+    background-size:  20%;
+    position: fixed;
+    top: 0;
+    right: -80%;
+    width: 100%;
+    height: 100%;
+}
+.bg-manchitas::before{
+    content: "";
+    background-image: url("img/Vector\ 6.png");
+    background-repeat: no-repeat;
+    background-size: 25%;
+    background-position: bottom center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    top: 0;
+    left: 15%;
+}
+.home{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.home .logo_container{
+    width: 50%;
+}
+.c_logo {
+    text-align: end;
+}
+.c_logo img {
+    width: 75%;
+}
+.welcome{
+    padding: 0 14rem 0 0;
+}
+}
+
