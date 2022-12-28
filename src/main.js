@@ -3,7 +3,7 @@ import { myFunction } from './lib/index.js';
 myFunction();
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -82,8 +82,10 @@ signupForm.addEventListener('submit', (e) => {
         signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
       }else if(errorCode === 'auth/weak-password'){
         signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
+      }else {
+        signupForm.querySelector('.message-error').innerHTML = errorMessage;
       }
-      //signupForm.querySelector('.message-error').innerHTML = errorMessage;
+      
     });
 
   // console.log(signupEmail,signupPassword)
@@ -108,17 +110,25 @@ signinForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
+      signinForm.reset();
+      signinForm.querySelector('.message-error').innerHTML = '';
     })
     .catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
-      // ..
+
+      if(errorCode === 'auth/user-not-found'){
+        signinForm.querySelector('.message-error').innerHTML = 'El usuario no se encuentra registrado'
+      }else if(errorCode === 'auth/wrong-password'){
+        signinForm.querySelector('.message-error').innerHTML = 'La contraseña no corresponde al usuario'
+      }else {
+        signinForm.querySelector('.message-error').innerHTML = errorMessage;
+      }
     });
   //clear the form
-  signinForm.reset();
-
+  // signinForm.reset();
+  console.log('se loguea')
+})
   //close the modal
   closeModalSI();
-  console.log('sign in')
-})
-
+  console.log('sign in');
