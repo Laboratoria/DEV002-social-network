@@ -92,6 +92,8 @@ signupForm.addEventListener('submit', (e) => {
   // console.log(signupEmail,signupPassword)
   console.log('signUp');
 })
+//close the modal
+closeModalSU();
 
 
 //SIGN IN
