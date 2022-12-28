@@ -127,8 +127,16 @@ signinForm.addEventListener('submit', (e) => {
     });
   //clear the form
   // signinForm.reset();
-  console.log('se loguea')
+  console.log('sign in');
 })
   //close the modal
   closeModalSI();
-  console.log('sign in');
+  
+
+  const logout = document.getElementById('salir');
+  logout.addEventListener('click', e =>{
+    e.preventDefault();
+    auth.signOut().then( () => {
+      console.log('SignOut')
+    })
+  });
