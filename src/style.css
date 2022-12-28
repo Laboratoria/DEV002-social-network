@@ -82,6 +82,19 @@ figure::after{
     top: -29vh;
     left: -10vw;
 }
+
+figure::before{
+    position: absolute;
+    content: "";
+    background-image: url(img/Vector\ 5.png);
+    background-repeat: no-repeat;
+    display: block;
+    width: 349px;
+    height: 372px;
+    top: -20vh;
+    right: -50vw;
+}
+
 /* .bg-manchitas {
     background-image: url("img/Vector\ 4.png");
     background-repeat: no-repeat;
