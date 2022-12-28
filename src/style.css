@@ -3,6 +3,7 @@
     margin: 0;
     box-sizing: border-box;
     background-color: var(--lightIvory);
+    
 }
 
 :root{
@@ -25,12 +26,18 @@
 /* Placeholder */
 ::placeholder{
     color: var(--dogBrown);
-    font-family: 'Merriweather', serif;
-}
+    font-family: Arial, Helvetica, sans-serif;
+    }
 
 /* inactive components */
 .hidden {
     display: none;
+}
+
+/* alert wrong psw */
+.wrongAlert {
+    color: var(--redCollar);
+    border-color: var(--redCollar);
 }
 
 /* para utilizar rem = 1, ayuda para responsive */
@@ -42,87 +49,140 @@ main{
     width: 100vw;
 }
 
-/* main logo */
-main .main-logo .main-logo-text{
+/* main logo/ */
+main .main-logo .main-logo-img .main-welcome {
+    display: flex;
+    flex-direction: column;
     text-align: center;
-    margin-top: 6rem;
+    width: 70%;
     font-size: 6.5rem;
+    justify-content: center; 
+}
+
+main .hello-home{
+    background: none;
+    margin-bottom: 1em;
+    font-size: 2em;
+
+}
+
+/* div main */
+main .main-div{
+    align-items: center;
+    font-size: 2rem;
+    text-align: center;
+    margin: 4rem;
+    
+}
+
+.main-welcome{
+    font-size: 2rem;
+    margin: 2rem;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+
 }
 
 /* Home */
-main .home .home-div{
+main .home{
+    width: 75%;
+}
+
+main .home .home-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    width: 100%;
+    background-color: #ffebdf;
+    padding: 3em;
+    margin-left: 30%;
 }
 
-main .home .home-div .home-create-account-intro{
+main .home .home-div .home-create-account-intro {
     width: 70%;
     text-align: center;
-    margin-top: 5rem;
-    font-size: 1.5rem;
-}
-
-main .home .home-div .home-welcome{
-    text-align: center;
-    margin-top: 3rem;
+    margin-bottom: 3.5rem;
     font-size: 2rem;
+    font-family: Arial, Helvetica, sans-serif;
+    background: none;
+    
 }
 
-main .home .home-div .home-question{
-    text-align: center;
-    margin-top: 3rem;
-    font-size: 1.5rem;
+main .home-background{
+    background-color: #f7e0d4;
+
+}
+
+main .home .home-question {
+    font-size: 2rem;
+    background: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 main .home .home-div button{
-    background: none;
     cursor: pointer;
+    border: none;
     font-size: 1.5rem;
     border-radius: 1rem;
-    width: 13rem;
+    width: 40rem;
+    height: 5rem;
+    background-color: var(--pigPink);
 }
 
-main .home .home-div .home-create-account{
+/* color boton main */
+.home-div button {
+     color: var(--lightIvory);
+     font-size: 1.5rem;  
+}
+
+main .home .home-div .home-create-account {
     margin-top: 5rem;
-    font-size: 1.4rem;
+    font-size: 2rem;
+    color: var(var(--lightIvory));
 }
 
 /* email/Facebook LogIn */
-
-main .email-facebook-page .email-facebook-div{
+main .email-facebook-page .email-facebook-div {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin: 10%;
 }
 
-main .email-facebook-page .email-facebook-div .email-facebook-description{
+main .email-facebook-page .email-facebook-div label {
     font-size: 2rem;
-    margin-top: 8rem;
-}
-
-main .email-facebook-page .email-facebook-div button{
+    margin-top:11rem;
+ 
+    }
+/* boton email/facebook*/
+main .email-facebook-page .email-facebook-div button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    text-align: center;
     background: none;
     cursor: pointer;
-    font-size: 1.5rem;
+    font-size: 2rem ;
     border-radius: 1rem;
-    width: 13rem;
+    width: 40rem;
+    height: 5rem;
+    background-color: var(--pigPink);
+    border: none;
+    padding: 1.5rem;
+}
+   
+main .email-facebook-page .email-facebook-div .email-btn {
+    color: var(--lightIvory);
+    margin-top: 5rem 
 }
 
-main .email-facebook-page .email-facebook-div .email-btn{
-    margin-top: 4rem;
-}
-
-main .email-facebook-page .email-facebook-div .facebook-btn{
-    margin-top: 1rem;
+main .email-facebook-page .email-facebook-div .facebook-btn {
+    color: var(--lightIvory);
+    margin-top: 2rem;
+    background-color: var(--blue);
 }
 
 /* log in form */
-main .login-section .login-form{
+main .login-section .login-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -130,90 +190,112 @@ main .login-section .login-form{
     text-align: center;
 }
 
-main .login-section .login-form input{
+main .login-section .login-form input {
     outline: none;
     background: none;
-    font-size: 2rem;
+    border: none;
+    font-size: 2.5rem;
     text-indent: 1rem;
     margin-top: 0.5rem;
+    color: var(--dogBrown);
+    font-family: 'Merriweather', serif;
 }
 
-main .login-section .login-form label{
+main .login-section .login-form label {
     font-size: 2rem;
 }
 
-main .login-section .login-form .login-form-email{
+main .login-section .login-form .login-form-email {
     font-size: 2rem;
     margin-top: 9rem;
 }
 
-main .login-section .login-form .login-form-password{
+main .login-section .login-form .login-form-password {
     font-size: 2rem;
     margin-top: 0.5rem;
 }
-
-main .login-section .login-form button{
+/* boton */
+main .login-section .login-form button {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background: none;
+    cursor: pointer;
+    border: 1px solid #000000;
     font-size: 1.5rem;
     border-radius: 1rem;
     width: 13rem;
-    background: none;
-    cursor: pointer;
     margin-top: 1rem;
 }
 
 /* Register section */
-/* main .register{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-} */
-
-main .register .register-form{
+main .register .register-form {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-main .register .register-form label{
+main .register .register-form label {
     font-size: 1.5rem;
     margin-top: 1rem;
 }
 
-main .register .register-form .register-form-psw-recomendation{
-    font-size: 1rem;
-    width: 80%;
-    text-align: center;
-    color: var(--chocolate);
+main .register-form-background {
+    background-color: #ffebdf;
+    height: 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 3%;
 }
 
-main .register .register-form .register-form-repeat-psw{
+main .register .register-form .register-form-psw-recomendation {
+    font-size: 1.3rem;
+    width: 80%;
+    text-align: center;
+    color: var(--redCollar);
+    background: none;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+main .register .register-form .register-form-repeat-psw {
     font-size: 1rem;
-    color: var(--cherryRed);
+    color: var(--redCollar);
+    background: none;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 main .register .register-form ::placeholder{
-    font-size: 1.3rem;
+    font-size: 2rem;
+    
 }
 
 main .register .register-form input{
     outline: none;
     background: none;
+    border: none;
+    border-bottom: 3px solid black;
     font-size: 2rem;
     text-indent: 1rem;
-    margin-top: 0.5rem;
+    margin-top: 1.5rem;
+    color: var(--dogBrown);
+    font-family: 'Merriweather', serif;
+    width: 60rem;
+    height: 5rem;
 }
 
 main .register .register-form button{
     background: none;
     cursor: pointer;
-    font-size: 1.5rem;
+    border: none;
+    font-size: 2rem;
+    margin-top: 3rem;
+    color: var(--lightIvory);
     border-radius: 1rem;
-    width: 13rem;
-    margin-top: 2rem;
-    color: var(--blue);
+    width: 40rem;
+    height: 5rem;
+    background-color: var(--pigPink);
+    padding: 1.5rem;
 }
 
 /* auth error */
@@ -255,6 +337,7 @@ main .log-in-sign-up .log-in-sign-up-div button{
     align-items: center;
     background: none;
     cursor: pointer;
+    border: 1px solid #000000;
     font-size: 1.5rem;
     border-radius: 1rem;
     width: 13rem;
@@ -268,16 +351,30 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     margin-top: 1rem;
 }
 
+
 /* responsive */
+
+@media screen and (min-width: 320px){
+    /* .main-logo-img{
+        width: 30%;
+    } */
+    }
 
 @media screen and (min-width: 640px){
 
 }
 
 @media screen and (min-width: 960px){
+    /* .main-logo-img{
+        width: 35%;
+    } */
+
 
 }
 
 @media screen and (min-width: 1366px){
-    
+    .main-logo-img{
+       
+
+}
 }
