@@ -3,7 +3,7 @@ import { myFunction } from './lib/index.js';
 myFunction();
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, onAuthStateChanged, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, createUserWithEmailAndPassword, signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -69,6 +69,8 @@ signupForm.addEventListener('submit', (e) => {
 
       // Signed in 
       const user = userCredential.user;
+      //close the modal
+      closeModalSU();
       //Clear the form
       signupForm.reset();
       signupForm.querySelector('.message-error').innerHTML = '';
@@ -78,22 +80,20 @@ signupForm.addEventListener('submit', (e) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
-      if(errorCode === 'auth/email-already-in-use'){
+      if (errorCode === 'auth/email-already-in-use') {
         signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
-      }else if(errorCode === 'auth/weak-password'){
+      } else if (errorCode === 'auth/weak-password') {
         signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
-      }else {
+      } else {
         signupForm.querySelector('.message-error').innerHTML = errorMessage;
       }
-      
+
     });
 
   // console.log(signupEmail,signupPassword)
   console.log('signUp');
-  
+
 })
-//close the modal
-closeModalSU();
 
 
 //SIGN IN
@@ -110,6 +110,11 @@ signinForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
       // Signed in 
       const user = userCredential.user;
+      //close the modal
+      closeModalSI();
+
+      console.log('sign in');
+
       signinForm.reset();
       signinForm.querySelector('.message-error').innerHTML = '';
     })
@@ -117,26 +122,41 @@ signinForm.addEventListener('submit', (e) => {
       const errorCode = error.code;
       const errorMessage = error.message;
 
-      if(errorCode === 'auth/user-not-found'){
+      if (errorCode === 'auth/user-not-found') {
         signinForm.querySelector('.message-error').innerHTML = 'El usuario no se encuentra registrado'
-      }else if(errorCode === 'auth/wrong-password'){
+      } else if (errorCode === 'auth/wrong-password') {
         signinForm.querySelector('.message-error').innerHTML = 'La contraseña no corresponde al usuario'
-      }else {
+      } else {
         signinForm.querySelector('.message-error').innerHTML = errorMessage;
       }
     });
-  //clear the form
-  // signinForm.reset();
-  console.log('sign in');
-})
-  //close the modal
-  closeModalSI();
-  
 
-  const logout = document.getElementById('salir');
-  logout.addEventListener('click', e =>{
-    e.preventDefault();
-    auth.signOut().then( () => {
-      console.log('SignOut')
+})
+
+//------------LOGOUT--------------
+const logout = document.getElementById('salir');
+logout.addEventListener('click', e => {
+  e.preventDefault();
+  auth.signOut().then(() => {
+    console.log('SignOut')
+  })
+});
+
+//----------GOOGLE LOGIN--------
+const googleButton = document.getElementById('entrarGoogle')
+googleButton.addEventListener('click', e => {
+
+  const provider = new GoogleAuthProvider();
+
+  signInWithPopup(auth, provider)
+    .then(result => {
+      const user = result.user;
+      closeModalSI();
+      console.log('google sign in')
+      signinForm.querySelector('.message-error').innerHTML = '';
     })
-  });
+    .catch((error) => {
+      const errorMessage = error.message;
+      signinForm.querySelector('.message-error').innerHTML = errorMessage;
+    })
+})
