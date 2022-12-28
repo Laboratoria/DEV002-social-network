@@ -1,40 +1,43 @@
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>PETBLR</title>
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="style.css"/>
     <script type="module" src="main.js"></script>
+    <script type="module" src="addEventListener.js"></script>
   </head>
   <body>
     <main>
+
       <!--main logo-->
       <section class="main-logo" id="mainLogo">
-        <h1 class="main-logo-text" id="mainLogoText">PETBLR</h1>
+        <div class="main-div">
+        <a class="main-welcome">BIENVENID@ </a> <br><br>
+        <img src="./Assets/logo.png"  alt="logo" class="main-logo-img" id="mainLogoImg" >
+        </div>
       </section>
 
       <!--Home-->
       <section class="home" id="home">
         <div class="home-div" id="homeDiv">
           <a class="home-create-account-intro">
-            ¡Hola!<br />
-            Hemos pensado para tí y tu amo esta novedosa red social dónde la
-            estrella serás tú y solamente tú.
+            <h1 class="hello-home">¡Hola!</h1>
+            Hemos pensado para tí y tu amo esta novedosa red social.
+            <br><br>
+            ¡Dónde la estrella serás tú!
           </a>
-          <a class="home-welcome">BIENVENID@ A PETBLR</a>
           <a class="home-question">¿Qué quieres hacer hoy?</a>
-          <button class="home-create-account" id="navLinkCreateAccount">
-            CREAR CUENTA
-          </button>
+          <button class="home-create-account" id="navLinkCreateAccount">CREAR CUENTA</button>
         </div>
       </section>
 
       <!--email/Facebook LogIn-->
       <section class="email-facebook-page hidden" id="emailFacebookPage">
         <div class="email-facebook-div" id="emailFacebookDiv">
-          <label>¿Con qué quieres registrarte?</label>
           <button class="email-btn" id="emailBtn">CORREO</button>
           <button class="facebook-btn" id="facebookBtn">FACEBOOK</button>
         </div>
@@ -44,9 +47,9 @@
       <section class="login-section hidden" id="loginSection">
         <form class="login-form" id="loginForm">
           <label for="email" class="login-form-email">Correo:</label>
-          <input type="email" class="login-form-email-input" placeholder="Correo" required />
+          <input type="email" class="login-form-email-input" placeholder="Correo" required>
           <label for="password" class="login-form-password">Contraseña:</label>
-          <input type="password" class="login-form-password-input" placeholder="********" required />
+          <input type="password" class="login-form-password-input" placeholder="********" required>
           <button>INGRESAR</button>
         </form>
       </section>
@@ -54,19 +57,18 @@
       <!--Register section-->
       <section class="register hidden" id="register">
         <form class="register-form" id="registerForm">
-          <label class="register-form-pet-name" id="registerFormPetName">NOMBRE MASCOTA</label>
-          <input type="name" class="register-form-pet-name-input" id="registerFormPetNameInput" placeholder="Rudolph" required />
-          <label for="email" class="register-form-pet-email">CORREO:</label>
-          <input type="email" class="register-form-pet-email-input" id="registerFormPetEmailInput" placeholder="hola@petblr.com" required />
-          <label class="register-form-user-name" id="registerFormUserName">USUARIO</label>
-          <input type="name" class="register-form-user-name-input" id="registerFormUserNameInput" placeholder="Roberto" required />
-          <label for="password" class="register-form-password">CONTRASEÑA:</label>
-          <input type="password" class="register-form-password-input" id="registerFormPasswordInput" placeholder="********" required />
-          <label class="register-form-psw-recomendation" id="registerFormPswRecomendation">DEBE TENER MÍNIMO 6 CARÁCTERES, UNA MAYÚSCULA Y UN NÚMERO</label>
-          <label for="password" class="register-form-repeat-password">REPETIR CONTRASEÑA:</label>
-          <input type="password" class="register-form-repeat-password-input" id="registerFormRepeatPasswordInput"placeholder="********" required />
-          <label class="register-form-repeat-psw hidden" id="registerFormRepeatPsw"> LAS CONTRASEÑAS DEBEN COINCIDIR</label>
+          <div class="register-form-background">
+          <input type="name" class="register-form-pet-name-input" id="registerFormPetNameInput" placeholder="Nombre de la mascota" required>
+          <input type="email" class="register-form-pet-email-input" id="registerFormPetEmailInput" placeholder="Correo electronico" required>
+          <input type="name" class="register-form-user-name-input" id="registerFormUserNameInput" placeholder="Nombre del usuario" required>
+          <input type="password" class="register-form-password-input" id="registerFormPasswordInput" placeholder="Contraseña" required>
+          <label class="register-form-psw-recomendation" id="registerFormPswRecomendation"> DEBE TENER MÍNIMO 6 CARÁTERES, UNA MAYÚSCULA Y UN NÚMERO</label>
+          <input type="password" class="register-form-repeat-password-input" id="registerFormRepeatPasswordInput" placeholder="Repetir contraseña" required>
+          <label class="register-form-repeat-psw hidden" id="registerFormRepeatPsw">
+            LAS CONTRASEÑAS DEBEN COINCIDIR
+          </label><br>
           <button class="register-div-btn" id="registerDivBtn">REGISTRARSE</button>
+        </div>
         </form>
       </section>
 
@@ -80,7 +82,7 @@
       <!--auth funciona-->
       <section class="auth-funciona hidden" id="authFunciona">
         <div class="auth-error-div">
-          <h1 class="auth-funciona-text">Correo de confirmación enviado.</h1>
+          <h1 class="auth-funciona-text">Funciona!</h1>
         </div>
       </section>
 
@@ -93,16 +95,21 @@
       </section>
 
       <!--Otra pag-->
-      <section></section>
+      <section>
+      </section>
 
       <!--Otra pag-->
-      <section></section>
+      <section>
+      </section>
 
       <!--Otra pag-->
-      <section></section>
+      <section>
+      </section>
 
       <!--Otra pag-->
-      <section></section>
+      <section>
+      </section>
+
     </main>
   </body>
 </html>
