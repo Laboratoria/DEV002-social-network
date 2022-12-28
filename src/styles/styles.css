@@ -43,6 +43,10 @@ main #content{
     height: 100vh;
 }
 
+.hide {
+    display: none;
+}
+
 /* Pantalla de carga */
 main #content .loading{
     width: 100vw;
