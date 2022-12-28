@@ -2,8 +2,7 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: var(--lightIvory);
-    
+    background-color: var(--lightIvory);    
 }
 
 :root{
@@ -354,27 +353,123 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
 
 /* responsive */
 
-@media screen and (min-width: 320px){
-    /* .main-logo-img{
-        width: 30%;
-    } */
+@media screen and (min-width: 320px) and (max-width: 639px){
+    .main-logo-img{
+        width: 58%;
     }
+    main .home .home-div .home-create-account-intro {
+        font-size: 1.5rem
+    }
+    main .home .home-div {
+        width: 100%;
+        margin-left: 20%;
+    }
+    main .home .home-question {
+        font-size: 1.5rem;
+    }
+    main .home .home-div button {
+        width: 25rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        font-size: 1.4rem;
+    }
+     /* email/faceboo boton */
+
+     main .email-facebook-page .email-facebook-div button{
+        width: 25rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        font-size: 1.4rem;
+     }
+        main .register .register-form input{
+            width: 30rem;
+            height: 3rem;
+            border-bottom: 2px solid black;
+        }
+
+        /* main .register-form-background{
+            width: 30em;
+        } */
+
+        main .register .register-form button{
+            width: 25rem;
+            height: 4rem;
+            border-radius: 0.8rem;
+            font-size: 1.4rem;
+
+        }
+
+        ::placeholder{
+            font-size: 1rem;
+
+        }
+
+        main .register .register-form .register-form-psw-recomendation{
+            font-size: 1rem;
+            font-style: italic;
+        }
+
+        
+     }
 
 @media screen and (min-width: 640px){
+    .main-logo-img {
+        width: 58%;
+    }
+    main .home .home-div {
+        width: 100%;
+        margin-left: 20%;
+    }
 
+    main .home .home-div button {
+        width: 25rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        font-size: 1.4rem;
+    }
+    main .register .register-form input{
+        width: 35rem;
+        height: 3rem;
+        border-bottom: 2px solid black;
+    }
+
+    main .register-form-background{
+        width: 45em;
+    }
 }
 
 @media screen and (min-width: 960px){
     /* .main-logo-img{
-        width: 35%;
+        width: 57%;
     } */
+    main .home .home-div {
+        width: 100%;
+        margin-left: 20%;
+}
 
+main .register-form-background {
+    width: 55em;
+}
 
+main .register .register-form input{
+    width: 40rem;
+    height: 3rem;
+    border-bottom: 2px solid black;
+}
 }
 
 @media screen and (min-width: 1366px){
     .main-logo-img{
-       
-
-}
+        width: 53%;
+    }
+    main .register-form-background {
+        width: 65em;
+    }
+    
+    main .register .register-form input{
+        width: 55rem;
+        height: 3rem;
+        border-bottom: 2px solid black;
+    }
+    
 }
