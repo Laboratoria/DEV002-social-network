@@ -13,7 +13,7 @@ export const registroUsuarioLogica = (contenedor) => {
     const mensajeErrorCorreo = contenedor.querySelector('#mensajeErrorCorreo');
     const mensajeErrorContrasena = contenedor.querySelector('#mensajeErrorContrasena');
     const mensajeErrorConfirmacion = contenedor.querySelector('#mensajeErrorConfirmacion');
-    const botonRegistro = contenedor.querySelector('#registroCorreoBtn');
+    const registroCorreo = contenedor.querySelector('#registroCorreoBoton');
 
     function UserException(message, code) {
         this.message = message;
@@ -62,17 +62,16 @@ export const registroUsuarioLogica = (contenedor) => {
         return errors;
     };
 
-    botonRegistro.addEventListener(('click'), async (element) => {
-/*         element.preventDefault(); */
-        // eslint-disable-next-line max-len
+    registroCorreo.addEventListener(('click'), async (element) => {
         const errors = validateFields();
         try {
             if (Object.keys(errors).length > 0) {
                 throw new Error('hay errores');
             }
-            // eslint-disable-next-line max-len
+
             const credenciales = await createUserWithEmailAndPassword(auth, correoUsuario.value, contrasenaUsuario.value);
             console.log(credenciales);
+            window.location.href = 'formulario-registro';
         } catch (error) {
             console.log(error.code, errors);
             if (error?.code === 'auth/empty-name' || errors?.name?.code === 'auth/empty-name') {
@@ -84,7 +83,6 @@ export const registroUsuarioLogica = (contenedor) => {
 
             if (!usuario.value) {
                 mensajeErrorUsuario.classList.remove('hide');
-                // } else if (usuario.value && USUARIO YA REGISTRADO) {
             } else {
                 mensajeErrorUsuario.classList.add('hide');
             }

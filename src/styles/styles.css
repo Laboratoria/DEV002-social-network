@@ -182,20 +182,16 @@ main #content .registro-usuario .botonesRegistro .registroCorreo{
     justify-content: center;
 }
 
-main #content .registro-usuario .botonesRegistro .registroCorreo button{
+main #content .registro-usuario .botonesRegistro .registroCorreo input{
     height: 90%;
     width: 70%;
     border: 0;
     border-radius: 1rem;
     background-color: var(--jade);
-    font-size: 2.1vw;
-}
-
-main #content .registro-usuario .botonesRegistro .registroCorreo a{
-    text-decoration: none;
     color: var(--blanco);
     font-size: 3.5vw;
     font-weight: 600;
+    cursor: pointer;
 }
 
 main #content .registro-usuario .botonesRegistro .registroGoogle{
@@ -308,20 +304,16 @@ main #content .inicio-sesion .botonesInicioSesion .iniciarSesion{
     justify-content: center;
 }
 
-main #content .inicio-sesion .botonesInicioSesion .iniciarSesion button{
+main #content .inicio-sesion .botonesInicioSesion .iniciarSesion input{
     height: 90%;
     width: 70%;
     border: 0;
     border-radius: 1rem;
     background-color: var(--jade);
-    font-size: 2.1vw;
-}
-
-main #content .inicio-sesion .botonesInicioSesion .iniciarSesion button a{
-    text-decoration: none;
     color: var(--blanco);
     font-size: 3.5vw;
     font-weight: 600;
+    cursor: pointer;
 }
 
 main #content .inicio-sesion .botonesInicioSesion .iniciarGoogle{

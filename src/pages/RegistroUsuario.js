@@ -36,9 +36,7 @@ const RegistroUsuario = () => {
         </div>
         <div class="botonesRegistro">
             <div class="registroCorreo">
-                <button id="registroCorreoBtn">
-                    <a href="formulario-registro">Registrarse</a>
-                </button>
+                <input  id='registroCorreoBoton' type="submit" value="Registrarse">
             </div>
             <div class="registroGoogle">
                 <button id="registroGmailBtn">
