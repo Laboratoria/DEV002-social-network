@@ -19,9 +19,7 @@ const InicioSesion = () => {
         </div>
         <div class="botonesInicioSesion">
             <div class="iniciarSesion">
-                <button id="inicioSesionBtn">
-                    <a href="">Iniciar Sesión</a>
-                </button>
+                <input  id='inicioSesionBtn' type="submit" value="Iniciar Sesión">
             </div>
             <div class="iniciarGoogle">
                 <button id="inicioGmailBtn">
