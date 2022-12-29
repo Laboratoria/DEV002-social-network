@@ -63,7 +63,7 @@ export const registroUsuarioLogica = (contenedor) => {
     };
 
     botonRegistro.addEventListener(('click'), async (element) => {
-        element.preventDefault();
+/*         element.preventDefault(); */
         // eslint-disable-next-line max-len
         const errors = validateFields();
         try {
