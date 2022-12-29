@@ -3,9 +3,9 @@
     margin: 0%;
     padding: 0%;
 }
+
 html {
-    font-size: 62.5%;
-    
+    font-size: 62.5%; 
 }
 
 body {
@@ -60,7 +60,7 @@ button {
 
 .inicia-sesion-h2 {
     font-size: 2rem;
-    color: aliceblue;
+    color: #FFF799;
     margin: 1.5rem 0rem 3rem 0rem;
 }
 .ingresar {
@@ -75,6 +75,10 @@ button {
 }
 
 /* .section-inicio-sesion {
+    display: none;
+}
+
+.logo-inicio-sesion {
     display: none;
 } */
 

@@ -4,14 +4,15 @@
 
 .inicia-sesion-h2 {
     font-size: 3rem;
-
 }
+
 .logo {
     width: 30rem;
     height: 30rem;
     margin-right: 10rem;
     margin-top: 8rem;
 }
+
 .iniciar-sesion-google {
     margin-top: 2.5rem;
 }
@@ -34,4 +35,8 @@
 
 .section-inicio-sesion {
     margin-right: 7rem;
+}
+
+.fecha-nacimiento {
+    width: 17rem;
 }
