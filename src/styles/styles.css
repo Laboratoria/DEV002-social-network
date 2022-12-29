@@ -396,6 +396,61 @@ main #content .error404 h3{
     font-size: 3.5vw;
 }
 
+/* formulario de Registro: Mascota */
+main #content .formularioMascota{
+    width: 100%;
+    height: 100%;
+}
+
+main #content .formularioMascota .logo{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main #content .formularioMascota .logo img{
+    width: 70%;
+}
+
+main #content .formularioMascota .fotoPerfil{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main #content .formularioMascota .fotoPerfil figure{
+    width: 8rem;
+    height: 8rem;
+    border: .1rem solid var(--font-gris-claro);
+    border-radius: 50%;
+}
+
+main #content .formularioMascota .fotoPerfil figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+main #content .formularioMascota .fotoPerfil button{
+    border: none;
+    background-color: var(--font-gris);
+    color: var(--blanco);
+    position: absolute;
+    right: 35%;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-size: 3vw;
+    cursor: pointer;
+    top: 30%;
+}
+
  /* Responsive Design */
 @media screen and (min-width: 500px){
     /* Pantalla: Bienvenida */
