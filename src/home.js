@@ -1,3 +1,8 @@
+import {
+    surfing
+}
+from './main.js'
+
 export const home = () => {
 const $sectionHome = document.createElement('section'),
 $divLogoContainer = document.createElement('div'),
@@ -28,6 +33,11 @@ $sectionHome.appendChild($divLogoContainer).appendChild($figureLogo).appendChild
 $sectionHome.appendChild($divWelcomeContainer).appendChild($h1Slogan)
 $sectionHome.appendChild($divWelcomeContainer).appendChild($imgCat)
 $sectionHome.appendChild($divWelcomeContainer).appendChild($divBtnClickHere).appendChild($inputBtnClickHere)
+
+$inputBtnClickHere.addEventListener("click", () => {
+    surfing("/login")
+})
+
 
 return $sectionHome;
 };
