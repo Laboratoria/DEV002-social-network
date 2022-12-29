@@ -2,11 +2,86 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="./desktop.css" media="screen and (min-width: 820px)">
+  <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Barlow:wght@100&family=Be+Vietnam+Pro&family=Indie+Flower&family=Oswald:wght@200&family=Raleway:wght@100;400&display=swap" rel="stylesheet">  <title>Journey Mates</title>
 </head>
 <body>
+  <div class="container"> 
+    <figure class="logo-inicio-sesion"> 
+      <img class="logo" src="./images/logo.png" alt="Imagen de un avión dando la vuelta al mundo">
+    </figure>
+
+  <section class="section-inicio-sesion" id="sectionOne">   
+
+    <h1 class="title">Journey Mates 🛫 </h1>
+
+    <h2 class="inicia-sesion-h2">Inicia sesión</h2>
+
+    <button class="iniciar-sesion-google"> Inicia sesión con Google </button>
+    <p class="or">O</p>
+    <input type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
+    <input type="password" placeholder="Contraseña" autocomplete="current-password" required> <br>
+    <button class="ingresar"> Ingresar </button>
+
+  </div>
+  </section>
+
+  <section class="section-register" id="sectionOne">   
+
+    <h1 class="title">Journey Mates 🛫 </h1>
+
+    <h2 class="inicia-sesion-h2">Regístrate</h2>
+
+    <button class="iniciar-sesion-google"> Regístrate con Google </button>
+    <p class="or">O</p>
+
+    <input type="name" placeholder="Nombre completo" autocomplete="name" required> <br>
+    <input type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
+    
+    <div class="container-paises"> 
+      <label for="paises" class="lista-paises"> País de procedencia: </label> <br>
+      <select id="paises" class="paises" name="paises" required>
+        <option value="">Elige un país</option>
+        <option value="ARG">Argentina</option>
+        <option value="BRA">Brasil</option>
+        <option value="CHL">Chile</option>
+        <option value="COL">Colombia</option>
+        <option value="ECU">Ecuador</option>
+        <option value="MEX">México</option>
+        <option value="PRY">Paraguay</option>
+        <option value="PER">Perú</option>
+        <option value="URY">Uruguay</option>
+        <option value="VEN">Venezuela</option>
+      </select> 
+    </div>
+
+    <label class="fecha-nacimiento" for='fecha-nacimiento'> Fecha de nacimiento </label> <br>
+    <input type="date" placeholder="dd/mm/aaaa" class="fecha-nacimiento" required>
+
+    <h3 class="gender">Género</h3>
+    <label for='femenino'> Femenino </label>
+    <input type="radio" name="genero" id='genero' class="seleccionar-genero" required>
+
+    <label class="seleccionar-genero" for='masculino'> Masculino </label>
+    <input type="radio" name="genero" id='genero' class="seleccionar-genero" required> <br>
+
+    <button class="ingresar"> Ingresar </button>
+
+  </section>
+
+
+  
+
+
+
+
+
+
+
+
   <script type="module" src="main.js"></script>
 </body>
 </html>
