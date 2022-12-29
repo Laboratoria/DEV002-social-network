@@ -19,7 +19,6 @@ const firebaseConfig = {
   appId: "1:161909447570:web:b126b68b577520ab947f4b"
 };
 
-
 /*abrieno modal sign up*/
 const openModalSU = () => {
   modalSU.style.display = 'flex';
@@ -99,17 +98,23 @@ signupForm.addEventListener('submit', (e) => {
     .catch((error) => {
       const errorCode = error.code
       const errorMessage = error.message;
-     
-      if( errorCode === 'auth/email-already-in-use'){
-      signupForm.querySelector('.message-error').innerHTML = 'El email ya se encuentra registrado'
-     }else if(errorCode === 'auth/weak-password'){
-      signupForm.querySelector('.message-error').innerHTML = ' Debe tener al menos 6 carácteres'
-     }
-      
-     });
-       console.log('signUp');
-  
-});
+
+      //personalizando los mensajes de los 2 errores mas comunes
+      if (errorCode === 'auth/email-already-in-use') {
+        signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
+      } else if (errorCode === 'auth/weak-password') {
+        signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
+      } else {
+        signupForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
+      }
+    });
+
+  // console.log(signupEmail,signupPassword)
+  console.log('signUp');
+})
+//close the modal
+closeModalSU();
+
 
 //SIGN IN
 
@@ -167,11 +172,23 @@ googleButton.addEventListener('click', e => {
     })
     .catch((error) => {
       const errorMessage = error.message;
-      signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
-    })
-});
 
-  
+      //personalizando los mensajes de los 2 errores mas comunes
+      if (errorCode === 'auth/user-not-found') {
+        signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado'
+      } else if (errorCode === 'auth/wrong-password') {
+        signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario'
+      } else {
+        signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
+      }
+    });
+  //console.log(email,password)
+
+})
+
+
+
+
 
 
 
