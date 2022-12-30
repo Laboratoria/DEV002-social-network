@@ -8,13 +8,21 @@ export const loadHome = () => {
   ROUTER.load('home');
   const homeSignInBtn = document.getElementById("navLinkCreateAccount");
   homeSignInBtn.addEventListener("click", loadRegister);
+  const loginSection = document.getElementById("navLinkLogin")
+  loginSection.addEventListener("click", loadLogin);
 };
 
 export const loadRegister = () => {
   const ROUTER = new Router(PATHS);
   ROUTER.load('signup');
   const registerForm = document.getElementById("registerDivBtn")
-  registerDivBtn.addEventListener("click", registrar);
+  registerForm.addEventListener("click", registrar);
+};
+
+export const loadLogin = () => {
+  const ROUTER = new Router(PATHS);
+  ROUTER.load('login');
+  // darle función a botón facebook y correo (HU2)
 };
 
 export const myFunction = () => {

@@ -13,7 +13,7 @@ const PATHS = {
                     <button class="home-create-account" id="navLinkCreateAccount">
                         Registrarse
                     </button>
-                    <button class="home-create-account" id="navLinkCreateAccount">
+                    <button class="home-create-account" id="navLinkLogin">
                         Iniciar sesion
                     </button>
                 </div>
@@ -51,7 +51,12 @@ const PATHS = {
     login: {
         path: "/login",
         template: `
-            <h1>Contacto</h1>
+        <section class="email-facebook-page" id="emailFacebookPage">
+        <div class="email-facebook-div" id="emailFacebookDiv">
+          <button class="email-btn" id="emailBtn">CORREO</button>
+          <button class="facebook-btn" id="facebookBtn">FACEBOOK</button>
+        </div>
+      </section>
         `,
     }
 }
