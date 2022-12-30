@@ -451,6 +451,54 @@ main #content .formularioMascota .fotoPerfil button{
     top: 30%;
 }
 
+main #content .formularioMascota form{
+    height: 55vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+main #content .formularioMascota form div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+main #content .formularioMascota form label{
+    font-size: 3.5vw;
+    color: var(--font-gris);
+}
+
+main #content .formularioMascota form input{
+    border: 0;
+    border-bottom: .1rem solid var(--rosa);
+    margin-top: 2%;
+    padding-bottom: 0.4vh;
+    background: none;
+    font-size: 3.5vw;
+    outline: none;
+}
+
+main #content .formularioMascota .botonGuardar{
+    height: 7%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main #content .formularioMascota .botonGuardar input{
+    height: 90%;
+    width: 70%;
+    border: 0;
+    border-radius: 1rem;
+    background-color: var(--jade);
+    color: var(--blanco);
+    font-size: 3.5vw;
+    font-weight: 600;
+    cursor: pointer;
+}
+
  /* Responsive Design */
 @media screen and (min-width: 500px){
     /* Pantalla: Bienvenida */
