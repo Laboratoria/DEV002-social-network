@@ -21,8 +21,8 @@ const PATHS = {
             </section>
         `,
     },
-    register: {
-        path: "/register",
+    signup: {
+        path: "/signup",
         template: `
             <section class="register" id="register">
                 <form class="register-form" id="registerForm">
@@ -54,8 +54,8 @@ const PATHS = {
 
         `,
     },
-    contact: {
-        path: "/contact",
+    login: {
+        path: "/login",
         template: `
             <h1>Contacto</h1>
         `,

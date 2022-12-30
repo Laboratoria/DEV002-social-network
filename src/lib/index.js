@@ -12,7 +12,7 @@ export const loadHome = () => {
 
 export const loadRegister = () => {
   const ROUTER = new Router(PATHS);
-  ROUTER.load('register');
+  ROUTER.load('signup');
   const registerForm = document.getElementById("registerDivBtn")
   registerDivBtn.addEventListener("click", registrar);
 };
