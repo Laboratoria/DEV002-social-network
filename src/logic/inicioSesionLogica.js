@@ -50,7 +50,7 @@ export const inicioSesionLogica = (contenedor) => {
                 mensajeErrorContrasena2.classList.remove('hide');// show
             } else {
                 mensajeErrorContrasena2.classList.add('hide');
-            }*/
+            }*/ // corregir errores
         }
     });
 };
