@@ -3,7 +3,8 @@ import { myFunction } from './lib/index.js';
 myFunction();
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
+   sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -27,14 +28,13 @@ const closeModalSU = () => {
   modalSU.style.display = 'none';
 }
 
-
 const btnOpenModalSU = document.getElementById('botonRegistrar');
 btnOpenModalSU.addEventListener('click', openModalSU);
 
 const btnCloseModalSU = document.getElementById('botonCerrarModalSU');
 btnCloseModalSU.addEventListener('click', closeModalSU);
 
-//funciones de apertura y cerrado del modal de SI
+// open-close modal Sing in 
 const openModalSI = () => {
   modalSI.style.display = 'flex';
 }
@@ -52,30 +52,50 @@ btnCloseModalSI.addEventListener('click', closeModalSI);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+// Validacion correo 
+function validarCorreo (valorCorreo) {
+
+  let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+ if ( expReg.test(valorCorreo) === true ){ 
+    console.log('si es valido');
+      return true
+  } else {
+    console.log('No es valido');
+    return false
+  }
+}
 
 //SIGN UP
 const signupForm = document.getElementById('formularioSU');
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault(); //para cancelar el evento de reinicio del formulario
-
-  const signupEmail = document.getElementById('idCorreoSU').value;
+  const valorCorreo = document.getElementById('idCorreoSU').value;
+  const posiblcorreo = validarCorreo(valorCorreo)
+  let signupEmail = "";
+  if(posiblcorreo === true){ 
+   signupEmail = valorCorreo;
+  } else {
+    signupEmail = "";
+  }
+    
   const signupPassword = document.getElementById('idContraseñaSU').value;
 
   //función de Firebase para registrar un usuario
 
   createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
     .then((userCredential) => {
-      // Signed up
+      
       const user = userCredential.user;
-      //close the modal
+      if(user){
+       user.sendEmailVerification(auth.currentUser);
+      }
       closeModalSU();
-      //Clear the form
       signupForm.reset();
-      signupForm.querySelector('.message-error').innerHTML = '';
+      signupForm.querySelector('.message-error').innerHTML = "";
 
     })
     .catch((error) => {
-      const errorCode = error.code;
+      const errorCode = error.code
       const errorMessage = error.message;
 
       //personalizando los mensajes de los 2 errores mas comunes
@@ -97,29 +117,22 @@ signupForm.addEventListener('submit', (e) => {
 
 const signinForm = document.getElementById('formularioSI');
 signinForm.addEventListener('submit', (e) => {
-  e.preventDefault();
-  const email = document.getElementById('idCorreoSI').value;
-  const password = document.getElementById('idContraseñaSI').value;
-  //console.log(email,password)
+    e.preventDefault();
+    const email = document.getElementById('idCorreoSI').value;
+    const password = document.getElementById('idContraseñaSI').value;
 
-  signInWithEmailAndPassword(auth, email, password)
-
+     signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      // Signed in 
+      
       const user = userCredential.user;
       closeModalSI();
-
-      console.log('sign in')
-      //clear the form
+      
       signinForm.reset();
-      signinForm.querySelector('.message-error').innerHTML = '';
-
+      signinForm.querySelector('.message-error').innerHTML = "";
     })
-    .catch((error) => {
-      const errorCode = error.code;
+     .catch((error) =>{
+      const errorCode = error.code
       const errorMessage = error.message;
-
-      //personalizando los mensajes de los 2 errores mas comunes
       if (errorCode === 'auth/user-not-found') {
         signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado'
       } else if (errorCode === 'auth/wrong-password') {
@@ -127,21 +140,19 @@ signinForm.addEventListener('submit', (e) => {
       } else {
         signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
       }
-    });
-  //console.log(email,password)
+      });  
+     
+     console.log('signIn')
+});
 
-})
-
-
-//LOG OUT
+//LOGOUT 
 const logout = document.getElementById('salir');
-
 logout.addEventListener('click', e => {
   e.preventDefault();
-  auth.signOut().then(() =>
-    console.log('sign out'))
-})
-
+  auth.signOut().then( () => {
+     console.log('sign out')
+  })
+});
 
 //GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
@@ -158,6 +169,23 @@ googleButton.addEventListener('click', e => {
     })
     .catch((error) => {
       const errorMessage = error.message;
-      signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
-    })
+
+      //personalizando los mensajes de los 2 errores mas comunes
+      if (errorCode === 'auth/user-not-found') {
+        signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado'
+      } else if (errorCode === 'auth/wrong-password') {
+        signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario'
+      } else {
+        signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
+      }
+    });
+  //console.log(email,password)
+
 })
+
+
+
+
+
+
+

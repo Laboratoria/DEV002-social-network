@@ -37,11 +37,12 @@ input {
   background: transparent;
   backdrop-filter: blur(3px);
   border-radius: 7px;
-  width: 108%;
+  width: 200px;
   height: 35px;
   border: transparent;
   margin: 0 0 30px 0;
   cursor: pointer;
+ 
 }
 
 input:hover,
@@ -74,21 +75,21 @@ h2 {
   backdrop-filter: blur(3px);
   border:none;
   width: 45%;
-  height: 25px
-}
+  height: 25px;
+ }
 
 
 .close-modal {
   margin-bottom: 30px;
   margin-left: 320px;
-  width: 6%;
+  width: 20px;
   height: 25px;
   border: transparent;
   color: rgb(90, 86, 86);
   background-color: transparent;
   position: absolute;
   top: 10px;
-  padding-left:15px ;
+  padding-left: 18px ;
   cursor: pointer;
 }
 
