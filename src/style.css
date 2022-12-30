@@ -45,7 +45,8 @@ input {
 }
 
 input:hover,
-.btnSubmit:hover ,.btnGoogle:hover {
+.btnSubmit:hover,
+.btnGoogle:hover {
   background: rgba(245, 236, 236, 0.7);
 }
 
@@ -53,26 +54,29 @@ h2 {
   text-align: center;
   font-family: sans-serif;
   font-weight: 50px;
-  top:80px;
+  top: 80px;
   padding-left: 38px;
   position: absolute;
   color: whitesmoke;
   letter-spacing: 4px;
 }
-.correo , .contraseña, .user-name{
+
+.correo,
+.contraseña,
+.user-name {
   letter-spacing: 1px;
-  color:rgb(27, 27, 27);
- 
+  color: rgb(27, 27, 27);
+
 }
 
 
 .btnSubmit {
   background: transparent;
   border-radius: 7px;
-  color:rgb(104, 104, 97);
+  color: rgb(104, 104, 97);
   letter-spacing: 2px;
   backdrop-filter: blur(3px);
-  border:none;
+  border: none;
   width: 45%;
   height: 25px
 }
@@ -88,14 +92,32 @@ h2 {
   background-color: transparent;
   position: absolute;
   top: 10px;
-  padding-left:15px ;
+  padding-left: 15px;
   cursor: pointer;
 }
 
-.message-error{
+.message-error {
   font-size: 12px;
   font-family: sans-serif;
   margin-top: 30px;
   color: brown;
-  text-align:justify;
+  text-align: justify;
+}
+
+.logoGoogle {
+  width: 17px;
+  height: 17px;
+  /*padding: 1%;*/
+  margin: 0 0.5rem 0 0.5rem; 
+}
+
+.btnGoogle {
+ /* background: transparent;*/
+  background: linear-gradient(294deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  width: 108%;
+  height: 35px;
+  border-radius: 7px;
+  text-align: center;
+  border: 2px blue; 
+  border-style: solid;
 }

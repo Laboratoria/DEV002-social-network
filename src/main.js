@@ -3,7 +3,7 @@ import { myFunction } from './lib/index.js';
 myFunction();
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -52,14 +52,76 @@ btnCloseModalSI.addEventListener('click', closeModalSI);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
+//construyendo un observador de Auth 
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    var email =user.email;
+    const uid = user.uid;
+
+    var emailVerified=user.emailVerified;
+    if(emailVerified===false){
+      console.log('Email no verificado');
+    } else{
+      console.log('Email verificado');
+    }
+    // ...
+  } else {
+    // User is signed out
+    // ...
+  }
+});
+
+
+
+
+
+
+
+
+
+
+function validarCorreo(correo) {
+  let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  let valido = expReg.test(correo);
+  console.log(valido);
+  if (valido === true) {
+    console.log('valido')
+    return true;
+  } if (valido === false) {
+    console.log('invalido')
+    return false;
+  }
+}
+
+
+
+function verificarSendingMail(){
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+      // Email verification sent!
+      // ...
+    })
+  }
+
+
+
 
 //SIGN UP
 const signupForm = document.getElementById('formularioSU');
 signupForm.addEventListener('submit', (e) => {
   e.preventDefault(); //para cancelar el evento de reinicio del formulario
-
-  const signupEmail = document.getElementById('idCorreoSU').value;
+  const valorCorreo = document.getElementById('idCorreoSU').value;
+  const posibleCorreo = validarCorreo(valorCorreo);
+  var signupEmail = '';
+  if (posibleCorreo === true) {
+    signupEmail = valorCorreo;
+  } else {
+    signupEmail = '';
+  }
   const signupPassword = document.getElementById('idContraseñaSU').value;
+  
 
   //función de Firebase para registrar un usuario
 
@@ -67,6 +129,7 @@ signupForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
       // Signed up
       const user = userCredential.user;
+      verificarSendingMail();
       //close the modal
       closeModalSU();
 
