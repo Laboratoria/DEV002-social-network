@@ -72,10 +72,10 @@ signupForm.addEventListener('submit', (e) => {
   const valorCorreo = document.getElementById('idCorreoSU').value;
   const posiblcorreo = validarCorreo(valorCorreo)
   let signupEmail = "";
-  if(posiblcorreo === true){ 
+  if (posiblcorreo === true){ 
    signupEmail = valorCorreo;
   } else {
-    signupEmail = "";
+   signupEmail = "";
   }
     
   const signupPassword = document.getElementById('idContraseñaSU').value;
@@ -86,9 +86,7 @@ signupForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
       
       const user = userCredential.user;
-      if(user){
-       user.sendEmailVerification(auth.currentUser);
-      }
+
       closeModalSU();
 
       signupForm.reset();
@@ -101,7 +99,7 @@ signupForm.addEventListener('submit', (e) => {
 
       //personalizando los mensajes de los 2 errores mas comunes
       if (errorCode === 'auth/email-already-in-use') {
-        signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
+        signupForm.querySelector('.message-error').innerHTML = 'El email ya se encuentra registrado'
       } else if (errorCode === 'auth/weak-password') {
         signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
       } else {
