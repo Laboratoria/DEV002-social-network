@@ -400,6 +400,9 @@ main #content .error404 h3{
 main #content .formularioMascota{
     width: 100%;
     height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 main #content .formularioMascota .logo{
@@ -448,11 +451,11 @@ main #content .formularioMascota .fotoPerfil button{
     border-radius: 50%;
     font-size: 3vw;
     cursor: pointer;
-    top: 30%;
+    top: 33%;
 }
 
 main #content .formularioMascota form{
-    height: 55vh;
+    height: 50vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -478,6 +481,71 @@ main #content .formularioMascota form input{
     background: none;
     font-size: 3.5vw;
     outline: none;
+}
+
+main #content .formularioMascota form .formP2{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+main #content .formularioMascota form .formP2 .formEdad{
+    width: 20%;
+}
+
+main #content .formularioMascota form .formP2 .formDogSex{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+main #content .formularioMascota form .formP2 .formDogSex .sexOptions{
+    flex-direction: row;
+    width: 100%;
+}
+
+main #content .formularioMascota form .formP2 .formDogSex .sexOptions div{
+    flex-direction: row;
+    display: flex;
+}
+
+main #content .formularioMascota form .formP2 .formDogSex .sexOptions div input{
+    margin-left: 10%
+}
+
+main #content .formularioMascota form .formP3 .tallaOps{
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
+main #content .formularioMascota form .formP3 .tallaOps div{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+
+main #content .formularioMascota form .formP3 .tallaOps div input{
+    margin-left: 10%;
+    margin-top: 0;
+}
+
+main #content .formularioMascota form .formP4{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main #content .formularioMascota form .formP4 div{
+    flex-direction: row;
+    align-items: center;
+    width: 45%;
+}
+
+main #content .formularioMascota form .formP4 div input{
+    margin-top: 0;
+    margin-right: 10%;
 }
 
 main #content .formularioMascota .botonGuardar{
