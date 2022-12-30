@@ -1,5 +1,4 @@
 import { GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-// import { async } from 'regenerator-runtime';
 import { auth } from '../firebase/configuracionFirebase.js';
 
 export const registroUsuarioLogica = (contenedor) => {
