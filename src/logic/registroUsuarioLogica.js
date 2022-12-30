@@ -112,10 +112,10 @@ export const registroUsuarioLogica = (contenedor) => {
 
             if (errors?.passwordConfirmation?.code === 'auth/empty-confirmation-password') {
                 mensajeErrorConfirmacion.classList.remove('hide');// show
-            } else if (errors?.passwordConfirmation?.code === 'auth/weak-confirmation-password') {
+            } else if (errors?.passwordConfirmation?.code === 'auth/weak-confirmation-password' || errors?.password?.code === 'auth/weak-confirmation-password') {
                 mensajeErrorConfirmacion.innerHTML = 'Contraseña débil, ingresa al menos 6 caracteres';
                 mensajeErrorConfirmacion.classList.remove('hide');
-            } else if (errors?.passwordConfirmation?.code === 'auth/different-password') {
+            } else if (errors?.passwordConfirmation?.code === 'auth/different-password'|| errors?.password?.code === 'auth/different-password') {
                 mensajeErrorConfirmacion.innerHTML = 'Las contraseñas no coinciden';
                 mensajeErrorConfirmacion.classList.remove('hide');// show
             } else {
