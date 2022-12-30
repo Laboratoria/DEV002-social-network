@@ -3,8 +3,7 @@ import { myFunction } from './lib/index.js';
 myFunction();
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider,
-   sendEmailVerification} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -52,18 +51,52 @@ btnCloseModalSI.addEventListener('click', closeModalSI);
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 
-// Validacion correo 
-function validarCorreo (valorCorreo) {
+//construyendo un observador de Auth 
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    var email =user.email;
+    const uid = user.uid;
 
-  let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
- if ( expReg.test(valorCorreo) === true ){ 
-    console.log('si es valido');
-      return true
+    var emailVerified=user.emailVerified;
+    if(emailVerified===false){
+      console.log('Email no verificado');
+    } else{
+      console.log('Email verificado');
+    }
+    // ...
   } else {
-    console.log('No es valido');
-    return false
+    // User is signed out
+    // ...
+  }
+});
+
+
+
+function validarCorreo(correo) {
+  let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  let valido = expReg.test(correo);
+  console.log(valido);
+  if (valido === true) {
+    console.log('valido')
+    return true;
+  } if (valido === false) {
+    console.log('invalido')
+    return false;
   }
 }
+
+
+
+function verificarSendingMail(){
+  sendEmailVerification(auth.currentUser)
+    .then(() => {
+      // Email verification sent!
+      // ...
+    })
+  }
+
 
 //SIGN UP
 const signupForm = document.getElementById('formularioSU');
@@ -77,8 +110,8 @@ signupForm.addEventListener('submit', (e) => {
   } else {
    signupEmail = "";
   }
-    
   const signupPassword = document.getElementById('idContraseñaSU').value;
+  
 
   //función de Firebase para registrar un usuario
 
@@ -86,9 +119,9 @@ signupForm.addEventListener('submit', (e) => {
     .then((userCredential) => {
       
       const user = userCredential.user;
-
+      verificarSendingMail();
+      //close the modal
       closeModalSU();
-
       signupForm.reset();
       signupForm.querySelector('.message-error').innerHTML = "";
 
@@ -110,8 +143,6 @@ signupForm.addEventListener('submit', (e) => {
   // console.log(signupEmail,signupPassword)
   console.log('signUp');
 })
-//close the modal
-closeModalSU();
 
 
 //SIGN IN
