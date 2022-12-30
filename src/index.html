@@ -8,7 +8,9 @@
     <title>PETBLR</title>
     <link rel="stylesheet" href="style.css"/>
     <script type="module" src="main.js"></script>
-    <script type="module" src="addEventListener.js"></script>
+    <script src="./js/router.js"></script>
+    <script src="./js/routes.js"></script>
+    <script type="module" src="./lib/index.js"></script>
   </head>
   <body>
     <main>
@@ -18,20 +20,6 @@
         <div class="main-div">
         <a class="main-welcome">BIENVENID@ </a> <br><br>
         <img src="./Assets/logo.png"  alt="logo" class="main-logo-img" id="mainLogoImg" >
-        </div>
-      </section>
-
-      <!--Home-->
-      <section class="home" id="home">
-        <div class="home-div" id="homeDiv">
-          <a class="home-create-account-intro">
-            <h1 class="hello-home">¡Hola!</h1>
-            Hemos pensado para tí y tu amo esta novedosa red social.
-            <br><br>
-            ¡Dónde la estrella serás tú!
-          </a>
-          <a class="home-question">¿Qué quieres hacer hoy?</a>
-          <button class="home-create-account" id="navLinkCreateAccount">CREAR CUENTA</button>
         </div>
       </section>
 
@@ -45,7 +33,7 @@
 
       <!--log in form-->
       <section class="login-section hidden" id="loginSection">
-        <form class="login-form" id="loginForm">
+        <form class="login-form" id="loginForm"
           <label for="email" class="login-form-email">Correo:</label>
           <input type="email" class="login-form-email-input" placeholder="Correo" required>
           <label for="password" class="login-form-password">Contraseña:</label>
@@ -55,7 +43,7 @@
       </section>
 
       <!--Register section-->
-      <section class="register hidden" id="register">
+      <!-- <section class="register hidden" id="register">
         <form class="register-form" id="registerForm">
           <div class="register-form-background">
           <input type="name" class="register-form-pet-name-input" id="registerFormPetNameInput" placeholder="Nombre de la mascota" required>
@@ -70,14 +58,14 @@
           <button class="register-div-btn" id="registerDivBtn">REGISTRARSE</button>
         </div>
         </form>
-      </section>
+      </section> -->
 
       <!--auth error-->
-      <section class="auth-error hidden" id="authError">
+      <!-- <section class="auth-error hidden" id="authError">
         <div class="auth-error-div">
           <h1 class="auth-error-text">Lo sentimos, correo en uso.</h1>
         </div>
-      </section>
+      </section> -->
 
       <!--auth funciona-->
       <section class="auth-funciona hidden" id="authFunciona">
@@ -110,6 +98,7 @@
       <section>
       </section>
 
+      <div id="content"></div>
     </main>
   </body>
 </html>

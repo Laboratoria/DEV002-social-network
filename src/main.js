@@ -1,10 +1,11 @@
-import "./app/firebase.js"
-import "./app/register.js"
-import "./addEventListener.js"
-import "./app/facebookrg.js"
+import "./app/firebase.js";
+import "./app/register.js";
+import "./addEventListener.js";
+import "./app/facebookrg.js";
+import "./js/router.js";
+import "./js/routes.js";
 
 // Este es el punto de entrada de tu aplicacion
-
-import { myFunction } from './lib/index.js';
-
+import { myFunction, loadHome } from './lib/index.js';
 myFunction();
+loadHome();
