@@ -106,8 +106,6 @@ function verificarSendingMail(){
   }
 
 
-
-
 //SIGN UP
 const signupForm = document.getElementById('formularioSU');
 signupForm.addEventListener('submit', (e) => {
