@@ -1,6 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth } from '../firebase/configuracionFirebase.js';
+//import { registroGoogleLogica } from './registroGoogleLogica.js';
 
 export const registroUsuarioLogica = (contenedor) => {
     const nombre = contenedor.querySelector('#nombreUsuario');
@@ -123,4 +125,19 @@ export const registroUsuarioLogica = (contenedor) => {
             }
         }
     });
+
+    // Registro Google
+    const botonRegistroGoogle = contenedor.querySelector('#registroGmailBtn');
+
+    botonRegistroGoogle.addEventListener('click', async () => {
+        const provider = new GoogleAuthProvider();
+
+        try {
+            const credentials = await signInWithPopup(auth, provider); 
+            console.log(credentials);
+            window.location.href = 'formulario-registro';
+        } catch (error) {
+            console.log(error);
+        }
+    })
 };
