@@ -1,7 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { auth } from '../firebase/configuracionFirebase.js';
-
+import { createUserWithEmailAndPassword, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { auth, collectionUsers, collectionUsernames } from '../firebase/configuracionFirebase.js';
+import { addDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
+//Hacer los test de DOM de los innerHTML
 export const registroUsuarioLogica = (contenedor) => {
     const nombre = contenedor.querySelector('#nombreUsuario');
     const usuario = contenedor.querySelector('#idUsuario');
@@ -55,7 +56,7 @@ export const registroUsuarioLogica = (contenedor) => {
             errors.passwordConfirmation = new UserException('Ingresa una contraseña', 'auth/empty-confirmation-password');
         } else if (confirmacionContrasena.value.length < 6) {
             errors.passwordConfirmation = new UserException('Contraseña débil, ingresa al menos 6 caracteres', 'auth/weak-confirmation-password');
-        } else if (contrasenaUsuario.value !== confirmacionContrasena.value){
+        } else if (contrasenaUsuario.value !== confirmacionContrasena.value) {
             errors.passwordConfirmation = new UserException('Las contraseñas no coinciden', 'auth/different-password')
         }
 
@@ -71,7 +72,28 @@ export const registroUsuarioLogica = (contenedor) => {
 
             const credenciales = await createUserWithEmailAndPassword(auth, correoUsuario.value, contrasenaUsuario.value);
             console.log(credenciales);
+            //Cambio
+            const usuarios = await addDoc(collectionUsers, {
+                email: correoUsuario.value,
+                name: nombre.value
+            })
+
+            // const cambio = await onAuthStateChanged(auth, (user) => {
+            //     user.uid = usuario.value;
+            // });
+
+            const usernames = await addDoc(collectionUsernames, {
+                username: usuario.value,
+            })
+            // const usernames = await addDoc(collectionUsernames, () => {
+            //     onAuthStateChanged(auth, (user) => {
+            //         if (user) {
+            //             usuario.value = user.uid;
+            //         }
+            //     });
+            // });
             window.location.href = 'formulario-registro';
+
         } catch (error) {
             console.log(error.code, errors);
             if (error?.code === 'auth/empty-name' || errors?.name?.code === 'auth/empty-name') {
