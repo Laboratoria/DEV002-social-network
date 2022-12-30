@@ -7,6 +7,9 @@
     <title>PETBLR</title>
     <link rel="stylesheet" href="style.css" />
     <script type="module" src="main.js"></script>
+    <script src="./js/router.js"></script>
+    <script src="./js/routes.js"></script>
+    <script type="module" src="./lib/index.js"></script>
   </head>
   <body>
     <main>
@@ -15,21 +18,6 @@
         <h1 class="main-logo-text" id="mainLogoText">PETBLR</h1>
       </section>
 
-      <!--Home-->
-      <section class="home" id="home">
-        <div class="home-div" id="homeDiv">
-          <a class="home-create-account-intro">
-            ¡Hola!<br />
-            Hemos pensado para tí y tu amo esta novedosa red social dónde la
-            estrella serás tú y solamente tú.
-          </a>
-          <a class="home-welcome">BIENVENID@ A PETBLR</a>
-          <a class="home-question">¿Qué quieres hacer hoy?</a>
-          <button class="home-create-account" id="navLinkCreateAccount">
-            CREAR CUENTA
-          </button>
-        </div>
-      </section>
 
       <!--email/Facebook LogIn-->
       <section class="email-facebook-page hidden" id="emailFacebookPage">
@@ -42,7 +30,7 @@
 
       <!--log in form-->
       <section class="login-section hidden" id="loginSection">
-        <form class="login-form" id="loginForm">
+        <form class="login-form" id="loginForm"
           <label for="email" class="login-form-email">Correo:</label>
           <input type="email" class="login-form-email-input" placeholder="Correo" required />
           <label for="password" class="login-form-password">Contraseña:</label>
@@ -52,7 +40,7 @@
       </section>
 
       <!--Register section-->
-      <section class="register hidden" id="register">
+      <!-- <section class="register hidden" id="register">
         <form class="register-form" id="registerForm">
           <label class="register-form-pet-name" id="registerFormPetName">NOMBRE MASCOTA</label>
           <input type="name" class="register-form-pet-name-input" id="registerFormPetNameInput" placeholder="Rudolph" required />
@@ -68,14 +56,14 @@
           <label class="register-form-repeat-psw hidden" id="registerFormRepeatPsw"> LAS CONTRASEÑAS DEBEN COINCIDIR</label>
           <button class="register-div-btn" id="registerDivBtn">REGISTRARSE</button>
         </form>
-      </section>
+      </section> -->
 
       <!--auth error-->
-      <section class="auth-error hidden" id="authError">
+      <!-- <section class="auth-error hidden" id="authError">
         <div class="auth-error-div">
           <h1 class="auth-error-text">Lo sentimos, correo en uso.</h1>
         </div>
-      </section>
+      </section> -->
 
       <!--auth funciona-->
       <section class="auth-funciona hidden" id="authFunciona">
@@ -103,6 +91,8 @@
 
       <!--Otra pag-->
       <section></section>
+
+      <div id="content"></div>
     </main>
   </body>
 </html>
