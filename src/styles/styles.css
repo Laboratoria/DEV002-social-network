@@ -567,7 +567,43 @@ main #content .formularioMascota .botonGuardar input{
     cursor: pointer;
 }
 
- /* Responsive Design */
+/* home */
+main #content .Home{
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Header */
+main #content .header{
+    width: 100%;
+    height: 20%;
+}
+
+main #content .header .headerSuperior{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+main #content .header .headerSuperior input{
+    width: 50%;
+}
+
+main #content .header .headerSuperior button{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 5%;
+}
+
+main #content .header .headerSuperior button img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
 @media screen and (min-width: 500px){
     /* Pantalla: Bienvenida */
     main #content .loading img{
