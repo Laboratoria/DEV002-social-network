@@ -139,5 +139,5 @@ export const registroUsuarioLogica = (contenedor) => {
         } catch (error) {
             console.log(error);
         }
-    })
+    });
 };

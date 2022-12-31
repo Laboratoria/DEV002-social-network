@@ -16,7 +16,6 @@ export const inicioSesionLogica = (contenedor) => {
         this.code = code;
     }
     // front-end validation        
-    // ///////////////////////////////////////////////////const user = {};
     const validateFields = () => {
         mensajeErrorCorreo2.classList.add('hide');
         mensajeErrorContrasena2.classList.add('hide');
@@ -44,7 +43,7 @@ export const inicioSesionLogica = (contenedor) => {
     };
 
     // back-end validation
-    botoninicioSesion.addEventListener(('click'), async (element) => {
+    botoninicioSesion.addEventListener(('click'), async () => {
         const errors = validateFields();
         try {
             if (Object.keys(errors).length > 0) {
@@ -55,13 +54,16 @@ export const inicioSesionLogica = (contenedor) => {
             console.log(credenciales);
             window.location.href = '/'; 
         } catch (error) {
-            //console.log(error.code);
+            console.log(error.code);
             
             if (error?.code === 'auth/empty-email' || errors?.email?.code === 'auth/empty-email') {
                 mensajeErrorCorreo2.innerHTML = 'Ingresa un correo';
                 mensajeErrorCorreo2.classList.remove('hide');// show
             } else if (error?.code === 'auth/invalid-email' || errors?.email?.code === 'auth/invalid-email') {
                 mensajeErrorCorreo2.innerHTML = 'Ingresa un correo válido. Por ejemplo: correo@dominio.ext';
+                mensajeErrorCorreo2.classList.remove('hide');// show
+            } else if (error?.code === 'auth/user-not-found' || errors?.email?.code === 'auth/user-not-found') {
+                mensajeErrorCorreo2.innerHTML = 'El correo proporcionado no está registrado. Haz clic en Regístrate';
                 mensajeErrorCorreo2.classList.remove('hide');// show
             } else {
                 mensajeErrorCorreo2.classList.add('hide');// hide
