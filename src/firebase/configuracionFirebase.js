@@ -21,14 +21,25 @@ export const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const database = getFirestore();
-export const collectionUsers = collection(database, 'users');
-export const collectionUsernames = collection(database, 'usernames');
+export const coleccionUsuarios = collection(database, 'users');
+export const coleccionNombresUsuario = collection(database, 'usernames');
 
-getDocs(collectionUsers)
+// eslint-disable-next-line max-len
+// Notas Pris: las siguientes líneas de código solo son para nuestra referencia. Despues las podemos borrar
+getDocs(coleccionUsuarios)
     .then((snapshot) => {
         const lista = [];
         snapshot.docs.forEach((doc) => {
             lista.push({ ...doc.data(), id: doc.id });
         });
         console.log(lista);
+    });
+
+getDocs(coleccionNombresUsuario)
+    .then((snapshot) => {
+        const lista = [];
+        snapshot.docs.forEach((doc) => {
+            lista.push({ ...doc.data() });
+        });
+        // console.log(lista[0].username);
     });
