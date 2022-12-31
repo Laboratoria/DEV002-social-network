@@ -48,38 +48,12 @@ main{
     width: 100vw;
 }
 
-/* main logo/ */
-main .main-logo .main-logo-img .main-welcome {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    width: 70%;
-    font-size: 6.5rem;
-    justify-content: center; 
-}
-
-main .hello-home{
-    background: none;
-    margin-bottom: 1em;
-    font-size: 2em;
-
-}
-
 /* div main */
-main .main-div{
+main .main-logo-div{
     align-items: center;
     font-size: 2rem;
     text-align: center;
     margin: 4rem;
-    
-}
-
-.main-welcome{
-    font-size: 2rem;
-    margin: 2rem;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-
 }
 
 /* Home */
@@ -108,13 +82,18 @@ main .home .home-div .home-create-account-intro {
 
 main .home-background{
     background-color: #f7e0d4;
-
 }
 
 main .home .home-question {
     font-size: 2rem;
     background: none;
     font-family: Arial, Helvetica, sans-serif;
+}
+
+/* color boton main */
+.home-div button {
+    color: var(--lightIvory);
+    font-size: 1.5rem;  
 }
 
 main .home .home-div button{
@@ -125,12 +104,6 @@ main .home .home-div button{
     width: 40rem;
     height: 5rem;
     background-color: var(--pigPink);
-}
-
-/* color boton main */
-.home-div button {
-    color: var(--lightIvory);
-    font-size: 1.5rem;  
 }
 
 main .home .home-div .home-create-account {

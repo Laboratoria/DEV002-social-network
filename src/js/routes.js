@@ -1,7 +1,8 @@
+/* eslint-disable no-unused-vars */
 const PATHS = {
-    home: {
-        path: "/",
-        template: `
+  home: {
+    path: '/',
+    template: `
             <section class="home" id="home">
                 <div class="home-div" id="homeDiv">
                     <a class="home-create-account-intro">
@@ -19,10 +20,10 @@ const PATHS = {
                 </div>
             </section>
         `,
-    },
-    signup: {
-        path: "/signup",
-        template: `
+  },
+  signup: {
+    path: '/signup',
+    template: `
             <section class="register" id="register">
                 <form class="register-form" id="registerForm">
                     <input type="name" class="register-form-pet-name-input" id="registerFormPetNameInput" placeholder="Rudolph" required />
@@ -47,16 +48,16 @@ const PATHS = {
             </section>
 
         `,
-    },
-    login: {
-        path: "/login",
-        template: `
+  },
+  login: {
+    path: '/login',
+    template: `
         <section class="email-facebook-page" id="emailFacebookPage">
-        <div class="email-facebook-div" id="emailFacebookDiv">
-          <button class="email-btn" id="emailBtn">CORREO</button>
-          <button class="facebook-btn" id="facebookBtn">FACEBOOK</button>
-        </div>
-      </section>
+            <div class="email-facebook-div" id="emailFacebookDiv">
+                <button class="email-btn" id="emailBtn">CORREO</button>
+                <button class="facebook-btn" id="facebookBtn">FACEBOOK</button>
+            </div>
+        </section>
         `,
-    }
-}
+  },
+};
