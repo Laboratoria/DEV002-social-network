@@ -3,9 +3,10 @@ import RegistroUsuario from '../pages/RegistroUsuario.js';
 import Error404 from '../pages/Error404.js';
 import FormularioRegistroMascota from '../pages/FormularioRegistroMascota.js';
 import InicioSesion from '../pages/InicioSesion.js';
+import Home from '../pages/Home.js';
 
 export const routes = {
-    '/': 'Home',
+    '/': Home,
     '/404': Error404,
     '/bienvenida': Bienvenida,
     '/inicio-sesion': InicioSesion,

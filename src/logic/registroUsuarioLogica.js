@@ -1,5 +1,6 @@
 // eslint-disable-next-line import/no-unresolved
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth } from '../firebase/configuracionFirebase.js';
 
 export const registroUsuarioLogica = (contenedor) => {
@@ -112,10 +113,10 @@ export const registroUsuarioLogica = (contenedor) => {
 
             if (errors?.passwordConfirmation?.code === 'auth/empty-confirmation-password') {
                 mensajeErrorConfirmacion.classList.remove('hide');// show
-            } else if (errors?.passwordConfirmation?.code === 'auth/weak-confirmation-password') {
+            } else if (errors?.passwordConfirmation?.code === 'auth/weak-confirmation-password' || errors?.password?.code === 'auth/weak-confirmation-password') {
                 mensajeErrorConfirmacion.innerHTML = 'Contraseña débil, ingresa al menos 6 caracteres';
                 mensajeErrorConfirmacion.classList.remove('hide');
-            } else if (errors?.passwordConfirmation?.code === 'auth/different-password') {
+            } else if (errors?.passwordConfirmation?.code === 'auth/different-password'|| errors?.password?.code === 'auth/different-password') {
                 mensajeErrorConfirmacion.innerHTML = 'Las contraseñas no coinciden';
                 mensajeErrorConfirmacion.classList.remove('hide');// show
             } else {
@@ -123,4 +124,21 @@ export const registroUsuarioLogica = (contenedor) => {
             }
         }
     });
+
+    // Registro Google
+    const botonRegistroGoogle = contenedor.querySelector('#registroGmailBtn');
+
+    botonRegistroGoogle.addEventListener('click', async () => {
+        
+        const provider = new GoogleAuthProvider();
+
+        try {
+            const credentials = await signInWithPopup(auth, provider); 
+            console.log(credentials);
+            window.location.href = 'formulario-registro';
+        } catch (error) {
+            console.log(error);
+        } 
+    });
+  
 };
