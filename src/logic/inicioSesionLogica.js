@@ -1,5 +1,6 @@
-import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth } from '../firebase/configuracionFirebase.js';
+//import { provider } from './registroUsuarioLogica.js'
 
 export const inicioSesionLogica = (contenedor) => {
     const correoInicio = contenedor.querySelector('#correoUsuarioInicio');
@@ -84,4 +85,18 @@ export const inicioSesionLogica = (contenedor) => {
         }
 
     });
-}
+
+    // Inicio de Sesión Google
+    const botonInicioGoogle = contenedor.querySelector('#inicioGmailBtn');
+
+    botonInicioGoogle.addEventListener('click', () => {
+        
+        const user = auth.currentUser;
+        console.log(user)
+        if (user) {
+            window.location.href = '/';
+        } else {
+          alert ("La cuenta no está registrada")
+        }
+    })
+};

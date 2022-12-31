@@ -2,7 +2,6 @@
 import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth } from '../firebase/configuracionFirebase.js';
-//import { registroGoogleLogica } from './registroGoogleLogica.js';
 
 export const registroUsuarioLogica = (contenedor) => {
     const nombre = contenedor.querySelector('#nombreUsuario');
@@ -130,6 +129,7 @@ export const registroUsuarioLogica = (contenedor) => {
     const botonRegistroGoogle = contenedor.querySelector('#registroGmailBtn');
 
     botonRegistroGoogle.addEventListener('click', async () => {
+        
         const provider = new GoogleAuthProvider();
 
         try {
@@ -138,6 +138,7 @@ export const registroUsuarioLogica = (contenedor) => {
             window.location.href = 'formulario-registro';
         } catch (error) {
             console.log(error);
-        }
+        } 
     });
+  
 };
