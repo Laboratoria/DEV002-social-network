@@ -1,3 +1,5 @@
+import { formularioRegistroMascotaLogica } from '../logic/formularioRegistroMascotaLogica.js';
+
 const FormularioRegistroMascota = () => {
     const contenedor = document.createElement('section');
     contenedor.classList.add('formularioMascota');
@@ -76,6 +78,7 @@ const FormularioRegistroMascota = () => {
         </div>
     `;
     contenedor.innerHTML = view;
+    formularioRegistroMascotaLogica(contenedor);
     return contenedor;
 };
 
