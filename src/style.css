@@ -1,0 +1,114 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+html {
+    font-size: 62.5%; 
+}
+
+body {
+    background-color: #492C4E;
+    font-family: 'Raleway', sans-serif;
+    color: aliceblue;
+    font-size: 1.7rem;
+}
+
+.logo-inicio-sesion {
+    display: flex;
+    justify-content: center;
+    margin: 7%;
+}
+
+.logo {
+    width: 27rem;
+    height: 27rem;
+    margin-top: 4rem;
+}
+
+.section-inicio-sesion {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.8rem;
+    margin: 1rem;
+    padding: .8rem;
+    border-radius: 10px;
+    width: 25rem;
+}
+
+button {
+    margin: 1rem;
+    padding: .8rem;
+    border-radius: 10px;
+    font-size: 1.8rem;
+}
+
+.iniciar-sesion-google {
+    width: 25rem;
+}
+
+.title {
+    font-size: 2.5rem;
+    color: aliceblue;
+    margin: 1rem;
+}
+
+.inicia-sesion-h2 {
+    font-size: 2rem;
+    color: #FFF799;
+    margin: 1.5rem 0rem 3rem 0rem;
+}
+.ingresar {
+    width: 12rem;
+    height: 4rem;
+    cursor: pointer;
+    margin: 2.5rem;
+}
+.or {
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+/* .section-inicio-sesion {
+    display: none;
+}
+
+.logo-inicio-sesion {
+    display: none;
+} */
+
+.section-register {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.gender {
+    margin: 1rem;
+}
+
+.seleccionar-genero {
+    width: 1rem;
+}
+
+.container-paises {
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+}
+
+.paises {
+    font-family: 'Raleway', sans-serif;
+    margin: 1.6rem;
+    font-size: 2rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+}
+
+.fecha-nacimiento {
+    width: 15rem;
+}
+
