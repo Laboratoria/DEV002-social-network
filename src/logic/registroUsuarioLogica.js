@@ -1,7 +1,9 @@
 // eslint-disable-next-line import/no-unresolved
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+
+import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { auth, coleccionUsuarios, coleccionNombresUsuario } from '../firebase/configuracionFirebase.js';
+import { addDoc, getDocs } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 import { GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { auth } from '../firebase/configuracionFirebase.js';
 
 export const registroUsuarioLogica = (contenedor) => {
     const nombre = contenedor.querySelector('#nombreUsuario');
@@ -16,12 +18,35 @@ export const registroUsuarioLogica = (contenedor) => {
     const mensajeErrorConfirmacion = contenedor.querySelector('#mensajeErrorConfirmacion');
     const registroCorreo = contenedor.querySelector('#registroCorreoBoton');
 
+    //Intenté usar filter() para guardar el usuario en un array y usarlo fuera de la promesa pero no pude :,D 
+    // const filter = (array, input) => array.filter(e => e.username.includes(input.toLowerCase()));
+    usuario.addEventListener("keyup", () => {
+        // console.log(usuario.value)
+        getDocs(coleccionNombresUsuario)
+            // Nota Pris: Any time you read data from the Database, you receive the data as a DataSnapshot
+            .then((snapshot) => {
+                const listaUsuarios = [];
+                snapshot.docs.forEach((documento) => {
+                    listaUsuarios.push({ ...documento.data() });
+                });
+                const usuarioEncontrado = listaUsuarios.some(el => el.username === usuario.value);
+                // console.log(usuarioEncontrado)
+                if (usuarioEncontrado) {
+                    mensajeErrorUsuario.innerHTML = 'Usuario inválido, ya está registrado';
+                    mensajeErrorUsuario.classList.remove('hide');
+                }
+                else if (!usuarioEncontrado) {
+                    mensajeErrorUsuario.innerHTML = 'Ingresa tu usuario';
+                    mensajeErrorUsuario.classList.add('hide');
+                }
+            });
+    });
+
     function UserException(message, code) {
         this.message = message;
         this.code = code;
     }
 
-    // const user = {};
     const validateFields = () => {
         mensajeErrorUsuario.classList.add('hide');
         mensajeErrorCorreo.classList.add('hide');
@@ -35,6 +60,14 @@ export const registroUsuarioLogica = (contenedor) => {
         // Name validation
         if (!nombre.value) {
             errors.name = new UserException('Ingresa tu nombre', 'auth/empty-name');
+        }
+
+        // Username validation
+        if (!usuario.value) {
+            errors.username = new UserException('Ingresa el nombre de usuario', 'auth/empty-username');
+        }
+        else if (mensajeErrorUsuario.innerHTML === 'Usuario inválido, ya está registrado') {
+            errors.username = new UserException('Usuario inválido, ya está registrado', 'auth/invalid-username');
         }
 
         // Email validation
@@ -56,7 +89,7 @@ export const registroUsuarioLogica = (contenedor) => {
             errors.passwordConfirmation = new UserException('Ingresa una contraseña', 'auth/empty-confirmation-password');
         } else if (confirmacionContrasena.value.length < 6) {
             errors.passwordConfirmation = new UserException('Contraseña débil, ingresa al menos 6 caracteres', 'auth/weak-confirmation-password');
-        } else if (contrasenaUsuario.value !== confirmacionContrasena.value){
+        } else if (contrasenaUsuario.value !== confirmacionContrasena.value) {
             errors.passwordConfirmation = new UserException('Las contraseñas no coinciden', 'auth/different-password')
         }
 
@@ -69,10 +102,27 @@ export const registroUsuarioLogica = (contenedor) => {
             if (Object.keys(errors).length > 0) {
                 throw new Error('hay errores');
             }
-
             const credenciales = await createUserWithEmailAndPassword(auth, correoUsuario.value, contrasenaUsuario.value);
             console.log(credenciales);
+            //Cambio
+            const guardarDisplayName = (valorUsuario) => updateProfile(auth.currentUser, {
+                displayName: valorUsuario,
+            });
+
+            const displayUsuario = guardarDisplayName(usuario.value);
+
+            const usuarios = await addDoc(coleccionUsuarios, {
+                email: correoUsuario.value,
+                name: nombre.value,
+                username: usuario.value,
+            })
+
+            const usernames = await addDoc(coleccionNombresUsuario, {
+                username: usuario.value,
+            })
+
             window.location.href = 'formulario-registro';
+
         } catch (error) {
             console.log(error.code, errors);
             if (error?.code === 'auth/empty-name' || errors?.name?.code === 'auth/empty-name') {
@@ -82,8 +132,21 @@ export const registroUsuarioLogica = (contenedor) => {
                 mensajeErrorNombre.classList.add('hide');
             }
 
-            if (!usuario.value) {
-                mensajeErrorUsuario.classList.remove('hide');
+            //Username
+            //-------------------------------------------------------------------------------
+            // if (!usuario.value) {
+            //     mensajeErrorUsuario.classList.remove('hide');
+            // } else {
+            //     mensajeErrorUsuario.classList.add('hide');
+            // }
+            //-------------------------------------------------------------------------------
+            if (errors?.username?.code === 'auth/empty-username') {
+                mensajeErrorUsuario.innerHTML = 'Ingresa tu nombre de usuario';
+                mensajeErrorUsuario.classList.remove('hide');// show
+            } else if (errors?.username?.code === 'auth/invalid-username') {
+                //'Usuario inválido, ya está registrado'
+                mensajeErrorUsuario.innerHTML = 'Usuario inválido, ya está registrado';
+                mensajeErrorUsuario.classList.remove('hide');// show
             } else {
                 mensajeErrorUsuario.classList.add('hide');
             }
