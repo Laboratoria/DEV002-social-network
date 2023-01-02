@@ -18,6 +18,11 @@ const FormularioRegistroMascota = () => {
                 <label>Nombre de tu mascota</label>
                 <input type="text" id="" placeholder="Sulivan">
             </div>
+            <div>
+                <label>Usuario</label>
+                <input id="idUsuario" type="text" placeholder="@elsully">
+                <p id='mensajeErrorUsuario' class='hide'>Ingresa tu usuario</p>
+            </div>
             <div class='formP2'>
                 <div class='formEdad'>
                     <label>Edad</label>

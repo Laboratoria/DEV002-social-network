@@ -14,7 +14,7 @@ const Header = () => {
                 </div>
                 <div class="matchBtnContainer">
                     <button>
-                        <img src="'../assets/heart_bco.png'" alt="ícono para ingreso a match"/>
+                        <img src='../assets/heart_bco.png' alt="ícono para ingreso a match"/>
                     </button>
                 </div>
             </div>
