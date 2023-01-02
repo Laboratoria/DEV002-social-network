@@ -402,7 +402,214 @@ main #content .error404 h3{
     font-size: 3.5vw;
 }
 
- /* Responsive Design */
+/* formulario de Registro: Mascota */
+main #content .formularioMascota{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+}
+
+main #content .formularioMascota .logo{
+    width: 100%;
+    height: 20%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main #content .formularioMascota .logo img{
+    width: 70%;
+}
+
+main #content .formularioMascota .fotoPerfil{
+    width: 100%;
+    height: 15%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main #content .formularioMascota .fotoPerfil figure{
+    width: 8rem;
+    height: 8rem;
+    border: .1rem solid var(--font-gris-claro);
+    border-radius: 50%;
+}
+
+main #content .formularioMascota .fotoPerfil figure img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    border-radius: 50%;
+}
+
+main #content .formularioMascota .fotoPerfil button{
+    border: none;
+    background-color: var(--font-gris);
+    color: var(--blanco);
+    position: absolute;
+    right: 35%;
+    width: 1.5rem;
+    height: 1.5rem;
+    border-radius: 50%;
+    font-size: 3vw;
+    cursor: pointer;
+    top: 33%;
+}
+
+main #content .formularioMascota form{
+    height: 50vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+main #content .formularioMascota form div{
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+}
+
+main #content .formularioMascota form label{
+    font-size: 3.5vw;
+    color: var(--font-gris);
+}
+
+main #content .formularioMascota form input{
+    border: 0;
+    border-bottom: .1rem solid var(--rosa);
+    margin-top: 2%;
+    padding-bottom: 0.4vh;
+    background: none;
+    font-size: 3.5vw;
+    outline: none;
+}
+
+main #content .formularioMascota form .formP2{
+    flex-direction: row;
+    display: flex;
+    justify-content: space-between;
+}
+
+main #content .formularioMascota form .formP2 .formEdad{
+    width: 20%;
+}
+
+main #content .formularioMascota form .formP2 .formDogSex{
+    width: 60%;
+    display: flex;
+    justify-content: space-between;
+}
+
+main #content .formularioMascota form .formP2 .formDogSex .sexOptions{
+    flex-direction: row;
+    width: 100%;
+}
+
+main #content .formularioMascota form .formP2 .formDogSex .sexOptions div{
+    flex-direction: row;
+    display: flex;
+}
+
+main #content .formularioMascota form .formP2 .formDogSex .sexOptions div input{
+    margin-left: 10%
+}
+
+main #content .formularioMascota form .formP3 .tallaOps{
+    flex-direction: row;
+    width: 100%;
+    justify-content: space-between;
+    margin-top: 2%;
+}
+
+main #content .formularioMascota form .formP3 .tallaOps div{
+    flex-direction: row;
+    display: flex;
+    align-items: center;
+    width: 25%;
+}
+
+main #content .formularioMascota form .formP3 .tallaOps div input{
+    margin-left: 10%;
+    margin-top: 0;
+}
+
+main #content .formularioMascota form .formP4{
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+main #content .formularioMascota form .formP4 div{
+    flex-direction: row;
+    align-items: center;
+    width: 45%;
+}
+
+main #content .formularioMascota form .formP4 div input{
+    margin-top: 0;
+    margin-right: 10%;
+}
+
+main #content .formularioMascota .botonGuardar{
+    height: 7%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+main #content .formularioMascota .botonGuardar input{
+    height: 90%;
+    width: 70%;
+    border: 0;
+    border-radius: 1rem;
+    background-color: var(--jade);
+    color: var(--blanco);
+    font-size: 3.5vw;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+/* home */
+main #content .Home{
+    width: 100vw;
+    height: 100vh;
+}
+
+/* Header */
+main #content .header{
+    width: 100%;
+    height: 20%;
+}
+
+main #content .header .headerSuperior{
+    width: 100%;
+    height: 60%;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+}
+
+main #content .header .headerSuperior input{
+    width: 50%;
+}
+
+main #content .header .headerSuperior button{
+    width: 4rem;
+    height: 4rem;
+    border-radius: 50%;
+    margin-right: 5%;
+}
+
+main #content .header .headerSuperior button img{
+    width: 100%;
+    height: 100%;
+}
+
+/* Responsive Design */
 @media screen and (min-width: 500px){
     /* Pantalla: Bienvenida */
     main #content .loading img{
