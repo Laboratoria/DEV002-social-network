@@ -593,20 +593,89 @@ main #content .header .headerSuperior{
     align-items: flex-end;
 }
 
-main #content .header .headerSuperior input{
+main #content .header .headerSuperior .logoButton{
     width: 50%;
 }
 
-main #content .header .headerSuperior button{
+main #content .header .headerSuperior .profileImage{
     width: 4rem;
     height: 4rem;
     border-radius: 50%;
     margin-right: 5%;
 }
 
-main #content .header .headerSuperior button img{
+/* main #content .header .headerSuperior .profileImage img{
     width: 100%;
     height: 100%;
+} */
+
+main #content .header .headerSuperior .dropdownMenu{
+    position: absolute;
+    border-radius: 1rem;
+    box-shadow: 0 .4rem 1rem var(--font-gris-claro);
+    background-color: var(--blanco);
+    width: 30%;
+    height: 10%;
+    right: 5%;
+    top: 4%;
+    display: none;
+}
+
+main #content .header .headerSuperior .dropdownMenu .options{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+main #content .header .headerSuperior .dropdownMenu .options input{
+    color: var(--font-gris);
+    text-decoration: none;
+    background: none;
+    width: 100%;
+    height: 25%;
+    border: none;
+    cursor: pointer;
+}
+
+main #content .header .headerSuperior .dropdownMenu .options input:hover{
+    background-color: var(--jade);
+    color: var(--blanco);
+}
+
+.blockContent{
+    display: block !important;
+}
+
+main #content .header .headerInferior{
+    height: 40%;
+    width: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+main #content .header .headerInferior .searchContainer{
+    width: 70%;
+    display: flex;
+    height: 80%;
+    align-items: center;
+}
+
+main #content .header .headerInferior .searchContainer .searcher{
+    width: 90%;
+    height: 80%;
+    border: .1rem solid var(--rosa);
+    border-radius: 1rem;
+    text-indent: .5rem;
+    outline: none;
+}
+
+main #content .header .headerInferior .searchContainer .searcherIcon{
+    width: 6%;
+    position: absolute;
+    left: 53%;
 }
 
 /* Responsive Design */
