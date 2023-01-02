@@ -11,10 +11,12 @@ const InicioSesion = () => {
             <div>
                 <label>Usuario | Correo </label>
                 <input id="correoUsuarioInicio" type="text" placeholder="@pulguitas18">
+                <p id='mensajeErrorCorreo2' class='hide'>Ingresa un correo</p>
             </div>
             <div>
                 <label>Contraseña</label>
                 <input id="contrasenaUsuarioInicio" type="password" placeholder="***********">
+                <p id='mensajeErrorContrasena2' class='hide'>Ingresa una contraseña</p>
             </div>
         </div>
         <div class="botonesInicioSesion">
