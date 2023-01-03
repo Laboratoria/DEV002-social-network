@@ -3,7 +3,7 @@ const Header = () => {
         <section class="header">
             <div class="headerSuperior">
                 <input class='logoButton' type='image' title='logo' src='../assets/tindog_logo_r.png'/>
-                <input class='profileImage' type='image' title='profile picture'/>
+                <button class='profileImage'>Foto</button>
                 <div class="dropdownMenu">
                     <div class="options">
                         <input type='submit' value='Mi perfil' />

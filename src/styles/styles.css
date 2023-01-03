@@ -602,6 +602,7 @@ main #content .header .headerSuperior .profileImage{
     height: 4rem;
     border-radius: 50%;
     margin-right: 5%;
+    border: .15rem solid var(--jade);
 }
 
 /* main #content .header .headerSuperior .profileImage img{
@@ -609,9 +610,13 @@ main #content .header .headerSuperior .profileImage{
     height: 100%;
 } */
 
+main #content .header .headerSuperior .profileImage:focus + .dropdownMenu{
+    display: block;
+}
+
 main #content .header .headerSuperior .dropdownMenu{
     position: absolute;
-    border-radius: 1rem;
+    border-radius: .5rem;
     box-shadow: 0 .4rem 1rem var(--font-gris-claro);
     background-color: var(--blanco);
     width: 30%;
@@ -630,14 +635,16 @@ main #content .header .headerSuperior .dropdownMenu .options{
     justify-content: space-evenly;
 }
 
+
 main #content .header .headerSuperior .dropdownMenu .options input{
     color: var(--font-gris);
     text-decoration: none;
     background: none;
     width: 100%;
-    height: 25%;
+    height: 27%;
     border: none;
     cursor: pointer;
+    font-size: 3vw;
 }
 
 main #content .header .headerSuperior .dropdownMenu .options input:hover{
@@ -645,38 +652,70 @@ main #content .header .headerSuperior .dropdownMenu .options input:hover{
     color: var(--blanco);
 }
 
-.blockContent{
-    display: block !important;
-}
-
 main #content .header .headerInferior{
     height: 40%;
     width: 100%;
     display: flex;
     align-items: flex-end;
+    padding: 0 5%;
 }
 
 main #content .header .headerInferior .searchContainer{
-    width: 70%;
+    width: 85%;
     display: flex;
-    height: 80%;
+    height: 85%;
     align-items: center;
 }
 
 main #content .header .headerInferior .searchContainer .searcher{
-    width: 90%;
+    width: 100%;
     height: 80%;
     border: .1rem solid var(--rosa);
-    border-radius: 1rem;
-    text-indent: .5rem;
+    border-radius: .5rem;
+    text-indent: 1rem;
     outline: none;
+    font-size: 3.7vw;
+}
+
+main #content .header .headerInferior .searchContainer .searcher:hover{
+    border: .1rem solid var(--rosa-oscuro);
 }
 
 main #content .header .headerInferior .searchContainer .searcherIcon{
-    width: 6%;
+    width: 4%;
     position: absolute;
-    left: 53%;
+    left: 74%;
 }
+
+main #content .header .headerInferior .matchBtnContainer{
+    width: 15%;
+    height: 85%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+main #content .header .headerInferior .matchBtnContainer button{
+    width: 90%;
+    height: 80%;
+    background-color: var(--rosa);
+    border: none;
+    border-radius: .5rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+main #content .header .headerInferior .matchBtnContainer button:hover{
+    background-color: var(--rosa-oscuro);
+}
+
+main #content .header .headerInferior .matchBtnContainer button img{
+    width: 60%;
+}
+
+
 
 /* Responsive Design */
 @media screen and (min-width: 500px){
@@ -748,8 +787,8 @@ main #content .header .headerInferior .searchContainer .searcherIcon{
     main #content .inicio .inicio-botones a{
         font-size: 4vw;
     }
-    
-    /* Pantalla: Registro Usuario */   
+
+    /* Pantalla: Registro Usuario */
     main #content .registro-usuario  {
         width: 50%;
         display: block;
