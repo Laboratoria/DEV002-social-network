@@ -13,9 +13,10 @@ export const home = () => {
         <div class='div-login'>
         <p>O inicia sesión con</p>
         <button type='button' class='btn-google'>
-        <img src='./images/logoGoogle1.png' id='img-google'></button>
+        <img src='./images/google.png' id='img-google'></button>
         </div>
-        </div>`;
+        </div>
+        <footer> © ️2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;
         divHome.innerHTML = viewHome;
 
     const buttonRegister = document.createElement('button');
