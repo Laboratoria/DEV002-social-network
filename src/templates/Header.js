@@ -2,15 +2,20 @@ const Header = () => {
     const view = `
         <section class="header">
             <div class="headerSuperior">
-                <input type='image' src='../assets/tindog_logo_r.png'/>
-                <button class="perfil">
-                    <img src="" alt="imagen de perfil del usuario"/>
-                </button>
+                <input class='logoButton' type='image' title='logo' src='../assets/tindog_logo_r.png'/>
+                <button class='profileImage'>Foto</button>
+                <div class="dropdownMenu">
+                    <div class="options">
+                        <input type='submit' value='Mi perfil' />
+                        <input type='submit' value='Editar perfil' />
+                        <input type='submit' value='Salir' />
+                    </div>
+                </div>
             </div>
             <div class="headerInferior">
                 <div class="searchContainer">
-                    <input type="text" placeholder="Ingresa nombre de usuario"/>
-                    <input type='image' src='../assets/search_icon.png'/>
+                    <input class='searcher' type="text" placeholder="Ingresa nombre de usuario"/>
+                    <input class='searcherIcon' type='image' src='../assets/search_icon.png'/>
                 </div>
                 <div class="matchBtnContainer">
                     <button>
