@@ -16,17 +16,19 @@ const FormularioRegistroMascota = () => {
         <form>
             <div>
                 <label>Nombre de tu mascota</label>
-                <input type="text" id="" placeholder="Sulivan">
+                <input type="text" id="nombreMascota" placeholder="Sulivan">
+                <p id='mensajeErrorNombre' class='hide'>Ingresa el nombre de tu mascota</p>
             </div>
             <div>
                 <label>Usuario</label>
-                <input id="idUsuario" type="text" placeholder="@elsully">
+                <input id="idUsuario" type="text" placeholder="elsully">
                 <p id='mensajeErrorUsuario' class='hide'>Ingresa tu usuario</p>
             </div>
             <div class='formP2'>
                 <div class='formEdad'>
                     <label>Edad</label>
-                    <input type="text" id="" placeholder="8">
+                    <input type="text" id="edadMascota" placeholder="8">
+                    <p id='mensajeErrorEdad' class='hide'>Ingresa la edad de tu mascota</p>
                 </div>
                 <div class='formDogSex'>
                     <label>Sexo</label>
@@ -40,15 +42,18 @@ const FormularioRegistroMascota = () => {
                             <input type="radio" name="dogSex" value="hembra" id="hembra">
                         </div>
                     </div>
+                    <p id='mensajeErrorSexo' class='hide'>Ingresa el sexo de tu mascota</p>
                 </div>
             </div>
             <div>
                 <label>Ubicación</label>
                 <input type="text" id="dogLocation" placeholder="México, Querétaro">
+                <p id='mensajeErrorUbicacion' class='hide'>Ingresa la ubicación de tu mascota</p>
             </div>
             <div>
                 <label>Raza</label>
-                <input type="text" id="dogRace" placeholder="Chihuahua">
+                <input type="text" id="dogBreed" placeholder="Chihuahua">
+                <p id='mensajeErrorRaza' class='hide'>Ingresa la raza de tu mascota</p>
             </div>
             <div class='formP3'>
                 <label>Tamaño | Talla</label>
