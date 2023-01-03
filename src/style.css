@@ -1,3 +1,8 @@
 body{
-    background-color: red;
+    background-color: FCF8E8;
+}
+.root{
+    display: flex;
+    flex: wrap;
+    gap: 20 px;
 }
