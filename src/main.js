@@ -2,7 +2,7 @@
 
 // import { myFunction } from './lib/index.js';
 
-// myFunction();
+// jjno myFunction();
 
 const indexRegistro = document.getElementById('containerRegister');
 const indexInicioSesion = document.getElementById('container');
