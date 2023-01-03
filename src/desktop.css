@@ -1,0 +1,48 @@
+.title {
+    font-size: 3.3rem;
+}
+
+.inicia-sesion-h2 {
+    font-size: 3rem;
+}
+
+.logo {
+    width: 30rem;
+    height: 30rem;
+}
+
+.iniciar-sesion-google {
+    margin-top: 2.5rem;
+}
+
+.logo-inicio-sesion {
+    margin: 4%;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 500px 450px;
+    padding: 1rem;
+    place-content: center;
+}
+
+.containerRegister {
+    display: grid;
+    grid-template-columns: 500px 450px;
+    padding: 1rem;
+    place-content: center;
+    display: none;
+}
+
+.inicia-sesion-h2 {
+    font-size: 2.5rem;
+    margin: 2.5rem;
+}
+
+.section-inicio-sesion {
+    margin-right: 7rem;
+}
+
+.fecha-nacimiento {
+    width: 17rem;
+}
