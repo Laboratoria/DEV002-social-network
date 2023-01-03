@@ -5,11 +5,11 @@ const Home = () => {
     const contenedor = document.createElement('section');
     contenedor.classList.add('Home');
     contenedor.innerHTML = '';
-    const view = Header``;
+    const view = Header();
     contenedor.innerHTML = view;
     const otroContenedor = document.createElement('section');
     otroContenedor.classList.add('Timeline');
-    const otroview = Timeline``;
+    const otroview = Timeline();
     otroContenedor.innerHTML = otroview;
 
     const contenedorPadre = document.createElement('section');

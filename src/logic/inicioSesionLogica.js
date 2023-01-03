@@ -16,7 +16,7 @@ export const inicioSesionLogica = (contenedor) => {
         this.message = message;
         this.code = code;
     }
-    // front-end validation        
+    // front-end validation
     const validateFields = () => {
         mensajeErrorCorreo2.classList.add('hide');
         mensajeErrorContrasena2.classList.add('hide');
@@ -53,10 +53,10 @@ export const inicioSesionLogica = (contenedor) => {
             // eslint-disable-next-line max-len
             const credenciales = await signInWithEmailAndPassword(auth, correoInicio.value, contrasenaInicio.value);
             console.log(credenciales);
-            window.location.href = '/'; 
+            window.location.href = '/';
         } catch (error) {
             console.log(error.code);
-            
+
             if (error?.code === 'auth/empty-email' || errors?.email?.code === 'auth/empty-email') {
                 mensajeErrorCorreo2.innerHTML = 'Ingresa un correo';
                 mensajeErrorCorreo2.classList.remove('hide');// show
