@@ -4,6 +4,7 @@ import Error404 from '../pages/Error404.js';
 import FormularioRegistroMascota from '../pages/FormularioRegistroMascota.js';
 import InicioSesion from '../pages/InicioSesion.js';
 import Home from '../pages/Home.js';
+import RecuperarContraseña from '../pages/RecuperarContraseña.js';
 
 export const routes = {
     '/': Home,
@@ -16,6 +17,7 @@ export const routes = {
     '/:id': 'PerfilUsuario',
     '/:id-match': 'PerfilMatch',
     '/busqueda-usuario': 'BusquedaUsuario',
+    '/recuperar-contrasena': RecuperarContraseña,
 };
 
 export const resolveRoutes = (route) => {

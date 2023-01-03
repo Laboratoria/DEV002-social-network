@@ -34,7 +34,7 @@ const InicioSesion = () => {
                 <a href="registro-usuario">Regístrate</a>
             </div>
             <div class="resetContrasena">
-                <a href="">Olvidé mi contraseña</a>
+                <a href="recuperar-contrasena">Olvidé mi contraseña</a>
             </div>
         </div>
     `;

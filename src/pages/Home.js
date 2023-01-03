@@ -10,7 +10,6 @@ const Home = () => {
     const otroContenedor = document.createElement('section');
     otroContenedor.classList.add('Timeline');
     const otroview = Timeline``;
-
     otroContenedor.innerHTML = otroview;
 
     const contenedorPadre = document.createElement('section');
