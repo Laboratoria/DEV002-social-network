@@ -10,7 +10,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Balsamiq+Sans&family=Barlow:wght@100&family=Be+Vietnam+Pro&family=Indie+Flower&family=Oswald:wght@200&family=Raleway:wght@100;400&display=swap" rel="stylesheet">  <title>Journey Mates</title>
 </head>
 <body>
-  <div class="container"> 
+  <div class="container" id="container"> 
     <figure class="logo-inicio-sesion"> 
       <img class="logo" src="./images/logo.png" alt="Imagen de un avión dando la vuelta al mundo">
     </figure>
@@ -23,15 +23,19 @@
 
     <button class="iniciar-sesion-google"> Inicia sesión con Google </button>
     <p class="or">O</p>
-    <input type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
-    <input type="password" placeholder="Contraseña" autocomplete="current-password" required> <br>
-    <button class="ingresar"> Ingresar </button>
+    <input id="email" type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
+    <input id="password" type="password" placeholder="Contraseña" autocomplete="current-password" required> <br>
+    <button class="ingresar" id="ingresar"> Ingresar </button>
+    <p>¿Aún no tienes una cuenta?</p>
+    <button class="registrate" id="registrate">Regístrate</button>
 
   </div>
   </section>
 
-  <div class="container"> 
-    <figure class="logo-inicio-sesion-2"> 
+
+  
+  <div class="containerRegister" id="containerRegister"> 
+    <figure class="logo-inicio-sesion"> 
       <img class="logo" src="./images/logo.png" alt="Imagen de un avión dando la vuelta al mundo">
     </figure>
 
@@ -45,8 +49,9 @@
     <p class="or">O</p>
 
     <input type="name" placeholder="Nombre completo" autocomplete="name" required> <br>
-    <input type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
-    
+    <input id="emailRegister" type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
+    <input id="passwordRegister" type="password" placeholder="Contraseña" autocomplete="current-password" required> <br>
+
     <div class="container-paises"> 
       <label for="paises" class="lista-paises"> País de procedencia: </label> <br>
       <select id="paises" class="paises" name="paises" required>
@@ -74,7 +79,7 @@
     <label class="seleccionar-genero" for='masculino'> Masculino </label>
     <input type="radio" name="genero" id='genero' class="seleccionar-genero" required> <br>
 
-    <button class="ingresar"> Ingresar </button>
+    <button class="ingresar" id="register-button"> Registrar </button>
 
   </section>
 

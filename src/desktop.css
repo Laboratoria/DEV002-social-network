@@ -9,8 +9,6 @@
 .logo {
     width: 30rem;
     height: 30rem;
-    margin-right: 10rem;
-    margin-top: 8rem;
 }
 
 .iniciar-sesion-google {
@@ -26,6 +24,14 @@
     grid-template-columns: 500px 450px;
     padding: 1rem;
     place-content: center;
+}
+
+.containerRegister {
+    display: grid;
+    grid-template-columns: 500px 450px;
+    padding: 1rem;
+    place-content: center;
+    display: none;
 }
 
 .inicia-sesion-h2 {
