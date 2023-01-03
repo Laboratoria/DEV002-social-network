@@ -49,8 +49,9 @@
     <p class="or">O</p>
 
     <input type="name" placeholder="Nombre completo" autocomplete="name" required> <br>
-    <input type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
-    
+    <input id="emailRegister" type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
+    <input id="passwordRegister" type="password" placeholder="Contraseña" autocomplete="current-password" required> <br>
+
     <div class="container-paises"> 
       <label for="paises" class="lista-paises"> País de procedencia: </label> <br>
       <select id="paises" class="paises" name="paises" required>
@@ -78,7 +79,7 @@
     <label class="seleccionar-genero" for='masculino'> Masculino </label>
     <input type="radio" name="genero" id='genero' class="seleccionar-genero" required> <br>
 
-    <button class="ingresar" id="ingresarRegistro"> Ingresar </button>
+    <button class="ingresar" id="register-button"> Registrar </button>
 
   </section>
 

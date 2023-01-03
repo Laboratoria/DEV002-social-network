@@ -42,5 +42,17 @@
   },
   "dependencies": {
     "firebase": "^9.15.0"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvnielx/DEV002-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/dvnielx/DEV002-social-network/issues"
+  },
+  "homepage": "https://github.com/dvnielx/DEV002-social-network#readme"
 }
