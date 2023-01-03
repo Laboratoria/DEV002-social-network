@@ -1,8 +1,54 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
 body{
-    background-color: FCF8E8;
+    background-color: #FCF8E8;
+}
+
+html{
+    min-height: 100%;
+}
+.img-logo{
+    margin-top: 35%;
+    align-items: center;
+    width: 80%;
+    height: 20vh;
+}
+#img-google{
+    width: 80%;
+    height: 5vh;
+}
+.btn-google{
+    display: flexbox;
+    position: absolute;
+    left:45%;
+    bottom: 45%;
+    background-color:white;
+    width: 10%;
+    height: 5vh;
+    border-radius: 50%;
+    align-self: center;
 }
 .root{
     display: flex;
     flex: wrap;
     gap: 20 px;
+}
+.input-login{
+    align-items: center;
+    background-color: #94B49F;
+    height: 50%;
+    width: 80%;
+}
+#btnRegister{
+    background-color: red;
+}
+#btnLogin{
+    background-color: red;
+}
+#formLogin{
+
+    align-items: center;
 }
