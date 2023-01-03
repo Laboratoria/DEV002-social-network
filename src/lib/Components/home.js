@@ -14,8 +14,6 @@ export const home = () => {
         <div class='div-login'>
         <p>O inicia sesión con</p>
         <button type='button' class='btn-google'>
-        <img src='./images/googleLogo.png' id='img-google'></button>
-        </div>`;
         <img src='./images/google.png' id='img-google'></button>
         </div>
         </div>
