@@ -669,13 +669,13 @@ main #content .recuperarContraseña .botonRecuperacion .volverInicioSesion a{
 /* home */
 main #content .Home{
     width: 100vw;
-    height: 100vh;
+    height: 20vh;
 }
 
 /* Header */
 main #content .header{
     width: 100%;
-    height: 20%;
+    height: 100%;
 }
 
 main #content .header .headerSuperior{
