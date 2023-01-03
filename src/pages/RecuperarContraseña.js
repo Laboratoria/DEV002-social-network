@@ -1,0 +1,30 @@
+import { recuperarContraseñaLogica } from '../logic/recuperarContraseñaLogica.js';
+
+const RecuperarContraseña = () => {
+    const contenedor = document.createElement('section');
+    contenedor.classList.add('recuperarContraseña');
+    const view = `
+        <div class ="imagen">
+            <img src="../assets/tindog_logo_r.png" alt="imagen de logo: tindog"/>
+        </div>
+        <div class="camposRecuperacion">
+            <label>Correo</label>
+            <input id="correoRecuperacion" type="text" placeholder="email@ejemplo.com">
+            <p id='mensajeErrorNombre' class='hide'>Ingresa tu nombre</p>
+        </div>
+        <div class="botonRecuperacion">
+            <div class="recuperarContrasena">
+                <input  id='recuperarContrasenaBtn' type="submit" value="Enviar Correo">
+            </div>
+            <div class="volverInicioSesion">
+                <p>¿Recordaste tu contraseña?</p>
+                <a href="inicio-sesion">Inicia Sesión</a>
+            </div>
+        </div>
+    `;
+    contenedor.innerHTML = view;
+    recuperarContraseñaLogica(contenedor);
+    return contenedor;
+};
+
+export default RecuperarContraseña;
