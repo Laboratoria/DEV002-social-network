@@ -5,7 +5,7 @@ test("hace click en loadRegister", () => {
         `<section class="home" id="home">
             <div class="home-div" id="homeDiv">
                 <a class="home-create-account-intro">
-                    ¡Hola!<br />
+                    <h1 class="hello-home">¡Hola!</h1>
                     Hemos pensado para tí y tu amo esta novedosa red social dónde la
                     estrella serás tú y solamente tú.
                 </a>
@@ -20,9 +20,9 @@ test("hace click en loadRegister", () => {
         </section>
         <section class="register" id="register">
             <form class="register-form" id="registerForm">
-                <input type="name" class="register-form-pet-name-input" id="registerFormPetNameInput" placeholder="Rudolph" required />
+                <input type="name" class="register-form-pet-name-input" id="registerFormPetNameInput" placeholder="Nombre de mascota" required />
                 <input type="email" class="register-form-pet-email-input" id="registerFormPetEmailInput" placeholder="hola@petblr.com" required />
-                <input type="name" class="register-form-user-name-input" id="registerFormUserNameInput" placeholder="Roberto" required />
+                <input type="name" class="register-form-user-name-input" id="registerFormUserNameInput" placeholder="Nombre de usuario" required />
                 <input type="password" class="register-form-password-input" id="registerFormPasswordInput" placeholder="CONTRASEÑA" required />
                 <label class="register-form-psw-recomendation" id="registerFormPswRecomendation">DEBE TENER MÍNIMO 6 CARÁCTERES, UNA MAYÚSCULA Y UN NÚMERO</label>
                 <input type="password" class="register-form-repeat-password-input" id="registerFormRepeatPasswordInput"placeholder="REPETIR CONTRASEÑA" required />
@@ -45,7 +45,6 @@ test("hace click en loadRegister", () => {
     const homeSignInBtn = document.getElementById('navLinkCreateAccount');
     homeSignInBtn.dispatchEvent(new Event("click"))
     const registerSection = document.getElementById('register');
-    console.log({registerSection})
 
     expect(registerSection).toBeDefined();
     // https://jestjs.io/docs/expect#tobedefined
