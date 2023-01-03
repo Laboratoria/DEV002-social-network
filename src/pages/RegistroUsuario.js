@@ -13,11 +13,11 @@ const RegistroUsuario = () => {
                 <input id="nombreUsuario" type="text" placeholder="Sharon Gizela Arana Mendoza">
                 <p id='mensajeErrorNombre' class='hide'>Ingresa tu nombre</p>
             </div>
-            <div>
+            <!--<div>
                 <label>Usuario</label>
                 <input id="idUsuario" type="text" placeholder="@elsully">
                 <p id='mensajeErrorUsuario' class='hide'>Ingresa tu usuario</p>
-            </div>
+            </div>-->
             <div>
                 <label>Correo electrónico</label>
                 <input id="correoUsuario" type="text" placeholder="sharendoza@gmail.com">
