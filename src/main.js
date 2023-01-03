@@ -49,7 +49,7 @@ btnCloseModalSI.addEventListener('click', closeModalSI);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = getAuth();
 
 //construyendo un observador de Auth 
 onAuthStateChanged(auth, (user) => {
@@ -59,6 +59,9 @@ onAuthStateChanged(auth, (user) => {
     var email =user.email;
     const uid = user.uid;
 
+    //El usuario se ha logueado
+    console.log('auth: sign in')
+
     var emailVerified=user.emailVerified;
     if(emailVerified===false){
       console.log('Email no verificado');
@@ -67,8 +70,7 @@ onAuthStateChanged(auth, (user) => {
     }
     // ...
   } else {
-    // User is signed out
-    // ...
+   console.log('auth: sign out')
   }
 });
 
