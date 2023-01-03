@@ -16,6 +16,10 @@ export const home = () => {
         <button type='button' class='btn-google'>
         <img src='./images/googleLogo.png' id='img-google'></button>
         </div>`;
+        <img src='./images/google.png' id='img-google'></button>
+        </div>
+        </div>
+        <footer> © ️2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;
         divHome.innerHTML = viewHome;
 
     const buttonRegister = document.createElement('button');
