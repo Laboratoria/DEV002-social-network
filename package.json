@@ -1,20 +1,23 @@
 {
   "name": "petblr",
   "version": "1.0.0",
-  "description": "página para mascotas",
+  "description": "Tumblr para mascotas",
   "main": "src/index.html",
   "keywords": [
     "javascript",
     "firebase",
-    "jest"
+    "jest",
+    "Petblr",
+    "petblr"
   ],
   "license": "MIT",
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
+    "eslintFix": "eslint --ext .js src/ test/ --fix",
     "stylelint": "stylelint --aei src/**/*.css",
-    "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
-    "test": "jest --coverage",
+    "precommit": "npm run htmlhint && npm run eslint && npm run stylelint",
+    "test": "jest --coverage --env=jsdom",
     "start": "serve -s src/"
   },
   "devDependencies": {
@@ -26,7 +29,9 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^25.3.0",
     "htmlhint": "^1.0.0",
-    "jest": "^27.0.1",
+    "jest": "^29.3.1",
+    "jest-environment-jsdom": "^29.3.1",
+    "jsdom": "^20.0.3",
     "regenerator-runtime": "^0.13.1",
     "serve": "^14.1.2",
     "stylelint": "^14.1.0",
@@ -41,6 +46,7 @@
     "commit": "51e941edf1cc991930aefd7dd9c406a7c43741c1"
   },
   "dependencies": {
+    "@firebase/auth": "^0.21.0",
     "firebase": "^9.15.0"
   }
 }
