@@ -49,26 +49,29 @@ btnCloseModalSI.addEventListener('click', closeModalSI);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = getAuth();
 
 //construyendo un observador de Auth 
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    var email =user.email;
-    const uid = user.uid;
+    var email = user.email;
+    const uid = user.uid;   //código único del usuario asignado por Firebase
 
-    var emailVerified=user.emailVerified;
-    if(emailVerified===false){
+    //El usuario se encuentra logueado
+    console.log('auth:sign in');
+
+    var emailVerified = user.emailVerified;
+    if (emailVerified === false) {
       console.log('Email no verificado');
-    } else{
+    } else {
       console.log('Email verificado');
     }
     // ...
   } else {
-    // User is signed out
-    // ...
+    //el suusario no se encuentra logueado
+    console.log('auth: log out')
   }
 });
 
@@ -89,13 +92,13 @@ function validarCorreo(correo) {
 
 
 
-function verificarSendingMail(){
+function verificarSendingMail() {
   sendEmailVerification(auth.currentUser)
     .then(() => {
       // Email verification sent!
       // ...
     })
-  }
+}
 
 
 //SIGN UP
@@ -111,16 +114,23 @@ signupForm.addEventListener('submit', (e) => {
     signupEmail = '';
   }
   const signupPassword = document.getElementById('idContraseñaSU').value;
-  
+
 
   //función de Firebase para registrar un usuario
 
   createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
     .then((userCredential) => {
-      
+
       const user = userCredential.user;
+
+      //actualizar los datos
+      // user.updateProfile({
+      //   displayName: nombres
+      // }) 
+
       verificarSendingMail();
-      //close the modal
+      alert('por favor verifica el buzón de tu correo para verificar tu cuenta');
+
       closeModalSU();
       signupForm.reset();
       signupForm.querySelector('.message-error').innerHTML = "";
@@ -149,20 +159,31 @@ signupForm.addEventListener('submit', (e) => {
 
 const signinForm = document.getElementById('formularioSI');
 signinForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('idCorreoSI').value;
-    const password = document.getElementById('idContraseñaSI').value;
+  e.preventDefault();
+  const email = document.getElementById('idCorreoSI').value;
+  const password = document.getElementById('idContraseñaSI').value;
 
-     signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      
+
       const user = userCredential.user;
+
+      /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del cooreo electrónico enviado */
+      if (user.emailVerified) {
+        //Materialize.toast(`Bienvenido ${user.displayName}`, 5000)
+        console.log('Bienvenid@')
+      } else {
+        auth.signOut()
+        //  Materialize.toast(`Por favor realiza la verificación de tu cuenta `, 5000)
+        console.log('Por favor realiza la verificación de tu cuenta')
+      }
+
       closeModalSI();
-      
+
       signinForm.reset();
       signinForm.querySelector('.message-error').innerHTML = "";
     })
-     .catch((error) =>{
+    .catch((error) => {
       const errorCode = error.code
       const errorMessage = error.message;
       if (errorCode === 'auth/user-not-found') {
@@ -172,17 +193,17 @@ signinForm.addEventListener('submit', (e) => {
       } else {
         signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
       }
-      });  
-     
-     console.log('signIn')
+    });
+
+  console.log('signIn')
 });
 
 //LOGOUT 
 const logout = document.getElementById('salir');
 logout.addEventListener('click', e => {
   e.preventDefault();
-  auth.signOut().then( () => {
-     console.log('sign out')
+  auth.signOut().then(() => {
+    console.log('sign out')
   })
 });
 
