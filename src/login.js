@@ -1,4 +1,6 @@
-import { HelpFormatter } from "argparse";
+import {
+  exitConsult
+} from "./firebase.js"
 
   export const login = () => {
     const $section = document.createElement("section"),
@@ -60,6 +62,13 @@ $inputSignUp.setAttribute('class','btn_signUp')
 $inputSignUp.setAttribute('id','btn_signUpId')
 $inputSignUp.setAttribute('value','SIGN UP')
 
+$divForm.addEventListener("submit", (e) => {
+  e.preventDefault();
+  const email = $divForm["emailUserId"].value
+  const password =$divForm["passwordUserId"].value
+
+  exitConsult(email,password)
+})
 
   return $section;
   };
