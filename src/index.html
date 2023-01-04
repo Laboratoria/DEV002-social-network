@@ -21,10 +21,10 @@
 
     <h2 class="inicia-sesion-h2">Inicia sesión</h2>
 
-    <button class="iniciar-sesion-google"> Inicia sesión con Google </button>
+    <img class="logo-google" id="inicio-sesion-google" src="./images/google buttons/google_signin_buttons/web/2x/1.google-button.png" alt="">
     <p class="or">O</p>
-    <input id="email" type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
-    <input id="password" type="password" placeholder="Contraseña" autocomplete="current-password" required> <br>
+    <input id="email" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
+    <input id="password" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
     <button class="ingresar" id="ingresar"> Ingresar </button>
     <p>¿Aún no tienes una cuenta?</p>
     <button class="registrate" id="registrate">Regístrate</button>
@@ -45,14 +45,15 @@
 
     <h2 class="inicia-sesion-h2">Regístrate</h2>
 
-    <button class="iniciar-sesion-google"> Regístrate con Google </button>
+    <img class="logo-google" id="registrate-google" src="./images/google buttons/google_signin_buttons/web/2x/1.google-button.png" alt="">
     <p class="or">O</p>
 
-    <input type="name" placeholder="Nombre completo" autocomplete="name" required> <br>
-    <input type="email" placeholder="Correo electrónico" autocomplete="email" required> <br>
-    
+    <input type="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
+    <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
+    <input id="passwordRegister" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
+
     <div class="container-paises"> 
-      <label for="paises" class="lista-paises"> País de procedencia: </label> <br>
+      <label for="paises" class="lista-paises"> País de procedencia * </label> <br>
       <select id="paises" class="paises" name="paises" required>
         <option value="">Elige un país</option>
         <option value="ARG">Argentina</option>
@@ -68,17 +69,17 @@
       </select> 
     </div>
 
-    <label class="fecha-nacimiento" for='fecha-nacimiento'> Fecha de nacimiento </label> <br>
+    <label class="fecha-nacimiento" for='fecha-nacimiento'> Fecha de nacimiento * </label> <br>
     <input type="date" placeholder="dd/mm/aaaa" class="fecha-nacimiento" required>
 
-    <h3 class="gender">Género</h3>
+    <h3 class="gender">Género * </h3>
     <label for='femenino'> Femenino </label>
     <input type="radio" name="genero" id='genero' class="seleccionar-genero" required>
 
     <label class="seleccionar-genero" for='masculino'> Masculino </label>
     <input type="radio" name="genero" id='genero' class="seleccionar-genero" required> <br>
 
-    <button class="ingresar" id="ingresarRegistro"> Ingresar </button>
+    <button class="ingresar" id="register-button"> Registrar </button>
 
   </section>
 

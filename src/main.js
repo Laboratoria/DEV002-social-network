@@ -1,4 +1,8 @@
+
+// Este es el punto de entrada de tu aplicacion
+
 import { registerUser } from './index.js';
+
 // myFunction();
 const indexRegistro = document.getElementById('containerRegister');
 const indexInicioSesion = document.getElementById('container');
@@ -7,6 +11,7 @@ btnRegistrate.addEventListener('click', () => {
   indexInicioSesion.style.display = "none";
   indexRegistro.style.display = "block";
 });
+
 // Obtén el botón de registro y asigna un evento click
 const registerButton = document.getElementById('register-button');
 registerButton.addEventListener('click', () => {
@@ -15,4 +20,8 @@ registerButton.addEventListener('click', () => {
   const password = document.getElementById('passwordRegister').value;
   // Llama a la función de registro
   registerUser(email, password);
+
 });
+
+
+
