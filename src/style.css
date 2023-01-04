@@ -32,6 +32,11 @@ body {
     margin-top: 4rem;
 }
 
+.logo-google {
+    width: 25rem;
+    cursor: pointer;
+}
+
 input {
     font-family: 'Raleway', sans-serif;
     font-size: 1.8rem;
@@ -108,3 +113,4 @@ button {
 .fecha-nacimiento {
     width: 15rem;
 }
+
