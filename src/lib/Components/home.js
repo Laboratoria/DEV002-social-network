@@ -7,6 +7,7 @@ export const home = () => {
         <img src='./images/logo.png' alt='logoReading' class='img-logo'>
         <form id='formLogin'> 
         <div class='input-login'>
+        <p>Inicia sesión en ReadingClub</p>
           <input type='email' id='email' placeholder='Correo@ejemplo.com'>
           <input type='password' id='password' placeholder='Contraseña'>
         </div>
