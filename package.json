@@ -22,13 +22,13 @@
     "@babel/preset-env": "^7.11.0",
     "babel-jest": "^27.0.1",
     "eslint": "^8.3.0",
-    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-airbnb-base": "^14.2.1",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^25.3.0",
     "htmlhint": "^1.0.0",
     "jest": "^27.0.1",
     "regenerator-runtime": "^0.13.1",
-    "serve": "^13.0.2",
+    "serve": "^14.1.2",
     "stylelint": "^14.1.0",
     "stylelint-config-recommended": "^6.0.0"
   },
@@ -39,5 +39,20 @@
     "createdAt": "2022-11-30T16:52:37.204Z",
     "version": "5.5.0",
     "commit": "51e941edf1cc991930aefd7dd9c406a7c43741c1"
-  }
+  },
+  "dependencies": {
+    "firebase": "^9.15.0"
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/dvnielx/DEV002-social-network.git"
+  },
+  "author": "",
+  "bugs": {
+    "url": "https://github.com/dvnielx/DEV002-social-network/issues"
+  },
+  "homepage": "https://github.com/dvnielx/DEV002-social-network#readme"
 }
