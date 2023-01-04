@@ -7,7 +7,7 @@
 
 :root{
 /* creamos "constantes" con colores, tipografia, etc. que utilizaremos en el proyecto */
---lightIvory: #f5f2eb;
+--lightIvory:#F8EDE4;
 --dogBrown: #563c2e;
 --palePink: #dcc5b6;
 --lightPink: #d7a799;
@@ -15,6 +15,7 @@
 --blue: #086680;
 --chocolate: #492319;
 --fallOrange: #a24c33;
+--fairIvory:#F7DFD3;
 --ivory: #dfcfab;
 --pigPink: #e5a5a4;
 --cherryRed: #901921;
@@ -45,12 +46,26 @@ html{
 }
 
 main{
-    width: 100vw;
+    width: 100%;
+}
+
+
+/* main logo/ */
+main .main-logo .main-logo-img {
+    /* width: 85%;  */
+    margin-top: 10%;
+    
+}
+
+main .hello-home{
+    background: none;
+    margin-bottom: 1em;
+    font-size: 2em;
 }
 
 /* div main */
-main .main-logo-div{
-    align-items: center;
+main .main-div{
+
     font-size: 2rem;
     text-align: center;
     margin: 4rem;
@@ -65,19 +80,19 @@ main .home .home-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background-color: #ffebdf;
+    background-color: var(--fairIvory);
     padding: 3em;
     margin-left: 30%;
 }
 
 main .home .home-div .home-create-account-intro {
-    width: 70%;
-    text-align: center;
+    width: 90%;
+    text-align: justify;
     margin-bottom: 3.5rem;
-    font-size: 2rem;
     font-family: Arial, Helvetica, sans-serif;
     background: none;
-    
+    color: var(--dogBrown);
+
 }
 
 main .home-background{
@@ -85,9 +100,11 @@ main .home-background{
 }
 
 main .home .home-question {
-    font-size: 2rem;
+    /* font-size: 2rem; */
     background: none;
     font-family: Arial, Helvetica, sans-serif;
+    font-weight: 600;
+    color: var(--dogBrown);
 }
 
 /* color boton main */
@@ -99,17 +116,18 @@ main .home .home-question {
 main .home .home-div button{
     cursor: pointer;
     border: none;
-    font-size: 1.5rem;
+    font-size: 1.9rem;
     border-radius: 1rem;
-    width: 40rem;
-    height: 5rem;
+    width: 20rem;
+    height: 4rem;
     background-color: var(--pigPink);
 }
 
 main .home .home-div .home-create-account {
-    margin-top: 5rem;
-    font-size: 2rem;
+    margin-top: 3rem;
+    font-size: 1.9rem;
     color: var(var(--lightIvory));
+    font-weight: 500;
 }
 
 /* email/Facebook LogIn */
@@ -139,18 +157,22 @@ main .email-facebook-page .email-facebook-div button {
     height: 5rem;
     background-color: var(--pigPink);
     border: none;
-    padding: 1.5rem;
+    padding: 1.2rem;
 }
 
 main .email-facebook-page .email-facebook-div .email-btn {
     color: var(--lightIvory);
-    margin-top: 5rem 
+    margin-top: 5rem ;
+    font-size: 1.9rem;
+
 }
 
 main .email-facebook-page .email-facebook-div .facebook-btn {
     color: var(--lightIvory);
     margin-top: 2rem;
     background-color: var(--blue);
+    font-size: 1.9rem;
+
 }
 
 /* log in form */
@@ -213,7 +235,7 @@ main .register .register-form label {
 }
 
 main .register-form-background {
-    background-color: #ffebdf;
+    background-color: var(--fairIvory);
     height: 30%;
     display: flex;
     flex-direction: column;
@@ -239,35 +261,35 @@ main .register .register-form .register-form-repeat-psw {
 
 main .register .register-form ::placeholder{
     font-size: 2rem;
-    
 }
 
 main .register .register-form input{
     outline: none;
     background: none;
     border: none;
-    border-bottom: 3px solid black;
-    font-size: 2rem;
+    border-bottom: 2px solid black;
+    /* font-size: 2rem; */
     text-indent: 1rem;
     margin-top: 1.5rem;
     color: var(--dogBrown);
-    font-family: 'Merriweather', serif;
-    width: 60rem;
-    height: 5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font: 2em sans-serif;
+    /* width: 60rem;
+    height: 5rem; */
 }
 
 main .register .register-form button{
     background: none;
     cursor: pointer;
     border: none;
-    font-size: 2rem;
+    font-size: 1.9rem;
     margin-top: 3rem;
     color: var(--lightIvory);
     border-radius: 1rem;
-    width: 40rem;
-    height: 5rem;
+    width: 20rem;
+    height: 4rem;
     background-color: var(--pigPink);
-    padding: 1.5rem;
+   
 }
 
 /* auth error */
@@ -323,12 +345,19 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     margin-top: 1rem;
 }
 
-
 /* responsive */
-
-@media screen and (min-width: 320px){
+/* 1rem=16px  16x5=80px */
+/* 5rem = 80 px */
+@media screen and (min-width: 5rem){
     .main-logo-img{
-        width: 70%;
+        width: 50%;
+    }
+}
+/* 2rem = 320 px */
+@media screen and (min-width: 20rem){
+    .main-logo-img{
+        margin-left: 5%;
+        width: 50%;
     }
 
     main .home .home-div .home-create-account-intro {
@@ -337,17 +366,10 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
 
     main .home .home-div {
         width: 100%;
-        margin-left: 20%;
+        margin: 18%;
     }
 
     main .home .home-question {
-        font-size: 1.5rem;
-    }
-
-    main .home .home-div button {
-        width: 20rem;
-        height: 4rem;
-        border-radius: 0.8rem;
         font-size: 1.5rem;
     }
 
@@ -361,18 +383,16 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
         width: 20rem;
         height: 3rem;
         border-bottom: 2px solid black;
-        font: 1em sans-serif;
+        /* font: 1em sans-serif; */
     }
 
     main .register-form-background{
         width: 30em;
-    }
-
-    main .register .register-form button{
-        width: 25rem;
-        height: 4rem;
-        border-radius: 0.8rem;
-        font-size: 1.4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--fairIvory);
+        padding: 3em;
     }
 
     ::placeholder{
@@ -384,10 +404,10 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
         font-style: italic;
     }
 }
-
-@media screen and (min-width: 480px){
+/* 30rem = 480 px */
+@media screen and (min-width: 30rem){
     .main-logo-img {
-        width: 55%;
+        width: 53%;
     }
 
     main .home .home-div .home-create-account-intro {
@@ -406,13 +426,13 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     }
 
     main .register-form-background {
-        width: 40em;
+        width: 70%;
     }
 }
-
-@media screen and (min-width: 640px){
+/* 40rem = 640 px */
+@media screen and (min-width: 40rem){
     .main-logo-img {
-        width: 58%;
+        width: 57%;
     }
 
     main .home .home-div {
@@ -437,19 +457,19 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
 
     main .register .register-form input{
         font: 2rem sans-serif;
-        width: 35rem;
+        width: 80%;
         height: 3rem;
         border-bottom: 2px solid black;
     }
 
     main .register-form-background{
-        width: 45em;
+        width: 70%em;
     }
 }
-
-@media screen and (min-width: 960px){
+/* 62rem = 992px */
+@media screen and (min-width: 62rem){
     .main-logo-img{
-        width: 57%;
+        width: 60%;
     }
     main .home .home-div {
         width: 100%;
@@ -457,7 +477,7 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     }
 
     main .register-form-background {
-        width: 55em;
+        width: 70%;
     }
 
     main .home .home-div .home-create-account-intro {
@@ -469,18 +489,19 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     }
 
     main .register .register-form input{
-        width: 40rem;
+        width: 80%;
         height: 3rem;
         border-bottom: 2px solid black;
     }
 }
-
-@media screen and (min-width: 1366px){
-    .main-logo-img{
-        width: 53%;
-    }
+/* 87rem = 1392px */
+@media screen and (min-width: 87rem){
+    main .main-logo-img{
+        width: 57%;
+        
+     } 
     main .register-form-background {
-        width: 70em;
+        width: 70em; 
     }
 
     main .home .home-div .home-create-account-intro {
@@ -494,13 +515,16 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     main .home .home-div {
         width: 70%;
         margin-left: 30%;
+        margin-top: 20em;
     }
     
     main .register .register-form input{
-        width: 55rem;
+        width: 65rem;
         height: 3rem;
         border-bottom: 2px solid black;
-        
     }
-    
-}
+} 
+
+
+
+
