@@ -3,6 +3,7 @@ import { myFunction } from './lib/index.js';
 myFunction();
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+// import { getFirestore } from "https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js";
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
@@ -49,30 +50,35 @@ btnCloseModalSI.addEventListener('click', closeModalSI);
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+const auth = getAuth();
+// Initialize Cloud Firestore and get a reference to the service
+// const fs = getFirestore(app);
 
 //construyendo un observador de Auth 
 onAuthStateChanged(auth, (user) => {
   if (user) {
     // User is signed in, see docs for a list of available properties
     // https://firebase.google.com/docs/reference/js/firebase.User
-    var email =user.email;
+    var email = user.email;
     const uid = user.uid;
+   //  El usuario se encuentra logueado 
+    console.log('auth: sign in')
 
-    var emailVerified=user.emailVerified;
-    if(emailVerified===false){
-      console.log('Email no verificado');
-    } else{
+    var emailVerified = user.emailVerified;
+    if (emailVerified === false) {
+      alert('Email no verificado');
+    } else {
       console.log('Email verificado');
     }
-    // ...
-  } else {
-    // User is signed out
-    // ...
+    
+    } else { 
+      // El usuario no se encuentra logueado
+      console.log('auth: logout') 
   }
+
+   
+
 });
-
-
 
 function validarCorreo(correo) {
   let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -89,13 +95,13 @@ function validarCorreo(correo) {
 
 
 
-function verificarSendingMail(){
+function verificarSendingMail() {
   sendEmailVerification(auth.currentUser)
     .then(() => {
       // Email verification sent!
       // ...
     })
-  }
+}
 
 
 //SIGN UP
@@ -105,22 +111,22 @@ signupForm.addEventListener('submit', (e) => {
   const valorCorreo = document.getElementById('idCorreoSU').value;
   const posiblcorreo = validarCorreo(valorCorreo)
   let signupEmail = "";
-  if (posiblcorreo === true){ 
-   signupEmail = valorCorreo;
+  if (posiblcorreo === true) {
+    signupEmail = valorCorreo;
   } else {
-   signupEmail = "";
+    signupEmail = "";
   }
   const signupPassword = document.getElementById('idContraseñaSU').value;
-  
+
 
   //función de Firebase para registrar un usuario
 
   createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
     .then((userCredential) => {
-      
+
       const user = userCredential.user;
       verificarSendingMail();
-      //close the modal
+      alert('por favor verifica su correo en su bandeja de entrada')
       closeModalSU();
       signupForm.reset();
       signupForm.querySelector('.message-error').innerHTML = "";
@@ -134,11 +140,13 @@ signupForm.addEventListener('submit', (e) => {
       if (errorCode === 'auth/email-already-in-use') {
         signupForm.querySelector('.message-error').innerHTML = 'El email ya se encuentra registrado'
       } else if (errorCode === 'auth/weak-password') {
-        signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
+        signupForm.querySelector('.message-error').innerHTML = 'La contraseña debe tener al menos 6 carácteres'
       } else {
         signupForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
       }
     });
+
+
 
   // console.log(signupEmail,signupPassword)
   console.log('signUp');
@@ -149,20 +157,27 @@ signupForm.addEventListener('submit', (e) => {
 
 const signinForm = document.getElementById('formularioSI');
 signinForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const email = document.getElementById('idCorreoSI').value;
-    const password = document.getElementById('idContraseñaSI').value;
+  e.preventDefault();
+  const email = document.getElementById('idCorreoSI').value;
+  const password = document.getElementById('idContraseñaSI').value;
 
-     signInWithEmailAndPassword(auth, email, password)
+  signInWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      
+
       const user = userCredential.user;
-      closeModalSI();
+      if(user.emailVerified){
+     alert('por favor verifica su correo en su bandeja de entrada')
+        console.log('@bienvenido')
+      }else{
+        auth.signOut()
+      }
       
+      closeModalSI();
+
       signinForm.reset();
       signinForm.querySelector('.message-error').innerHTML = "";
     })
-     .catch((error) =>{
+    .catch((error) => {
       const errorCode = error.code
       const errorMessage = error.message;
       if (errorCode === 'auth/user-not-found') {
@@ -172,17 +187,17 @@ signinForm.addEventListener('submit', (e) => {
       } else {
         signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
       }
-      });  
-     
-     console.log('signIn')
+    });
+
+  console.log('signIn')
 });
 
 //LOGOUT 
 const logout = document.getElementById('salir');
 logout.addEventListener('click', e => {
   e.preventDefault();
-  auth.signOut().then( () => {
-     console.log('sign out')
+  auth.signOut().then(() => {
+    console.log('sign out')
   })
 });
 
