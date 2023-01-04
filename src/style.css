@@ -71,6 +71,41 @@ img {
     color: var(--colorWhite);
     font-weight: bold;
 }
+/*------------------------CSS HOME----------------------------------*/
+
+.figureLogin{
+    padding: 2.2rem 2.2rem 0;
+}
+.sloganLogin{
+    display: none;
+}
+.formLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.problemInput{
+    height: 11vh;
+    background-color: var(--colorOrange);
+    display: flex;
+    flex-direction: column;
+    width: 65%;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+}
+.ContainerCat{
+    display: flex;
+    flex-direction: column;
+}
+.ContainerCat img{
+    max-width: 4.5rem;
+}
+
+
+
+
+
 
 @media screen and ((min-width: 500px)) {
     main {
