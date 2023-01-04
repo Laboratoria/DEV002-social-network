@@ -16,7 +16,7 @@ html {
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
+    position: absolute;
     margin-top: 10%;
     align-items: center;
     width: 150px;
@@ -24,18 +24,9 @@ html {
     left: 100px;
 }
 
-/* @media only screen and (max-width:1700px) {
-    .img-logo {
-        margin: 0;
-        width: 20%;
-        height: 50%;
-    }
-} */
-
-
 #img-google {
     width: 50px;
-    
+
 }
 
 .btn-google {
@@ -47,7 +38,8 @@ html {
     cursor: pointer;
     border-radius: 50%;
     margin-bottom: 100px;
-    
+    top: 210px;
+
 }
 
 .root {
@@ -66,7 +58,7 @@ html {
     height: 350px;
     width: 80%;
     left: 40px;
-    
+
 }
 
 #btnRegister {
@@ -86,7 +78,7 @@ html {
 #btnLogin {
     display: flexbox;
     position: absolute;
-    bottom: 350px;
+    bottom: 300px;
     background-color: #4AAA5F;
     cursor: pointer;
     height: 25px;
@@ -94,9 +86,13 @@ html {
     border-radius: 20px;
     margin-left: 90px;
     font-size: medium;
-
 }
 
+#btnLogin:hover,
+#btnRegister:hover,
+.btn-google:hover {
+    box-shadow: 2px 4px 4px 4px #6f7274;
+}
 #formLogin {
     align-items: center;
 }
@@ -124,5 +120,64 @@ footer {
     bottom: 0;
     width: 100%;
     height: 2.5rem;
+    text-align: center;
 
+}
+.input-login p{
+    margin-top: 5px;
+    font-size: 20px;
+    text-align: center;
+    font-weight: bold;
+
+}
+@media only screen and (min-width:600px) and (max-width:1700px) {
+    .img-logo {
+        margin-top: 0;
+        width: 30%;
+        height: 45%;
+        left: 38%;
+        bottom: 450px;
+    }
+    .input-login{
+        top: 180px;
+        left: 400px;
+        width: 50%;
+        height: 65%;
+    }
+    #email,
+    #password {
+        position: relative;
+        width: 350px;
+        margin: 10px;
+        top: 20px;
+        height: 45px;
+        font-size: large;
+}
+.div-login p{
+    font-size: 25px;
+    padding-top: 4rem;
+}
+.input-login p{
+    font-size: 35px;
+    margin-top: 15px;
+} 
+#btnLogin{
+    margin: 0;
+    left: 43%;
+    bottom: 38%;
+    height: 40px;
+    width: 250px;
+    font-size: larger;
+}
+.btn-google{
+    left: 350px;
+    top: 250px;
+}
+#btnRegister{
+   margin: 0;
+   right: 40.5%;
+   top: 82%;
+   height: 40px;
+   width: 250px;
+}
 }

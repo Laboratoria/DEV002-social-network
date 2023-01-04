@@ -3,7 +3,7 @@ export const register = () => {
     const divRegister = document.createElement('div');
     divRegister.setAttribute('class', 'container-div-register');
     const viewRegister = `
-  <img src='images/logo.png' alt='logoReading' class='img-logo-white'>
+  <img src='images/logo.png' alt='logoReading' class='img-logo'>
   <p> Crea tu cuenta </p> 
   <form id='formRegister'>
    <div class='input-register'>
