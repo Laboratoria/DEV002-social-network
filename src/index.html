@@ -1,12 +1,103 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
-</head>
-<body>
-  <script type="module" src="main.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PETBLR</title>
+    <link rel="stylesheet" href="style.css"/>
+    <script type="module" src="main.js"></script>
+    <script src="./js/router.js"></script>
+    <script src="./js/routes.js"></script>
+    <script type="module" src="./lib/index.js"></script>
+  </head>
+  <body>
+    <main>
+
+      <!--main logo-->
+      <section class="main-logo" id="mainLogo">
+        <div class="main-logo-div">
+        <img src="./Assets/logo.png"  alt="logo" class="main-logo-img" id="mainLogoImg" >
+        </div>
+      </section>
+
+      <!--email/Facebook LogIn-->
+      <section class="email-facebook-page hidden" id="emailFacebookPage">
+        <div class="email-facebook-div" id="emailFacebookDiv">
+          <button class="email-btn" id="emailBtn">CORREO </button>
+          <button class="facebook-btn" id="facebookBtn">FACEBOoOK</button>
+        </div>
+      </section>
+
+      <!--log in form-->
+      <section class="login-section hidden" id="loginSection">
+        <form class="login-form" id="loginForm">
+          <label for="email" class="login-form-email" > Correo:</label>
+          <input type="email" class="login-form-email-input" placeholder="Correo" required>
+          <label for="password" class="login-form-password">Contraseña:</label>
+          <input type="password" class="login-form-password-input" placeholder="********" required>
+          <button>INGRESAR</button>
+        </form>
+      </section>
+
+      <!--Register section-->
+      <!-- <section class="register hidden" id="register">
+        <form class="register-form" id="registerForm">
+          <div class="register-form-background">
+          <input type="name" class="register-form-pet-name-input" id="registerFormPetNameInput" placeholder="Nombre de la mascota" required>
+          <input type="email" class="register-form-pet-email-input" id="registerFormPetEmailInput" placeholder="Correo electronico" required>
+          <input type="name" class="register-form-user-name-input" id="registerFormUserNameInput" placeholder="Nombre del usuario" required>
+          <input type="password" class="register-form-password-input" id="registerFormPasswordInput" placeholder="Contraseña" required>
+          <label class="register-form-psw-recomendation" id="registerFormPswRecomendation"> DEBE TENER MÍNIMO 6 CARÁTERES, UNA MAYÚSCULA Y UN NÚMERO</label>
+          <input type="password" class="register-form-repeat-password-input" id="registerFormRepeatPasswordInput" placeholder="Repetir contraseña" required>
+          <label class="register-form-repeat-psw hidden" id="registerFormRepeatPsw">
+            LAS CONTRASEÑAS DEBEN COINCIDIR
+          </label><br>
+          <button class="register-div-btn" id="registerDivBtn">REGISTRARSE</button>
+        </div>
+        </form>
+      </section> -->
+
+      <!--auth error-->
+      <!-- <section class="auth-error hidden" id="authError">
+        <div class="auth-error-div">
+          <h1 class="auth-error-text">Lo sentimos, correo en uso.</h1>
+        </div>
+      </section> -->
+
+      <!--auth funciona-->
+      <section class="auth-funciona hidden" id="authFunciona">
+        <div class="auth-error-div">
+          <h1 class="auth-funciona-text">Funciona!</h1>
+        </div>
+      </section>
+
+      <!--Log In/Sign Up-->
+      <section class="log-in-sign-up hidden" id="logInSignUp">
+        <div class="log-in-sign-up-div" id="logInSignUpDiv">
+          <button class="nav-link-log-in" id="navLinkLogIn">INGRESAR</button>
+          <button class="nav-link-sign-up" id="navLinkSignUp">REGISTRARSE</button>
+        </div>
+      </section>
+
+      <!--Otra pag-->
+      <section>
+      </section>
+
+      <!--Otra pag-->
+      <section>
+      </section>
+
+      <!--Otra pag-->
+      <section>
+      </section>
+
+      <!--Otra pag-->
+      <section>
+      </section>
+
+      <div id="content"></div>
+    </main>
+  </body>
 </html>
