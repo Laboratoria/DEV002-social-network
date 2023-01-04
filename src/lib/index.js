@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import { registrar } from '../app/register.js';
+import '../js/routes.js';
 import { AuthAccountFacebook } from '../app/facebookrg.js';
 const ROUTER = new Router(PATHS);
 
