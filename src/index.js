@@ -30,5 +30,3 @@ export function registerUser(email, password) {
       console.error(error);
     });
 }
-
-
