@@ -1,5 +1,6 @@
 //Este es el punto de entrada de tu aplicacion
 import { registerUser } from './index.js';
+
 // myFunction();
 const indexRegistro = document.getElementById('containerRegister');
 const indexInicioSesion = document.getElementById('container');
@@ -16,4 +17,6 @@ registerButton.addEventListener('click', () => {
   const password = document.getElementById('passwordRegister').value;
   // Llama a la función de registro
   registerUser(email, password);
+
 });
+

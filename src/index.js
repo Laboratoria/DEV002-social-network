@@ -1,6 +1,7 @@
 // Importa la biblioteca de Firebase
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
 import { getAuth, createUserWithEmailAndPassword} from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyAAHfvbH9LChUrOwAbR4cydwCsmHa7Q330',
@@ -14,6 +15,7 @@ const firebaseConfig = {
 // Inicializa la aplicación de Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+
 // Crea una función para registrar usuarios
 export function registerUser(email, password) {
   createUserWithEmailAndPassword(auth, email, password)
