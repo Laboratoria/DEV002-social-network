@@ -1,8 +1,7 @@
 // Importa la biblioteca de Firebase
-import { initializeApp } from 'firebase/app';
-
-
-// Your web app's Firebase configurations
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
+import { getAuth, createUserWithEmailAndPassword} from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+// Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyAAHfvbH9LChUrOwAbR4cydwCsmHa7Q330',
   authDomain: 'usuarias-journey-mates.firebaseapp.com',
@@ -12,13 +11,12 @@ const firebaseConfig = {
   appId: '1:15257223280:web:eecc0cb646124a2f42b4b5',
   measurementId: 'G-4W8ETMYH7S',
 };
-
 // Inicializa la aplicación de Firebase
 const app = initializeApp(firebaseConfig);
-
+const auth = getAuth(app);
 // Crea una función para registrar usuarios
 export function registerUser(email, password) {
-  createUserWithEmailAndPassword(email, password)
+  createUserWithEmailAndPassword(auth, email, password)
     .then(() => {
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
@@ -29,5 +27,3 @@ export function registerUser(email, password) {
       console.error(error);
     });
 }
-
-
