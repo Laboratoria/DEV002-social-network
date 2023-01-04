@@ -60,7 +60,7 @@ const FormularioRegistroMascota = () => {
                 <div class='tallaOps'>
                     <div>
                         <label for="pequeña">Pequeña</label>
-                        <input type="radio" name="dogSize" value="pequeña" id="pequeña">
+                        <input type="radio" name="dogSize" value="pequeña" id="pequena">
                     </div>
                     <div>
                         <label for="mediana">Mediana</label>
@@ -71,6 +71,7 @@ const FormularioRegistroMascota = () => {
                         <input type="radio" name="dogSize" value="grande" id="grande">
                     </div>
                 </div>
+                <p id='mensajeErrorTalla' class='hide'>Ecoja el tamaño</p>
             </div>
             <div class='formP4'>
                 <div>
