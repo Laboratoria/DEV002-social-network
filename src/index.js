@@ -2,7 +2,7 @@
 import { initializeApp } from 'firebase/app';
 
 
-// Your web app's Firebase configuration
+// Your web app's Firebase configurations
 const firebaseConfig = {
   apiKey: 'AIzaSyAAHfvbH9LChUrOwAbR4cydwCsmHa7Q330',
   authDomain: 'usuarias-journey-mates.firebaseapp.com',
@@ -18,7 +18,7 @@ const app = initializeApp(firebaseConfig);
 
 // Crea una función para registrar usuarios
 export function registerUser(email, password) {
-  app.auth().createUserWithEmailAndPassword(email, password)
+  createUserWithEmailAndPassword(email, password)
     .then(() => {
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
