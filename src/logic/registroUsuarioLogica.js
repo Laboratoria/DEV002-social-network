@@ -1,5 +1,4 @@
 // eslint-disable-next-line import/no-unresolved
-
 import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth, coleccionUsuarios, coleccionNombresUsuario } from '../firebase/configuracionFirebase.js';
 import { addDoc, getDocs, doc, setDoc } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
@@ -266,6 +265,15 @@ export const registroUsuarioLogica = (contenedor) => {
             const credentials = await signInWithPopup(auth, provider);
             console.log(credentials);
             window.location.href = 'formulario-registro';
+            /*updateProfile(auth.currentUser, {
+                displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
+                }).then(() => {
+                // Profile updated!
+                // ...
+                }).catch((error) => {
+                // An error occurred
+                // ...
+                }); */ //probar
         } catch (error) {
             console.log(error);
         }

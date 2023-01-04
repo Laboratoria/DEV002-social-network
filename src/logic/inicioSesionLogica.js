@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { GoogleAuthProvider, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth } from '../firebase/configuracionFirebase.js';
 //import { provider } from './registroUsuarioLogica.js'
 

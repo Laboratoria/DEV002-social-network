@@ -32,7 +32,7 @@ getDocs(coleccionUsuarios)
         snapshot.docs.forEach((doc) => {
             lista.push({ ...doc.data(), id: doc.id });
         });
-        console.log(lista);
+        // console.log(lista);
     });
 
 getDocs(coleccionNombresUsuario)

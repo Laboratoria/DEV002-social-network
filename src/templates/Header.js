@@ -1,3 +1,5 @@
+import { headerLogica } from '../logic/headerLogica.js';
+
 const Header = () => {
     const view = `
         <section class="header">
@@ -8,7 +10,7 @@ const Header = () => {
                     <div class="options">
                         <input type='submit' value='Mi perfil' />
                         <input type='submit' value='Editar perfil' />
-                        <input type='submit' value='Salir' />
+                        <input type='submit' id="cerrarSesion" value='Salir' />
                     </div>
                 </div>
             </div>
@@ -25,6 +27,7 @@ const Header = () => {
             </div>
         </section>
     `;
+    // headerLogica();
     return view;
 };
 export default Header;
