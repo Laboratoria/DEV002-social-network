@@ -37,7 +37,7 @@ export const inicioSesionLogica = (contenedor) => {
             errors.password = new UserException('Ingresa una contraseña', 'auth/empty-password');
         }    else if (contrasenaInicio.value.length < 6) {
             errors.password = new UserException('Las contraseñas tienen al menos 6 caracteres', 'auth/weak-password');
-        } 
+        }
         console.log(errors.password);
 
         return errors;
@@ -69,7 +69,7 @@ export const inicioSesionLogica = (contenedor) => {
             } else {
                 mensajeErrorCorreo2.classList.add('hide');// hide
             }
-            
+
             if (error?.code === 'auth/empty-password' || errors?.password?.code === 'auth/empty-password') {
                 mensajeErrorContrasena2.innerHTML = 'Ingresa una contraseña';
                 mensajeErrorContrasena2.classList.remove('hide');// show
@@ -90,13 +90,13 @@ export const inicioSesionLogica = (contenedor) => {
     const botonInicioGoogle = contenedor.querySelector('#inicioGmailBtn');
 
     botonInicioGoogle.addEventListener('click', () => {
-        
+
         const user = auth.currentUser;
         console.log(user)
         if (user) {
             window.location.href = '/';
         } else {
-          alert ("La cuenta no está registrada")
+            alert ("La cuenta no está registrada")
         }
     })
 };

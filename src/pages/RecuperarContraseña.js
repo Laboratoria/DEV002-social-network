@@ -11,7 +11,7 @@ const RecuperarContraseña = () => {
             <div class="camposRecuperacion">
                 <label>Correo</label>
                 <input id="correoRecuperacion" type="text" placeholder="email@ejemplo.com">
-                <p id='mensajeErrorNombre' class='hide'>Ingresa tu nombre</p>
+                <p id='mensajeErrorMail' class='hide'>Ingresa tu correo</p>
             </div>
             <div class="botonRecuperacion">
                 <div class="recuperarContrasena">
