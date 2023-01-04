@@ -31,8 +31,3 @@ export function registerUser(email, password) {
       console.error(error);
     });
 }
-
-// const provider = new GoogleAuthProvider();
-
-
-
