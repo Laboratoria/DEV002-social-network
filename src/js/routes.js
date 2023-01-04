@@ -45,7 +45,7 @@ const PATHS = {
             </section>
             <section class="auth-funciona hidden" id="authFunciona">
                 <div class="auth-error-div">
-                    <h1 class="auth-funciona-text">Funciona!</h1>
+                    <h1 class="auth-funciona-text">Correo de confirmación enviado</h1>
                 </div>
             </section>
 

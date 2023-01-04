@@ -16,7 +16,7 @@ export const registrar = async (e) => {
       await sendEmailVerification(firebaseAuth.currentUser);
       document.getElementById('registerFormRepeatPsw').classList.add('hidden');
       document.getElementById('registerFormRepeatPasswordInput').classList.remove('wrongAlert');
-      document.getElementById('authFunciona').classList.remove('hidden');
+      document.getElementById('authFunciona').classList.remove('hidden')
     } else if (psw !== repeatPsw) {
       document.getElementById('registerFormRepeatPsw').classList.remove('hidden');
       document.getElementById('registerFormRepeatPasswordInput').classList.add('wrongAlert');

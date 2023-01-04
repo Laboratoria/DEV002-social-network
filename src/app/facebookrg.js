@@ -3,9 +3,7 @@ import {
   providerFacebookAuth, signInWithPopup, getAuth, FacebookAuthProvider,
 } from './firebase.js';
 
-const facebookBtn = document.getElementById('facebookBtn');
-
-function AuthAccountFacebook() {
+export function AuthAccountFacebook() {
   const auth = getAuth();
   signInWithPopup(auth, providerFacebookAuth)
     .then((result) => {
@@ -20,12 +18,12 @@ function AuthAccountFacebook() {
       const accessToken = credential.accessToken;
       console.log(`accessToken${accessToken}`);
 
-      // PLANTEAMINETO ORIGINAL, CAMBIAR CUANDO TENGA LA FUNCIONALIDAD QUE NECESITAN
-      document.getElementById('emailFacebookPage').hidden = true;
-      document.getElementById('register').classList.remove('hidden');
-      document.getElementById('registerFormRepeatPsw').classList.add('hidden');
-      document.getElementById('registerFormRepeatPasswordInput').classList.remove('wrongAlert');
-      document.getElementById('authFunciona').classList.remove('hidden');
+      // // PLANTEAMINETO ORIGINAL, CAMBIAR CUANDO TENGA LA FUNCIONALIDAD QUE NECESITAN
+      // document.getElementById('emailFacebookPage').hidden = true;
+      // document.getElementById('register').classList.remove('hidden');
+      // document.getElementById('registerFormRepeatPsw').classList.add('hidden');
+      // document.getElementById('registerFormRepeatPasswordInput').classList.remove('wrongAlert');
+      // document.getElementById('authFunciona').classList.remove('hidden');
     })
     .catch((error) => {
     // Handle Errors here.
@@ -50,5 +48,6 @@ function AuthAccountFacebook() {
       console.log(error);
     });
 }
+// const facebookBtn = document.getElementById('facebookBtn');
 
-export const registerFormFace = facebookBtn.addEventListener('click', AuthAccountFacebook);
+// export const registerFormFace = facebookBtn.addEventListener('click', AuthAccountFacebook);

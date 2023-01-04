@@ -49,6 +49,11 @@ main{
     width: 100%;
 }
 
+main .main-logo .main-logo-div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
 /* main logo/ */
 main .main-logo .main-logo-img {
@@ -235,6 +240,7 @@ main .register .register-form label {
 }
 
 main .register-form-background {
+    margin-top: 5rem;
     background-color: var(--fairIvory);
     height: 30%;
     display: flex;

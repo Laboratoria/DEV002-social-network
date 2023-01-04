@@ -1,5 +1,6 @@
 /* eslint-disable no-undef */
 import { registrar } from '../app/register.js';
+import { AuthAccountFacebook } from '../app/facebookrg.js';
 const ROUTER = new Router(PATHS);
 
 export const loadRegister = () => {
@@ -10,7 +11,8 @@ export const loadRegister = () => {
 
 export const loadLogin = () => {
   ROUTER.load('login');
-  // darle función a botón facebook y correo (HU2)
+  // const facebookBTN = document.getElementById('facebookBtn');
+  // facebookBTN.addEventListener('click', AuthAccountFacebook());
 };
 
 export const loadHome = () => {
