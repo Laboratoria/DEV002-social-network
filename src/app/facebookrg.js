@@ -48,6 +48,3 @@ export function AuthAccountFacebook() {
       console.log(error);
     });
 }
-// const facebookBtn = document.getElementById('facebookBtn');
-
-// export const registerFormFace = facebookBtn.addEventListener('click', AuthAccountFacebook);
