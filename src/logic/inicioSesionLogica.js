@@ -1,5 +1,5 @@
-import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { auth } from '../firebase/configuracionFirebase.js';
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup, getAdditionalUserInfo, deleteUser } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { auth, normalSign, googleSign } from '../firebase/configuracionFirebase.js';
 //import { provider } from './registroUsuarioLogica.js'
 
 export const inicioSesionLogica = (contenedor) => {
@@ -35,7 +35,7 @@ export const inicioSesionLogica = (contenedor) => {
         // Password validation
         if (!contrasenaInicio.value) {
             errors.password = new UserException('Ingresa una contraseña', 'auth/empty-password');
-        }    else if (contrasenaInicio.value.length < 6) {
+        } else if (contrasenaInicio.value.length < 6) {
             errors.password = new UserException('Las contraseñas tienen al menos 6 caracteres', 'auth/weak-password');
         }
         console.log(errors.password);
@@ -51,7 +51,7 @@ export const inicioSesionLogica = (contenedor) => {
                 throw new Error('hay errores');
             }
             // eslint-disable-next-line max-len
-            const credenciales = await signInWithEmailAndPassword(auth, correoInicio.value, contrasenaInicio.value);
+            const credenciales = await normalSign(correoInicio.value, contrasenaInicio.value);
             console.log(credenciales);
             window.location.href = '/';
         } catch (error) {
@@ -79,7 +79,7 @@ export const inicioSesionLogica = (contenedor) => {
             } else if (error?.code === 'auth/weak-password' || errors?.password?.code === 'auth/weak-password') {
                 mensajeErrorContrasena2.innerHTML = 'Las contraseñas tienen al menos 6 caracteres';
                 mensajeErrorContrasena2.classList.remove('hide');
-            }  else {
+            } else {
                 mensajeErrorContrasena2.classList.add('hide');// hide
             }
         }
@@ -91,13 +91,42 @@ export const inicioSesionLogica = (contenedor) => {
 
 
     botonInicioGoogle.addEventListener('click', async () => {
-        
-        const user = auth.currentUser;
-        console.log(user)
-        if (user) {
-            window.location.href = '/';
-        } else {
-          alert ("usuario null")
-        }
-    })  
+
+        var provider = new GoogleAuthProvider();
+
+        googleSign(provider)
+            .then((result) => {
+                const credenciales = getAdditionalUserInfo(result)
+                // console.log(result);
+                // console.log(credenciales)
+                // console.log(credenciales.isNewUser)
+                if (credenciales.isNewUser) {
+                    // alert('eres nuevo usuario, regístrate')
+                    const user = auth.currentUser;
+                    deleteUser(user).then(() => {
+                    window.location.href = '/registro-usuario';
+                    }).catch((error) => {
+                    });
+                } else {
+                    window.location.href = '/';
+                    // alert('usuario regitrado, te irás a Home')
+                }
+            })
+
+        // return contenedor;
+        // const user = auth.currentUser;
+        // console.log(user)
+        // if (user) {
+        //     window.location.href = '/';
+        // } else {
+        //   alert ("usuario null")
+        // }
+
+        // googleSign()
+        //     .then(() => {
+        //         window.location.href = '/';
+        //     })
+
+        // return contenedor;
+    })
 };

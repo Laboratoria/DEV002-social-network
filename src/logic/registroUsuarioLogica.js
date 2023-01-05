@@ -1,9 +1,7 @@
 // eslint-disable-next-line import/no-unresolved
-import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { auth, coleccionUsuarios2 } from '../firebase/configuracionFirebase.js';
+import { auth, coleccionUsuarios2, createUser, getCurrentUser } from '../firebase/configuracionFirebase.js';
 import { addDoc, getDocs, doc, setDoc, collection, getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 import { GoogleAuthProvider, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { getCurrentUser } from '../firebase/configuracionFirebase.js';
 
 export const registroUsuarioLogica = (contenedor) => {
     const nombre = contenedor.querySelector('#nombreUsuario');
@@ -82,8 +80,8 @@ export const registroUsuarioLogica = (contenedor) => {
             if (Object.keys(errors).length > 0) {
                 throw new Error('hay errores');
             }
-
-            const credenciales = await createUserWithEmailAndPassword(auth, correoUsuario.value, contrasenaUsuario.value);
+            //const credenciales = await createUserWithEmailAndPassword(auth, correoUsuario.value, contrasenaUsuario.value);
+            const credenciales = await createUser(correoUsuario.value, contrasenaUsuario.value);
             console.log(credenciales);
 
             const usuarios = getCurrentUser();

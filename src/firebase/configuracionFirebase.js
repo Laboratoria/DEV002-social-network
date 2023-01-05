@@ -1,7 +1,8 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
-// eslint-disable-next-line import/no-unresolved
-import { getAuth, onAuthStateChanged, signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+// eslint-disable-next-line import/no-unresolved, object-curly-newline
+import { getAuth, createUserWithEmailAndPassword, onAuthStateChanged, updateProfile, signOut, signInWithPopup, GoogleAuthProvider, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // eslint-disable-next-line import/no-unresolved, object-curly-newline
@@ -21,9 +22,22 @@ export const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const database = getFirestore();
+const provider = new GoogleAuthProvider(app);
 // export const coleccionUsuarios = collection(database, 'users');
 export const coleccionNombresUsuario = collection(database, 'usernames');
 export const coleccionUsuarios2 = collection(database, 'usuarios');
+
+// Propuesta de Pris -> Se lo podria exportar las funciones desde aqui
+// Authenticacion normal----------------------------------------------
+// eslint-disable-next-line max-len
+export const createUser = (email, password) => createUserWithEmailAndPassword(auth, email, password);
+export const normalSign = (email, password) => signInWithEmailAndPassword(auth, email, password);
+// Guardar username desde el registro de la mascota
+export const guardarDisplayName = (usernameIngresado) => updateProfile(auth.currentUser, {
+    displayName: usernameIngresado,
+});
+// Autenticacion con el popup de Google Gmail-------------------------
+export const googleSign = (providero) => signInWithPopup(auth, provider);
 
 // Get the currently signed-in user
 // The recommended way to get the current user is by setting an observer on the Auth object:
@@ -36,6 +50,7 @@ export const getCurrentUser = () => {
             // https://firebase.google.com/docs/reference/js/firebase.User
             currentUser.email = user.email;
             currentUser.uid = user.uid;
+            currentUser.displayName = user.displayName;
             // currentUser.iddoc = user.id;
         } else {
             // User is signed out
@@ -51,14 +66,14 @@ export const logOut = () => signOut(auth);
 // eslint-disable-next-line max-len
 // Notas Pris: las siguientes líneas de código solo son para nuestra referencia. Despues las podemos borrar
 
-getDocs(coleccionUsuarios)
-    .then((snapshot) => {
-        const lista = [];
-        snapshot.docs.forEach((doc) => {
-            lista.push({ ...doc.data(), id: doc.id });
-        });
-        // console.log(lista);
-    });
+// getDocs(coleccionUsuarios)
+//     .then((snapshot) => {
+//         const lista = [];
+//         snapshot.docs.forEach((doc) => {
+//             lista.push({ ...doc.data(), id: doc.id });
+//         });
+//         console.log(lista);
+//     });
 
 // eslint-disable-next-line import/no-mutable-exports
 // export const number = [];
