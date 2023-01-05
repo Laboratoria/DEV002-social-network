@@ -2,23 +2,6 @@ import { onAuthStateChanged, signOut} from 'https://www.gstatic.com/firebasejs/9
 import { auth } from '../firebase/configuracionFirebase.js';
 
 export const homeLogica = (contenedor) => {
-    // Cerrar sesion
-    const botonCerrarSesion = contenedor.querySelector('#cerrarSesion');
-    botonCerrarSesion.addEventListener('click', () => {
-        console.log('estas haciendo clic');
-        // window.location.href = 'bienvenida';
-        // auth.signOut();
-        /*signOut(auth).then(() => {
-        // Sign-out successful.
-            // sessionStorage.removeItem('token');
-            console.log('ya saliste');
-            window.location.href = 'bienvenida';
-        }).catch((error) => {
-            console.log(error);
-        // An error happened.
-        });*/
-    });
-
     // Metodo onAuthStateChanged - Obtener el usuario que ha iniciado sesión actualmente
     onAuthStateChanged(auth, (user) => {
         if (user) { // User is signed in

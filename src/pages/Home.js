@@ -1,6 +1,7 @@
 import Header from '../templates/Header.js';
 import Timeline from '../templates/timeline.js';
 import { homeLogica } from '../logic/homeLogica.js';
+import { headerLogica } from '../logic/headerLogica.js';
 
 const Home = () => {
     const contenedor = document.createElement('section');
@@ -20,7 +21,8 @@ const Home = () => {
     contenedorPadre.appendChild(otroContenedor);
 
     console.log(contenedorPadre);
-    homeLogica(contenedorPadre); // es a padre?
+    homeLogica(contenedorPadre);
+    headerLogica(contenedor);
     return contenedorPadre;
 };
 

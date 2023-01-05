@@ -265,15 +265,14 @@ export const registroUsuarioLogica = (contenedor) => {
             const credentials = await signInWithPopup(auth, provider);
             console.log(credentials);
             window.location.href = 'formulario-registro';
-            /*updateProfile(auth.currentUser, {
-                displayName: "Jane Q. User", photoURL: "https://example.com/jane-q-user/profile.jpg"
-                }).then(() => {
-                // Profile updated!
-                // ...
-                }).catch((error) => {
-                // An error occurred
-                // ...
-                }); */ //probar
+            /*
+                user.providerData.forEach((profile) => {
+                    console.log("Sign-in provider: " + profile.providerId);
+                    console.log("  Provider-specific UID: " + profile.uid);
+                    console.log("  Name: " + profile.displayName);
+                    console.log("  Email: " + profile.email);
+                    console.log("  Photo URL: " + profile.photoURL);
+                })*/
         } catch (error) {
             console.log(error);
         }
