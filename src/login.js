@@ -8,9 +8,6 @@ export const login = () => {
     $containerICoulLogin = document.createElement("div"),
     $iCouldLogin = document.createElement("h2"),
 
-
-
-
     $divContainerForm = document.createElement("div"),
     $divForm = document.createElement("form"),
     $divInput = document.createElement("div"),
@@ -20,9 +17,9 @@ export const login = () => {
     $imgCat = document.createElement("img"),
     $inputSignUpCat = document.createElement("input"),
 
-
     $divContainerSpan = document.createElement("div"),
     $spanOption = document.createElement("span"),
+
     $divContainerRegister = document.createElement("div"),
     $inputBtnGoogle = document.createElement("input"),
     $pSignUp = document.createElement("p"),
@@ -40,9 +37,7 @@ export const login = () => {
   $divForm.appendChild($divContainerCat).appendChild($imgCat);
   $divContainerCat.appendChild($inputSignUpCat);
 
-
   $section.appendChild($divContainerSpan).appendChild($spanOption);
-
 
   $section.appendChild($divContainerRegister).appendChild($inputBtnGoogle);
   $divContainerRegister.appendChild($pSignUp).appendChild($inputSignUp);
@@ -50,7 +45,7 @@ export const login = () => {
     //agregamos atributos----------------------------------------
   $section.setAttribute("class", "sectionLogin")
   $figureLogin.setAttribute("class", "figureLogin");
-  $imgLogo.setAttribute("src","img/logoSandra.png" );
+  $imgLogo.setAttribute("src","img/logoNewMe.png" );
   $imgLogo.setAttribute("alt", "Logo de la aplicacion Newme");
   $iCouldLogin.setAttribute("class", "sloganLogin");
   $iCouldLogin.textContent = 'I could you can!'
@@ -63,7 +58,7 @@ export const login = () => {
   $inputEmail.setAttribute("type", "email");
   $inputEmail.setAttribute("class", "emailUser");
   $inputEmail.setAttribute("id", "emailUserId");
-  $inputEmail.setAttribute("placeHolder", "Username");
+  $inputEmail.setAttribute("placeHolder", "example@gmail.com");
 
   $inputPassword.setAttribute("type", "password");
   $inputPassword.setAttribute("class", "passwordUser");
@@ -79,9 +74,11 @@ export const login = () => {
   $inputSignUpCat.setAttribute("name", "btn_signUpCat");
   $inputSignUpCat.setAttribute("class", "btn_signUpCat");
   $inputSignUpCat.setAttribute("id", "btn_signUpIdCat");
+  $inputSignUpCat.setAttribute("value", "SIGN UP")
 
   $divContainerSpan.setAttribute("class", "containerSpan");
   $spanOption.setAttribute("class", "option");
+  $spanOption.textContent = 'Or sign up With'
 
   $divContainerRegister.setAttribute("class", "ContainerReg")
 
@@ -90,6 +87,7 @@ export const login = () => {
   $inputBtnGoogle.setAttribute("id", "btn_googleId");
   $inputBtnGoogle.setAttribute("value", "WITH GOOGLE");
 
+  $pSignUp.setAttribute("class", "register")
   $pSignUp.textContent = "You don't have an account?"
 
   $inputSignUp.setAttribute("type", "button");

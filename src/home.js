@@ -20,7 +20,7 @@ $figureLogo.classList.add('logo'),
 $divWelcomeContainer.classList.add('welcome','logo_container'),
 $inputBtnClickHere.classList.add('btn_click'),
 
-$imgLogo.setAttribute('src','img/logoSandra.png')
+$imgLogo.setAttribute('src','img/logoNewMe.png')
 $imgLogo.setAttribute('alt', 'logo de la aplicacion')
 $h1Slogan.textContent = 'I could you can!'
 $imgCat.setAttribute('src', 'img/gato.png')
