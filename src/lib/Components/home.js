@@ -10,7 +10,6 @@ export const home = () => {
         <p>Inicia sesión en ReadingClub</p>
           <input type='email' id='email' placeholder='Correo@ejemplo.com'>
           <input type='password' id='password' placeholder='Contraseña'>
-        </div>
       </form>
         <div class='div-login'>
         <p>O inicia sesión con</p>
@@ -26,6 +25,8 @@ export const home = () => {
 
     buttonRegister.textContent = 'Crear cuenta';
     buttonLogin.textContent = 'Iniciar sesion';
+    buttonRegister.setAttribute('id', 'btnRegister')
+    buttonLogin.setAttribute('id','btnLogin')
 
     buttonRegister.addEventListener('click', () => onNavigate('/register'));
     buttonLogin.addEventListener('click', () => onNavigate('/login'));
