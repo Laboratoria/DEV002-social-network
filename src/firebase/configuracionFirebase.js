@@ -51,6 +51,15 @@ export const logOut = () => signOut(auth);
 // eslint-disable-next-line max-len
 // Notas Pris: las siguientes líneas de código solo son para nuestra referencia. Despues las podemos borrar
 
+getDocs(coleccionUsuarios)
+    .then((snapshot) => {
+        const lista = [];
+        snapshot.docs.forEach((doc) => {
+            lista.push({ ...doc.data(), id: doc.id });
+        });
+        // console.log(lista);
+    });
+
 // eslint-disable-next-line import/no-mutable-exports
 // export const number = [];
 

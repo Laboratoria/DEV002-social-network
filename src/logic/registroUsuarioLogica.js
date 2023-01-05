@@ -1,5 +1,4 @@
 // eslint-disable-next-line import/no-unresolved
-
 import { createUserWithEmailAndPassword, updateProfile, onAuthStateChanged } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth, coleccionUsuarios2 } from '../firebase/configuracionFirebase.js';
 import { addDoc, getDocs, doc, setDoc, collection, getFirestore } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
@@ -159,6 +158,14 @@ export const registroUsuarioLogica = (contenedor) => {
             const credentials = await signInWithPopup(auth, provider);
             console.log(credentials);
             window.location.href = 'formulario-registro';
+            /*
+                user.providerData.forEach((profile) => {
+                    console.log("Sign-in provider: " + profile.providerId);
+                    console.log("  Provider-specific UID: " + profile.uid);
+                    console.log("  Name: " + profile.displayName);
+                    console.log("  Email: " + profile.email);
+                    console.log("  Photo URL: " + profile.photoURL);
+                })*/
         } catch (error) {
             console.log(error);
         }

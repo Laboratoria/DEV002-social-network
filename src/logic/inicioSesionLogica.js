@@ -1,4 +1,4 @@
-import { GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { GoogleAuthProvider, signInWithEmailAndPassword, signInWithPopup } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth } from '../firebase/configuracionFirebase.js';
 //import { provider } from './registroUsuarioLogica.js'
 
@@ -89,14 +89,15 @@ export const inicioSesionLogica = (contenedor) => {
     // Inicio de Sesión Google
     const botonInicioGoogle = contenedor.querySelector('#inicioGmailBtn');
 
-    botonInicioGoogle.addEventListener('click', () => {
 
+    botonInicioGoogle.addEventListener('click', async () => {
+        
         const user = auth.currentUser;
         console.log(user)
         if (user) {
             window.location.href = '/';
         } else {
-            alert ("La cuenta no está registrada")
+          alert ("usuario null")
         }
-    })
+    })  
 };
