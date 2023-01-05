@@ -16,7 +16,7 @@ export const inicioSesionLogica = (contenedor) => {
         this.message = message;
         this.code = code;
     }
-    // front-end validation        
+    // front-end validation
     const validateFields = () => {
         mensajeErrorCorreo2.classList.add('hide');
         mensajeErrorContrasena2.classList.add('hide');
@@ -37,7 +37,7 @@ export const inicioSesionLogica = (contenedor) => {
             errors.password = new UserException('Ingresa una contraseña', 'auth/empty-password');
         }    else if (contrasenaInicio.value.length < 6) {
             errors.password = new UserException('Las contraseñas tienen al menos 6 caracteres', 'auth/weak-password');
-        } 
+        }
         console.log(errors.password);
 
         return errors;
@@ -53,10 +53,10 @@ export const inicioSesionLogica = (contenedor) => {
             // eslint-disable-next-line max-len
             const credenciales = await signInWithEmailAndPassword(auth, correoInicio.value, contrasenaInicio.value);
             console.log(credenciales);
-            window.location.href = '/'; 
+            window.location.href = '/';
         } catch (error) {
             console.log(error.code);
-            
+
             if (error?.code === 'auth/empty-email' || errors?.email?.code === 'auth/empty-email') {
                 mensajeErrorCorreo2.innerHTML = 'Ingresa un correo';
                 mensajeErrorCorreo2.classList.remove('hide');// show
@@ -69,7 +69,7 @@ export const inicioSesionLogica = (contenedor) => {
             } else {
                 mensajeErrorCorreo2.classList.add('hide');// hide
             }
-            
+
             if (error?.code === 'auth/empty-password' || errors?.password?.code === 'auth/empty-password') {
                 mensajeErrorContrasena2.innerHTML = 'Ingresa una contraseña';
                 mensajeErrorContrasena2.classList.remove('hide');// show
@@ -88,6 +88,7 @@ export const inicioSesionLogica = (contenedor) => {
 
     // Inicio de Sesión Google
     const botonInicioGoogle = contenedor.querySelector('#inicioGmailBtn');
+
 
     botonInicioGoogle.addEventListener('click', async () => {
         
