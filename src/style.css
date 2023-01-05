@@ -74,7 +74,7 @@ img {
 /*------------------------CSS HOME----------------------------------*/
 
 .figureLogin{
-    padding: 2.2rem 2.2rem 0;
+    padding: 2rem 3rem 0;
 }
 .sloganLogin{
     display: none;
@@ -85,27 +85,77 @@ img {
     align-items: center;
 }
 .problemInput{
-    height: 11vh;
     background-color: var(--colorOrange);
+    width: 55%;
+    height: 13vh;
     display: flex;
     flex-direction: column;
-    width: 65%;
     align-items: center;
     justify-content: space-evenly;
     border-radius: 20px;
+    margin-top: 4vh;
+}
+.emailUser{
+    width: 85%;
+    height: 4vh;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+.passwordUser{
+    width: 85%;
+    height: 4vh;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;    
+}
+::placeholder{
+    text-align: center;
 }
 .ContainerCat{
+    width: 100%;
     display: flex;
     flex-direction: column;
+    margin-top: 10vh;
+    align-items: center;
+}
+.btn_signUpCat{
+    background-color: #ff9f00;
+    width: 35%;
+    height: 3.5vh;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;   
 }
 .ContainerCat img{
     max-width: 4.5rem;
 }
-
-
-
-
-
+.containerSpan{
+    text-align: center;
+    margin-top: 7vh;
+}
+.option{
+    color: white;
+    font-size: 0.7rem;
+    font-family: system-ui;
+}                   
+.ContainerReg{
+    margin-top: 7vh;
+    text-align: center;
+}
+.btn_google{
+    height: 4vh;
+    width: 40%;
+    background: #ff9f00;
+    color: white;
+    border: none;
+    border-radius: 20px;
+}                   
+.register{
+    color: white;
+    font-size: 0.85rem;
+    font-family: system-ui;
+}
 
 @media screen and ((min-width: 500px)) {
     main {
