@@ -1,4 +1,6 @@
-import { auth, sendPasswordResetEmail } from '../firebase/configuracionFirebase.js';
+import { auth, } from '../firebase/configuracionFirebase.js';
+import { sendPasswordResetEmail } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+
 
 export const recuperarContraseñaLogica = (contenedor) => {
     const recuperarContrasenaBtn = contenedor.querySelector('#recuperarContrasenaBtn');
@@ -36,7 +38,7 @@ export const recuperarContraseñaLogica = (contenedor) => {
             if (Object.keys(errors).length > 0) {
                 throw new Error('hay errores');
             }
-            await auth.sendPasswordResetEmail(auth, correoRecuperacionInput.value)
+            await sendPasswordResetEmail(auth, correoRecuperacionInput.value)
             inputContainer.classList.add('hide');
             messageContainer.classList.remove('hide');
         } catch (error) {
