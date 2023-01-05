@@ -140,13 +140,13 @@ img {
     font-family: system-ui;
 }                   
 .ContainerReg{
-    margin-top: 7vh;
     text-align: center;
 }
 .btn_google{
+    background: #ff9f00;
     height: 4vh;
     width: 40%;
-    background: #ff9f00;
+    margin-top: 5vh;
     color: white;
     border: none;
     border-radius: 20px;
@@ -154,6 +154,15 @@ img {
 .register{
     color: white;
     font-size: 0.85rem;
+    font-family: system-ui;
+}
+.btn_signUp{
+    background: none;
+    border: none;
+    color: #f2a339;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bolder;
     font-family: system-ui;
 }
 
