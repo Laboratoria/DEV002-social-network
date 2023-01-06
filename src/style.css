@@ -221,8 +221,7 @@ img {
         top: 30vh;
         left: -14vw;
     }
-
-    figure::after {
+    .logo::after {
         position: absolute;
         content: "";
         background-image: url("img/Vector\ 4.png");
@@ -233,7 +232,7 @@ img {
         left: -10vw;
     }
 
-    figure::before {
+    .logo::before {
         position: absolute;
         content: "";
         background-image: url(img/Vector\ 5.png);
@@ -266,5 +265,23 @@ img {
     .welcome {
         padding: 0 14rem 0 0;
     }
+
+    .sectionLogin{
+        display: flex;
+        align-items: center;
+    }
+
+    .sectionLogin .logoNewM, .containerF {
+        width: 50%;
+    }
+    .sloganLogin{
+        display: block;
+        text-align: center;
+    }
+
+
+
+
 }
+
 
