@@ -11,14 +11,16 @@ import './app/facebookrg.js';
 //importamos las funciones que estamos creando en cada carpeta de los componentes para que se encuentren disponibles y se puedan renderizar
 import { Home } from './components/Home.js';
 import { Signup } from './components/Signup.js';
-import { Login } from './components/Login.js'
+import { Login } from './components/Login.js';
+import { Feed } from './components/Feed.js';
 
 const rootDiv = document.getElementById('root');
 
 const routes = {
     '/': Home,
     '/signup': Signup,
-    '/login': Login
+    '/login': Login,
+    '/feed': Feed
 };
 
 export const onNavigate = (pathname) => {
