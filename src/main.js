@@ -10,14 +10,27 @@ import './app/facebookrg.js';
 // construimos una variable routes que contiene un objeto el cuál contiene las rutas que debe renderizar, vamos a buscar que renderice nuestras variables con un template string
 //importamos las funciones que estamos creando en cada carpeta de los componentes para que se encuentren disponibles y se puedan renderizar
 import { Home } from './components/Home.js';
-import { Signup } from './components/Signup.js'
+import { Signup } from './components/Signup.js';
+import { Login } from './components/Login.js'
 
 const rootDiv = document.getElementById('root');
 
 const routes = {
     '/': Home,
-    '/signup': Signup
-    // '/login': Login
+    '/signup': Signup,
+    '/login': Login
+};
+
+export const onNavigate = (pathname) => {
+    window.history.pushState(
+        {state:pathname},
+        pathname,
+        window.location.origin + pathname
+    );
+    while(root.firstChild){
+        root.removeChild(root.firstChild);
+    }
+    root.appendChild(routes[pathname]());
 };
 
 const component = routes[window.location.pathname];
