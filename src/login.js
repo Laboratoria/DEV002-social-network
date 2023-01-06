@@ -19,9 +19,9 @@ export const login = () => {
     $spanOption = document.createElement("span"),
     $divContainerRegister = document.createElement("div"),
     $inputBtnGoogle = document.createElement("input"),
+    $figureGoogle = document.createElement("figure"),
     $imgGoogle = document.createElement("img"),
-    $pSignUp = document.createElement("p"),
-    $inputSignUp = document.createElement("input");
+    $pSignUp = document.createElement("p")
 
   //agregamos HTML semantico------------------------------------
 
@@ -41,10 +41,10 @@ export const login = () => {
   $section.appendChild($divContainerSpan).appendChild($spanOption);
 
   $section.appendChild($divContainerRegister);
-  $divContainerRegister.appendChild($inputBtnGoogle).appendChild($imgGoogle);
+  $divContainerRegister.appendChild($figureGoogle).appendChild($imgGoogle);
+  $divContainerRegister.appendChild($inputBtnGoogle);
   $divContainerRegister.appendChild($pSignUp);
-  $divContainerRegister.appendChild($inputSignUp);
-  
+
   //agregamos atributos----------------------------------------
   $section.setAttribute("class", "sectionLogin");
   $figureLogin.setAttribute("class", "figureLogin");
@@ -87,17 +87,16 @@ export const login = () => {
 
   $inputBtnGoogle.setAttribute("type", "button");
   $inputBtnGoogle.setAttribute("class", "btn_google");
-  $imgGoogle.setAttribute("src", "img/LogoGoogle.png");
+  $figureGoogle.setAttribute("class", "log_google")
+  $imgGoogle.setAttribute("src", "img/imgGoogle.png");
   $inputBtnGoogle.setAttribute("id", "btn_googleId");
   $inputBtnGoogle.setAttribute("value", "WITH GOOGLE");
 
   $pSignUp.setAttribute("class", "register");
-  $pSignUp.textContent = "You don't have an account?";
-
-  $inputSignUp.setAttribute("type", "button");
-  $inputSignUp.setAttribute("class", "btn_signUp");
-  $inputSignUp.setAttribute("id", "btn_signUpId");
-  $inputSignUp.setAttribute("value", "SIGN UP");
+  $pSignUp.innerHTML = `
+  You don't have an account?
+  <input type="button" class="btn_signUp" id="btn_signUpId" value="SIGN UP">
+  `
 
   $divForm.addEventListener("submit", (e) => {
     e.preventDefault();
