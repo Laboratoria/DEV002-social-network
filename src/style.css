@@ -133,24 +133,52 @@ img {
 .containerSpan{
     text-align: center;
     margin-top: 7vh;
+    position: relative;
 }
 .option{
     color: white;
     font-size: 0.7rem;
     font-family: system-ui;
-}                   
+} 
+.option::before,
+.option::after{
+    content: "";
+    display: block;
+    width: 30%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+} 
+
+.option:before{
+    right: 0;
+    top: 10px;
+    margin-right: 15px;
+}
+.option::after{
+    top: 10px;
+    margin-left: 15px;
+}
 .ContainerReg{
     text-align: center;
+    position: relative;
 }
 .btn_google{
     background: #ff9f00;
     height: 4vh;
-    width: 40%;
+    width: 46%;
     margin-top: 5vh;
     color: white;
     border: none;
     border-radius: 20px;
-}                   
+} 
+.log_google img{
+    position: absolute;
+    width: 1.8rem;
+    height: auto;
+    left: 29%;
+    top: 45px;
+}                  
 .register{
     color: white;
     font-size: 0.85rem;
@@ -239,3 +267,4 @@ img {
         padding: 0 14rem 0 0;
     }
 }
+
