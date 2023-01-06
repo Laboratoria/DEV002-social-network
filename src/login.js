@@ -16,6 +16,7 @@ export const login = () => {
     $divContainerCat = document.createElement("div"),
     $imgCat = document.createElement("img"),
     $inputSignUpCat = document.createElement("input"),
+    $inputForgotP = document.createElement('input'),
     $divContainerSpan = document.createElement("div"),
     $spanOption = document.createElement("span"),
     $divContainerRegister = document.createElement("div"),
@@ -40,6 +41,8 @@ export const login = () => {
   $divInput.appendChild($inputPassword);
   $divForm.appendChild($divContainerCat).appendChild($imgCat);
   $divContainerCat.appendChild($inputSignUpCat);
+  $divContainerCat.appendChild($inputForgotP);
+
 
   $divContainerF.appendChild($divContainerSpan).appendChild($spanOption);
 
@@ -84,6 +87,11 @@ export const login = () => {
   $inputSignUpCat.setAttribute("class", "btn_signUpCat");
   $inputSignUpCat.setAttribute("id", "btn_signUpIdCat");
   $inputSignUpCat.setAttribute("value", "SIGN UP");
+
+  $inputForgotP.setAttribute("type", "submit");
+  $inputForgotP.setAttribute("class", "forgotP");
+  $inputForgotP.setAttribute("id", "forgotP");
+  $inputForgotP.setAttribute("value", "I forgot my password")
 
   $divContainerSpan.setAttribute("class", "containerSpan");
   $spanOption.setAttribute("class", "option");

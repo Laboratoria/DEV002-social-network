@@ -267,20 +267,83 @@ img {
     }
 
     .sectionLogin{
+        width: 63%;
         display: flex;
+        justify-content: center;
         align-items: center;
     }
 
-    .sectionLogin .logoNewM, .containerF {
-        width: 50%;
+     .logoNewM{
+        margin: 0px;
+        width: 65%;
+        padding: 0px;
     }
+
+    .figureLogin img{
+        width: 80%;
+        padding: 2rem 3rem 1rem 0;
+        margin: 0px;
+    }
+
     .sloganLogin{
         display: block;
-        text-align: center;
+        text-align: start;
+        font-family: var(--fFamilyOleo);
+        margin: 0;
+        font-size: 3.2rem;
+        line-height: 1;
+        color: var(--colorWhite);
+        padding: 0 5.5rem;
+        margin-bottom: 3rem;
     }
 
+    .containerF{
+        width: 40%;
+        height: 80vh;
+        border: 1px solid white;
+    }
 
+   .containerFormLogin{
+        margin-top: 5vh;
+   }
 
+   .forgotP{
+        background-color: transparent;
+        color: white;
+        border: none;
+        margin-top: 5vh;
+        font-family: system-ui;
+        font-weight: bolder;
+        cursor: pointer;
+   }
+
+   .problemInput{
+        background-color: transparent;
+        width: 76%;
+   }
+
+   .emailUser, .passwordUser{
+        height: 5vh;
+   }
+
+   .containerSpan{
+        margin-top: 3vh;
+   }
+
+   .ContainerReg{
+        margin-top: 4vh;
+   }
+
+   .btn_google{
+        height: 5vh;
+        font-weight: bolder;
+   }
+
+   .log_google img{
+        width: 1.5rem;
+        left: 23%;
+        top: 40px;
+   }
 
 }
 
