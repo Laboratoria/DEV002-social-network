@@ -321,7 +321,20 @@ main .auth-funciona .auth-error-div{
 
 main .auth-funciona .auth-error-div .auth-funciona-text{
     font-size: 2rem;
-    margin-top: 2rem;
+    margin-top: 3rem;
+}
+
+main .auth-funciona .auth-error-div .email-confirmation-done-btn {
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 1.9rem;
+    margin-top: 1.5rem;
+    color: var(--lightIvory);
+    border-radius: 1rem;
+    width: 20rem;
+    height: 4rem;
+    background-color: var(--pigPink);
 }
 
 /* Log In/Sign Up */

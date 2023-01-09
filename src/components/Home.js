@@ -25,20 +25,8 @@ export const Home = () => {
         </section>
     `
     HomeDiv.innerHTML = template 
-    // al Div debemos crearle los eventos querySelector.
     HomeDiv.querySelector('#navLinkCreateAccount').addEventListener('click', () => onNavigate('/signup'));
     HomeDiv.querySelector('#navLinkLogin').addEventListener('click', () => onNavigate('/login'))
 
-    // //se crean los botones y le damos de una vez el texto que vamos a mostrar
-    
-    // const buttonRegister = document.createElement ('button');
-    // buttonRegister.textContent= 'inicia sesión';
-
-    // const buttonLogin = document.createElement ('button');
-    // buttonLogin.textContent= 'Regístrate'; 
-
-    // para poder retornar los botones en un sólo div (empacamos en una "caja")
-   //div.append(buttonRegister,buttonLogin);
-   //retornamos los botones que metimos en el div
     return HomeDiv;
 }
