@@ -39,9 +39,11 @@ export const onNavigate = (pathname) => {
     root.appendChild(routes[pathname]());
 };
 
-const component = routes[window.location.pathname];
-// Crear una función para que recargue y le diga al navedador de dónde partir
-//debemos resetear el contenido del router.
-rootDiv.innerHTML = ""
+function render() {
+   const component = routes[window.location.pathname];
+    rootDiv.replaceChildren (component());
+}
 
-rootDiv.appendChild(component());
+
+window.addEventListener('popstate', render);  
+window.addEventListener('load', render) 
