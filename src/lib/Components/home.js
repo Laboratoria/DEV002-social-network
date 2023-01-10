@@ -1,4 +1,5 @@
 import { onNavigate } from "../../main.js";
+import { signUp, signInGoogle } from '../router.js';
 
 export const home = () => {
     const divHome = document.createElement('div');
@@ -8,8 +9,8 @@ export const home = () => {
         <form id='formLogin'> 
         <div class='input-login'>
         <p>Inicia sesión en ReadingClub</p>
-          <input type='email' id='email' placeholder='Correo@ejemplo.com'>
-          <input type='password' id='password' placeholder='Contraseña'>
+          <input type='email' id='email' placeholder='Correo@ejemplo.com'required>
+          <input type='password' id='password' placeholder='Contraseña'required>
       </form>
         <div class='div-login'>
         <p>O inicia sesión con</p>
@@ -17,7 +18,7 @@ export const home = () => {
         <img src='./images/google.png' id='img-google'></button>
         </div>
         </div>
-        <footer> © 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;
+        <footer> © ️2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;
         divHome.innerHTML = viewHome;
 
     const buttonRegister = document.createElement('button');
@@ -33,6 +34,16 @@ export const home = () => {
 
     divHome.appendChild(buttonRegister);
     divHome.appendChild(buttonLogin);
+
+    const btnLogin = divHome.querySelector('.btn-google')
+    btnLogin.addEventListener('click', () => {
+        signInGoogle(onNavigate);
+    });
+
+    divHome.append(
+        btnLogin
+    );
+
 
     return divHome;
 }
