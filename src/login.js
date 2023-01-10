@@ -1,4 +1,5 @@
 import { exitConsult, authGoogle } from "./firebase.js";
+import { surfing } from "./main.js";
 
 export const login = () => {
   const $section = document.createElement("section"),
@@ -123,5 +124,12 @@ export const login = () => {
   $inputBtnGoogle.addEventListener("click", async () => {
     await authGoogle();
   });
+
+  $pSignUp.addEventListener("click", () => {
+    surfing("/register");
+})
+
   return $section;
+
+  
 };

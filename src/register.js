@@ -1,4 +1,4 @@
-
+import { surfing } from "./main.js";
 
 export const form = () => {
     const $sectionF = document.createElement("section"),
@@ -125,8 +125,9 @@ export const form = () => {
     $inputBtnGoogleF.setAttribute("id", "btn_googleId");
     $inputBtnGoogleF.setAttribute("value", "WITH GOOGLE");
 
-
-    
+    $btnBack.addEventListener("click", () => {
+    surfing("/login");
+})
 
 
     
