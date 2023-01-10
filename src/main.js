@@ -2,11 +2,13 @@
 
 // import { myFunction } from './lib/index.js';
 import {login} from './login.js';
-import {home} from './home.js'
+import {home} from './home.js';
+import{form} from './register.js'
 
 const routes = {
     "/" :  home,             //objeto que contiene las direcciones
-    "/login": login
+    "/login": login,
+    "/register": form
 }
 
 export const surfing = (pathname, archivoNuevo = routes) => {

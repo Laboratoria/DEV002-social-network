@@ -193,6 +193,63 @@ img {
     font-weight: bolder;
     font-family: system-ui;
 }
+/*------------------------CSS LOGIN----------------------------------*/
+.btnBack{
+    background-color: transparent;
+    border: none;
+    color: var(--colorWhite);
+    padding-left: 1rem;
+    padding-top: 1rem;
+    font-weight: 700;
+}
+
+.welcomeContainer{
+    padding: 2rem 6rem 0;
+}
+.welcomeContainer{
+    color:  var(--colorWhite);
+    text-align: center;
+    font-family: monospace;
+    line-height: 1.5;
+}
+.welcomeContainer h2{
+    font-size: 2.2rem;
+}
+.logoNewF{
+    display: none;
+}
+.containerInputsRegister{
+    background-color: var(--colorOrange);
+    width: 55%;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+}
+.containerInputsRegister input{
+    width: 85%;
+    height: 4vh;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+.formRegister{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.containerCatReg{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6vh;
+}
+.containerCatReg img{
+    max-width: 4.5rem ;
+}
 
 @media screen and ((min-width: 500px)) {
     main {
