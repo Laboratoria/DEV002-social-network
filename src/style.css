@@ -251,6 +251,16 @@ img {
     max-width: 4.5rem ;
 }
 
+.forgotP{
+    background-color: transparent;
+    color: white;
+    border: none;
+    margin-top: 5vh;
+    font-family: system-ui;
+    font-weight: bolder;
+    cursor: pointer;
+}
+
 @media screen and ((min-width: 500px)) {
     main {
         height: 100vh;
@@ -328,6 +338,7 @@ img {
         display: flex;
         justify-content: center;
         align-items: center;
+        position: absolute
     }
 
      .logoNewM{
@@ -402,6 +413,43 @@ img {
         top: 40px;
    }
 
+   .welcomeContainer{
+        display: none;
+   }
+
+   .logoNewF{
+        display: block;
+   }
+
+   .btnBack {
+        position: relative;
+        top: 37vh;
+   }
+
+   .containerF{
+        width: 50%;
+        height: 80vh;
+        border: 1px solid white;
+   }
+
+   .containerInputsRegister{
+        background: transparent;
+        width: 76%;
+        margin-top: 2rem
+   }
+
+   .containerInputsRegister input{
+        width: 85%;
+        height: 5vh;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer
+   }
+   .log_google img {
+        width: 1.5rem;
+        left: 23%;
+        top: 40px;
+   }
 }
 
 

@@ -65,6 +65,7 @@ export const form = () => {
     $divContainerFormF.appendChild($divContainerRegisterF);
     $divContainerRegisterF.appendChild($figureGoogleF).appendChild($imgGoogleF);
     $divContainerRegisterF.appendChild($inputBtnGoogleF);
+    
 
     //------------atribuutos HTML--------------
 
