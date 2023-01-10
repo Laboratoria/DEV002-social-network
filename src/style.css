@@ -241,7 +241,7 @@ main .register .register-form label {
     margin-top: 1rem;
 }
 
-main .register-form-background {
+main .background {
     margin-top: 5rem;
     background-color: var(--fairIvory);
     height: 30%;
@@ -502,10 +502,11 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
     main .Email-login .Email-login-form {
         font-size: 1rem;
         font-style: italic;
+        margin: 8%;
     }
 
     main .Email-login .Email-login-form .Email-login-form-background {
-        width: 30em;
+        width: 25em;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -565,16 +566,22 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
 
     main .Email-login {
         width: 100%;
-        margin: 16%;
+        margin: 0%;
     }
 
     main .Email-login .Email-login-form {
         font-size: 1rem;
         font-style: italic;
+        margin: 15%;
     }
 
     main .Email-login .Email-login-form .Email-login-form-background {
-        width: 70%;
+        width: 35em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--fairIvory);
+        padding: 3em;
     }
 
     main .Email-login .Email-login-form .Email-login-form-background input {
@@ -582,21 +589,46 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         height: 3rem;
         border-bottom: 2px solid black;
         font: 1em sans-serif;
-
-
     }
 
-    main .Email-login .Email-login-form .Email-login-form-background label {
-        font-size: 1.9rem;
+    main .Email-login .Email-login-form .Email-login-form-background p {
+        font-size: 1.5rem;
+        font-style: italic;
     }
 
-    /*main .Email-login .Email-login-form .Email-login-form-background button {
-        width: 25rem;
-        height: 4rem;
+    ::placeholder {
+        font-size: 2rem;
+    }
+
+    /* main .Email-login .Email-login-form .Email-login-form-background {
+        width: 30em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--fairIvory);
+        padding: 3em;
+
+    } */
+/* 
+    main .Email-login .Email-login-form .Email-login-form-background input {
+        width: 20rem;
+        height: 3rem;
+        border-bottom: 2px solid black;
+
+    } */
+
+    main .Email-login .Email-login-form .Email-login-form-background .email-login-div-btn {
+        width: 15rem;
+        height: 3rem;
         border-radius: 0.8rem;
-        font-size: 1.4rem;
-    }*/
+        font-size: 1.3rem;
+    } 
+
+    /* main .Email-login .Email-login-form .Email-login-form-background .email-login-forget-psw-a .email-login-click-div-btn {
+        font-size: 1rem;
+    } */
 }
+
 
 /* 40rem = 640 px */
 @media screen and (min-width: 40rem) {
@@ -632,8 +664,58 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
     }
 
     main .register-form-background {
-        width: 70%em;
+        width: 70%;
     }
+
+    
+    ::placeholder {
+        font-size: 2rem;
+    }
+
+
+    /* main .Email-login {
+        width: 100%;
+        margin: 3%;
+    } */
+
+    /* main .Email-login .Email-login-form {
+        font-size: 1rem;
+        font-style: italic;
+    } */
+
+    main .Email-login .Email-login-form .Email-login-form-background {
+        width: 70%;
+        /* display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--fairIvory);
+        padding: 3em; */
+
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background input {
+        font: 2rem sans-serif;
+        width: 80%;
+        height: 3rem;
+        border-bottom: 2px solid black;
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background p {
+        font-size: 2.3rem;
+        font-style: italic;
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background .email-login-div-btn {
+        width: 25rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        font-size: 1.4rem;
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background .email-login-forget-psw-a .email-login-click-div-btn {
+        font-size: 1.3rem;
+    }
+
 }
 
 /* 62rem = 992px */
