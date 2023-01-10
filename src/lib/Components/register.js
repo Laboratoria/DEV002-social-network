@@ -1,4 +1,5 @@
-import { onNavigate } from "../../main.js";
+import { onNavigate } from "../../main.js"
+
 export const register = () => {
     const divRegister = document.createElement('div');
     divRegister.setAttribute('class', 'container-div-register');
@@ -35,5 +36,4 @@ export const register = () => {
     divRegister.appendChild(buttonFinalRegister);
 
     return divRegister;
-
-}
+};
