@@ -1,33 +1,33 @@
-*{
+* {
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-    background-color: var(--lightIvory);    
+    background-color: var(--lightIvory);
 }
 
-:root{
-/* creamos "constantes" con colores, tipografia, etc. que utilizaremos en el proyecto */
---lightIvory:#F8EDE4;
---dogBrown: #563c2e;
---palePink: #dcc5b6;
---lightPink: #d7a799;
---redCollar: #a91918;
---blue: #086680;
---chocolate: #492319;
---fallOrange: #a24c33;
---fairIvory:#F7DFD3;
---ivory: #dfcfab;
---pigPink: #e5a5a4;
---cherryRed: #901921;
---black: #000000;
---font-family: Arial, Helvetica, sans-serif;
+:root {
+    /* creamos "constantes" con colores, tipografia, etc. que utilizaremos en el proyecto */
+    --lightIvory: #F8EDE4;
+    --dogBrown: #563c2e;
+    --palePink: #dcc5b6;
+    --lightPink: #d7a799;
+    --redCollar: #a91918;
+    --blue: #086680;
+    --chocolate: #492319;
+    --fallOrange: #a24c33;
+    --fairIvory: #F7DFD3;
+    --ivory: #dfcfab;
+    --pigPink: #e5a5a4;
+    --cherryRed: #901921;
+    --black: #000000;
+    --font-family: Arial, Helvetica, sans-serif;
 }
 
 /* Placeholder */
-::placeholder{
+::placeholder {
     color: var(--dogBrown);
     font-family: Arial, Helvetica, sans-serif;
-    }
+}
 
 /* inactive components */
 .hidden {
@@ -41,11 +41,11 @@
 }
 
 /* para utilizar rem = 1, ayuda para responsive */
-html{
+html {
     font-size: 62.5%;
 }
 
-main{
+main {
     width: 100%;
 }
 
@@ -59,17 +59,17 @@ main .main-logo .main-logo-div {
 main .main-logo .main-logo-img {
     /* width: 85%;  */
     margin-top: 10%;
-    
+
 }
 
-main .hello-home{
+main .hello-home {
     background: none;
     margin-bottom: 1em;
     font-size: 2em;
 }
 
 /* div main */
-main .main-div{
+main .main-div {
 
     font-size: 2rem;
     text-align: center;
@@ -77,7 +77,7 @@ main .main-div{
 }
 
 /* Home */
-main .home{
+main .home {
     width: 75%;
 }
 
@@ -100,7 +100,7 @@ main .home .home-div .home-create-account-intro {
 
 }
 
-main .home-background{
+main .home-background {
     background-color: #f7e0d4;
 }
 
@@ -115,10 +115,10 @@ main .home .home-question {
 /* color boton main */
 .home-div button {
     color: var(--lightIvory);
-    font-size: 1.5rem;  
+    font-size: 1.5rem;
 }
 
-main .home .home-div button{
+main .home .home-div button {
     cursor: pointer;
     border: none;
     font-size: 1.9rem;
@@ -145,9 +145,10 @@ main .email-facebook-page .email-facebook-div {
 
 main .email-facebook-page .email-facebook-div label {
     font-size: 2rem;
-    margin-top:11rem;
+    margin-top: 11rem;
 
 }
+
 /* boton email/facebook*/
 main .email-facebook-page .email-facebook-div button {
     display: flex;
@@ -156,7 +157,7 @@ main .email-facebook-page .email-facebook-div button {
     text-align: center;
     background: none;
     cursor: pointer;
-    font-size: 2rem ;
+    font-size: 2rem;
     border-radius: 1rem;
     width: 40rem;
     height: 5rem;
@@ -167,7 +168,7 @@ main .email-facebook-page .email-facebook-div button {
 
 main .email-facebook-page .email-facebook-div .email-btn {
     color: var(--lightIvory);
-    margin-top: 5rem ;
+    margin-top: 5rem;
     font-size: 1.9rem;
 
 }
@@ -213,6 +214,7 @@ main .login-section .login-form .login-form-password {
     font-size: 2rem;
     margin-top: 0.5rem;
 }
+
 /* boton */
 main .login-section .login-form button {
     display: flex;
@@ -265,11 +267,11 @@ main .register .register-form .register-form-repeat-psw {
     font-family: Arial, Helvetica, sans-serif;
 }
 
-main .register .register-form ::placeholder{
+main .register .register-form ::placeholder {
     font-size: 2rem;
 }
 
-main .register .register-form input{
+main .register .register-form input {
     outline: none;
     background: none;
     border: none;
@@ -284,7 +286,7 @@ main .register .register-form input{
     height: 5rem; */
 }
 
-main .register .register-form button{
+main .register .register-form button {
     background: none;
     cursor: pointer;
     border: none;
@@ -295,31 +297,31 @@ main .register .register-form button{
     width: 20rem;
     height: 4rem;
     background-color: var(--pigPink);
-   
+
 }
 
 /* auth error */
-main .auth-error .auth-error-div{
+main .auth-error .auth-error-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-main .auth-error .auth-error-div .auth-error-text{
+main .auth-error .auth-error-div .auth-error-text {
     font-size: 2rem;
     margin-top: 2rem;
 }
 
 /* auth funciona */
-main .auth-funciona .auth-error-div{
+main .auth-funciona .auth-error-div {
     display: flex;
     flex-direction: column;
     align-items: center;
     width: 100%;
 }
 
-main .auth-funciona .auth-error-div .auth-funciona-text{
+main .auth-funciona .auth-error-div .auth-funciona-text {
     font-size: 2rem;
     margin-top: 3rem;
 }
@@ -344,7 +346,7 @@ main .log-in-sign-up .log-in-sign-up-div {
     align-items: center;
 }
 
-main .log-in-sign-up .log-in-sign-up-div button{
+main .log-in-sign-up .log-in-sign-up-div button {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -364,17 +366,90 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     margin-top: 1rem;
 }
 
+main .Email-login {
+    margin: 18%;
+
+}
+
+main .Email-login .Email-login-form .Email-login-form-background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--fairIvory);
+    padding: 3em;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+
+}
+
+main .Email-login .Email-login-form .Email-login-form-background input {
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+    /* font-size: 2rem; */
+    text-indent: 1rem;
+    margin-top: 1.5rem;
+    color: var(--dogBrown);
+    font-family: Arial, Helvetica, sans-serif;
+    font: 2em sans-serif;
+
+}
+
+main .Email-login .Email-login-form .Email-login-form-background .email-login-click-div-btn {
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--blue);
+    text-decoration-line: underline;
+
+}
+
+main .Email-login .Email-login-form .Email-login-form-background p {
+
+    display: block;
+    background: none;
+    font-size: 1.5rem;
+    margin-top: 1rem;
+    color: var(--blue);
+
+
+}
+
+main .Email-login .Email-login-form .Email-login-form-background .email-login-forget-psw-a {
+    background: none;
+}
+
+
+
+main .Email-login .Email-login-form .Email-login-form-background .email-login-div-btn {
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 1.9rem;
+    margin-top: 3rem;
+    color: var(--lightIvory);
+    border-radius: 1rem;
+    width: 20rem;
+    height: 4rem;
+    background-color: var(--pigPink);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+
+}
+
+
 /* responsive */
 /* 1rem=16px  16x5=80px */
 /* 5rem = 80 px */
-@media screen and (min-width: 5rem){
-    .main-logo-img{
+@media screen and (min-width: 5rem) {
+    .main-logo-img {
         width: 50%;
     }
 }
+
 /* 2rem = 320 px */
-@media screen and (min-width: 20rem){
-    .main-logo-img{
+@media screen and (min-width: 20rem) {
+    .main-logo-img {
         margin-left: 5%;
         width: 50%;
     }
@@ -392,20 +467,21 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
         font-size: 1.5rem;
     }
 
-    main .email-facebook-page .email-facebook-div button{
+    main .email-facebook-page .email-facebook-div button {
         width: 25rem;
         height: 4rem;
         border-radius: 0.8rem;
         font-size: 1.4rem;
     }
-    main .register .register-form input{
+
+    main .register .register-form input {
         width: 20rem;
         height: 3rem;
         border-bottom: 2px solid black;
         /* font: 1em sans-serif; */
     }
 
-    main .register-form-background{
+    main .register-form-background {
         width: 30em;
         display: flex;
         flex-direction: column;
@@ -414,17 +490,56 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
         padding: 3em;
     }
 
-    ::placeholder{
+    ::placeholder {
         font-size: 1rem;
     }
 
-    main .register .register-form .register-form-psw-recomendation{
+    main .Email-login {
+        width: 100%;
+        margin: 3%;
+    }
+
+    main .Email-login .Email-login-form {
         font-size: 1rem;
         font-style: italic;
     }
+
+    main .Email-login .Email-login-form .Email-login-form-background {
+        width: 30em;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        background-color: var(--fairIvory);
+        padding: 3em;
+
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background input {
+        width: 20rem;
+        height: 3rem;
+        border-bottom: 2px solid black;
+
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background p {
+        font-size: 1rem;
+        font-style: italic;
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background .email-login-div-btn {
+        width: 15rem;
+        height: 3rem;
+        border-radius: 0.8rem;
+        font-size: 1.4rem;
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background .email-login-forget-psw-a .email-login-click-div-btn {
+        font-size: 1rem;
+    }
 }
+
 /* 30rem = 480 px */
-@media screen and (min-width: 30rem){
+@media screen and (min-width: 30rem) {
     .main-logo-img {
         width: 53%;
     }
@@ -437,7 +552,7 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
         font-size: 1.9rem;
     }
 
-    main .register .register-form input{
+    main .register .register-form input {
         width: 30rem;
         height: 3rem;
         border-bottom: 2px solid black;
@@ -447,9 +562,44 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     main .register-form-background {
         width: 70%;
     }
+
+    main .Email-login {
+        width: 100%;
+        margin: 16%;
+    }
+
+    main .Email-login .Email-login-form {
+        font-size: 1rem;
+        font-style: italic;
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background {
+        width: 70%;
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background input {
+        width: 30rem;
+        height: 3rem;
+        border-bottom: 2px solid black;
+        font: 1em sans-serif;
+
+
+    }
+
+    main .Email-login .Email-login-form .Email-login-form-background label {
+        font-size: 1.9rem;
+    }
+
+    /*main .Email-login .Email-login-form .Email-login-form-background button {
+        width: 25rem;
+        height: 4rem;
+        border-radius: 0.8rem;
+        font-size: 1.4rem;
+    }*/
 }
+
 /* 40rem = 640 px */
-@media screen and (min-width: 40rem){
+@media screen and (min-width: 40rem) {
     .main-logo-img {
         width: 57%;
     }
@@ -474,22 +624,24 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
         font-size: 1.4rem;
     }
 
-    main .register .register-form input{
+    main .register .register-form input {
         font: 2rem sans-serif;
         width: 80%;
         height: 3rem;
         border-bottom: 2px solid black;
     }
 
-    main .register-form-background{
+    main .register-form-background {
         width: 70%em;
     }
 }
+
 /* 62rem = 992px */
-@media screen and (min-width: 62rem){
-    .main-logo-img{
+@media screen and (min-width: 62rem) {
+    .main-logo-img {
         width: 60%;
     }
+
     main .home .home-div {
         width: 100%;
         margin-left: 20%;
@@ -507,20 +659,22 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
         font-size: 2.5rem;
     }
 
-    main .register .register-form input{
+    main .register .register-form input {
         width: 80%;
         height: 3rem;
         border-bottom: 2px solid black;
     }
 }
+
 /* 87rem = 1392px */
-@media screen and (min-width: 87rem){
-    main .main-logo-img{
+@media screen and (min-width: 87rem) {
+    main .main-logo-img {
         width: 57%;
-        
-     } 
+
+    }
+
     main .register-form-background {
-        width: 70em; 
+        width: 70em;
     }
 
     main .home .home-div .home-create-account-intro {
@@ -536,10 +690,10 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
         margin-left: 30%;
         margin-top: 20em;
     }
-    
-    main .register .register-form input{
+
+    main .register .register-form input {
         width: 65rem;
         height: 3rem;
         border-bottom: 2px solid black;
     }
-} 
+}

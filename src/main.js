@@ -13,6 +13,8 @@ import { Home } from './components/Home.js';
 import { Signup } from './components/Signup.js';
 import { Login } from './components/Login.js';
 import { Feed } from './components/Feed.js';
+import { EmailLogin } from './components/Email-login.js';
+import { RecoverPsw } from './components/recoverpsw.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -20,7 +22,9 @@ const routes = {
     '/': Home,
     '/signup': Signup,
     '/login': Login,
-    '/feed': Feed
+    '/feed': Feed,
+    '/emaillogin': EmailLogin,
+    '/recoverpsw': RecoverPsw
 };
 
 export const onNavigate = (pathname) => {
@@ -35,9 +39,11 @@ export const onNavigate = (pathname) => {
     root.appendChild(routes[pathname]());
 };
 
-const component = routes[window.location.pathname];
-// Crear una función para que recargue y le diga al navedador de dónde partir
-//debemos resetear el contenido del router.
-rootDiv.innerHTML = ""
+function render() {
+   const component = routes[window.location.pathname];
+    rootDiv.replaceChildren (component());
+}
 
-rootDiv.appendChild(component());
+
+window.addEventListener('popstate', render);  
+window.addEventListener('load', render) 

@@ -1,4 +1,5 @@
 import { AuthAccountFacebook } from '../app/facebookrg.js';
+import { onNavigate } from '../main.js';
 
 export const Login = () => {
     const LoginDiv = document.createElement('div');
@@ -11,6 +12,7 @@ export const Login = () => {
         </section>
     `
     LoginDiv.innerHTML = template 
+    LoginDiv.querySelector('#emailBtn').addEventListener('click', () => onNavigate('/emaillogin'))
     LoginDiv.querySelector('#facebookBtn').addEventListener('click', AuthAccountFacebook)
     return LoginDiv;
 }
