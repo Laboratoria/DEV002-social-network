@@ -1,5 +1,6 @@
 //Este es el punto de entrada de tu aplicacion
 import { registerUser } from './configuracion.js';
+import { GoogleAuthProvider } from "firebase/auth";
 
 // myFunction();
 const indexRegistro = document.getElementById('containerRegister');
@@ -19,4 +20,3 @@ registerButton.addEventListener('click', () => {
   registerUser(email, password);
 
 });
-
