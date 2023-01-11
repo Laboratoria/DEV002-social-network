@@ -4,9 +4,10 @@ import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebas
 import {
   getAuth,
   signInWithEmailAndPassword,
+  createUserWithEmailAndPassword,
   GoogleAuthProvider,
-  signInWithPopup,
-} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+  signInWithPopup
+  } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -60,6 +61,27 @@ export const authGoogle = async () => {
   }
 };
 
+export const createUser = (email, password) => {
+  createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    const user = userCredential.user
+    console.log(user);
+  }) 
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.log(errorCode, errorMessage);
+    
+    if (errorCode === "auth/email-already-in-use") {
+      return alert("Este usuario ya existe");
+    } else if (errorCode === "auth/weak-password") {
+      return alert("Contraseña débil");
+    }
+    console.log("Erorr de codigo", errorCode);
+    console.log("Error del mensaje del codigo", errorMessage);
+  });
+
+  }
 
 
 

@@ -1,4 +1,5 @@
 import { surfing } from "./main.js";
+import { createUser } from "./firebase.js"
 
 export const form = () => {
     const $sectionF = document.createElement("section"),
@@ -91,15 +92,19 @@ export const form = () => {
 
     $inputEmailF.setAttribute("type", "email");
     $inputEmailF.setAttribute("placeholder", "example@gmail.com");
+    $inputEmailF.setAttribute("required", "");
 
     $inputUsernameF.setAttribute("type", "text");
     $inputUsernameF.setAttribute("placeholder", "Username");
+    $inputUsernameF.setAttribute("required", "");
 
     $inputPasswordF.setAttribute("type", "password");
     $inputPasswordF.setAttribute("placeholder", "Password");
+    $inputPasswordF.setAttribute("required", "");
 
     $inputPasswordDos.setAttribute("type", "password");
     $inputPasswordDos.setAttribute("placeholder", "Confirm Password");
+    $inputPasswordDos.setAttribute("required", "");
 
     $divContainerCat.setAttribute("class", "containerCatReg");
 
@@ -130,7 +135,10 @@ export const form = () => {
     surfing("/login");
 })
 
-
+    $divFormF.addEventListener("submit", (e) => {
+        e.preventDefault()
+        createUser($inputEmailF.value, $inputPasswordF.value);
+    })
     
 
     return $sectionF
