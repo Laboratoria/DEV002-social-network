@@ -70,7 +70,6 @@ main .hello-home {
 
 /* div main */
 main .main-div {
-
     font-size: 2rem;
     text-align: center;
     margin: 4rem;
@@ -97,7 +96,6 @@ main .home .home-div .home-create-account-intro {
     font-family: Arial, Helvetica, sans-serif;
     background: none;
     color: var(--dogBrown);
-
 }
 
 main .home-background {
@@ -126,6 +124,7 @@ main .home .home-div button {
     width: 20rem;
     height: 4rem;
     background-color: var(--pigPink);
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
 main .home .home-div .home-create-account {
@@ -164,13 +163,13 @@ main .email-facebook-page .email-facebook-div button {
     background-color: var(--pigPink);
     border: none;
     padding: 1.2rem;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
 main .email-facebook-page .email-facebook-div .email-btn {
     color: var(--lightIvory);
     margin-top: 5rem;
     font-size: 1.9rem;
-
 }
 
 main .email-facebook-page .email-facebook-div .facebook-btn {
@@ -178,7 +177,6 @@ main .email-facebook-page .email-facebook-div .facebook-btn {
     margin-top: 2rem;
     background-color: var(--blue);
     font-size: 1.9rem;
-
 }
 
 /* log in form */
@@ -234,6 +232,7 @@ main .register .register-form {
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 5rem;
 }
 
 main .register .register-form label {
@@ -241,7 +240,7 @@ main .register .register-form label {
     margin-top: 1rem;
 }
 
-main .background {
+main .register .register-form label .register-form-background {
     margin-top: 5rem;
     background-color: var(--fairIvory);
     height: 30%;
@@ -297,7 +296,7 @@ main .register .register-form button {
     width: 20rem;
     height: 4rem;
     background-color: var(--pigPink);
-
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
 /* auth error */
@@ -366,9 +365,9 @@ main .log-in-sign-up .log-in-sign-up-div .nav-link-sign-up {
     margin-top: 1rem;
 }
 
+/* Email-login.js */
 main .Email-login {
     margin: 18%;
-
 }
 
 main .Email-login .Email-login-form .Email-login-form-background {
@@ -378,7 +377,6 @@ main .Email-login .Email-login-form .Email-login-form-background {
     background-color: var(--fairIvory);
     padding: 3em;
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-
 }
 
 main .Email-login .Email-login-form .Email-login-form-background input {
@@ -392,7 +390,6 @@ main .Email-login .Email-login-form .Email-login-form-background input {
     color: var(--dogBrown);
     font-family: Arial, Helvetica, sans-serif;
     font: 2em sans-serif;
-
 }
 
 main .Email-login .Email-login-form .Email-login-form-background .email-login-click-div-btn {
@@ -402,25 +399,19 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-cl
     font-size: 1.5rem;
     color: var(--blue);
     text-decoration-line: underline;
-
 }
 
 main .Email-login .Email-login-form .Email-login-form-background p {
-
     display: block;
     background: none;
     font-size: 1.5rem;
     margin-top: 1rem;
     color: var(--blue);
-
-
 }
 
 main .Email-login .Email-login-form .Email-login-form-background .email-login-forget-psw-a {
     background: none;
 }
-
-
 
 main .Email-login .Email-login-form .Email-login-form-background .email-login-div-btn {
     background: none;
@@ -434,9 +425,67 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
     height: 4rem;
     background-color: var(--pigPink);
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
-
 }
 
+/* recoverpsw.js */
+main .recover-psw{
+    width: 75%;
+}
+
+main .recover-psw .recover-psw-form{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    text-align: center;
+    margin: 18%;
+}
+
+main .recover-psw .recover-psw-form .recover-psw-form-background{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: var(--fairIvory);
+    padding: 3em;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+}
+
+main .recover-psw .recover-psw-form .recover-psw-form-background input{
+    outline: none;
+    background: none;
+    border: none;
+    border-bottom: 2px solid black;
+    font-size: 2.5rem;
+    text-indent: 1rem;
+    margin-top: 0.5rem;
+    color: var(--dogBrown);
+    font-family: 'Merriweather', serif;
+}
+
+main .recover-psw .recover-psw-form .recover-psw-form-background button{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    border-radius: 1rem;
+    width: 13rem;
+    height: 1.7rem;
+    margin-top: 1rem;
+    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    background-color: var(--pigPink);
+    color: var(--lightIvory);
+}
+
+main .recover-psw .recover-psw-form .recover-psw-form-background .reset-recover-psw-div-btn{
+    margin-top: 3rem;
+}
+
+main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover-psw-div-btn{
+    margin-top: 2rem;
+}
 
 /* responsive */
 /* 1rem=16px  16x5=80px */
@@ -512,7 +561,6 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         align-items: center;
         background-color: var(--fairIvory);
         padding: 3em;
-
     }
 
     main .Email-login .Email-login-form .Email-login-form-background input {
@@ -520,7 +568,6 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         height: 3rem;
         border-bottom: 2px solid black;
         font-size: 1rem;
-
     }
 
     main .Email-login .Email-login-form .Email-login-form-background p {
@@ -537,6 +584,41 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
 
     main .Email-login .Email-login-form .Email-login-form-background .email-login-forget-psw-a .email-login-click-div-btn {
         font-size: 1rem;
+    }
+
+    /* recoverpsw.js */
+    main .recover-psw{
+        width: 100%;
+        margin-top: 3rem;
+    }
+
+    main .recover-psw .recover-psw-form{
+        margin: 2%;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background{
+        width: 25em;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+        width: 20rem;
+        height: 3rem;
+        font-size: 1rem;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+        width: 15rem;
+        height: 1.5rem;
+        border-radius: 0.8rem;
+        font-size: 1.3rem;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background .reset-recover-psw-div-btn{
+        margin-top: 3rem;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover-psw-div-btn{
+        margin-top: 2rem;
     }
 }
 
@@ -601,23 +683,6 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         font-size: 2rem;
     }
 
-    /* main .Email-login .Email-login-form .Email-login-form-background {
-        width: 30em;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--fairIvory);
-        padding: 3em;
-
-    } */
-/* 
-    main .Email-login .Email-login-form .Email-login-form-background input {
-        width: 20rem;
-        height: 3rem;
-        border-bottom: 2px solid black;
-
-    } */
-
     main .Email-login .Email-login-form .Email-login-form-background .email-login-div-btn {
         width: 15rem;
         height: 3rem;
@@ -625,9 +690,31 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         font-size: 1.3rem;
     } 
 
-    /* main .Email-login .Email-login-form .Email-login-form-background .email-login-forget-psw-a .email-login-click-div-btn {
-        font-size: 1rem;
-    } */
+    /* recoverpsw.js */
+    main .recover-psw{
+        width: 100%;
+        margin-top: 3rem;
+    }
+
+    main .recover-psw .recover-psw-form{
+        margin: 2%;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background{
+        width: 70%;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+        width: 30rem;
+        font-size: 2rem;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+        width: 15rem;
+        height: 1.5rem;
+        border-radius: 0.8rem;
+        font-size: 1.3rem;
+    }
 }
 
 
@@ -668,30 +755,12 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         width: 70%;
     }
 
-    
     ::placeholder {
         font-size: 2rem;
     }
 
-
-    /* main .Email-login {
-        width: 100%;
-        margin: 3%;
-    } */
-
-    /* main .Email-login .Email-login-form {
-        font-size: 1rem;
-        font-style: italic;
-    } */
-
     main .Email-login .Email-login-form .Email-login-form-background {
         width: 100%;
-        /* display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--fairIvory);
-        padding: 3em; */
-
     }
 
     main .Email-login .Email-login-form .Email-login-form-background input {
@@ -717,6 +786,31 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         font-size: 1.5rem;
     }
 
+    /* recoverpsw.js */
+    main .recover-psw{
+        margin-top: 4rem;
+    }
+
+    main .recover-psw .recover-psw-form{
+        margin: 2%;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background{
+        width: 35em;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+        width: 30rem;
+        height: 3rem;
+        font-size: 2rem;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+        width: 17rem;
+        height: 1.8rem;
+        border-radius: 0.8rem;
+        font-size: 1.5rem;
+    }
 }
 
 /* 62rem = 992px */
@@ -746,6 +840,33 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         width: 80%;
         height: 3rem;
         border-bottom: 2px solid black;
+    }
+
+    /* recoverpsw.js */
+    main .recover-psw{
+        margin-top: 5rem;
+    }
+
+    main .recover-psw .recover-psw-form{
+        margin: 2%;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background{
+        width: 55em;
+        height: 20em;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+        width: 50rem;
+        height: 3rem;
+        font-size: 2.5rem;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+        width: 23rem;
+        height: 2.3rem;
+        border-radius: 0.8rem;
+        font-size: 2rem;
     }
 }
 
@@ -780,31 +901,12 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         border-bottom: 2px solid black;
     }
 
-    
-    
     ::placeholder {
         font-size: 3rem;
     }
 
-
-    /* main .Email-login {
-        width: 100%;
-        margin: 3%;
-    } */
-
-    /* main .Email-login .Email-login-form {
-        font-size: 1rem;
-        font-style: italic;
-    } */
-
     main .Email-login .Email-login-form .Email-login-form-background {
         width: 100%;
-        /* display: flex;
-        flex-direction: column;
-        align-items: center;
-        background-color: var(--fairIvory);
-        padding: 3em; */
-
     }
 
     main .Email-login .Email-login-form .Email-login-form-background input {
@@ -831,4 +933,29 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
         font-size: 2rem;
     }
 
+    /* recoverpsw.js */
+    main .recover-psw{
+        margin-top: 7rem;
+    }
+
+    main .recover-psw .recover-psw-form{
+        margin: 2%;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background{
+        width: 70em;
+        height: 30em;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+        margin-top: 4rem;
+        font-size: 3rem;
+    }
+
+    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+        width: 25rem;
+        height: 2.7rem;
+        border-radius: 0.8rem;
+        font-size: 2.5rem;
+    }
 }
