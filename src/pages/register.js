@@ -43,7 +43,8 @@ export const Register = () => {
 
   <button class="ingresar" id="register-button"> Registrar </button>
 
-</section>`
+</section> </div>`
+
 divRegister.innerHTML = viewRegister;
 return divRegister;
 

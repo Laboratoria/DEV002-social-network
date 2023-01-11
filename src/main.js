@@ -1,10 +1,11 @@
-import { Register } from  "./pages/Register.js";
 import { Login } from "./pages/Login.js";
+import { Register } from  "./pages/Register.js";
 
 const root = document.getElementById('root')
 const routes = {
 '/': Login,
-'/': Register,
+'/login': Login,
+'/register': Register,
 
 };
 

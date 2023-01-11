@@ -21,7 +21,7 @@ export const Login = () => {
     </a>
     <p>¿Aún no tienes una cuenta?</p>
 
-    <a href= "#/2/"> 
+    <a href= "/register"> 
         <button class="registrate" id="registrate"> Regístrate </button>
     </a>
 
@@ -30,17 +30,17 @@ export const Login = () => {
 `
   
   divLogin.innerHTML = viewLogin;
-  const buttonFinalLogin = document.createElement('button');
-  const buttonHome = document.createElement('button');
+  // const buttonFinalLogin = document.createElement('button');
+  // const buttonHome = document.createElement('button');
 
-  buttonFinalRegister.textContent = 'Iniciar sesión'
-  buttonFinalRegister.addEventListener('click', () => onNavigate('/login'));
+  // buttonFinalRegister.textContent = 'Iniciar sesión'
+  // buttonFinalRegister.addEventListener('click', () => onNavigate('/login'));
 
-  buttonHome.textContent = 'Volver al inicio';
-  buttonHome.addEventListener('click', () => onNavigate('/'));
+  // // buttonHome.textContent = 'Volver al inicio';
+  // // buttonHome.addEventListener('click', () => onNavigate('/'));
 
-  divRegister.appendChild(buttonHome);
-  divRegister.appendChild(buttonFinalRegister);
+  // divRegister.appendChild(buttonHome);
+  // divRegister.appendChild(buttonFinalRegister);
 
   return divLogin;
 };
