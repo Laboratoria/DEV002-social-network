@@ -1,8 +1,8 @@
 // import { onNavigate } from "../../main.js";
 export const login = () => {
-    const divLogin = document.createElement('div');
-    divLogin.setAttribute('id', 'div-login');
-    const viewLogin = `
+  const divLogin = document.createElement('div');
+  divLogin.setAttribute('id', 'div-login');
+  const viewLogin = `
     <html>
     <header>
     <img src='./images/logo.png' alt='logoReading' class='img-logo'>
@@ -37,7 +37,7 @@ export const login = () => {
   <div id='container-modal-delete'></div>
 </main>`
 
-    divLogin.innerHTML = viewLogin;
-    return divLogin;
+  divLogin.innerHTML = viewLogin;
+  return divLogin;
 
 };
