@@ -1,5 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
+// Consultas firebase
 import {
   getAuth,
   signInWithEmailAndPassword,
@@ -11,6 +12,7 @@ import {
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
+// Configuración Firebase al inicializar sus servicios
 const firebaseConfig = {
   apiKey: "AIzaSyCxLhAk9jOlsC43X5vqcFhw-eBCbrELaI4",
   authDomain: "newme-13925.firebaseapp.com",
@@ -20,6 +22,7 @@ const firebaseConfig = {
   appId: "1:214920308604:web:ebebebccc31d42002be6f9",
 };
 
+// Servivcios Firebase
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
