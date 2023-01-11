@@ -16,39 +16,29 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 
 // CREAR USUARIO CON EMAIL
-export const createUser = (userMail, userPass, userName) => createUserWithEmailAndPassword(auth, userMail, userPass)
+export const createUser = (userEmail, userPassword, userName) => createUserWithEmailAndPassword(auth, userEmail,  userPassword)
   .then(() => {
     updateProfile(getAuth().currentUser, {
       displayName: userName,
     });
+    return createUser;
   });
 
 // INGRESAR CON USUARIO EXISTENTE
-export const signUp = (userMail, userPass, onNavigate) => {
-  signInWithEmailAndPassword(auth, userMail, userPass)
-    .then((userCredential) => {
-      onNavigate('/login');
+export const signIn = (userEmail, userPassword, onNavigate) => {
+  signInWithEmailAndPassword(auth, userEmail, userPassword)
+    .then(() => {
+      onNavigate('/#login');
       window.location.reload();
       // Signed in
-      // const user = userCredential.user;
-      console.log(userCredential);
     })
-    .catch((error) => {
-      if (error.code === 'auth/email-already-in-use') {
-        document.querySelector('#errorLogin').innerHTML = 'Este correo ya está registrado';
-      } else if (error.code === 'auth/invalid-email') {
-        document.querySelector('#errorLogin').innerHTML = 'El correo que ingresaste es inválido';
-      } else if (error.code) {
-        document.querySelector('#errorLogin').innerHTML = 'Revisa los datos ingresados, algo no está bien';
-      }
-    });
 };
 
 // INGRESAR CON GOOGLE - check
 export const signInGoogle = async (onNavigate) => {
   try {
     const credentials = await signInWithPopup(auth, provider);
-    onNavigate('/login');
+    onNavigate('/#login');
     window.location.reload();
   } catch (error) {
   }
@@ -64,7 +54,7 @@ export const authLogin = () => {
   const userLogin = firebase.auth().onAuthStateChanged((user) => {
     // Usamos el metodo onAuthStateChanged para verificar el estado de autenticacion
     if (user) {
-      window.location.href = '#/login';
+      window.location.href = '/login';
       // en caso de que se cumpla user se direccion la ruta home
     }
   });

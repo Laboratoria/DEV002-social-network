@@ -1,17 +1,15 @@
 import { onNavigate } from "../../main.js";
-import { signUp, signInGoogle, authLogin } from '../router.js';
+import { signIn, signInGoogle, authLogin } from '../router.js';
 
 export const home = () => {
     const divHome = document.createElement('div');
     divHome.setAttribute('class', 'div-home');
     const viewHome = `
         <img src='./images/logo.png' alt='logoReading' class='img-logo'>
-        <form id='formLogin'> 
         <div class='input-login'>
         <p>Inicia sesión</p>
           <input type='email' id='email' placeholder='Correo@ejemplo.com'required>
           <input type='password' id='password' placeholder='Contraseña'required>
-      </form>
       <div id='errorLogin'></id>
         <div class='div-login'>
         <p>Acceder con:</p>
@@ -32,7 +30,7 @@ export const home = () => {
     buttonLogin.setAttribute('id', 'btnLogin')
 
     buttonRegister.addEventListener('click', () => onNavigate('/register'));
-    buttonLogin.addEventListener('click', () => onNavigate('/login'));
+    // buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
     divHome.appendChild(buttonRegister);
     divHome.appendChild(buttonLogin);
@@ -45,23 +43,25 @@ export const home = () => {
     const btnRegister = divHome.querySelector('#btnRegister');
     btnRegister.addEventListener('click', () => {
         const userEmail = divHome.querySelector('#email').value;
-        const userPass = divHome.querySelector('#password').value;
-        signUp(userEmail, userPass)
+        const userPassword = divHome.querySelector('#password').value;
+        signIn(userEmail, userPassword)
             .then(() => {
                 onNavigate('/login');
             })
-        // .catch((error) => {
-        //     if (errorcode === 'auth/email-already-in-use') {
-        //         document.querySelector('#errorLogin').innerHTML = 'Este correo ya está registrado';
-        //       } else if (error.code === 'auth/invalid-email') {
-        //         document.querySelector('#errorLogin').innerHTML = 'El correo que ingresaste es inválido';
-        //       } else if (error.code === 'auth/weak-password') {
-        //         document.querySelector('#errorLogin').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
-        //       } else if (error.code) {
-        //         document.querySelector('#errorLogin').innerHTML = 'Revisa los datos ingresados, algo no está bien';
-        //       }
-        //     });
+        .catch((error) => {
+            if (errorcode === 'auth/wrong-password') {
+                document.querySelector('#errorLogin').innerHTML = 'Contraseña incorrecta';
+              } else if (error.code === 'auth/invalid-email') {
+                document.querySelector('#errorLogin').innerHTML = 'Correo invalido';
+              } else if (error.code === 'auth/user-not-found') {
+                document.querySelector('#errorLogin').innerHTML = 'Correo no resgistrado';
+              } else if (error.code) {
+                document.querySelector('#errorLogin').innerHTML = 'Algo fallo';
+              }
+            });
+            authLogin();
     });
+
 
     divHome.append(
         btnLogin,

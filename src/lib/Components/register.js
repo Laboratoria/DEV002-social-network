@@ -7,16 +7,12 @@ export const register = () => {
   divRegister.setAttribute('class', 'container-div-register');
   const viewRegister = `
   <img src='images/logo.png' alt='logoReading' class='img-logo'>
-  <form id='formRegister'>
    <div class='input-register'>
    <p> Crea tu cuenta </p> 
         <input type='text' id='name-register' placeholder='Nombre'>
         <input type='email' id='email-register' placeholder='Correo electronico'>
         <input type='password' id='password-register' placeholder='Contraseña'>
-      <div id='modalContent'>
-      </div>
-   </div>       
-    </form> 
+   </div>
     <div id='errorMessageRegister'></div>
     <div class='div-register'>
     <button type='button' class='btn-google'>
@@ -49,7 +45,7 @@ export const register = () => {
     const userEmail = document.querySelector('#email-register').value;
     const userPassword = document.querySelector('#password-register').value;
 
-    createUser(userEmail, userName, userPassword)
+    createUser(userEmail, userPassword, userName)
       .then(() => {
         onNavigate('/login');
       })
@@ -60,9 +56,9 @@ export const register = () => {
           document.querySelector('#errorMessageRegister').innerHTML = 'Correo inválido';
         } else if (error.code === 'auth/invalid-password') {
           document.querySelector('#errorMessageRegister').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
-        }
+        } 
       });
-  });
+    });
 
   divRegister.append(
     btnFinal
