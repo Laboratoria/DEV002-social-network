@@ -16,12 +16,11 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider();
 
 // CREAR USUARIO CON EMAIL
-export const createUser = (userEmail, userPassword, userName) => createUserWithEmailAndPassword(auth, userEmail,  userPassword)
+export const createUser = (userMail, userPass, userName) => createUserWithEmailAndPassword(auth, userMail, userPass)
   .then(() => {
     updateProfile(getAuth().currentUser, {
       displayName: userName,
     });
-    return createUser;
   });
 
 // INGRESAR CON USUARIO EXISTENTE
