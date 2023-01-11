@@ -1,4 +1,4 @@
-import { createUser, signInGoogle } from "../router.js";
+import { createUser, signInGoogle } from "../index.js";
 import { onNavigate } from "../../main.js"
 import { app } from "../Firebase.js";
 
@@ -7,16 +7,12 @@ export const register = () => {
   divRegister.setAttribute('class', 'container-div-register');
   const viewRegister = `
   <img src='images/logo.png' alt='logoReading' class='img-logo'>
-  <form id='formRegister'>
    <div class='input-register'>
    <p> Crea tu cuenta </p> 
         <input type='text' id='name-register' placeholder='Nombre'>
         <input type='email' id='email-register' placeholder='Correo electronico'>
         <input type='password' id='password-register' placeholder='Contraseña'>
-      <div id='modalContent'>
-      </div>
-   </div>       
-    </form> 
+   </div>        
     <div id='errorMessageRegister'></div>
     <div class='div-register'>
     <button type='button' class='btn-google'>
@@ -51,7 +47,7 @@ export const register = () => {
 
     createUser(userEmail, userPassword, userName)
       .then(() => {
-        onNavigate('/login');
+        onNavigate('/dashboard');
       })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {

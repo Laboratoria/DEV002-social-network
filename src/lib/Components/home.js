@@ -1,5 +1,5 @@
 import { onNavigate } from "../../main.js";
-import { signUp, signInGoogle, authLogin } from '../router.js';
+import { signUp, signInGoogle, authLogin } from '../index.js';
 
 export const home = () => {
     const divHome = document.createElement('div');
@@ -32,40 +32,19 @@ export const home = () => {
     buttonLogin.setAttribute('id', 'btnLogin')
 
     buttonRegister.addEventListener('click', () => onNavigate('/register'));
-    buttonLogin.addEventListener('click', () => onNavigate('/login'));
+    // buttonLogin.addEventListener('click', () => onNavigate('/dashboard'));
 
     divHome.appendChild(buttonRegister);
     divHome.appendChild(buttonLogin);
 
-    const btnLogin = divHome.querySelector('.btn-google')
-    btnLogin.addEventListener('click', () => {
+    const btnGoogle = divHome.querySelector('.btn-google')
+    btnGoogle.addEventListener('click', () => {
         signInGoogle(onNavigate);
     });
 
-    const btnRegister = divHome.querySelector('#btnRegister');
-    btnRegister.addEventListener('click', () => {
-        const userEmail = divHome.querySelector('#email').value;
-        const userPass = divHome.querySelector('#password').value;
-        signUp(userEmail, userPass)
-            .then(() => {
-                onNavigate('/login');
-            })
-        // .catch((error) => {
-        //     if (errorcode === 'auth/email-already-in-use') {
-        //         document.querySelector('#errorLogin').innerHTML = 'Este correo ya está registrado';
-        //       } else if (error.code === 'auth/invalid-email') {
-        //         document.querySelector('#errorLogin').innerHTML = 'El correo que ingresaste es inválido';
-        //       } else if (error.code === 'auth/weak-password') {
-        //         document.querySelector('#errorLogin').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
-        //       } else if (error.code) {
-        //         document.querySelector('#errorLogin').innerHTML = 'Revisa los datos ingresados, algo no está bien';
-        //       }
-        //     });
-    });
 
     divHome.append(
-        btnLogin,
-        btnRegister
+        btnGoogle,
     );
 
     return divHome;
