@@ -37,7 +37,7 @@ html {
     margin-top: 10%;
     cursor: pointer;
     margin-bottom: 100px;
-    top: 300px
+    top: 350px
 }
 
 .root {
@@ -63,7 +63,7 @@ html {
     display: flexbox;
     position: absolute;
     background-color: #31E6F1;
-    top: 65%;
+    top: 70%;
     cursor: pointer;
     height: 25px;
     width: 150px;
@@ -76,7 +76,7 @@ html {
 #btnLogin {
     display: flexbox;
     position: absolute;
-    bottom: 50%;
+    bottom: 48%;
     background-color: #4AAA5F;
     cursor: pointer;
     height: 25px;
@@ -109,8 +109,8 @@ html {
 
 .div-login p {
     font-size: 18px;
-    margin-top: 10%;
-    padding-top: 2rem;
+    margin-top: 13%;
+    padding-top: 3rem;
 }
 
 footer {
@@ -178,7 +178,8 @@ footer {
     font-weight: bold;
 
 }
-#errorMessageRegister{
+#errorMessageRegister
+{
     display: flexbox;
     position: absolute;
     top: 355px;
@@ -188,16 +189,13 @@ footer {
     font-size: 15px;
     left: 115px;
 }
-#errorlogin{
+#errorLogin{
     display: flexbox;
     position: absolute;
-    top: 355px;
     color: red;
     font-weight: bold;
-    text-align: center;
-    font-size: 15px;
-    left: 115px;
-
+    left: 65px;
+    top: 35px;
 }
 
 @media only screen and (min-width:600px) and (max-width:1700px) {

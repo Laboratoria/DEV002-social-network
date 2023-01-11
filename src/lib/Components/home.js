@@ -10,7 +10,7 @@ export const home = () => {
         <p>Inicia sesión</p>
           <input type='email' id='email' placeholder='Correo@ejemplo.com'required>
           <input type='password' id='password' placeholder='Contraseña'required>
-      <div id='errorLogin'></id>
+          <div id='errorLogin'></div>
         <div class='div-login'>
         <p>Acceder con:</p>
         <button type='button' class='btn-google'>
@@ -53,7 +53,9 @@ export const home = () => {
             document.querySelector('#errorLogin').innerHTML = 'Correo no válido';
         } else if (error.code === 'auth/user-not-found'){
             document.querySelector('#errorLogin').innerHTML = 'Correo no registrado';
-        }
+        }else if (error.code) {
+            document.getElementById('errorLogin').innerHTML = 'Ups algo no está bien';
+          }
     });
     });
 
