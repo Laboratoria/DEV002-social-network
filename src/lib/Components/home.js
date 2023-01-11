@@ -1,17 +1,15 @@
 import { onNavigate } from "../../main.js";
-import { signUp, signInGoogle, authLogin } from '../index.js';
+import { signIn, signInGoogle} from '../index.js';
 
 export const home = () => {
     const divHome = document.createElement('div');
     divHome.setAttribute('class', 'div-home');
     const viewHome = `
         <img src='./images/logo.png' alt='logoReading' class='img-logo'>
-        <form id='formLogin'> 
         <div class='input-login'>
         <p>Inicia sesión</p>
           <input type='email' id='email' placeholder='Correo@ejemplo.com'required>
           <input type='password' id='password' placeholder='Contraseña'required>
-      </form>
       <div id='errorLogin'></id>
         <div class='div-login'>
         <p>Acceder con:</p>
@@ -41,10 +39,29 @@ export const home = () => {
     btnGoogle.addEventListener('click', () => {
         signInGoogle(onNavigate);
     });
+    const btnLogin = divHome.querySelector('#btnLogin')
+    btnLogin.addEventListener('click', () => {
+    const email = document.querySelector ('#email').value;
+    const password = document.querySelector ('#password').value;
+
+    signIn (email, password)
+    .then(() => {    
+    onNavigate('/dashboard');
+    })
+    .catch((error) => {
+        if (error.code === 'auth/invalid-email'){
+            document.querySelector('#errorLogin').innerHTML = 'Correo no válido';
+        } else if (error.code === 'auth/user-not-found'){
+            document.querySelector('#errorLogin').innerHTML = 'Correo no registrado';
+        }
+    });
+    });
 
     divHome.append(
-        btnGoogle,
+        btnGoogle, 
+        btnLogin,
     );
+
 
     return divHome;
 };
