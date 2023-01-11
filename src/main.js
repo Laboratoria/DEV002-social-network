@@ -1,5 +1,6 @@
 import { Login } from "./pages/Login.js";
 import { Register } from  "./pages/Register.js";
+// import { registerButton } from "./firebase/registro.js";
 
 const root = document.getElementById('root')
 const routes = {
