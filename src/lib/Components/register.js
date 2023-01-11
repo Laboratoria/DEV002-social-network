@@ -1,4 +1,4 @@
-import { createUser, signInGoogle } from "../router.js";
+import { createUser, signInGoogle } from "../index.js";
 import { onNavigate } from "../../main.js"
 import { app } from "../Firebase.js";
 
