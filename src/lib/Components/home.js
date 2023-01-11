@@ -1,17 +1,15 @@
 import { onNavigate } from "../../main.js";
-import { signUp, signInGoogle, authLogin } from '../router.js';
+import { signIn, signInGoogle} from '../index.js';
 
 export const home = () => {
     const divHome = document.createElement('div');
     divHome.setAttribute('class', 'div-home');
     const viewHome = `
         <img src='./images/logo.png' alt='logoReading' class='img-logo'>
-        <form id='formLogin'> 
         <div class='input-login'>
         <p>Inicia sesión</p>
           <input type='email' id='email' placeholder='Correo@ejemplo.com'required>
           <input type='password' id='password' placeholder='Contraseña'required>
-      </form>
       <div id='errorLogin'></id>
         <div class='div-login'>
         <p>Acceder con:</p>
@@ -32,41 +30,38 @@ export const home = () => {
     buttonLogin.setAttribute('id', 'btnLogin')
 
     buttonRegister.addEventListener('click', () => onNavigate('/register'));
-    buttonLogin.addEventListener('click', () => onNavigate('/login'));
+    // buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
     divHome.appendChild(buttonRegister);
     divHome.appendChild(buttonLogin);
 
-    const btnLogin = divHome.querySelector('.btn-google')
-    btnLogin.addEventListener('click', () => {
+    const btnGoogle = divHome.querySelector('.btn-google')
+    btnGoogle.addEventListener('click', () => {
         signInGoogle(onNavigate);
     });
+    const btnLogin = divHome.querySelector('#btnLogin')
+    btnLogin.addEventListener('click', () => {
+    const email = document.querySelector ('#email').value;
+    const password = document.querySelector ('#password').value;
 
-    const btnRegister = divHome.querySelector('#btnRegister');
-    btnRegister.addEventListener('click', () => {
-        const userEmail = divHome.querySelector('#email').value;
-        const userPass = divHome.querySelector('#password').value;
-        signUp(userEmail, userPass)
-            .then(() => {
-                onNavigate('/login');
-            })
-        // .catch((error) => {
-        //     if (errorcode === 'auth/email-already-in-use') {
-        //         document.querySelector('#errorLogin').innerHTML = 'Este correo ya está registrado';
-        //       } else if (error.code === 'auth/invalid-email') {
-        //         document.querySelector('#errorLogin').innerHTML = 'El correo que ingresaste es inválido';
-        //       } else if (error.code === 'auth/weak-password') {
-        //         document.querySelector('#errorLogin').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
-        //       } else if (error.code) {
-        //         document.querySelector('#errorLogin').innerHTML = 'Revisa los datos ingresados, algo no está bien';
-        //       }
-        //     });
+    signIn (email, password)
+    .then(() => {    
+    onNavigate('/dashboard');
+    })
+    .catch((error) => {
+        if (error.code === 'auth/invalid-email'){
+            document.querySelector('#errorLogin').innerHTML = 'Correo no válido';
+        } else if (error.code === 'auth/user-not-found'){
+            document.querySelector('#errorLogin').innerHTML = 'Correo no registrado';
+        }
+    });
     });
 
     divHome.append(
+        btnGoogle, 
         btnLogin,
-        btnRegister
     );
+
 
     return divHome;
 };
