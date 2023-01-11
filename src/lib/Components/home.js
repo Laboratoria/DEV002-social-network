@@ -25,7 +25,7 @@ export const home = () => {
 
     const buttonRegister = document.createElement('button');
     const buttonLogin = document.createElement('button');
-
+   
     buttonRegister.textContent = 'Crear cuenta';
     buttonLogin.textContent = 'Iniciar sesion';
     buttonRegister.setAttribute('id', 'btnRegister')
