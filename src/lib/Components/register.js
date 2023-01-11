@@ -49,7 +49,7 @@ export const register = () => {
     const userEmail = document.querySelector('#email-register').value;
     const userPassword = document.querySelector('#password-register').value;
 
-    createUser(userEmail, userName, userPassword)
+    createUser(userEmail, userPassword, userName)
       .then(() => {
         onNavigate('/login');
       })
