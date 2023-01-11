@@ -1,6 +1,7 @@
 // Importa la biblioteca de Firebase
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
 import { getAuth, createUserWithEmailAndPassword} from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -15,6 +16,7 @@ const firebaseConfig = {
 // Inicializa la aplicación de Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const provider = new GoogleAuthProvider();
 
 // Crea una función para registrar usuarios
 export function registerUser(email, password) {
@@ -24,8 +26,31 @@ export function registerUser(email, password) {
       console.log('Usuario registrado correctamente');
     })
     .catch((error) => {
-      // Ocurrió un error al registrar el usuario
-      // Puedes obtener más información sobre el error con error.code y error.message
+     const errorCode = error.code;
+     const errorMessage = error.message;
+     if(errorCode === "auth/user-not-found") {
+      return alert("Usuario no encontrado");
+     }else if(errorCode ==="auth/wrong-password") {
+      return alert ("Contraseña incorrecta")
+     }
       console.error(error);
-    });
-}
+    })};
+
+export const authGoogle = getAuth();
+signInWithPopup(auth, provider)
+  .then((result) => {
+    // This gives you a Google Access Token. You can use it to access the Google API.
+    const credential = GoogleAuthProvider.credentialFromResult(result);
+    const token = credential.accessToken;
+    // The signed-in user info.
+    const user = result.user;
+    // ...
+  }).catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    // The email of the user's account used.
+    const email = error.customData.email;
+    // The AuthCredential type that was used.
+    const credential = GoogleAuthProvider.credentialFromError(error);
+    // ...
+  });

@@ -1,23 +1,29 @@
-import { home } from "./components/home.js"
-import { login } from "./components/login.js"
-import { register } from "./components/login.js"
+import { Login } from "./pages/Login.js";
+import { Register } from  "./pages/Register.js";
 
-const root = document.getElementById("root");
+const root = document.getElementById('root')
+const routes = {
+'/': Login,
+'/login': Login,
+'/register': Register,
 
-const routes = { 
-    '/': home,
-    '/login': login,
-    '/register': register,
 };
 
 export const onNavigate = (pathname) => {
     window.history.pushState(
-        {},
-        pathname,
-        window.location.origin + pathname,
+      {},
+      pathname,
+      window.location.origin + pathname,
     );
-    root.appendChild(routes[pathname]);
+    root.removeChild(root.firstChild);
+    root.appendChild(routes[pathname]());
+  };
+  const component = routes[window.location.pathname];
+
+    window.onpopstate = () => {
+    root.removeChild(root.firstChild);
+    root.append(component());
 };
 
-const component = routes[window.location.pathname];
+root.appendChild(component());
 
