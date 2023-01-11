@@ -1,9 +1,9 @@
-import { Home } from "./pages/Home.js";
-import { Register } from "./pages/Register.js";
+import { Register } from  "./pages/Register.js";
+import { Login } from "./pages/Login.js";
 
 const root = document.getElementById('root')
 const routes = {
-'/': Home,
+'/': Login,
 '/': Register,
 
 };
