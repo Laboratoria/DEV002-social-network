@@ -8,15 +8,28 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-
 </head>
 
 <body>
+  
   <h1>Red Social NVJ</h1>
+
+
+  <nav class="navBar">
+    <ul>
+      <li class="nav navLink" id="botonLoguear"><a href="#openModalSI">Signin</a></li>
+      <li class="nav navLink" id="botonRegistrar"> <a href="#openModalSU">Signup</a></li>
+      <li class="nav navLink" id="salir"> <a href="#logout">Logout</a></li>
+    </ul> 
+  </nav>
+
+
+
+
   <!--Sección de registro SignUp -->
   <section class="signUp" id="registrarse">
 
-    <button type="button" class="btn-open-modal" id="botonRegistrar">Sign Up</button>
+    <!-- <button type="button" class="buttonSU" id="botonRegistrar">Sign Up</button> -->
 
     <div class="modal" id="modalSU">
       <div class="modal-container" id="modalContenedorSU">
@@ -25,6 +38,10 @@
         <div>
           <h2>Sign up</h2>
           <form action="" method="get" class="form" id="formularioSU">
+            <div class="username" id="usuario">
+              <label for="usuario"></label>
+              <input type="username" name="usuario" id="idUsername" placeholder="Username" required>
+            </div>
             <div class="email" id="correo">
               <label for="correo"></label>
               <input type="email" name="correo" id="idCorreoSU" placeholder="Email" required>
@@ -43,7 +60,7 @@
   <!--Sección de loguearse SignIn -->
   <section class="SignIn" id="loguearse">
 
-    <button type="button" class="buttonSI" id="botonLoguear">Sign In</button>
+    <!-- <button type="button" class="buttonSI" id="botonLoguear">Sign In</button> -->
 
     <div class="modal" id="modalSI">
       <div class="modal-container" id="modalContenedorSI">
@@ -66,14 +83,13 @@
               <!--Botón para loguear con Google -->
               <button type="button" class="btnGoogle" id="entrarGoogle"><img class="logoGoogle" src="img/google.png" alt="loguitoGoogle">Sign In with Google</button>
 
-
           </form>
         </div>
       </div>
     </div>
   </section>
  <!--Sección de Logout -->
- <button type="button" id="salir" class="btnLogout">Logout</button>
+ <!-- <button type="button" class="buttonLO" id="salir" >Logout</button> -->
 
   <script type="module" src="main.js"></script>
 
