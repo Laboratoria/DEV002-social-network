@@ -31,7 +31,6 @@
     grid-template-columns: 500px 450px;
     padding: 1rem;
     place-content: center;
-    display: none;
 }
 
 .inicia-sesion-h2 {
@@ -44,5 +43,5 @@
 }
 
 .fecha-nacimiento {
-    width: 17rem;
+    width: 10rem;
 }
