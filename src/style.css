@@ -26,7 +26,6 @@ html {
 
 #img-google {
     width: 130px;
-
 }
 
 .btn-google {
@@ -38,8 +37,7 @@ html {
     margin-top: 10%;
     cursor: pointer;
     margin-bottom: 100px;
-    top: 350px;
-
+    top: 300px
 }
 
 .root {
@@ -181,6 +179,16 @@ footer {
 
 }
 #errorMessageRegister{
+    display: flexbox;
+    position: absolute;
+    top: 355px;
+    color: red;
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    left: 115px;
+}
+#errorlogin{
     display: flexbox;
     position: absolute;
     top: 355px;

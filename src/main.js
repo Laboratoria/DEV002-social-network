@@ -1,4 +1,4 @@
-import { login } from "./lib/Components/login.js"
+import { login } from "./lib/Components/dashboard.js"
 import { register } from "./lib/Components/register.js"
 import { home } from "./lib/Components/home.js";
 
@@ -7,7 +7,7 @@ const rootDiv = document.getElementById('root');
 const routes = {
     '/': home,
     '/register': register,
-    '/login': login,
+    '/dashboard': login,
     
 };
 

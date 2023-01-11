@@ -1,4 +1,4 @@
-import { createUser, signInGoogle } from "../router.js";
+import { createUser, signInGoogle } from "../Index.js";
 import { onNavigate } from "../../main.js"
 import { app } from "../Firebase.js";
 
@@ -47,7 +47,7 @@ export const register = () => {
 
     createUser(userEmail, userPassword, userName)
       .then(() => {
-        onNavigate('/login');
+        onNavigate('/dashboard');
       })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {

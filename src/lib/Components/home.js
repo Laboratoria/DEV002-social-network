@@ -1,5 +1,5 @@
 import { onNavigate } from "../../main.js";
-import { signIn, signInGoogle, authLogin } from '../router.js';
+import { signIn, signInGoogle } from '../Index.js';
 
 export const home = () => {
     const divHome = document.createElement('div');
@@ -23,7 +23,7 @@ export const home = () => {
 
     const buttonRegister = document.createElement('button');
     const buttonLogin = document.createElement('button');
-   
+
     buttonRegister.textContent = 'Crear cuenta';
     buttonLogin.textContent = 'Iniciar sesion';
     buttonRegister.setAttribute('id', 'btnRegister')
@@ -35,37 +35,35 @@ export const home = () => {
     divHome.appendChild(buttonRegister);
     divHome.appendChild(buttonLogin);
 
-    const btnLogin = divHome.querySelector('.btn-google')
-    btnLogin.addEventListener('click', () => {
+    const btnGoogle = divHome.querySelector('.btn-google')
+    btnGoogle.addEventListener('click', () => {
         signInGoogle(onNavigate);
     });
 
-    const btnRegister = divHome.querySelector('#btnRegister');
-    btnRegister.addEventListener('click', () => {
-        const userEmail = divHome.querySelector('#email').value;
-        const userPassword = divHome.querySelector('#password').value;
-        signIn(userEmail, userPassword)
+    const btnStart = divHome.querySelector('#btnLogin')
+    btnStart.addEventListener('click', () => {
+
+        const email = document.querySelector('#email').value;
+        const password = document.querySelector('#password').value;
+
+        signIn(email, password)
             .then(() => {
-                onNavigate('/login');
+                onNavigate('/dashboard');
             })
-        .catch((error) => {
-            if (errorcode === 'auth/wrong-password') {
-                document.querySelector('#errorLogin').innerHTML = 'Contraseña incorrecta';
-              } else if (error.code === 'auth/invalid-email') {
-                document.querySelector('#errorLogin').innerHTML = 'Correo invalido';
-              } else if (error.code === 'auth/user-not-found') {
-                document.querySelector('#errorLogin').innerHTML = 'Correo no resgistrado';
-              } else if (error.code) {
-                document.querySelector('#errorLogin').innerHTML = 'Algo fallo';
-              }
+            .catch((error) => {
+                if (error.code === 'auth/invalid-email') {
+                    document.querySelector('#errorLogin').innerHTML = 'Correo no válido';
+                } else if (error.code === 'auth/user-not-found') {
+                    document.querySelector('#errorLogin').innerHTML = 'Correo no registrado';
+                }else if (error.code) {
+                    document.getElementById('errorLogin').innerHTML = 'Revisa los datos ingresados, algo no está bien';
+                  }
             });
-            authLogin();
     });
 
-
     divHome.append(
-        btnLogin,
-        btnRegister
+        btnGoogle,
+        btnStart
     );
 
     return divHome;
