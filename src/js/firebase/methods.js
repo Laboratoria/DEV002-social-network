@@ -40,36 +40,10 @@ export const register = (auth, signupEmail, signupPassword) => {
         return createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
             .then((userCredential) => resolve(userCredential))  /*está implícita una promesa*/
             .catch(error => reject(error))
-
-            
-            
-            // const user = userCredential.user;
-            //     console.log(userCredential);
-            //     console.log(user);
-            //     verificarSendingMail(auth);
-            //     alert('por favor verifica el buzón de tu correo para verificar tu cuenta');
-
-            //     // closeModalSU();
-            //     // signupForm.reset();
-            //     // signupForm.querySelector('.message-error').innerHTML = '';
-            // })
-            // .catch((error) => {
-            //     const errorCode = error.code;
-            //     const errorMessage = error.message;
-
-                // personalizando los mensajes de los 2 errores mas comunes
-                // if (errorCode === 'auth/email-already-in-use') {
-                //     signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
-                // } else if (errorCode === 'auth/weak-password') {
-                //     signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
-                // } else {
-                //     signupForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
-                // }
-                // console.log(errorMessage)
-                // return errorMessage;
+ 
+           
             });
     }
-
 
 export const login = (auth, email, password) => {
         return new Promise((resolve, reject) => {    /*resolve para retornar el valor deseado cuando una función se ejecute y reject para cuando una función retorna un valor no deseado.*/
@@ -78,12 +52,6 @@ export const login = (auth, email, password) => {
                 .catch(error => reject(error))
         })
     }
-
-
-
-
-
-
 
 
     export const logOut = (auth) => {

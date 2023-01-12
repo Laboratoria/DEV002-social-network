@@ -67,31 +67,6 @@ function validarCorreo(correo) {
   }
 }
 
-
-
-// // SIGN UP
-// const signupForm = document.getElementById('formularioSU');
-// signupForm.addEventListener('submit', (e) => {
-//   let signupEmail = '';
-//   e.preventDefault(); // para cancelar el evento de reinicio del formulario
-//   const valorCorreo = document.getElementById('idCorreoSU').value;
-//   const posibleCorreo = validarCorreo(valorCorreo);
-//   if (posibleCorreo === true) {
-//     signupEmail = valorCorreo;
-//   } else {
-//     signupEmail = '';
-//   }
-//   const signupPassword = document.getElementById('idContraseñaSU').value;
-
-//   // función de Firebase para registrar un usuario
-// register(auth, valorCorreo, signupPassword );
-// console.dir(error);
-
-//   // console.log(signupEmail,signupPassword)
-//   console.log('signUp');
-// });
-
-
 // SIGN UP
 const signupForm = document.getElementById('formularioSU');
 signupForm.addEventListener('submit', async (e) => {
@@ -124,13 +99,7 @@ signupForm.addEventListener('submit', async (e) => {
       signupForm.querySelector('.message-error').innerHTML = message; // mensajes por defecto de los otros posibles errores
     }
   }
-  // console.dir(register);
-  // console.log(register.catch);
-  // let errorMessage=register.catch;
-  //   signupForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
-
-  //   // console.log(signupEmail,signupPassword)
-  //   console.log('signUp');
+     console.log('signUp');
 });
 
 
@@ -189,43 +158,5 @@ googleButton.addEventListener('click', () => {
 });
 
 
-// function soyAsincrona(){
-//   setTimeout(function () {
-//     console.log('Estoy siendo asíncrona');
-//   }, 1000);
-// }
-// console.log('iniciando proceso...');
-// soyAsincrona();
-// console.log('Terminando proceso...');
-
-// function hola (nombre, miCallback){
-//   setTimeout(function(){
-//       console.log('Hola ' +nombre);
-//       miCallback(nombre);
-//   }, 6000);
-// }
-
-
-
-
-// function hola (nombre, miCallback){
-//   setTimeout(function(){
-//       console.log('Hola ' +nombre);
-//       miCallback(nombre);
-//   }, 6000);
-// }
-
-// function adios(nombre, otroCallback){
-//   setTimeout(function(){
-//       console.log('Adios ' +nombre);
-//       otroCallback();
-//   }, 1000);
-// }
-// console.log('iniciando proceso');
-// hola('Carlos', function(nombre){
-//   adios(nombre, function(){
-//       console.log('Terminando proceso...')
-//   });
-// });
 
 
