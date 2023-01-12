@@ -18,12 +18,7 @@ export function AuthAccountFacebook() {
       const accessToken = credential.accessToken;
       console.log(`accessToken${accessToken}`);
 
-      // // PLANTEAMINETO ORIGINAL, CAMBIAR CUANDO TENGA LA FUNCIONALIDAD QUE NECESITAN
-      // document.getElementById('emailFacebookPage').hidden = true;
-      // document.getElementById('register').classList.remove('hidden');
-      // document.getElementById('registerFormRepeatPsw').classList.add('hidden');
-      // document.getElementById('registerFormRepeatPasswordInput').classList.remove('wrongAlert');
-      // document.getElementById('authFunciona').classList.remove('hidden');
+      
     })
     .catch((error) => {
     // Handle Errors here.
@@ -41,7 +36,7 @@ export function AuthAccountFacebook() {
       const credential = FacebookAuthProvider.credentialFromError(error);
       console.log(`credential${credential}`);
 
-      // PLANTEAMINETO ORIGINAL, CAMBIAR CUANDO TENGA LA FUNCIONALIDAD QUE NECESITAN
+      // PLANTEAMINETO ORIGINAL, CAMBIAR CUANDO TENGA LA FUNCIONALIDAD QUE NECESITA
       document.getElementById('emailFacebookPage').hidden = true;
       document.getElementById('register').classList.remove('hidden');
       document.getElementById('authError').classList.remove('hidden');

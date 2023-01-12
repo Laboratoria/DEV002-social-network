@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { signInAccount } from '../app/signIn.js'
 
 export const EmailLogin = () => {
     const EmailLoginDiv = document.createElement('div');
@@ -19,7 +20,7 @@ export const EmailLogin = () => {
         </section>                
     `
     EmailLoginDiv.innerHTML = template
-    //EmailLoginDiv.querySelector('#emailLoginDivBtn').addEventListener('click', () => onNavigate('/feed'))
+    EmailLoginDiv.querySelector('#emailLoginDivBtn').addEventListener('click', signInAccount)
     EmailLoginDiv.querySelector('#emailLoginClickDivBtn').addEventListener('click', () => onNavigate('/recoverpsw'))
     
     return EmailLoginDiv;
