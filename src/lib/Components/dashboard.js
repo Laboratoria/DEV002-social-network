@@ -5,7 +5,7 @@ export const login = () => {
   const viewLogin = `
     <html>
     <header>
-    <img src='./images/logo.png' alt='logoReading' class='img-logo'>
+    <img src='./images/logo.png' alt='logoReading' class='logo-header'>
     <button type='button' id='btn-sign-out'>Cerrar sesion</button>
     <div class='container-images'>
 </div>

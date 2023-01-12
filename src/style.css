@@ -131,7 +131,15 @@ footer {
     font-weight: bold;
 
 }
-
+#errorLogin{
+    display: flexbox;
+    position: absolute;
+    top: 35px;
+    color: red;
+    left: 65px;
+    font-weight: bold;
+}
+/*Registro*/
 #btnFinal {
     display: flexbox;
     position: absolute;
@@ -159,6 +167,7 @@ footer {
     font-size: medium;
 
 }
+
 #name-register,
 #email-register,
 #password-register{
@@ -189,15 +198,14 @@ footer {
     font-size: 15px;
     left: 115px;
 }
-
-#errorLogin{
-    display: flexbox;
-    position: absolute;
-    top: 35px;
-    color: red;
-    left: 65px;
-    font-weight: bold;
+/*Dashboard*/
+.logo-header{
+    background-color: #4AAA5F;
+    width: 20px;
+    height: 20px;
 }
+
+
 @media only screen and (min-width:600px) and (max-width:1700px) {
     .img-logo {
         margin-top: 0;
