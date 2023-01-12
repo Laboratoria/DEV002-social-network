@@ -1,18 +1,20 @@
 import { onNavigate } from "../../main.js";
-import { signUp, signInGoogle, authLogin } from '../index.js';
+import { signIn, signInGoogle } from '../Index.js';
 
 export const home = () => {
     const divHome = document.createElement('div');
     divHome.setAttribute('class', 'div-home');
     const viewHome = `
         <img src='./images/logo.png' alt='logoReading' class='img-logo'>
-        <form id='formLogin'> 
         <div class='input-login'>
         <p>Inicia sesión</p>
           <input type='email' id='email' placeholder='Correo@ejemplo.com'required>
           <input type='password' id='password' placeholder='Contraseña'required>
-      </form>
-      <div id='errorLogin'></id>
+<<<<<<< HEAD
+          <div id='errorLogin'></div>
+=======
+      <div id='errorLogin'></div>
+>>>>>>> f4d1e07df307466553063edab475e717a2eb5b7a
         <div class='div-login'>
         <p>Acceder con:</p>
         <button type='button' class='btn-google'>
@@ -25,14 +27,14 @@ export const home = () => {
 
     const buttonRegister = document.createElement('button');
     const buttonLogin = document.createElement('button');
-   
+
     buttonRegister.textContent = 'Crear cuenta';
     buttonLogin.textContent = 'Iniciar sesion';
     buttonRegister.setAttribute('id', 'btnRegister')
     buttonLogin.setAttribute('id', 'btnLogin')
 
     buttonRegister.addEventListener('click', () => onNavigate('/register'));
-    // buttonLogin.addEventListener('click', () => onNavigate('/dashboard'));
+    // buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
     divHome.appendChild(buttonRegister);
     divHome.appendChild(buttonLogin);
@@ -41,11 +43,31 @@ export const home = () => {
     btnGoogle.addEventListener('click', () => {
         signInGoogle(onNavigate);
     });
+    const btnLogin = divHome.querySelector('#btnLogin')
+    btnLogin.addEventListener('click', () => {
+    const email = document.querySelector ('#email').value;
+    const password = document.querySelector ('#password').value;
 
+    signIn (email, password)
+    .then(() => {    
+    onNavigate('/dashboard');
+    })
+    .catch((error) => {
+        if (error.code === 'auth/invalid-email'){
+            document.querySelector('#errorLogin').innerHTML = 'Correo no válido';
+        } else if (error.code === 'auth/user-not-found'){
+            document.querySelector('#errorLogin').innerHTML = 'Correo no registrado';
+        }else if (error.code) {
+            document.getElementById('errorLogin').innerHTML = 'Ups algo no está bien';
+          }
+    });
+    });
 
     divHome.append(
-        btnGoogle,
+        btnGoogle, 
+        btnLogin,
     );
+
 
     return divHome;
 };

@@ -1,4 +1,4 @@
-import { createUser, signInGoogle } from "../index.js";
+import { createUser, signInGoogle } from "../Index.js";
 import { onNavigate } from "../../main.js"
 import { app } from "../Firebase.js";
 
@@ -12,7 +12,7 @@ export const register = () => {
         <input type='text' id='name-register' placeholder='Nombre'>
         <input type='email' id='email-register' placeholder='Correo electronico'>
         <input type='password' id='password-register' placeholder='Contraseña'>
-   </div>        
+   </div>       
     <div id='errorMessageRegister'></div>
     <div class='div-register'>
     <button type='button' class='btn-google'>
@@ -48,7 +48,7 @@ export const register = () => {
     createUser(userEmail, userPassword, userName)
       .then(() => {
         onNavigate('/dashboard');
-      })
+      }) 
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
           document.querySelector('#errorMessageRegister').innerHTML = 'Éste correo ya está registrado';
@@ -56,9 +56,9 @@ export const register = () => {
           document.querySelector('#errorMessageRegister').innerHTML = 'Correo inválido';
         } else if (error.code === 'auth/invalid-password') {
           document.querySelector('#errorMessageRegister').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
-        }
+        } 
       });
-  });
+    });
 
   divRegister.append(
     btnFinal

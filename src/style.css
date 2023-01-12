@@ -26,7 +26,6 @@ html {
 
 #img-google {
     width: 130px;
-
 }
 
 .btn-google {
@@ -38,8 +37,7 @@ html {
     margin-top: 10%;
     cursor: pointer;
     margin-bottom: 100px;
-    top: 350px;
-
+    top: 350px
 }
 
 .root {
@@ -65,12 +63,12 @@ html {
     display: flexbox;
     position: absolute;
     background-color: #31E6F1;
-    top: 65%;
+    top: 70%;
     cursor: pointer;
     height: 25px;
     width: 150px;
     border-radius: 20px;
-    margin-left: 90px;
+    margin-left: 95px;
     font-size: medium;
 
 }
@@ -78,7 +76,7 @@ html {
 #btnLogin {
     display: flexbox;
     position: absolute;
-    bottom: 50%;
+    bottom: 48%;
     background-color: #4AAA5F;
     cursor: pointer;
     height: 25px;
@@ -112,7 +110,7 @@ html {
 .div-login p {
     font-size: 18px;
     margin-top: 10%;
-    padding-top: 2rem;
+    padding-top: 3rem;
 }
 
 footer {
@@ -180,7 +178,8 @@ footer {
     font-weight: bold;
 
 }
-#errorMessageRegister{
+#errorMessageRegister
+{
     display: flexbox;
     position: absolute;
     top: 355px;
@@ -189,9 +188,16 @@ footer {
     text-align: center;
     font-size: 15px;
     left: 115px;
-
 }
 
+#errorLogin{
+    display: flexbox;
+    position: absolute;
+    top: 35px;
+    color: red;
+    left: 65px;
+    font-weight: bold;
+}
 @media only screen and (min-width:600px) and (max-width:1700px) {
     .img-logo {
         margin-top: 0;
