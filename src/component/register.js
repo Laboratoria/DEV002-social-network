@@ -1,5 +1,5 @@
-import { surfing } from "./main.js";
-import { createUser } from "./firebase.js"
+import { surfing } from "../main.js";
+import { createUser } from "../lib/firebase.js"
 
 export const form = () => {
     const $sectionF = document.createElement("section"),

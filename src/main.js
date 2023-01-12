@@ -1,9 +1,9 @@
 // Este es el punto de entrada de tu aplicacion
 
 // import { myFunction } from './lib/index.js';
-import {login} from './login.js';
-import {home} from './home.js';
-import{form} from './register.js'
+import {login} from './component/login.js';
+import {home} from './component/home.js';
+import{form} from './component/register.js'
 
 const routes = {
     "/" :  home,             //objeto que contiene las direcciones

@@ -1,7 +1,7 @@
 import {
     surfing
 }
-from './main.js'
+from '../main.js'
 
 export const home = () => {
 const $sectionHome = document.createElement('section'),

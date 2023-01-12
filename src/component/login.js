@@ -1,5 +1,5 @@
-import { exitConsult, authGoogle } from "./firebase.js";
-import { surfing } from "./main.js";
+import { exitConsult, authGoogle } from "../lib/firebase.js";
+import { surfing } from "../main.js";
 
 export const login = () => {
   const $section = document.createElement("section"),
