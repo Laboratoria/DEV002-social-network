@@ -3,6 +3,7 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { async } from "regenerator-runtime";
 import { init } from "./js/firebase/config.js";
 import { login, register } from "./js/firebase/methods.js";
 
@@ -72,20 +73,37 @@ onAuthStateChanged(auth);
 
 // SIGN UP
 const signupForm = document.getElementById('formularioSU');
-signupForm.addEventListener('submit', (e) => {
+signupForm.addEventListener('submit', async (e) => {
   let signupEmail = '';
   e.preventDefault(); // para cancelar el evento de reinicio del formulario
   const valorCorreo = document.getElementById('idCorreoSU').value;
   const posibleCorreo = validarCorreo(valorCorreo);
-  if (posibleCorreo === true) {
-    signupEmail = valorCorreo;
-  } else {
-    signupEmail = '';
-  }
-  const signupPassword = document.getElementById('idContraseñaSU').value;
+  try {
+    const {signupEmail, } = await register(auth, valorCorreo, signupPassword)
+    if (posibleCorreo === true) {
+      signupEmail = valorCorreo;
+    } else {
+      signupEmail = '';
+    }
+    const signupPassword = document.getElementById('idContraseñaSU').value;
 
-  // función de Firebase para registrar un usuario
-register(auth, valorCorreo, signupPassword );
+    // función de Firebase para registrar un usuario
+    register(auth, valorCorreo, signupPassword);
+  } 
+  catch ({ code, message }) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+
+    // personalizando los mensajes de los 2 errores mas comunes
+    if (code === 'auth/email-already-in-use') {
+      signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
+    } else if (code === 'auth/weak-password') {
+      signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
+    } else {
+      signupForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
+    }
+    console.log(errorMessage)
+  }
 
 
   // console.log(signupEmail,signupPassword)
@@ -100,7 +118,7 @@ signinForm.addEventListener('submit', async (e) => {
   const emailInput = document.getElementById('idCorreoSI').value;
   const passwordInput = document.getElementById('idContraseñaSI').value;
   try {
-    const { emailVerified, email } = await login(auth, emailInput, passwordInput)  
+    const { emailVerified, email } = await login(auth, emailInput, passwordInput)
     // console.log(resp);
     /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del cooreo electrónico enviado */
     if (emailVerified) {
@@ -109,7 +127,7 @@ signinForm.addEventListener('submit', async (e) => {
       auth.signOut();
       console.log('Por favor realiza la verificación de tu cuenta');
     }
-   // console.log(emailVerified) /* verificando el observador */
+    // console.log(emailVerified) /* verificando el observador */
 
     closeModalSI();
 
@@ -128,10 +146,6 @@ signinForm.addEventListener('submit', async (e) => {
     }
   }
 
-
-
-
-
   console.log('signIn');
 });
 
@@ -147,21 +161,21 @@ const googleButton = document.getElementById('entrarGoogle')
 googleButton.addEventListener('click', e => {
   const provider = new GoogleAuthProvider();
 
- 
-      signinForm.querySelector('.message-error').innerHTML = '';
-    })
-    .catch((error) => {
-      const errorMessage = error.message;
 
-      // personalizando los mensajes de los 2 errores mas comunes
-      if (errorCode === 'auth/user-not-found') {
-        signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado'
-      } else if (errorCode === 'auth/wrong-password') {
-        signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario'
-      } else {
-        signinForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
-      }
-    });
+  signinForm.querySelector('.message-error').innerHTML = '';
+})
+  .catch((error) => {
+    const errorMessage = error.message;
 
-    signInWithPopup(auth);
-  
+    // personalizando los mensajes de los 2 errores mas comunes
+    if (errorCode === 'auth/user-not-found') {
+      signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado'
+    } else if (errorCode === 'auth/wrong-password') {
+      signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario'
+    } else {
+      signinForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
+    }
+  });
+
+signInWithPopup(auth);
+
