@@ -1,159 +1,95 @@
 // Este es el punto de entrada de tu aplicacion
 import { myFunction } from './lib/index.js';
 myFunction();
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-// import { getFirestore } from "https://www.gstatic.com/firebasejs/8.10.1/firebase-firestore.js";
-import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, sendEmailVerification } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import {
+  createUserWithEmailAndPassword, signInWithEmailAndPassword,
+  signInWithPopup, GoogleAuthProvider, onAuthStateChanged,
+  sendEmailVerification
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyAQKOcN9jLUCxn2zXz-mkJKV-BaeFjcKvo",
-  authDomain: "redsocialnvj-47db7.firebaseapp.com",
-  projectId: "redsocialnvj-47db7",
-  storageBucket: "redsocialnvj-47db7.appspot.com",
-  messagingSenderId: "161909447570",
-  appId: "1:161909447570:web:b126b68b577520ab947f4b"
-};
-
-/*abrieno modal sign up*/
-const openModalSU = () => {
-  modalSU.style.display = 'flex';
+function container () {
+  let ul = document.createElement('ul')
+  ul.className = 'registros'
+  containerRegister.appendChild('ul')
+  ul.innerHTML += `
+  <div>
+  <h2>Sign in</h2>
+  <form id="formularioSI">
+    <div class="email" id="correo">
+      <label for="correo"></label>
+      <input type="email" name="correo" id="idCorreoSI" placeholder="Email" required>
+    </div>
+    <div class="password">
+      <label for="contraseña"></label>
+      <input type="password" name="contraseña" id="idContraseñaSI" placeholder="Password" required>
+    </div>
+    <button type="submit" class="btnSubmit" id="btnEnviarSI">Submit</button>
+ `
 }
+ let login = document.getElementById('botonLoguear')
+ login.addEventListener('click', (e) =>{
+  preventDefault(e)
+  const ingresar = container()
+  login.appendChild(ingresar)
+ 
+})
+ 
 
-const closeModalSU = () => {
-  modalSU.style.display = 'none';
-}
 
-const btnOpenModalSU = document.getElementById('botonRegistrar');
-btnOpenModalSU.addEventListener('click', openModalSU);
-
-const btnCloseModalSU = document.getElementById('botonCerrarModalSU');
-btnCloseModalSU.addEventListener('click', closeModalSU);
-
-// open-close modal Sing in 
-const openModalSI = () => {
-  modalSI.style.display = 'flex';
-}
-
-const closeModalSI = () => {
-  modalSI.style.display = 'none';
-}
-const btnOpenModalSI = document.getElementById('botonLoguear');
-btnOpenModalSI.addEventListener('click', openModalSI);
-
-const btnCloseModalSI = document.getElementById('botonCerrarModalSI');
-btnCloseModalSI.addEventListener('click', closeModalSI);
-
-// Initialize Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth();
-// Initialize Cloud Firestore and get a reference to the service
-// const fs = getFirestore(app);
-
-//construyendo un observador de Auth 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    var email = user.email;
-    const uid = user.uid;
-   //  El usuario se encuentra logueado 
-    console.log('auth: sign in')
-
-    var emailVerified = user.emailVerified;
-    if (emailVerified === false) {
-      alert('Email no verificado');
-    } else {
-      console.log('Email verificado');
-    }
-    
-    } else { 
-      // El usuario no se encuentra logueado
-      console.log('auth: logout') 
-  }
-
-   
-
-});
-
-function validarCorreo(correo) {
+export function validarCorreo(correo) {
   let expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
   let valido = expReg.test(correo);
   console.log(valido);
   if (valido === true) {
-    console.log('valido')
+    console.log('valido');
     return true;
   } if (valido === false) {
-    console.log('invalido')
+    console.log('invalido');
     return false;
   }
 }
+onAuthStateChanged(auth);
 
 
 
-function verificarSendingMail() {
-  sendEmailVerification(auth.currentUser)
-    .then(() => {
-      // Email verification sent!
-      // ...
-    })
-}
-
-
-//SIGN UP
+// SIGN UP
 const signupForm = document.getElementById('formularioSU');
 signupForm.addEventListener('submit', (e) => {
-  e.preventDefault(); //para cancelar el evento de reinicio del formulario
+  e.preventDefault(); // para cancelar el evento de reinicio del formulario
   const valorCorreo = document.getElementById('idCorreoSU').value;
-  const posiblcorreo = validarCorreo(valorCorreo)
-  let signupEmail = "";
+  const posiblcorreo = validarCorreo(valorCorreo);
+  let signupEmail = '';
   if (posiblcorreo === true) {
     signupEmail = valorCorreo;
   } else {
-    signupEmail = "";
+    signupEmail = '';
   }
   const signupPassword = document.getElementById('idContraseñaSU').value;
-
-
-  //función de Firebase para registrar un usuario
-
-  createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
-    .then((userCredential) => {
-
-      const user = userCredential.user;
-      verificarSendingMail();
-      alert('por favor verifica su correo en su bandeja de entrada')
-      closeModalSU();
-      signupForm.reset();
-      signupForm.querySelector('.message-error').innerHTML = "";
-
-    })
-    .catch((error) => {
-      const errorCode = error.code
-      const errorMessage = error.message;
-
-      //personalizando los mensajes de los 2 errores mas comunes
-      if (errorCode === 'auth/email-already-in-use') {
-        signupForm.querySelector('.message-error').innerHTML = 'El email ya se encuentra registrado'
-      } else if (errorCode === 'auth/weak-password') {
-        signupForm.querySelector('.message-error').innerHTML = 'La contraseña debe tener al menos 6 carácteres'
-      } else {
-        signupForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
-      }
-    });
-
-
-
-  // console.log(signupEmail,signupPassword)
-  console.log('signUp');
+  closeModalSU();
+  signupForm.reset();
+  signupForm.querySelector('.message-error').innerHTML = '';
 })
 
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
 
-//SIGN IN
+    // personalizando los mensajes de los 2 errores mas comunes//
+    if (errorCode === 'auth/email-already-in-use') {
+      signupForm.querySelector('.message-error').innerHTML = 'El email ya se encuentra registrado'
+    } else if (errorCode === 'auth/weak-password') {
+      signupForm.querySelector('.message-error').innerHTML = 'La contraseña debe tener al menos 6 carácteres'
+    } else {
+      signupForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
+    }
+  });
+createUserWithEmailAndPassword(auth);
+// console.log(signupEmail,signupPassword)
+console.log('signUp');
+
+
+
+// SIGN IN
 
 const signinForm = document.getElementById('formularioSI');
 signinForm.addEventListener('submit', (e) => {
@@ -161,78 +97,54 @@ signinForm.addEventListener('submit', (e) => {
   const email = document.getElementById('idCorreoSI').value;
   const password = document.getElementById('idContraseñaSI').value;
 
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-
-      const user = userCredential.user;
-      if(user.emailVerified){
-     alert('por favor verifica su correo en su bandeja de entrada')
-        console.log('@bienvenido')
-      }else{
-        auth.signOut()
-      }
-      
-      closeModalSI();
-
+     sendEmailVerification(auth);
       signinForm.reset();
-      signinForm.querySelector('.message-error').innerHTML = "";
+      signinForm.querySelector('.message-error').innerHTML = '';
     })
     .catch((error) => {
-      const errorCode = error.code
+      const errorCode = error.code;
       const errorMessage = error.message;
       if (errorCode === 'auth/user-not-found') {
-        signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado'
+        signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado';
       } else if (errorCode === 'auth/wrong-password') {
-        signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario'
+        signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario';
       } else {
-        signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
+        signinForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
       }
     });
 
-  console.log('signIn')
-});
+  console.log('signIn');
+signInWithEmailAndPassword(auth);
 
-//LOGOUT 
-const logout = document.getElementById('salir');
+// LOGOUT
+export const logout = document.getElementById('salir');
 logout.addEventListener('click', e => {
   e.preventDefault();
   auth.signOut().then(() => {
-    console.log('sign out')
+    console.log('sign out');
   })
 });
 
-//GOOGLE LOGIN
+// GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
 googleButton.addEventListener('click', e => {
-
   const provider = new GoogleAuthProvider();
 
-  signInWithPopup(auth, provider)
-    .then(result => {
-      const user = result.user;
-      closeModalSI();
-      console.log('sign in Google')
+ 
       signinForm.querySelector('.message-error').innerHTML = '';
     })
     .catch((error) => {
       const errorMessage = error.message;
 
-      //personalizando los mensajes de los 2 errores mas comunes
+      // personalizando los mensajes de los 2 errores mas comunes
       if (errorCode === 'auth/user-not-found') {
         signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado'
       } else if (errorCode === 'auth/wrong-password') {
         signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario'
       } else {
-        signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
+        signinForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
       }
     });
-  //console.log(email,password)
 
-})
-
-
-
-
-
-
-
+    signInWithPopup(auth);
+  

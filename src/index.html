@@ -5,93 +5,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+
+  <title>Dad's Power</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-  
+
 
 </head>
 
 <body>
-  <h1></h1>
+
   <!--Barra de navegacion-->
-  <section class="header">
-  <nav class="navBar">
-    <ul>
-      <li class="buttonSI" id="botonLoguear"> Sign in</li>
-      <li class="buttonSU" id="botonRegistrar"> Sign up </li>
-      <li class="buttonLO" id="salir"> Logout</li>
-    </ul>
-  </nav>
-</section>
-  <!--Sección de registro SignUp -->
-  <section class="signUp" id="registrarse">
+  <section class="" id="containerRegister">
+    <nav class="navBar">
+      <ul>
+        <li class="buttonSU" id="botonRegistrar"> Sign up</li>
+        <li class="buttonSI" id="botonLoguear"> Sign in / login </li>
+      </ul>
+    </nav>
+    <h5> Welcome t💗</h5>
+    <h1> Dad's Power</h1>
+ </section>
 
-    <!--<button type="button" class="btn-open-modal" id="botonRegistrar">Sign Up</button>-->
-
-    <div class="modal" id="modalSU">
-      <div class="modal-container" id="modalContenedorSU">
-        <button type="button" class="close-modal" id="botonCerrarModalSU">X</button>
-
-        <div>
-          <h2>Sign up</h2>
-          <form action="" method="get" class="form" id="formularioSU">
-            <div class="email" id="correo">
-              <label for="correo"></label>
-              <input type="email" name="correo" id="idCorreoSU" placeholder="Username" required>
-            </div>
-            <div class="password">
-              <label for="contraseña"></label>
-              <input type="password" name="contraseña" id="idContraseñaSU" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btnSubmit" id="btnEnviarSU">Submit</button>
-            <p class="message-error"></p>
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!--Sección de loguearse SignIn -->
-
-  <section class="SignIn" id="loguearse">
-
-    <!-- <button type="button" class="buttonSI" id="botonLoguear">Sign In</button> -->
-
-    <div class="modal" id="modalSI">
-      <div class="modal-container" id="modalContenedorSI">
-        <button type="button" class="close-modal" id="botonCerrarModalSI">X</button>
-
-        <div>
-          <h2>Sign in</h2>
-          <form action="" method="get" class="form" id="formularioSI">
-            <div class="email" id="correo">
-              <label for="correo"></label>
-              <input type="email" name="correo" id="idCorreoSI" placeholder="Email" required>
-            </div>
-            <div class="password">
-              <label for="contraseña"></label>
-              <input type="password" name="contraseña" id="idContraseñaSI" placeholder="Password" required>
-            </div>
-            <button type="submit" class="btnSubmit" id="btnEnviarSI">Submit</button>
-
-            <p class="message-error"></p>
-            <!--Botón para loguear con Google -->
-            <button type="button" class="btnGoogle" id="entrarGoogle"><img class="logoGoogle" src="img/google.png"
-                alt="loguitoGoogle"><span class="texto">Sign in with Google</span></button>
-
-              
+  <div id='content'></div>
 
 
-          </form>
-        </div>
-      </div>
-    </div>
-  </section>
-  <!--Sección de Logout -->
-  <!-- <button type="button" id="salir" class="btnLogout">Logout</button> -->
+
+
+
 
   <script type="module" src="main.js"></script>
+  <script type="module" src="firebase.js"></script>
+  <script src="./login.js"></script>
 
 
 </body>
