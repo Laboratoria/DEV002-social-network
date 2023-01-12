@@ -6,7 +6,6 @@
 }
 
 :root {
-    /* creamos "constantes" con colores, tipografia, etc. que utilizaremos en el proyecto */
     --lightIvory: #F8EDE4;
     --dogBrown: #563c2e;
     --palePink: #dcc5b6;
@@ -281,8 +280,6 @@ main .register .register-form input {
     color: var(--dogBrown);
     font-family: Arial, Helvetica, sans-serif;
     font: 2em sans-serif;
-    /* width: 60rem;
-    height: 5rem; */
 }
 
 main .register .register-form button {
@@ -384,7 +381,6 @@ main .Email-login .Email-login-form .Email-login-form-background input {
     background: none;
     border: none;
     border-bottom: 2px solid black;
-    /* font-size: 2rem; */
     text-indent: 1rem;
     margin-top: 1.5rem;
     color: var(--dogBrown);
@@ -608,7 +604,7 @@ main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover
 
     main .recover-psw .recover-psw-form .recover-psw-form-background button{
         width: 15rem;
-        height: 1.5rem;
+        height: 1.8rem;
         border-radius: 0.8rem;
         font-size: 1.3rem;
     }
@@ -618,7 +614,7 @@ main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover
     }
 
     main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover-psw-div-btn{
-        margin-top: 2rem;
+        margin-top: 1rem;
     }
 }
 
@@ -711,7 +707,7 @@ main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover
 
     main .recover-psw .recover-psw-form .recover-psw-form-background button{
         width: 15rem;
-        height: 1.5rem;
+        height: 1.7rem;
         border-radius: 0.8rem;
         font-size: 1.3rem;
     }
@@ -874,7 +870,6 @@ main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover
 @media screen and (min-width: 87rem) {
     main .main-logo-img {
         width: 57%;
-
     }
 
     main .register-form-background {
@@ -955,7 +950,7 @@ main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover
     main .recover-psw .recover-psw-form .recover-psw-form-background button{
         width: 25rem;
         height: 2.7rem;
-        border-radius: 0.8rem;
+        border-radius: 1rem;
         font-size: 2.5rem;
     }
 }
