@@ -10,11 +10,7 @@ export const home = () => {
         <p>Inicia sesión</p>
           <input type='email' id='email' placeholder='Correo@ejemplo.com'required>
           <input type='password' id='password' placeholder='Contraseña'required>
-<<<<<<< HEAD
-          <div id='errorLogin'></div>
-=======
       <div id='errorLogin'></div>
->>>>>>> f4d1e07df307466553063edab475e717a2eb5b7a
         <div class='div-login'>
         <p>Acceder con:</p>
         <button type='button' class='btn-google'>
@@ -34,7 +30,7 @@ export const home = () => {
     buttonLogin.setAttribute('id', 'btnLogin')
 
     buttonRegister.addEventListener('click', () => onNavigate('/register'));
-    // buttonLogin.addEventListener('click', () => onNavigate('/login'));
+    // buttonLogin.addEventListener('click', () => onNavigate('/dashboard'));
 
     divHome.appendChild(buttonRegister);
     divHome.appendChild(buttonLogin);

@@ -12,19 +12,19 @@ export const login = () => {
 </header>
 <main id='container-posts'>
   <div id='container-btn-input'>
-   <img id='img-input' src='images/Usuario.png' alt='profile'>
+   <img id='img-input' src='images/user.png' alt='profile'>
   <button type='button' id='btn-input-modal'>Deja aqui la reseña de tu libro...</button>
   </div>
    <div id='modal-background-post'>
     <div id='modal-content-post'>
     <div id='space-line'>
     <p>Crear Reseña</p>
-    <img src='images/Cerrar.png' class='btn-exit'>
+    <img src='images/close.png' class='btn-exit'>
     </div>
     <div id='line'></div>
     <div id='after-line'>
     <div id='container-img-text'>
-    <img id='img-modal-post' src='images/Usuario.png' alt='profile'>
+    <img id='img-modal-post' src='images/user.png' alt='profile'>
     <div id='container-text'></div>
     </div>
     <textarea type='text' id='input-post' placeholder=''>Deja aqui la reseña de tu libro</textarea>
