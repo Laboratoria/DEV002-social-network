@@ -8,10 +8,10 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-
 </head>
 
 <body>
+  
   <h1>Red Social NVJ</h1>
   <nav class="navBar">
     <ul>
@@ -32,6 +32,10 @@
         <div>
           <h2>Sign up</h2>
           <form action="" method="get" class="form" id="formularioSU">
+            <div class="username" id="usuario">
+              <label for="usuario"></label>
+              <input type="username" name="usuario" id="idUsername" placeholder="Username" required>
+            </div>
             <div class="email" id="correo">
               <label for="correo"></label>
               <input type="email" name="correo" id="idCorreoSU" placeholder="Email" required>
@@ -73,14 +77,13 @@
               <!--Botón para loguear con Google -->
               <button type="button" class="btnGoogle" id="entrarGoogle"><img class="logoGoogle" src="img/google.png" alt="loguitoGoogle">Sign In with Google</button>
 
-
           </form>
         </div>
       </div>
     </div>
   </section>
  <!--Sección de Logout -->
- <!-- <button type="button" id="salir" class="btnLogout">Logout</button> -->
+ <!-- <button type="button" class="buttonLO" id="salir" >Logout</button> -->
 
   <script type="module" src="main.js"></script>
   <script type="module" src="firebase.js"></script>
