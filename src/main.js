@@ -67,9 +67,34 @@ function validarCorreo(correo) {
   }
 }
 
+
+
+// // SIGN UP
+// const signupForm = document.getElementById('formularioSU');
+// signupForm.addEventListener('submit', (e) => {
+//   let signupEmail = '';
+//   e.preventDefault(); // para cancelar el evento de reinicio del formulario
+//   const valorCorreo = document.getElementById('idCorreoSU').value;
+//   const posibleCorreo = validarCorreo(valorCorreo);
+//   if (posibleCorreo === true) {
+//     signupEmail = valorCorreo;
+//   } else {
+//     signupEmail = '';
+//   }
+//   const signupPassword = document.getElementById('idContraseñaSU').value;
+
+//   // función de Firebase para registrar un usuario
+// register(auth, valorCorreo, signupPassword );
+// console.dir(error);
+
+//   // console.log(signupEmail,signupPassword)
+//   console.log('signUp');
+// });
+
+
 // SIGN UP
 const signupForm = document.getElementById('formularioSU');
-signupForm.addEventListener('submit', (e) => {
+signupForm.addEventListener('submit', async (e) => {
   let signupEmail = '';
   e.preventDefault(); // para cancelar el evento de reinicio del formulario
   const valorCorreo = document.getElementById('idCorreoSU').value;
@@ -82,12 +107,33 @@ signupForm.addEventListener('submit', (e) => {
   const signupPassword = document.getElementById('idContraseñaSU').value;
 
   // función de Firebase para registrar un usuario
-register(auth, valorCorreo, signupPassword );
+  try {
+    const resultado = await register(auth, valorCorreo, signupPassword);
+    console.log(resultado);
+  
+  signupForm.querySelector('.message-error').innerHTML = '';
+}
+  catch ({ code, message }) {
+    console.log(message);
+    // personalizando los mensajes de los 2 errores mas comunes
+    if (code === 'auth/email-already-in-use') {
+      signupForm.querySelector('.message-error').innerHTML = 'El Email ya se encuentra registrado'
+    } else if (code === 'auth/weak-password') {
+      signupForm.querySelector('.message-error').innerHTML = 'La Contraseña debe tener al menos 6 carácteres'
+    } else {
+      signupForm.querySelector('.message-error').innerHTML = message; // mensajes por defecto de los otros posibles errores
+    }
+  }
+  // console.dir(register);
+  // console.log(register.catch);
+  // let errorMessage=register.catch;
+  //   signupForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
 
-
-  // console.log(signupEmail,signupPassword)
-  console.log('signUp');
+  //   // console.log(signupEmail,signupPassword)
+  //   console.log('signUp');
 });
+
+
 
 // SIGN IN
 
@@ -97,8 +143,9 @@ signinForm.addEventListener('submit', async (e) => {
   const emailInput = document.getElementById('idCorreoSI').value;
   const passwordInput = document.getElementById('idContraseñaSI').value;
   try {
-    const { emailVerified, email } = await login(auth, emailInput, passwordInput)  
-    // console.log(resp);
+    const { emailVerified, email } = await login(auth, emailInput, passwordInput)
+
+    //console.log(emailVerified,email);
     /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del cooreo electrónico enviado */
     if (emailVerified) {
       console.log('Bienvenid@', email);
@@ -106,7 +153,7 @@ signinForm.addEventListener('submit', async (e) => {
       auth.signOut();
       console.log('Por favor realiza la verificación de tu cuenta');
     }
-   // console.log(emailVerified) /* verificando el observador */
+    // console.log(emailVerified) /* verificando el observador */
 
     closeModalSI();
 
@@ -124,10 +171,6 @@ signinForm.addEventListener('submit', async (e) => {
       signinForm.querySelector('.message-error').innerHTML = message; //mensajes por defecto de los otros posibles errores
     }
   }
-
-
-
-
 
   console.log('signIn');
 });
