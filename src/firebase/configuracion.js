@@ -26,9 +26,14 @@ export function registerUser(email, password) {
     console.log('Usuario registrado correctamente');
   })
   .catch((error) => {
-    // Ocurrió un error al registrar el usuario
-    // Puedes obtener más información sobre el error con error.code y error.message
-    console.error(error);
+    console.error(error.code);
+    if (error.code === 'auth/email-already-in-use'){
+          alert('Este correo ya está registrado')
+      }else if (error.code === 'auth/weak-password'){
+          alert('Tu contraseña no es segura')
+      }else if (error.code === 'auth/invalid-email'){
+          alert('Este correo no existe o es inválido')
+      }
   });
 }
 
