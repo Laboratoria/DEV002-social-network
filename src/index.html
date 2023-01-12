@@ -13,10 +13,17 @@
 
 <body>
   <h1>Red Social NVJ</h1>
+  <nav class="navBar">
+    <ul>
+      <li class="nav navLink" id="botonLoguear"><a href="#openModalSI">SignIn</a></li>
+      <li class="nav navLink" id="botonRegistrar"> <a href="#openModalSU">Sign up</a></li>
+      <li class="nav navLink" id="salir"> <a href="#logout">Logout</a></li>
+    </ul> 
+  </nav>
   <!--Sección de registro SignUp -->
   <section class="signUp" id="registrarse">
 
-    <button type="button" class="btn-open-modal" id="botonRegistrar">Sign Up</button>
+    <!-- <button type="button" class="btn-open-modal" id="botonRegistrar">Sign Up</button> -->
 
     <div class="modal" id="modalSU">
       <div class="modal-container" id="modalContenedorSU">
@@ -43,7 +50,7 @@
   <!--Sección de loguearse SignIn -->
   <section class="SignIn" id="loguearse">
 
-    <button type="button" class="buttonSI" id="botonLoguear">Sign In</button>
+    <!-- <button type="button" class="buttonSI" id="botonLoguear">Sign In</button> -->
 
     <div class="modal" id="modalSI">
       <div class="modal-container" id="modalContenedorSI">
@@ -73,9 +80,10 @@
     </div>
   </section>
  <!--Sección de Logout -->
- <button type="button" id="salir" class="btnLogout">Logout</button>
+ <!-- <button type="button" id="salir" class="btnLogout">Logout</button> -->
 
   <script type="module" src="main.js"></script>
+  <script type="module" src="firebase.js"></script>
 
 
 </body>
