@@ -10,30 +10,88 @@
 
   <title>Dad's Power</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
-
-
 </head>
 
 <body>
+  
+  <h1>Red Social NVJ</h1>
 
-  <!--Barra de navegacion-->
-  <section class="" id="containerRegister">
-    <nav class="navBar">
-      <ul>
-        <li class="buttonSU" id="botonRegistrar"> Sign up</li>
-        <li class="buttonSI" id="botonLoguear"> Sign in / login </li>
-      </ul>
-    </nav>
-    <h5> Welcome t💗</h5>
-    <h1> Dad's Power</h1>
- </section>
 
-  <div id='content'></div>
+  <nav class="navBar">
+    <ul>
+      <li class="nav navLink" id="botonLoguear"><a href="#openModalSI">Signin</a></li>
+      <li class="nav navLink" id="botonRegistrar"> <a href="#openModalSU">Signup</a></li>
+      <li class="nav navLink" id="salir"> <a href="#logout">Logout</a></li>
+    </ul> 
+  </nav>
 
 
 
 
+  <!--Sección de registro SignUp -->
+  <section class="signUp" id="registrarse">
 
+    <!-- <button type="button" class="buttonSU" id="botonRegistrar">Sign Up</button> -->
+
+    <div class="modal" id="modalSU">
+      <div class="modal-container" id="modalContenedorSU">
+        <button type="button" class="close-modal" id="botonCerrarModalSU">X</button>
+
+        <div>
+          <h2>Sign up</h2>
+          <form action="" method="get" class="form" id="formularioSU">
+            <div class="username" id="usuario">
+              <label for="usuario"></label>
+              <input type="username" name="usuario" id="idUsername" placeholder="Username" required>
+            </div>
+            <div class="email" id="correo">
+              <label for="correo"></label>
+              <input type="email" name="correo" id="idCorreoSU" placeholder="Email" required>
+            </div>
+            <div class="password">
+              <label for="contraseña"></label>
+              <input type="password" name="contraseña" id="idContraseñaSU" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btnSubmit" id="btnEnviarSU">Submit</button>
+             <p class="message-error"></p>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+  <!--Sección de loguearse SignIn -->
+  <section class="SignIn" id="loguearse">
+
+    <!-- <button type="button" class="buttonSI" id="botonLoguear">Sign In</button> -->
+
+    <div class="modal" id="modalSI">
+      <div class="modal-container" id="modalContenedorSI">
+        <button type="button" class="close-modal" id="botonCerrarModalSI">X</button>
+
+        <div>
+          <h2>Sign in</h2>
+          <form action="" method="get" class="form" id="formularioSI">
+            <div class="email" id="correo">
+              <label for="correo"></label>
+              <input type="email" name="correo" id="idCorreoSI" placeholder="Email" required>
+            </div>
+            <div class="password">
+              <label for="contraseña"></label>
+              <input type="password" name="contraseña" id="idContraseñaSI" placeholder="Password" required>
+            </div>
+            <button type="submit" class="btnSubmit" id="btnEnviarSI">Submit</button>
+            
+            <p class="message-error"></p>
+              <!--Botón para loguear con Google -->
+              <button type="button" class="btnGoogle" id="entrarGoogle"><img class="logoGoogle" src="img/google.png" alt="loguitoGoogle">Sign In with Google</button>
+
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+ <!--Sección de Logout -->
+ <!-- <button type="button" class="buttonLO" id="salir" >Logout</button> -->
 
   <script type="module" src="main.js"></script>
   <script type="module" src="firebase.js"></script>

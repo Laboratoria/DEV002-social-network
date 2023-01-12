@@ -5,6 +5,14 @@
   padding: 0;
 }
 
+h1 {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+
+
 .modal {
   display: none;
   background: url(img/fondo10.png);
@@ -46,14 +54,6 @@ input {
   border: transparent;
   margin: 0 0 30px 0;
   cursor: pointer;
-  display: block;
-  padding-inline-start: 0.75em;
-  padding-inline-end: 0.75em;
-  min-inline-size: min-content;
-  margin: 35px 0 0 0;
-
-
-
 
 }
 
@@ -86,10 +86,7 @@ input:hover,
   backdrop-filter: blur(3px);
   border: none;
   width: 45%;
-  height: 30px;
-  margin: 30px 35px 20px 60px;
-  cursor: pointer;
-
+  height: 25px;
 }
 
 
@@ -110,96 +107,64 @@ input:hover,
 .message-error {
   font-size: 12px;
   font-family: sans-serif;
-  color: rgb(134, 6, 6);
+  margin-top: 30px;
+  color: whitesmoke;
   text-align: justify;
-  position: relative;
-  top: 70px;
+  background-color: orangered;
+  border-radius: 5px;
+  width: 100%;
+  padding: 0px 5px;
 }
 
 .logoGoogle {
-  width: 25px;
-  height: 24px;
-  padding: 2px 2px 1px 1px;
-  position: absolute;
-  left: 80px;
-  border: 1px solid white;
-  background-color: white;
-  border-radius: 3px;
-
+  width: 17px;
+  height: 17px;
+  /*padding: 1%;*/
+  margin: 0 0.5rem 0 0.5rem;
 }
 
 .btnGoogle {
-  background: rgb(52, 52, 250);
-  width: 100%;
+  /* background: transparent;*/
+  background: linear-gradient(294deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+  width: 108%;
   height: 35px;
   border-radius: 5px;
   border: none;
   color: beige;
   text-align: center;
-  margin-inline: 3px;
-  cursor: pointer;
-  line-height: 30px;
-  padding-inline-start: 20px;
-
-
+  border: 2px blue;
+  border-style: solid;
 }
-
-.buttonSI:hover,
-.buttonSU:hover,
-.buttonLO:hover {
-  color: rgb(243, 171, 62);
-}
-
 
 body {
-  background-image: url(img/inicioApp.png);
-  width: 384px;
-  height: 800px;
-
+  font-family: sans-serif;
 }
 
-h1{
-  position: absolute;
-  width: 300px;
-  height: 47px;
-  left: 55px;
-  top: 115px;
-  font-family: 'Fredoka One', cursive;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 35px;
-  line-height: 42px;
-  color: rgba(255, 242, 242, 0.25);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-}
-h5 {
-  text-align: center;
-  font-weight: 20px;
-  top: 80px;
-  padding-left: 40px;
-  position: absolute;
-  color: #FFFFFF;
-  letter-spacing: 4px;
-  margin: 0 0px 0 20px;
-  font-family:'ABeeZee';
-}
+/* BARRA NAVEGACIÓN */
+
 .navBar {
-  margin-top: 15px;
-  text-align: right;
+  background-color: rgb(154, 116, 190);
+  height: 50px;
+  width: 100%;
+  font-size: 30px;
+  top: 80px;
+  left: 0;
+  justify-content: center;
+  position: absolute;
 }
 
-.buttonSI,
-.buttonSU,
-.buttonLO {
-  display: inline-block;
-  color: #FFFFFF;
-  font-family: Century Gothic;
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 17px;
-  letter-spacing: 0em;
-  text-align: left;
-  cursor: pointer;
-  margin: 1px 15px 10px 15px;
+li a {
+  text-decoration: none;    /*para quitar el subrayado*/
+  color: white;
+  text-decoration: none;
+  list-style: none;
+  margin: 0 15px 0 15px;
+  padding-top: 10px;
+}
 
+.nav {
+  justify-content: space-between;
+  color: white;
+  display: inline;
+  padding-top: 10px;
 }
