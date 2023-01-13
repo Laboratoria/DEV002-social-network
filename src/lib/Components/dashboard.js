@@ -10,7 +10,7 @@ export const login = () => {
     <div class='container-images'>
 </div>
 </header>
-<main id='container-posts'>
+<main>
   <div id='container-btn-input'>
    <img id='img-input' src='images/user.png' alt='profile'>
   <button type='button' id='btn-input-modal'>Deja aqui la reseña de tu libro...</button>
@@ -35,16 +35,19 @@ export const login = () => {
   </div>
   <div id='div-post'></div>
   <div id='container-modal-delete'></div>
-</main>`
+</main>
+<footer>© 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;
 
 divLogin.innerHTML = viewLogin;
-const btnModal = divLogin.querySelector('#btn-input-modal');
-  btnModal.addEventListener('click', () => { 
-    document.querySelector('#modal-background-post').style.display = 'flex';
-    document.querySelector('#modal-content-post').style.display = 'block';
-    document.style.overflow = 'hidden()'
-  });
 
+const btnModal = divLogin.querySelector('#btn-input-modal');
+btnModal.addEventListener('click',() =>{
+  document.querySelector('#modal-background-post').style.display = 'flex';
+  document.querySelector('#modal-content-post').style.display = 'block';
+  document.body.style.overflow='hidden'();
+  document.querySelector('#input-post').value = '';
+});
+  
   return divLogin;
 
 };
