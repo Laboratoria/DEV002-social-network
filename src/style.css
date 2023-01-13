@@ -3,6 +3,30 @@
 * {
   margin: 0;
   padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+}
+
+/* BARRA NAVEGACIÓN */
+
+.navBar{
+background-color: rgb(154, 116, 190);
+height: 80px;
+width: 100%;
+top: 80px;
+left: 0;
+display: flex;
+}
+
+.nav{
+  display: flex;
+  justify-content: space-between;
+  color: white;
+  text-decoration: none;
+  list-style: none;
 }
 
 
@@ -131,9 +155,9 @@ input:hover,
   border-style: solid;
 }
 
-body {
+/* body {
   background-image: url(img/inicioApp.png);
-}
+} */
 
 h1 {
 font-family: 'Fredoka One';
