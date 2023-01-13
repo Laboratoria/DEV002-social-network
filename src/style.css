@@ -223,7 +223,7 @@ footer {
     width: 25px;
     height: 25px;
     position:absolute;
-    left:345px;
+    left:330px;
     top:200px;
 }
 
@@ -254,7 +254,7 @@ header{
 #btn-input-modal{
     background-color: #ECB390;
     height: 40px;
-    width: 70%;
+    width: 65%;
     align-items: center;
     margin: 5px 10px 10px 10px;
     position: absolute;
@@ -289,6 +289,7 @@ header{
     background-color:#94B49F;
     border-radius: 20px;
     cursor: pointer;
+    display: none;
 }
 .btn-post-inactive{
 background-color: #31E6F1;
