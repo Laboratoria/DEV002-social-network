@@ -211,15 +211,20 @@ footer {
     margin-top: 5px;
     width: 50px;
     height: 50px;
+    margin-left: 6px;
 }
 #img-modal-post{
     margin-top: 5px;
     width: 50px;
     height: 50px;
+    margin-left: 6px;
 }
 .btn-exit{
-    width: 50px;
-    height: 50px;
+    width: 25px;
+    height: 25px;
+    position:absolute;
+    left:345px;
+    top:200px;
 }
 
 header{
@@ -256,8 +261,40 @@ header{
     top: 100px;
     border-radius: 10px;
 }
-
-
+#line{
+    border-top:1px solid ;
+}
+#space-line{
+    background-color:#779080;
+    height: 25px;
+    text-align: center;
+    padding: 7px 7px 7px 7px;
+}
+#after-line{
+ background-color: #94B49F;
+ display:flex;
+ flex-direction: column;
+}
+#input-post{
+    height: 100px;
+    width: 98%;
+    background-color: transparent;
+    cursor: pointer;
+    border-color: grey;
+    border-radius: 10px;
+    margin-left: 3px;
+}
+#modal-content-post{
+    width: 100%;
+    background-color:#94B49F;
+    border-radius: 20px;
+    cursor: pointer;
+}
+.btn-post-inactive{
+background-color: #31E6F1;
+width: 25%;
+cursor: pointer;
+}
 @media only screen and (min-width:600px) and (max-width:1700px) {
     .img-logo {
         margin-top: 0;
