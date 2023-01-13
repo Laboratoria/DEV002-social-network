@@ -1,5 +1,6 @@
 // import { onNavigate } from "../../main.js";
  import { registerUser } from '../firebase/configuracion.js';
+ import { next } from '../main.js'
 
 //  const indexRegistro = document.getElementById('containerRegister');
 //  const indexInicioSesion = document.getElementById('container');
@@ -10,7 +11,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const registerButton = document.getElementById('register-button');
   registerButton.addEventListener('click', (event) => {
       event.preventDefault()
-      console.log("click se ejecutó")
+      console.log("click register se ejecutó")
       const email = document.getElementById('emailRegister').value;
       const password = document.getElementById('passwordRegister').value;
       registerUser(email, password);
@@ -68,16 +69,22 @@ export const Register = () => {
 
     <label class="fecha-nacimiento" for='fecha-nacimiento'> Edad * </label> <br>
     <input type="number" min="1" class="fecha-nacimiento" required> <br>
+  <a href="/timeLine">
     <button class="ingresar" id="register-button"> Registrar </button>
+    </a>
   </form>
 </section> </div>`
 //Este es el punto de entrada de tu aplicacion
 // import { GoogleAuthProvider } from "firebase/auth";
 
 
-
-
 divRegister.innerHTML = viewRegister;
+
+const registerBtn = divRegister.querySelector('#register-button');
+registerBtn.addEventListener('click', () => {
+  next('/timeLine');
+});
+
 return divRegister;
 
 };

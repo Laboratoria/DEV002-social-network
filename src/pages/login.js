@@ -1,5 +1,6 @@
 import { onNavigate } from '../main.js';
 import { inicioDeSesionEmail} from '../pages/inicioDeSesionCorreo.js'
+import { next} from '../main.js'
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -31,7 +32,11 @@ export const Login = () => {
       <p class="or">O</p>
       <input id="email" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
       <input id="password" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
-      <button class="ingresar" id="ingresar"> Ingresar </button>
+     
+      <a href= "/timeLine">
+        <button class="ingresar" id="ingresar"> Ingresar </button>
+      </a>
+
     </form> 
    
     <p>¿Aún no tienes una cuenta?</p>
@@ -47,6 +52,20 @@ export const Login = () => {
   
   divLogin.innerHTML = viewLogin;
 
+  const signUpBtn = divLogin.querySelector('#ingresar');
+  signUpBtn.addEventListener('click', () => {
+    next('/timeLine');
+  });
+
+
+
+  return divLogin;
+};
+
+export default Login
+
+
+
   // const buttonFinalLogin = document.createElement('button');
   // const buttonHome = document.createElement('button');
 
@@ -59,9 +78,4 @@ export const Login = () => {
   // divRegister.appendChild(buttonHome);
   // divRegister.appendChild(buttonFinalRegister);
 
-  return divLogin;
-};
-
-export default Login
-
-
+  
