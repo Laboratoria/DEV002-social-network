@@ -15,30 +15,29 @@
 </head>
 
 <body>
- 
-  <div id="content">
-    <nav class="navBar">
-      <ul>
-        <li class="nav navLink" id="botonRegistrar">Signup</li>
-        <li class="nav navLink" id="botonLoguear">Signin / login</li>
-        <!-- <li class="nav navLink" id="salir">Logout</li>-->
-      </ul>
-    </nav>
-  </div>
-  <section>
-    <h5> Welcome t💗 </h5>
-    <h1> Dad's Power</h1>
-  </section>
-
 
   <div id="root"></div>
 
-
+<!--  
+  <div id="content">
+    <nav class="navBarHome">
+      <ul>
+        <li class="navLink" id="botonRegistrar">Signup</li>
+        <li class="navLink" id="botonLoguear">Signin / login</li>
+        <li class="navLink" id="salir">Logout</li>
+      </ul>
+    </nav>
+  </div> -->
+  <!-- <section class="bienvenida">
+    <h5> Welcome t💗 </h5>
+    <h1> Dad's Power</h1>
+    <img class='imgInicio' src = 'imagen/inicioApp.png' alt='fondo con imagen de un padre levantando a su hij@'>
+  </section> -->
 
   <!--Sección de registro SignUp -->
-  <section class="signUp" id="registrarse">
+  <!-- <section class="signUp" id="registrarse">
 
-    <!-- <button type="button" class="btn-open-modal" id="botonRegistrar">Sign Up</button> -->
+   <button type="button" class="btn-open-modal" id="botonRegistrar">Sign Up</button> 
 
     <div class="modal" id="modalSU">
       <div class="modal-container" id="modalContenedorSU">
@@ -66,10 +65,10 @@
       </div>
     </div>
   </section>
-  <!--Sección de loguearse SignIn -->
+  Sección de loguearse SignIn 
   <section class="SignIn" id="loguearse">
 
-    <!-- <button type="button" class="buttonSI" id="botonLoguear">Sign In</button> -->
+    <button type="button" class="buttonSI" id="botonLoguear">Sign In</button> 
 
     <div class="modal" id="modalSI">
       <div class="modal-container" id="modalContenedorSI">
@@ -89,7 +88,7 @@
             <button type="submit" class="btnSubmit" id="btnEnviarSI">Submit</button>
 
             <p class="message-error"></p>
-            <!--Botón para loguear con Google -->
+            Botón para loguear con Google 
             <button type="button" class="btnGoogle" id="entrarGoogle"><img class="logoGoogle" src="img/google.png"
                 alt="loguitoGoogle">Sign In with Google</button>
 
@@ -97,13 +96,15 @@
         </div>
       </div>
     </div>
-  </section>
+  </section> -->
   <!--Sección de Logout -->
   <!-- <button type="button" class="buttonLO" id="salir" >Logout</button> -->
 
-  <script type="module" src="main.js"></script>
-  <script type="module" src="methods.js"></script>
+  <script type="module" src="./js/routes.js"></script>
+  <!-- <script type="module" src="./js/router.js"></script> -->
 
+  <script type="module" src="main.js"></script>
+  <script type="module" src="./lib/firebase/methods.js"></script>
 
 
 </body>
