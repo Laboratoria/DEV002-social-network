@@ -1,3 +1,5 @@
+import { toNavigate } from "../main.js";
+
 export const home = () => {
     //Creamos elementos del Home
     const homeDiv = document.createElement("div");
@@ -11,7 +13,9 @@ export const home = () => {
     hrefRegister.textContent = "Crea una cuenta";
     buttonGoogle.textContent = "Continuar con Google";
 
-    //falta crear evento que llama la función onNavigate()
+    buttonLogin.addEventListener("click", () => toNavigate("/feed"));
+    hrefRegister.addEventListener("click", () => toNavigate("/register"));
+    buttonGoogle.addEventListener("click", () => toNavigate("/feed"));
 
     homeDiv.appendChild(inputMail);
     homeDiv.appendChild(inputPassword);

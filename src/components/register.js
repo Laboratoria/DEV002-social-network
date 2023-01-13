@@ -1,3 +1,5 @@
+import { toNavigate } from "../main.js";
+
 export const register = () => {
     //Creamos elementos de Register
     const registerDiv = document.createElement("div");
@@ -12,7 +14,7 @@ export const register = () => {
 
     buttonRegister.textContent = "REGISTRARSE"
 
-    //Falta crear evento que llame función onNavigate()
+    buttonRegister.addEventListener("click", () => toNavigate("/registerOk"));
 
     registerDiv.appendChild(inputUserName);
     registerDiv.appendChild(inputUserCity);
