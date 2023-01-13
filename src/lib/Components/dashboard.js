@@ -1,4 +1,4 @@
-// import { onNavigate } from "../../main.js";
+import { app } from "../Firebase.js";
 export const login = () => {
   const divLogin = document.createElement('div');
   divLogin.setAttribute('id', 'div-login');
@@ -37,7 +37,14 @@ export const login = () => {
   <div id='container-modal-delete'></div>
 </main>`
 
-  divLogin.innerHTML = viewLogin;
+divLogin.innerHTML = viewLogin;
+const btnModal = divLogin.querySelector('#btn-input-modal');
+  btnModal.addEventListener('click', () => { 
+    document.querySelector('#modal-background-post').style.display = 'flex';
+    document.querySelector('#modal-content-post').style.display = 'block';
+    document.style.overflow = 'hidden()'
+  });
+
   return divLogin;
 
 };
