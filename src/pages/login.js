@@ -1,4 +1,17 @@
 import { onNavigate } from '../main.js';
+import { inicioDeSesionEmail} from '../pages/inicioDeSesionCorreo.js'
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const logInButton = document.getElementById('ingresar');
+  logInButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      console.log("click se ejecutó")
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+     inicioDeSesionEmail (email, password);
+  });
+});
 
 export const Login = () => { 
   const divLogin = document.createElement('div');
