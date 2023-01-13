@@ -289,6 +289,7 @@ header{
     background-color:#94B49F;
     border-radius: 20px;
     cursor: pointer;
+    display: none;
 }
 .btn-post-inactive{
 background-color: #31E6F1;
