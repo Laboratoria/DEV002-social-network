@@ -1,4 +1,5 @@
 import { onNavigate } from '../main.js';
+import { pswReset } from '../app/Psw-reset.js';
 
 export const RecoverPsw = () => {
     const RecoverPswDiv = document.createElement('div');
@@ -14,6 +15,8 @@ export const RecoverPsw = () => {
         </section>
     `
     RecoverPswDiv.innerHTML = template
+    
+    RecoverPswDiv.querySelector('#resetRecoverPswDivBtn').addEventListener('click', pswReset)
     RecoverPswDiv.querySelector('#cancelRecoverPswDivBtn').addEventListener('click', () => onNavigate('/emaillogin'))
     
     return RecoverPswDiv;
