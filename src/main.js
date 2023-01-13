@@ -4,7 +4,7 @@ import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { init } from "./js/firebase/config.js";
-import { login, register } from "./js/firebase/methods.js";
+import { login, register, loginWithGoogle } from "./js/firebase/methods.js";
 
 init();
 const auth = getAuth();
@@ -187,8 +187,12 @@ logout.addEventListener('click', (e) => {
 // GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
 googleButton.addEventListener('click', () => {
+  loginWithGoogle(auth);
+  closeModalSI();
+  signinForm.reset();
   // console.log(email,password)
 });
+
 
 
 // function soyAsincrona(){
