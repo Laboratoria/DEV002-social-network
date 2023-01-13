@@ -36,10 +36,6 @@ export function AuthAccountFacebook() {
       const credential = FacebookAuthProvider.credentialFromError(error);
       console.log(`credential${credential}`);
 
-      // PLANTEAMINETO ORIGINAL, CAMBIAR CUANDO TENGA LA FUNCIONALIDAD QUE NECESITA
-      document.getElementById('emailFacebookPage').hidden = true;
-      document.getElementById('register').classList.remove('hidden');
-      document.getElementById('authError').classList.remove('hidden');
-      console.log(error);
+     
     });
 }
