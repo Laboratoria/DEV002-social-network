@@ -3,6 +3,7 @@ import './app/register.js';
 import './app/facebookrg.js';
 import './app/signIn.js';
 
+
 // // Este es el punto de entrada de tu aplicacion
 // import { loadHome } from './lib/index.js';
 
