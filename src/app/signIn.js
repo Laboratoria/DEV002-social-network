@@ -1,22 +1,16 @@
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { firebaseAuth } from './firebase.js';
 
-export const signInAccount = () => {
-    e.preventDefault();
-  
-  const email = document.getElementById('EmailLoginFormInput').value
-  const password = document.getElementById('passwordEmailLoginInput').value
+export const signInAccount = async (EmailLoginForm) => {
+  const email = EmailLoginForm.EmailLoginFormInput.value
+  const password = EmailLoginForm.passwordEmailLoginInput.value
 
-  signInWithEmailAndPassword(firebaseAuth, email, password)
-    .then((userCredential) => {
-    // Signed in 
-        const user = userCredential.user;
-        console.log(`user${user}`);
-
-  })
-    .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-  });
-
+  try {
+    const userCredential = await signInWithEmailAndPassword(firebaseAuth, email, password)
+    const user = userCredential.user;
+    console.log({user})
+    return Promise.resolve(userCredential)
+  } catch (error) {
+    return Promise.reject(error)
+  }
 }

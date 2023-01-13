@@ -20,7 +20,16 @@ export const EmailLogin = () => {
         </section>                
     `
     EmailLoginDiv.innerHTML = template
-    EmailLoginDiv.querySelector('#emailLoginDivBtn').addEventListener('click', signInAccount)
+    EmailLoginDiv.querySelector('#emailLoginDivBtn').addEventListener('click', async (e)=>{
+        e.preventDefault();
+        const EmailLoginForm = document.getElementById('EmailLoginForm')
+        try {
+            await signInAccount(EmailLoginForm)
+            onNavigate('/feed')
+        } catch (error) {
+            console.log({error})
+        }
+    })
     EmailLoginDiv.querySelector('#emailLoginClickDivBtn').addEventListener('click', () => onNavigate('/recoverpsw'))
     
     return EmailLoginDiv;
