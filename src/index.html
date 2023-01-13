@@ -5,23 +5,36 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-  <title>Document</title>
+
+  <title>Dad's Power</title>
   <link rel="stylesheet" type="text/css" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=ABeeZee&family=Fredoka+One&display=swap" rel="stylesheet">
 </head>
 
 <body>
-  
-  <h1>Red Social NVJ</h1>
-  <nav class="navBar">
-    <ul>
-      <li class="nav navLink" id="botonLoguear"><a href="#openModalSI">SignIn</a></li>
-      <li class="nav navLink" id="botonRegistrar"> <a href="#openModalSU">Sign up</a></li>
-      <li class="nav navLink" id="salir"> <a href="#logout">Logout</a></li>
-    </ul> 
-  </nav>
-  <div id="main-page"></div>
-  
+ 
+  <div id="content">
+    <nav class="navBar">
+      <ul>
+        <li class="nav navLink" id="botonRegistrar">Signup</li>
+        <li class="nav navLink" id="botonLoguear">Signin / login</li>
+        <!-- <li class="nav navLink" id="salir">Logout</li>-->
+      </ul>
+    </nav>
+  </div>
+  <section>
+    <h5> Welcome t💗 </h5>
+    <h1> Dad's Power</h1>
+  </section>
+
+
+  <div id="root"></div>
+
+
+
   <!--Sección de registro SignUp -->
   <section class="signUp" id="registrarse">
 
@@ -47,7 +60,7 @@
               <input type="password" name="contraseña" id="idContraseñaSU" placeholder="Password" required>
             </div>
             <button type="submit" class="btnSubmit" id="btnEnviarSU">Submit</button>
-             <p class="message-error"></p>
+            <p class="message-error"></p>
           </form>
         </div>
       </div>
@@ -74,21 +87,23 @@
               <input type="password" name="contraseña" id="idContraseñaSI" placeholder="Password" required>
             </div>
             <button type="submit" class="btnSubmit" id="btnEnviarSI">Submit</button>
-            
+
             <p class="message-error"></p>
-              <!--Botón para loguear con Google -->
-              <button type="button" class="btnGoogle" id="entrarGoogle"><img class="logoGoogle" src="img/google.png" alt="loguitoGoogle">Sign In with Google</button>
+            <!--Botón para loguear con Google -->
+            <button type="button" class="btnGoogle" id="entrarGoogle"><img class="logoGoogle" src="img/google.png"
+                alt="loguitoGoogle">Sign In with Google</button>
 
           </form>
         </div>
       </div>
     </div>
   </section>
- <!--Sección de Logout -->
- <!-- <button type="button" class="buttonLO" id="salir" >Logout</button> -->
+  <!--Sección de Logout -->
+  <!-- <button type="button" class="buttonLO" id="salir" >Logout</button> -->
 
   <script type="module" src="main.js"></script>
-  <script type="module" src="firebase.js"></script>
+  <script type="module" src="methods.js"></script>
+
 
 
 </body>

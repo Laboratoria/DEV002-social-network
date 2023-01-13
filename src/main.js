@@ -1,11 +1,10 @@
-
 // Import the functions of Firestore for posting
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { init } from "./js/firebase/config.js";
-import { login, register, loginWithGoogle } from "./js/firebase/methods.js";
-
+import { init } from "./lib/firebase/config.js";
+import { login, register,loginWithGoogle,verificarSendingMail } from "./lib/firebase/methods.js";
+/*logout importar*/ 
 init();
 const auth = getAuth();
 
@@ -55,7 +54,7 @@ btnCloseModalSI.addEventListener('click', closeModalSI);
 
 
 function validarCorreo(correo) {
-  const expReg = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
+  const expReg = /^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
   const valido = expReg.test(correo);
   console.log(valido);
   if (valido === true) {
@@ -66,31 +65,6 @@ function validarCorreo(correo) {
     return false;
   }
 }
-
-
-
-// // SIGN UP
-// const signupForm = document.getElementById('formularioSU');
-// signupForm.addEventListener('submit', (e) => {
-//   let signupEmail = '';
-//   e.preventDefault(); // para cancelar el evento de reinicio del formulario
-//   const valorCorreo = document.getElementById('idCorreoSU').value;
-//   const posibleCorreo = validarCorreo(valorCorreo);
-//   if (posibleCorreo === true) {
-//     signupEmail = valorCorreo;
-//   } else {
-//     signupEmail = '';
-//   }
-//   const signupPassword = document.getElementById('idContraseñaSU').value;
-
-//   // función de Firebase para registrar un usuario
-// register(auth, valorCorreo, signupPassword );
-// console.dir(error);
-
-//   // console.log(signupEmail,signupPassword)
-//   console.log('signUp');
-// });
-
 
 // SIGN UP
 const signupForm = document.getElementById('formularioSU');
@@ -109,6 +83,7 @@ signupForm.addEventListener('submit', async (e) => {
   // función de Firebase para registrar un usuario
   try {
     const resultado = await register(auth, valorCorreo, signupPassword);
+    verificarSendingMail(auth)
     console.log(resultado);
   
   signupForm.querySelector('.message-error').innerHTML = '';
@@ -124,13 +99,7 @@ signupForm.addEventListener('submit', async (e) => {
       signupForm.querySelector('.message-error').innerHTML = message; // mensajes por defecto de los otros posibles errores
     }
   }
-  // console.dir(register);
-  // console.log(register.catch);
-  // let errorMessage=register.catch;
-  //   signupForm.querySelector('.message-error').innerHTML = errorMessage; // mensajes por defecto de los otros posibles errores
-
-  //   // console.log(signupEmail,signupPassword)
-  //   console.log('signUp');
+     console.log('signUp');
 });
 
 
@@ -144,12 +113,13 @@ signinForm.addEventListener('submit', async (e) => {
   const passwordInput = document.getElementById('idContraseñaSI').value;
   try {
     const { emailVerified, email } = await login(auth, emailInput, passwordInput)
-
+    
     //console.log(emailVerified,email);
     /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del cooreo electrónico enviado */
     if (emailVerified) {
       console.log('Bienvenid@', email);
     } else {
+    
       auth.signOut();
       console.log('Por favor realiza la verificación de tu cuenta');
     }
@@ -178,60 +148,17 @@ signinForm.addEventListener('submit', async (e) => {
 export let mensajeErrorSI = signinForm.querySelector('.message-error').innerHTML = "";
 
 // LOGOUT
-const logout = document.getElementById('salir');
-logout.addEventListener('click', (e) => {
-  e.preventDefault();
-
-});
+/*const logout = document.getElementById('salir');
+logout.addEventListener('click', () => {
+  logOut(auth)
+ 
+});*/
 
 // GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
-googleButton.addEventListener('click', () => {
-  loginWithGoogle(auth);
-  closeModalSI();
-  signinForm.reset();
-  // console.log(email,password)
+googleButton.addEventListener('click', (e) => {
+ e. preventDefault();
+   loginWithGoogle(auth);
+   closeModalSI();
+   signinForm.reset();
 });
-
-
-
-// function soyAsincrona(){
-//   setTimeout(function () {
-//     console.log('Estoy siendo asíncrona');
-//   }, 1000);
-// }
-// console.log('iniciando proceso...');
-// soyAsincrona();
-// console.log('Terminando proceso...');
-
-// function hola (nombre, miCallback){
-//   setTimeout(function(){
-//       console.log('Hola ' +nombre);
-//       miCallback(nombre);
-//   }, 6000);
-// }
-
-
-
-
-// function hola (nombre, miCallback){
-//   setTimeout(function(){
-//       console.log('Hola ' +nombre);
-//       miCallback(nombre);
-//   }, 6000);
-// }
-
-// function adios(nombre, otroCallback){
-//   setTimeout(function(){
-//       console.log('Adios ' +nombre);
-//       otroCallback();
-//   }, 1000);
-// }
-// console.log('iniciando proceso');
-// hola('Carlos', function(nombre){
-//   adios(nombre, function(){
-//       console.log('Terminando proceso...')
-//   });
-// });
-
-
