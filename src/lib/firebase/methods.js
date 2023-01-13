@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithP
 // construyendo un observador de Auth
 export const verifiedWithEmail = (auth) => {
     onAuthStateChanged(auth, (user) => {
+       
         if (user) {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
@@ -30,7 +31,7 @@ export const verifiedWithEmail = (auth) => {
 export const verificarSendingMail = (auth) => {
     sendEmailVerification(auth.currentUser)
         .then(() => {
-            // Email verification sent!
+            alert('Por avor verificar su gmail')
             // ...
         });
 }
@@ -54,11 +55,11 @@ export const login = (auth, email, password) => {
     }
 
 
-    export const logOut = (auth) => {
+   /* export const logOut = (auth) => {
         auth.signOut().then(() => {
             console.log('sign out');
         });
-    }
+    }*/
 
 
     export const loginWithGoogle = (auth) => {
@@ -72,16 +73,6 @@ export const login = (auth, email, password) => {
                 //   signinForm.querySelector('.message-error').innerHTML = '';
             })
             .catch((error) => {
-                const errorMessage = error.message;
-
-                // personalizando los mensajes de los 2 errores mas comunes
-                //   if (errorCode === 'auth/user-not-found') {
-                //     signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado';
-                //   } else if (errorCode === 'auth/wrong-password') {
-                //     signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario';
-                //   } else {
-                //     signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
-                //   }
-                console.log(errorMessage);
-            });
+              
+             });
     }

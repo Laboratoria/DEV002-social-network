@@ -2,9 +2,9 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { init } from "./js/firebase/config.js";
-import { login, register } from "./js/firebase/methods.js";
-
+import { init } from "./lib/firebase/config.js";
+import { login, register,loginWithGoogle,verificarSendingMail } from "./lib/firebase/methods.js";
+/*logout importar*/ 
 init();
 const auth = getAuth();
 
@@ -83,6 +83,7 @@ signupForm.addEventListener('submit', async (e) => {
   // función de Firebase para registrar un usuario
   try {
     const resultado = await register(auth, valorCorreo, signupPassword);
+    verificarSendingMail(auth)
     console.log(resultado);
   
   signupForm.querySelector('.message-error').innerHTML = '';
@@ -112,12 +113,13 @@ signinForm.addEventListener('submit', async (e) => {
   const passwordInput = document.getElementById('idContraseñaSI').value;
   try {
     const { emailVerified, email } = await login(auth, emailInput, passwordInput)
-
+    
     //console.log(emailVerified,email);
     /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del cooreo electrónico enviado */
     if (emailVerified) {
       console.log('Bienvenid@', email);
     } else {
+    
       auth.signOut();
       console.log('Por favor realiza la verificación de tu cuenta');
     }
@@ -144,14 +146,20 @@ signinForm.addEventListener('submit', async (e) => {
 });
 
 // LOGOUT
-const logout = document.getElementById('salir');
-logout.addEventListener('click', (e) => {
-  e.preventDefault();
-
-});
+/*const logout = document.getElementById('salir');
+logout.addEventListener('click', () => {
+  logOut(auth)
+ 
+});*/
 
 // GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
-googleButton.addEventListener('click', () => {
-  // console.log(email,password)
+googleButton.addEventListener('click', (e) => {
+ e. preventDefault();
+   loginWithGoogle(auth);
+   closeModalSI();
+   signinForm.reset();
 });
+
+
+

@@ -5,11 +5,6 @@
   padding: 0;
 }
 
-h1 {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-}
 
 
 
@@ -137,34 +132,43 @@ input:hover,
 }
 
 body {
-  font-family: sans-serif;
+  background-image: url(img/inicioApp.png);
 }
 
-/* BARRA NAVEGACIÓN */
-
-.navBar {
-  background-color: rgb(154, 116, 190);
-  height: 50px;
-  width: 100%;
-  font-size: 30px;
-  top: 80px;
-  left: 0;
-  justify-content: center;
-  position: absolute;
+h1 {
+font-family: 'Fredoka One';
+position: absolute;
+width: 300px;
+height: 47px;
+left: 28px;
+top: 115px;
+font-style: normal;
+font-weight: 400;
+font-size: 35px;
+line-height: 42px;
+color: rgba(255, 242, 242, 0.25);
+text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
-
-li a {
-  text-decoration: none;    /*para quitar el subrayado*/
-  color: white;
-  text-decoration: none;
-  list-style: none;
-  margin: 0 15px 0 15px;
-  padding-top: 10px;
+h5{
+position: absolute;
+width: 187px;
+height: 18px;
+left: 30px;
+top: 75px;
+font-family: 'ABeeZee';
+font-size: 18px;
+line-height: 24px;
+color: #f5efef;
 }
+.navLink {
+display: inline-block;
+font-family: century Gothic;
+color: #FFFFFF;
+padding-left: 20px;
+margin: 5px;
+text-align: right;
 
-.nav {
-  justify-content: space-between;
-  color: white;
-  display: inline;
-  padding-top: 10px;
+
+
+
 }
