@@ -1,33 +1,49 @@
 export const home = () => {
-    const homeDiv = document.createElement('div');
-    const buttonRegister = document.createElement('li');
-    const buttonLogin = document.createElement('li');
+   const homeDiv = document.createElement('div');
 
-    buttonRegister.textContent = 'sign in';
-    buttonLogin.textContent = 'sign up';
+   const barraNavegacion = document.createElement('nav');
+   barraNavegacion.className = 'navBarHome';
+   homeDiv.appendChild(barraNavegacion);
 
-    homeDiv.appendChild(buttonRegister);
-    homeDiv.appendChild(buttonLogin);
+   const listaBotones = document.createElement('ul');
+   barraNavegacion.appendChild(listaBotones);
 
-    const sectionDiv = document.createElement('section');
-    sectionDiv.className = 'bienvenida';
-    const bienvenidaH5 = document.createElement('h5');
-    bienvenidaH5.className = 'welcome';
-    const nameApp = document.createElement('h1');
-    nameApp.className = 'nameAplication';
+   const buttonRegister = document.createElement('li');
+   buttonRegister.className = 'navLink';
+   buttonRegister.textContent = 'Sign in';
+   buttonRegister.id = 'botonRegistrar';
 
-    bienvenidaH5.textContent = 'Welcome t💗'
-    nameApp.textContent = "Dad's Power";
-    sectionDiv.appendChild(bienvenidaH5);
-    sectionDiv.appendChild(nameApp);
+   const buttonLogin = document.createElement('li');
+   buttonLogin.className = 'navLink';
+   buttonLogin.textContent = 'Sign up';
+   buttonLogin.id = 'botonLoguear';
 
-    homeDiv.appendChild(sectionDiv);
+   listaBotones.appendChild(buttonRegister);
+   listaBotones.appendChild(buttonLogin);
 
-    const imagenInicio = document.createElement('img');
-    imagenInicio.src = 'imagen/inicioApp.png';
-    imagenInicio.className = 'imgInicio';
 
-    homeDiv.appendChild(imagenInicio);
 
-    return homeDiv;
+
+   const sectionDiv = document.createElement('section');
+   sectionDiv.className = 'bienvenida';
+   const bienvenidaH5 = document.createElement('h5');
+   bienvenidaH5.className = 'welcomeH5';
+   const nameApp = document.createElement('h1');
+   nameApp.className = 'nameAplication';
+
+   bienvenidaH5.textContent = 'Welcome t💗';
+   nameApp.textContent = "Dad's Power";
+   sectionDiv.appendChild(bienvenidaH5);
+   sectionDiv.appendChild(nameApp);
+
+   homeDiv.appendChild(sectionDiv);
+
+   const imagenInicio = document.createElement('img');
+   imagenInicio.src = '/components/imagen/inicioApp.png';
+   imagenInicio.className = 'imgInicio';
+
+   homeDiv.appendChild(imagenInicio);
+
+
+   return homeDiv;
 }   
