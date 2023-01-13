@@ -2,16 +2,15 @@ import { sendPasswordResetEmail } from  'https://www.gstatic.com/firebasejs/9.15
 import { firebaseAuth } from './firebase.js';
 
 
-export const pswReset = (e) =>{
-e.preventDefault()
+export const pswReset = async (documentt) =>{
+//e.preventDefault()
 const email = document.getElementById('RecoverPswFormInput').value
 
-
-sendPasswordResetEmail(firebaseAuth, email)
-  .then(() => {
-    
-  })
-  .catch((error) => {
+  try{
+    await sendPasswordResetEmail(firebaseAuth,email)
+    return Promise.resolve()
+  }catch(error)  {
     console.log({error});
-  });
+    return Promise.reject(error)
+  };
 }
