@@ -14,8 +14,8 @@ const firebaseConfig = {
   measurementId: 'G-4W8ETMYH7S',
 };
 // Inicializa la aplicación de Firebase
-const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
 // const provider = new GoogleAuthProvider();
 
 // Crea una función para registrar usuarios
