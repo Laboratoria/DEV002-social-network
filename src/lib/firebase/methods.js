@@ -22,7 +22,7 @@ export const verifiedWithEmail = (auth) => {
             // ...
         } else {
             // el suusario no se encuentra logueado
-            console.log('auth: log out')
+            console.log('auth: log out');
         }
     });
 }
@@ -31,6 +31,7 @@ export const verificarSendingMail = (auth) => {
     sendEmailVerification(auth.currentUser)
         .then(() => {
             // Email verification sent!
+            alert('por favor verifique su correo');
             // ...
         });
 }
@@ -54,11 +55,11 @@ export const login = (auth, email, password) => {
     }
 
 
-    export const logOut = (auth) => {
-        auth.signOut().then(() => {
-            console.log('sign out');
-        });
-    }
+    // export const logOut = (auth) => {
+    //     auth.signOut().then(() => {
+    //         console.log('sign out');
+    //     });
+    // }
 
 
     export const loginWithGoogle = (auth) => {
@@ -72,16 +73,5 @@ export const login = (auth, email, password) => {
                 //   signinForm.querySelector('.message-error').innerHTML = '';
             })
             .catch((error) => {
-                const errorMessage = error.message;
-
-                // personalizando los mensajes de los 2 errores mas comunes
-                //   if (errorCode === 'auth/user-not-found') {
-                //     signinForm.querySelector('.message-error').innerHTML = 'El Usuario no se encuentra registrado';
-                //   } else if (errorCode === 'auth/wrong-password') {
-                //     signinForm.querySelector('.message-error').innerHTML = 'La Contraseña no corresponde al usuario';
-                //   } else {
-                //     signinForm.querySelector('.message-error').innerHTML = errorMessage; //mensajes por defecto de los otros posibles errores
-                //   }
-                console.log(errorMessage);
             });
     }

@@ -1,11 +1,10 @@
-
 // Import the functions of Firestore for posting
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { init } from "./js/firebase/config.js";
-import { login, register } from "./js/firebase/methods.js";
-
+import { init } from "./lib/firebase/config.js";
+import { login, loginWithGoogle, register, verificarSendingMail } from "./lib/firebase/methods.js";
+/*logOut*/ 
 init();
 const auth = getAuth();
 
@@ -85,7 +84,7 @@ signupForm.addEventListener('submit', async (e) => {
   try {
     const resultado = await register(auth, valorCorreo, signupPassword);
     console.log(resultado);
-  
+  verificarSendingMail(auth);
   signupForm.querySelector('.message-error').innerHTML = '';
 }
   catch ({ code, message }) {
@@ -145,16 +144,21 @@ signinForm.addEventListener('submit', async (e) => {
 });
 
 // LOGOUT
-const logout = document.getElementById('salir');
-logout.addEventListener('click', (e) => {
-  e.preventDefault();
+// const logout = document.getElementById('salir');
+// logout.addEventListener('click', (e) => {
+//   e.preventDefault();
+//   logOut(auth);
 
-});
+// });
 
 // GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
-googleButton.addEventListener('click', () => {
+googleButton.addEventListener('click', (e) => {
   // console.log(email,password)
+  e.preventDefault();
+  loginWithGoogle(auth);
+  closeModalSI;
+  signinForm.reset();
 });
 
 
