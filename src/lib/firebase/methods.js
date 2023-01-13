@@ -4,6 +4,7 @@ import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signInWithP
 // construyendo un observador de Auth
 export const verifiedWithEmail = (auth) => {
     onAuthStateChanged(auth, (user) => {
+       
         if (user) {
             // User is signed in, see docs for a list of available properties
             // https://firebase.google.com/docs/reference/js/firebase.User
@@ -37,9 +38,9 @@ export const verificarSendingMail = (auth) => {
 }
 
 export const register = (auth, signupEmail, signupPassword) => {
-    return new Promise((resolve, reject) => {    /*resolve para retornar el valor deseado cuando una función se ejecute y reject para cuando una función retorna un valor no deseado.*/
+    return new Promise((resolve, reject) => {    //resolve para retornar el valor deseado cuando una función se ejecute y reject para cuando una función retorna un valor no deseado./
         return createUserWithEmailAndPassword(auth, signupEmail, signupPassword)
-            .then((userCredential) => resolve(userCredential))  /*está implícita una promesa*/
+            .then((userCredential) => resolve(userCredential))  //está implícita una promesa/
             .catch(error => reject(error))
  
            
@@ -47,19 +48,19 @@ export const register = (auth, signupEmail, signupPassword) => {
     }
 
 export const login = (auth, email, password) => {
-        return new Promise((resolve, reject) => {    /*resolve para retornar el valor deseado cuando una función se ejecute y reject para cuando una función retorna un valor no deseado.*/
+        return new Promise((resolve, reject) => {    //resolve para retornar el valor deseado cuando una función se ejecute y reject para cuando una función retorna un valor no deseado./
             return signInWithEmailAndPassword(auth, email, password)
-                .then(({ user }) => resolve(user))   /*desestructuración del objeto user*/
+                .then(({ user }) => resolve(user))   //desestructuración del objeto user/
                 .catch(error => reject(error))
         })
     }
 
 
-    // export const logOut = (auth) => {
-    //     auth.signOut().then(() => {
-    //         console.log('sign out');
-    //     });
-    // }
+   /* export const logOut = (auth) => {
+        auth.signOut().then(() => {
+            console.log('sign out');
+        });
+    }*/
 
 
     export const loginWithGoogle = (auth) => {
@@ -73,5 +74,6 @@ export const login = (auth, email, password) => {
                 //   signinForm.querySelector('.message-error').innerHTML = '';
             })
             .catch((error) => {
-            });
+              
+             });
     }

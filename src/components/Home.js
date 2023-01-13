@@ -1,13 +1,12 @@
-export const Home = () =>{
-const HomeDiv = document.createElement('div');
-const buttonRegister = document.createElement('button');
-const buttonLogin = document.createElement('button');
+export const home = () => {
+   const homeDiv = document.createElement('div');
+   const buttonRegister = document.createElement('li');
+   const buttonLogin = document.createElement('li'); 
 
-buttonRegister.textContent = 'Sign in';
-buttonLogin.textContent = 'Sign up';
+buttonRegister.textContent = 'sign in';
+buttonLogin.textContent = 'sign up';
 
-HomeDiv.appendChild(buttonRegister);
-HomeDiv.appendChild(buttonLogin);
-
-return HomeDiv;
-}
+homeDiv.appendChild(buttonRegister);
+homeDiv.appendChild(buttonLogin);
+return  homeDiv;
+}   
