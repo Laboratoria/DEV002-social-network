@@ -7,16 +7,6 @@
 //  const btnRegistrate = document.getElementById('registrate');
  
 
-document.addEventListener("DOMContentLoaded", function() {
-  const registerButton = document.getElementById('register-button');
-  registerButton.addEventListener('click', (event) => {
-      event.preventDefault()
-      console.log("click register se ejecutó")
-      const email = document.getElementById('emailRegister').value;
-      const password = document.getElementById('passwordRegister').value;
-      registerUser(email, password);
-  });
-});
 
 
 export const Register = () => {
@@ -84,6 +74,33 @@ const registerBtn = divRegister.querySelector('#register-button');
 registerBtn.addEventListener('click', () => {
   next('/timeLine');
 });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const registerButton = document.getElementById('register-button');
+  registerButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      console.log("click register se ejecutó")
+      const email = document.getElementById('emailRegister').value;
+      const password = document.getElementById('passwordRegister').value;
+      registerUser(email, password);
+  });
+});
+
+// Signing up with redirect Google
+// const googleBtn = container.querySelector('#registrate-google');
+// googleBtn.addEventListener('click', async () => {
+//   const user = await google();
+//   if (user) {
+//     localStorage.setItem('userName', user.displayName);
+//     localStorage.setItem('userUid', user.uid);
+//     localStorage.setItem('userPhoto', user.photoURL);
+//     onNavigate('/timeLine');
+//   } else {
+//     console.log('Something went wrong. Please try again.');
+//   }
+// });
+
 
 return divRegister;
 

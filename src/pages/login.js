@@ -1,18 +1,9 @@
 import { onNavigate } from '../main.js';
 import { inicioDeSesionEmail} from '../pages/inicioDeSesionCorreo.js'
 import { next} from '../main.js'
+import { signInWithGoogle } from '../firebase/singInGoogle.js';
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const logInButton = document.getElementById('ingresar');
-  logInButton.addEventListener('click', (event) => {
-      event.preventDefault()
-      console.log("click se ejecutó")
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-     inicioDeSesionEmail (email, password);
-  });
-});
 
 export const Login = () => { 
   const divLogin = document.createElement('div');
@@ -58,9 +49,34 @@ export const Login = () => {
   });
 
 
+document.addEventListener("DOMContentLoaded", function() {
+  const logInButton = document.getElementById('ingresar');
+  logInButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      console.log("click se ejecutó")
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+     inicioDeSesionEmail (email, password);
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const googleButton = document.getElementById('inicio-sesion-google');
+  googleButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      console.log("click botón google")
+    signInWithGoogle ();
+    googleButton.addEventListener('click', async ()=>{
+      await authGoogle();
+     }) 
+  });
+});
 
   return divLogin;
 };
+
+
 
 export default Login
 
