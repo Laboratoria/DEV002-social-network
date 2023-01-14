@@ -1,7 +1,9 @@
 // Importa la biblioteca de Firebase
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
-import { getAuth, createUserWithEmailAndPassword} from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { createUserWithEmailAndPassword} from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js'
+
+// const auth = getAuth();
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -38,7 +40,18 @@ export function registerUser(email, password) {
   });
 }
 
-
+export const authGoogle = async () => {
+  try {
+    const userResult = await signInWithPopup(auth, provider);
+    console.log(userResult);
+    console.log("probando")
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const correo = error.customData.email;
+    console.log(errorCode, errorMessage, correo, credential);
+  }
+};
 
 
 

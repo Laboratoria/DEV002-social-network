@@ -2,13 +2,6 @@
  import { registerUser } from '../firebase/configuracion.js';
  import { next } from '../main.js'
 
-//  const indexRegistro = document.getElementById('containerRegister');
-//  const indexInicioSesion = document.getElementById('container');
-//  const btnRegistrate = document.getElementById('registrate');
- 
-
-
-
 export const Register = () => {
   const divRegister = document.createElement('div');
   divRegister.setAttribute('class', 'container-div-register');
@@ -64,9 +57,6 @@ export const Register = () => {
     </a>
   </form>
 </section> </div>`
-//Este es el punto de entrada de tu aplicacion
-// import { GoogleAuthProvider } from "firebase/auth";
-
 
 divRegister.innerHTML = viewRegister;
 
@@ -86,21 +76,6 @@ document.addEventListener("DOMContentLoaded", function() {
       registerUser(email, password);
   });
 });
-
-// Signing up with redirect Google
-// const googleBtn = container.querySelector('#registrate-google');
-// googleBtn.addEventListener('click', async () => {
-//   const user = await google();
-//   if (user) {
-//     localStorage.setItem('userName', user.displayName);
-//     localStorage.setItem('userUid', user.uid);
-//     localStorage.setItem('userPhoto', user.photoURL);
-//     onNavigate('/timeLine');
-//   } else {
-//     console.log('Something went wrong. Please try again.');
-//   }
-// });
-
 
 return divRegister;
 

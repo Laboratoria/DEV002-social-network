@@ -2,6 +2,7 @@ import { onNavigate } from '../main.js';
 import { inicioDeSesionEmail} from '../pages/inicioDeSesionCorreo.js'
 import { next} from '../main.js'
 import { signInWithGoogle } from '../firebase/singInGoogle.js';
+import {authGoogle} from '../firebase/configuracion.js';
 
 
 
@@ -63,19 +64,21 @@ document.addEventListener("DOMContentLoaded", function() {
 
 document.addEventListener("DOMContentLoaded", function() {
   const googleButton = document.getElementById('inicio-sesion-google');
-  googleButton.addEventListener('click', (event) => {
+  googleButton.addEventListener('click',async (event) => {
       event.preventDefault()
       console.log("click botón google")
-    signInWithGoogle ();
-    googleButton.addEventListener('click', async ()=>{
       await authGoogle();
+   
      }) 
   });
-});
-
   return divLogin;
 };
 
+// googleButton.addEventListener('click', async (event) => {
+//   event.preventDefault()
+//   console.log("click botón google")
+//   await authGoogle();
+// });
 
 
 export default Login
