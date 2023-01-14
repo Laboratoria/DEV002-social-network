@@ -17,7 +17,8 @@ export const surfing = (pathname, archivoNuevo = routes) => {
 
 //en la sintaxis de replaceChildren "archivo nuevo(seccion)" es el  archivo que reemplazará la seccion actual y lo que está entre corchetes "archivoActual" es el nombre de la nueva sección
 
-    rootMain.replaceChildren(archivoNuevo[pathname]())
+ return  rootMain.replaceChildren(archivoNuevo[pathname]())
 }
+
 
 window.addEventListener("DOMContentLoaded", () =>  surfing(window.location.pathname))
