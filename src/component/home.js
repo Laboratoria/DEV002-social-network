@@ -22,7 +22,7 @@ $inputBtnClickHere.classList.add('btn_click'),
 
 $imgLogo.setAttribute('src','img/logoNewMe.png')
 $imgLogo.setAttribute('alt', 'logo de la aplicacion')
-$h1Slogan.textContent = 'I could you can!'
+$h1Slogan.textContent = 'I could YOU can!'
 $imgCat.setAttribute('src', 'img/gato.png')
 $imgCat.setAttribute('alt', 'gato negro decorativo')
 $inputBtnClickHere.setAttribute('type','button')
