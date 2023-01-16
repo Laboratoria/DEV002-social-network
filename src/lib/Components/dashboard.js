@@ -45,7 +45,7 @@ btnModal.addEventListener('click',() =>{
   document.querySelector('#modal-background-post').style.display = 'flex';
   document.querySelector('#modal-content-post').style.display = 'block';
   document.body.style.overflow='hidden';
-  document.querySelector('#input-post').value = '';
+  document.querySelector('#input-post').focus();
 });
   
   return divLogin;
