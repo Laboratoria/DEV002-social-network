@@ -285,16 +285,30 @@ header{
     margin-left: 3px;
 }
 #modal-content-post{
-    width: 100%;
+    margin-left: 3%;
+    width: 90%;
     background-color:#94B49F;
     border-radius: 20px;
     cursor: pointer;
     display: none;
+    height: auto;
+    position: fixed;
+    top: 80px;
 }
 .btn-post-inactive{
 background-color: #31E6F1;
 width: 25%;
 cursor: pointer;
+}
+#modal-background-post{
+    height: 100%;
+    width: 100%;
+    position: fixed;
+    background-color: rgba(164, 163, 163, 0.196);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 4;
 }
 @media only screen and (min-width:600px) and (max-width:1700px) {
     .img-logo {

@@ -10,8 +10,9 @@ import {
 import {
   getFirestore,
   collection,
-  addDoc
+  addDoc,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { onNavigate } from "../main.js";
 import { app } from './Firebase.js';
 
 // Initialize Firebase Authentication and get a reference to the service
@@ -45,8 +46,12 @@ export const signInGoogle = async (onNavigate) => {
 };
 
 // FUNCIÓN DE SIGNOUT - check
-export const logOut = async () => {
-  await signOut(auth);
+export const logOut = async (onNavigate) => {
+  try {
+    await signOut(auth);  
+    onNavigate('/');
+  } catch (error) {
+  }
 };
 
 // funcion currentuser
