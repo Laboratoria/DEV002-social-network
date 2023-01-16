@@ -1,22 +1,61 @@
-import { onNavigate } from "../js/routes.js";
-
 export const register = () => {
+    
+    const signupSection = document.createElement('section');
+    signupSection.className = 'sectionSignup'
+    const titulo = document.createElement('h2');
+    titulo.textContent = "Dad's Power";
+    titulo.className = 'tituloh2register';
+    signupSection.appendChild(titulo);
 
-    const registerDiv = document.createElement('div');
-    const nameApp = document.createElement('h1');
-    nameApp.textContent = "Dad's Power   Sign Up";
+    const formSU = document.createElement('form');
+    formSU.className = 'form';
+    formSU.id = 'formularioSU';
 
-    registerDiv.appendChild(nameApp);
+    const divUser = document.createElement('div');
+    divUser.className = 'contenedorForm'
+    signupSection.appendChild(divUser);
+    divUser.appendChild(formSU);
 
-    const buttonLogin = document.createElement('li');
-    buttonLogin.textContent = 'Sign in';
-    buttonLogin.id = 'botonLoguear';
+    const inputUser = document.createElement('input');
+    const labelUser = document.createElement('label');
+    labelUser.textContent = 'username';
+    labelUser.className ='usuario'
+    inputUser.setAttribute('name','username');
+    formSU.appendChild(labelUser);
+    inputUser.setAttribute('type', 'user');
+    inputUser.className = 'username';
+    inputUser.id = 'idUsername';
+    inputUser.placeholder = 'Amy Schumer';
+    formSU.appendChild(inputUser);
 
-    registerDiv.appendChild(buttonLogin);
-    buttonLogin.addEventListener('click', () => onNavigate('/login'));
+
+    const inputEmail = document.createElement('input');
+    inputEmail.setAttribute('type', 'e-mail');
+    inputEmail.className = 'email';
+    inputEmail.id = 'idCorreoSU';
+    inputEmail.placeholder = 'example@gmail.com'
+    formSU.appendChild(inputEmail);
 
 
+    const inputPasword = document.createElement('input');
+    inputPasword.type = 'password';
+    inputPasword.textContent = 'password';
+    inputPasword.className = 'password';
+    inputPasword.id = 'idContraseñaSU';
+    inputPasword.placeholder = '*******'
+    formSU.appendChild(inputPasword);
 
 
-    return registerDiv;
+    const buttonSU = document.createElement('button');
+    buttonSU.type = 'submit';
+    buttonSU.textContent = 'submit'
+    buttonSU.className = 'btnSubmit';
+    buttonSU.id = 'btnEnviarSU';
+    formSU.appendChild(buttonSU)
+
+    const errorSignup = document.createElement('p');
+    errorSignup.className ='message-error';
+    formSU.appendChild(errorSignup);
+
+    return signupSection;
 }

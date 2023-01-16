@@ -22,6 +22,16 @@ export const onNavigate = (pathname) => {
     rootDiv.appendChild(routes[pathname]());
 };
 
+ export const onNavigate  = (pathname) => {
+    window.history.pushState (
+        {},
+        pathname,
+        window.location.origin + pathname, // requiere 3 parámetros - 1 estado vacio - asignar título - asignar la ruta//
+    );
+        
+      rootDiv.appendChild = (routes[pathname]());
+   };      
+
 const componentes = routes[window.location.pathname];
 
 window.onpopstate = () =>{
