@@ -4,6 +4,11 @@ import { pswReset } from '../app/Psw-reset.js';
 export const RecoverPsw = () => {
     const RecoverPswDiv = document.createElement('div');
     const template = `
+        <section class="main-logo" id="mainLogo">
+            <div class="main-logo-div">
+            <img src="./Assets/logo.png"  alt="logo" class="main-logo-img" id="mainLogoImg" >
+            </div>
+        </section>
         <section class="recover-psw" id="RecoverPsw">
             <form class="recover-psw-form" id="RecoverPswForm">
                 <div class="recover-psw-form-background">
