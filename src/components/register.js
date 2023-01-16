@@ -1,3 +1,5 @@
+import { onNavigate } from "../js/routes.js";
+
 export const register = () => {
     
     const signupSection = document.createElement('section');
@@ -56,6 +58,15 @@ export const register = () => {
     const errorSignup = document.createElement('p');
     errorSignup.className ='message-error';
     formSU.appendChild(errorSignup);
+
+
+
+     const buttonLogin = document.createElement('li');
+    buttonLogin.textContent = 'Sign in';
+    buttonLogin.id = 'botonLoguear';
+
+    signupSection.appendChild(buttonLogin);
+    buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
     return signupSection;
 }

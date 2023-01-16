@@ -28,8 +28,6 @@ export const home = () => {
    buttonRegister.addEventListener('click', () => onNavigate('/register'));
    buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
-
-
    const sectionDiv = document.createElement('section');
    sectionDiv.className = 'bienvenida';
    const bienvenidaH5 = document.createElement('h5');
