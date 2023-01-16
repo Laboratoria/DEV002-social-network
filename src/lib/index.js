@@ -7,6 +7,11 @@ import {
   signOut,
   updateProfile,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+import {
+  getFirestore,
+  collection,
+  addDoc
+} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { app } from './Firebase.js';
 
 // Initialize Firebase Authentication and get a reference to the service
@@ -14,6 +19,10 @@ export const auth = getAuth(app);
 
 // Inicia el autentificador con google
 export const provider = new GoogleAuthProvider();
+
+// Initialize Firebase Firestore and get a reference to the service
+export const firestore = getFirestore();
+export const postCollection = collection(firestore, "post");
 
 // CREAR USUARIO CON EMAIL
 export const createUser = (userMail, userPass, userName) => createUserWithEmailAndPassword(auth, userMail, userPass)
@@ -42,3 +51,13 @@ export const logOut = async () => {
 
 // funcion currentuser
 export const currentUserInfo = () => auth.currentUser;
+
+//función publicar
+export const submitPost = async (postTxt) => {
+  const post = {
+    postText: postTxt,
+    user: 'Laura',
+    createdDateTime: new Date()
+  }
+  const doc = await addDoc(postCollection, post);
+};
