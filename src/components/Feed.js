@@ -7,7 +7,7 @@ export const Feed = () => {
     const template = `
     <section class="logo-feed" id="logoFeed">
         <nav class="nav-bar">
-                <img src="../Assets/logo.png"  alt="logo" class="logo-feed-img" id="logoFeedImg">
+                <img src="../Assets/Petblr-blanco.png"  alt="logo" class="logo-feed-img" id="logoFeedImg">
             <ul class="nav-menu" id="navMenu">
                 <li class="nav-item-li">
                     <a href="#" class="nav-link" id="navLinkFeed">Muro</a>
