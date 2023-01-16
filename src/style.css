@@ -89,8 +89,7 @@ html {
 #btnLogin:hover,
 #btnRegister:hover,
 .btn-google:hover,
-#btn-sign-out:hover
-{
+#btn-sign-out:hover {
     box-shadow: 2px 4px 4px 4px #6f7274;
 }
 
@@ -133,7 +132,8 @@ footer {
     font-weight: bold;
 
 }
-#errorLogin{
+
+#errorLogin {
     display: flexbox;
     position: absolute;
     top: 35px;
@@ -141,6 +141,7 @@ footer {
     left: 65px;
     font-weight: bold;
 }
+
 /*Registro*/
 #btnFinal {
     display: flexbox;
@@ -172,7 +173,7 @@ footer {
 
 #name-register,
 #email-register,
-#password-register{
+#password-register {
     margin-top: 5%;
     border-radius: 25px;
     border: solid 2px;
@@ -182,15 +183,16 @@ footer {
     font-size: medium;
 
 }
-.input-register p{
+
+.input-register p {
     margin-top: 5px;
     font-size: 20px;
     text-align: center;
     font-weight: bold;
 
 }
-#errorMessageRegister
-{
+
+#errorMessageRegister {
     display: flexbox;
     position: absolute;
     top: 355px;
@@ -200,39 +202,43 @@ footer {
     font-size: 15px;
     left: 115px;
 }
+
 /*Dashboard*/
-.logo-header{
+.logo-header {
     width: 130px;
     height: 130px;
     position: absolute;
     top: -30px;
 }
-#img-input{
+
+#img-input {
     margin-top: 5px;
     width: 50px;
     height: 50px;
     margin-left: 6px;
-}
-#img-modal-post{
-    margin-top: 5px;
-    width: 50px;
-    height: 50px;
-    margin-left: 6px;
-}
-.btn-exit{
-    width: 25px;
-    height: 25px;
-    position:absolute;
-    left:330px;
-    top:200px;
 }
 
-header{
+#img-modal-post {
+    margin-top: 5px;
+    width: 50px;
+    height: 50px;
+    margin-left: 6px;
+}
+
+.btn-exit {
+    width: 25px;
+    height: 25px;
+    position: absolute;
+    left: 330px;
+    top: 200px;
+}
+
+header {
     background-color: #C0E3CC;
     height: 70px;
 }
 
-#btn-sign-out{
+#btn-sign-out {
     background-color: #DF7861;
     border-radius: 25px;
     width: 125px;
@@ -243,7 +249,7 @@ header{
     left: 175px;
 }
 
-#container-btn-input{
+#container-btn-input {
     background-color: #94B49F;
     width: 90%;
     height: 85px;
@@ -251,7 +257,7 @@ header{
     border-radius: 10px;
 }
 
-#btn-input-modal{
+#btn-input-modal {
     background-color: #ECB390;
     height: 40px;
     width: 65%;
@@ -261,21 +267,25 @@ header{
     top: 100px;
     border-radius: 10px;
 }
-#line{
-    border-top:1px solid ;
+
+#line {
+    border-top: 1px solid;
 }
-#space-line{
-    background-color:#779080;
+
+#space-line {
+    background-color: #779080;
     height: 25px;
     text-align: center;
     padding: 7px 7px 7px 7px;
 }
-#after-line{
- background-color: #94B49F;
- display:flex;
- flex-direction: column;
+
+#after-line {
+    background-color: #94B49F;
+    display: flex;
+    flex-direction: column;
 }
-#input-post{
+
+#input-post {
     height: 100px;
     width: 98%;
     background-color: transparent;
@@ -284,10 +294,11 @@ header{
     border-radius: 10px;
     margin-left: 3px;
 }
-#modal-content-post{
+
+#modal-content-post {
     margin-left: 3%;
     width: 90%;
-    background-color:#94B49F;
+    background-color: #94B49F;
     border-radius: 20px;
     cursor: pointer;
     display: none;
@@ -295,12 +306,14 @@ header{
     position: fixed;
     top: 80px;
 }
-.btn-post-inactive{
-background-color: #31E6F1;
-width: 25%;
-cursor: pointer;
+
+.btn-post-inactive {
+    background-color: #31E6F1;
+    width: 25%;
+    cursor: pointer;
 }
-#modal-background-post{
+
+#modal-background-post {
     height: 100%;
     width: 100%;
     position: fixed;
@@ -310,6 +323,7 @@ cursor: pointer;
     justify-content: center;
     z-index: 4;
 }
+
 @media only screen and (min-width:600px) and (max-width:1700px) {
     .img-logo {
         margin-top: 0;
@@ -349,7 +363,8 @@ cursor: pointer;
         font-size: 35px;
         margin-top: 15px;
     }
-    .input-register p{
+
+    .input-register p {
         font-size: 35px;
         margin-top: 15px;
     }
@@ -376,7 +391,8 @@ cursor: pointer;
         width: 250px;
         font-size: larger;
     }
-    #btnFinal{
+
+    #btnFinal {
         margin: 0;
         left: 43%;
         top: 65%;
@@ -384,7 +400,8 @@ cursor: pointer;
         width: 250px;
         font-size: larger;
     }
-    #btnReturn{
+
+    #btnReturn {
         margin: 0;
         left: 43%;
         top: 82%;
@@ -392,11 +409,13 @@ cursor: pointer;
         width: 250px;
         font-size: larger;
     }
-    #img-google{
+
+    #img-google {
         width: 170px;
 
     }
-    #errorMessageRegister{
+
+    #errorMessageRegister {
         left: 47%;
         top: 34%;
         font-size: 18px;
