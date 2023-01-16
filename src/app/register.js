@@ -3,6 +3,7 @@
 import { createUserWithEmailAndPassword, sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { firebaseAuth } from './firebase.js';
 
+
 export const registrar = async (registerForm) => {
   const email = registerForm.registerFormPetEmailInput.value;
   const psw = registerForm.registerFormPasswordInput.value;

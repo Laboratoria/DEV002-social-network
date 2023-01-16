@@ -1,5 +1,5 @@
 import { onNavigate } from '../main.js';
-import { pswReset } from '../app/Psw-reset.js';
+import { pswReset } from '../app/PswReset.js';
 
 export const RecoverPsw = () => {
     const RecoverPswDiv = document.createElement('div');

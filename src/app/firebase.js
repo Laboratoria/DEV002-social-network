@@ -7,7 +7,9 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {
   getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, signInWithPopup,
+  signInWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+
 
 // configuración de la app de firebase
 const firebaseConfig = {
@@ -25,9 +27,12 @@ const firebaseApp = initializeApp(firebaseConfig);
 // uso de firebase auth
 const firebaseAuth = getAuth(firebaseApp);
 
+const auth = getAuth();
+
 const providerFacebookAuth = new FacebookAuthProvider();
 
 export {
   firebaseApp, firebaseAuth, createUserWithEmailAndPassword,
   providerFacebookAuth, signInWithPopup, getAuth, FacebookAuthProvider,
+  auth, signInWithEmailAndPassword
 };

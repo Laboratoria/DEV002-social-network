@@ -1,7 +1,7 @@
 import { onNavigate } from '../main.js';
 import { signInAccount } from '../app/signIn.js'
 
-export const EmailLogin = () => {
+export const EmailLogin = (email, password) => {
     const EmailLoginDiv = document.createElement('div');
     const template = `
         <section class="Email-login" id="EmailLogin">
@@ -22,9 +22,10 @@ export const EmailLogin = () => {
     EmailLoginDiv.innerHTML = template
     EmailLoginDiv.querySelector('#emailLoginDivBtn').addEventListener('click', async (e)=>{
         e.preventDefault();
-        const EmailLoginForm = document.getElementById('EmailLoginForm')
+        const email = document.getElementById('EmailLoginFormInput').value
+        const password = document.getElementById('passwordEmailLoginInput').value
         try {
-            await signInAccount(EmailLoginForm)
+            await signInAccount(email,password)
             onNavigate('/feed')
         } catch (error) {
             console.log({error})

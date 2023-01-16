@@ -15,7 +15,7 @@ import { Home } from './components/Home.js';
 import { Signup } from './components/Signup.js';
 import { Login } from './components/Login.js';
 import { Feed } from './components/Feed.js';
-import { EmailLogin } from './components/Email-login.js';
+import { EmailLogin } from './components/EmailLogin.js';
 import { RecoverPsw } from './components/recoverpsw.js';
 
 const rootDiv = document.getElementById('root');
