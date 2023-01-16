@@ -1,5 +1,7 @@
+import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost } from "../index.js";
+import { submitPost, logOut } from "../index.js";
+
 
 export const login = () => {
   const divLogin = document.createElement('div');
@@ -48,17 +50,18 @@ export const login = () => {
     document.querySelector('#modal-content-post').style.display = 'block';
     document.body.style.overflow = 'hidden';
     document.querySelector('#input-post').focus();
+    
 
     const inputPost = divLogin.querySelector('#input-post');
-  inputPost.addEventListener('keyup', () => {
-    const valueInput = inputPost.value.trim();
-    // trim() metodo que no permite activar boton con espacio
-    if (valueInput === '') {
-      document.querySelector('#btn-post').disabled = true; // boton publicar inactivo
-    } else {
-      document.querySelector('#btn-post').disabled = false; // boton publicar activo
-    }
-  });
+    inputPost.addEventListener('keyup', () => {
+      const valueInput = inputPost.value.trim();
+      // trim() metodo que no permite activar boton con espacio
+      if (valueInput === '') {
+        document.querySelector('#btn-post').disabled = true; // boton publicar inactivo
+      } else {
+        document.querySelector('#btn-post').disabled = false; // boton publicar activo
+      }
+    });
 
     const btnPost = divLogin.querySelector('#btn-post');
     console.log(btnPost);
@@ -68,8 +71,16 @@ export const login = () => {
       submitPost(postTxt);
     });
   });
-
   
+    const btnLogout = divLogin.querySelector('#btn-sign-out');
+    btnLogout.addEventListener('click', () => {
+      logOut(onNavigate);
+    });
+    
+  divLogin.append(
+    btnLogout,
+);
+
   return divLogin;
 
 };
