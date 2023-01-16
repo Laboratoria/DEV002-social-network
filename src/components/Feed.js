@@ -1,3 +1,7 @@
+import { signOutFun } from '../app/signOut.js';
+import { onNavigate } from '../main.js';
+import { firebaseAuth } from '../app/firebase.js';
+
 export const Feed = () => {
     const FeedDiv = document.createElement('div');
     const template = `
@@ -57,6 +61,8 @@ export const Feed = () => {
     FeedDiv.querySelector('#navLinkCloseSession').addEventListener('click', ()=>{
         hamburger.classList.remove('active')
         navMenu.classList.remove('active')
+        signOutFun(firebaseAuth)
+        onNavigate('/')
     })
 
     return FeedDiv;
