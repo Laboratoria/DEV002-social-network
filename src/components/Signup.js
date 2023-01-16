@@ -5,6 +5,11 @@ import { onNavigate } from '../main.js';
 export const Signup = () => {
     const SignupDiv = document.createElement('div');
     const template = `
+        <section class="main-logo" id="mainLogo">
+            <div class="main-logo-div">
+            <img src="./Assets/logo.png"  alt="logo" class="main-logo-img" id="mainLogoImg" >
+            </div>
+        </section>
         <section class="register" id="register">
             <form class="register-form" id="registerForm">
                 <div class="register-form-background">

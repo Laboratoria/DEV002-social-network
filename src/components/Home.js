@@ -5,6 +5,11 @@ export const Home = () => {
     //creamos un div para poderle insertar los dos botones que creamos abajo y con esto poder darle un returny poderlo insertar la nodo
     const HomeDiv = document.createElement('div');
     const template = `
+        <section class="main-logo" id="mainLogo">
+            <div class="main-logo-div">
+            <img src="./Assets/logo.png"  alt="logo" class="main-logo-img" id="mainLogoImg" >
+            </div>
+        </section>
         <section class="home" id="home">
             <div class="home-div" id="homeDiv">
                 <a class="home-create-account-intro">
