@@ -1,0 +1,6 @@
+/*Responsive*/
+.llamarImagenesdiv{
+    display: flex;
+    flex: wrap;
+    gap: 20px;
+}
