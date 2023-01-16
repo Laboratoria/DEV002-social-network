@@ -27,7 +27,7 @@ export const login = () => {
     <img id='img-modal-post' src='images/user.png' alt='profile'>
     <div id='container-text'></div>
     </div>
-    <textarea type='text' id='input-post' placeholder=''>Deja aqui la reseña de tu libro</textarea>
+    <textarea type='text' id='input-post' placeholder=''>Deja aquí la reseña de tu libro</textarea>
       <button disabled type='button' id='btn-post' class='btn-post-inactive'>PUBLICAR</button>
     </div>
    </div>
@@ -38,15 +38,24 @@ export const login = () => {
 </main>
 <footer>© 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;
 
-divLogin.innerHTML = viewLogin;
+  divLogin.innerHTML = viewLogin;
 
-const btnModal = divLogin.querySelector('#btn-input-modal');
-btnModal.addEventListener('click',() =>{
-  document.querySelector('#modal-background-post').style.display = 'flex';
-  document.querySelector('#modal-content-post').style.display = 'block';
-  document.body.style.overflow='hidden';
-  document.querySelector('#input-post').focus();
-});
+  const btnModal = divLogin.querySelector('#btn-input-modal');
+  btnModal.addEventListener('click', () => {
+    document.querySelector('#modal-background-post').style.display = 'flex';
+    document.querySelector('#modal-content-post').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    document.querySelector('#input-post').focus();
+
+    const btnPost = divLogin.querySelector('#btn-post');
+    console.log(btnPost);
+    btnPost.addEventListener('click', () => {
+      console.log('bnt clcked');
+      const postTxt = divLogin.querySelector('#input-post').value;
+      submitPost(postTxt);
+    });
+  });
+
   
   return divLogin;
 
