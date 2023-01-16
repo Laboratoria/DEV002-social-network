@@ -3,7 +3,20 @@ import {  signInWithPopup, GoogleAuthProvider} from 'https://www.gstatic.com/fir
 //const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-export function signInWithGoogle (){
+export const authGoogle = async () => {
+  try {
+    const userResult = await signInWithPopup(auth, provider);
+    console.log(userResult);
+    console.log("probando")
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const correo = error.customData.email;
+    console.log(errorCode, errorMessage, correo, credential);
+  }
+};
+
+export function signInWithGoogle (callback){
     signInWithPopup(auth, provider)
       .then((result) => {
         // This gives you a Google Access Token. You can use it to access the Google API.
@@ -13,6 +26,7 @@ export function signInWithGoogle (){
         const user = result.user;
         const email = result.user.email;
         console.log("signed in")
+        callback(true)
         // ...
       }).catch((error) => {
         // Handle Errors here.
@@ -22,6 +36,7 @@ export function signInWithGoogle (){
         // const email = error.customData.email;
         // The AuthCredential type that was used.
         const credential = GoogleAuthProvider.credentialFromError(error);
+        callback(false)
         // ...
       });
       
