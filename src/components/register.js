@@ -1,11 +1,22 @@
-export const Register = () =>{
+import { onNavigate } from "../js/routes.js";
 
-const HomeDiv = document.createElement('div');
-HomeDiv.textContent = 'Bienvenida al registro';
-const buttonHome = document.createElement('button');
+export const register = () => {
 
-buttonHome.textContent = 'Regresar al Home';
+    const registerDiv = document.createElement('div');
+    const nameApp = document.createElement('h1');
+    nameApp.textContent = "Dad's Power   Sign Up";
 
-HomeDiv.appendChild('buttonHome');
-return HomeDiv;
+    registerDiv.appendChild(nameApp);
+
+    const buttonLogin = document.createElement('li');
+    buttonLogin.textContent = 'Sign in';
+    buttonLogin.id = 'botonLoguear';
+
+    registerDiv.appendChild(buttonLogin);
+    buttonLogin.addEventListener('click', () => onNavigate('/login'));
+
+
+
+
+    return registerDiv;
 }

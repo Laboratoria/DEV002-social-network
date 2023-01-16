@@ -187,12 +187,10 @@ color: #f5efef;
 .navLink {
 display: inline-block;
 font-family: century Gothic;
-color: #FFFFFF;
+color: #0f12bf;
 padding-left: 20px;
 margin: 5px;
 text-align: right;
-
-
-
+cursor:pointer
 
 }

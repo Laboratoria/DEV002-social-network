@@ -1,3 +1,6 @@
+import { onNavigate } from "../js/routes.js";
+
+
 export const home = () => {
    const homeDiv = document.createElement('div');
 
@@ -10,17 +13,19 @@ export const home = () => {
 
    const buttonRegister = document.createElement('li');
    buttonRegister.className = 'navLink';
-   buttonRegister.textContent = 'Sign in';
+   buttonRegister.textContent = 'Sign up';
    buttonRegister.id = 'botonRegistrar';
 
    const buttonLogin = document.createElement('li');
    buttonLogin.className = 'navLink';
-   buttonLogin.textContent = 'Sign up';
+   buttonLogin.textContent = 'Sign in';
    buttonLogin.id = 'botonLoguear';
 
    listaBotones.appendChild(buttonRegister);
    listaBotones.appendChild(buttonLogin);
 
+   buttonRegister.addEventListener('click', () => onNavigate('/register'));
+   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
 
 
