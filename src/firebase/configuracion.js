@@ -1,7 +1,9 @@
 // Importa la biblioteca de Firebase
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
-import { getAuth, createUserWithEmailAndPassword} from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-// import { getAuth, signInWithPopup, GoogleAuthProvider } from "firebase/auth";
+import { createUserWithEmailAndPassword} from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js'
+
+// const auth = getAuth();
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -16,7 +18,8 @@ const firebaseConfig = {
 // Inicializa la aplicación de Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-// const provider = new GoogleAuthProvider();
+export const provider = new GoogleAuthProvider(app);
+
 
 // Crea una función para registrar usuarios
 export function registerUser(email, password) {
@@ -37,6 +40,39 @@ export function registerUser(email, password) {
   });
 }
 
+export const authGoogle = async () => {
+  try {
+    const userResult = await signInWithPopup(auth, provider);
+    console.log(userResult);
+    console.log("probando")
+  } catch (error) {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    const correo = error.customData.email;
+    console.log(errorCode, errorMessage, correo, credential);
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // export const authGoogle = getAuth();
 // signInWithPopup(auth, provider)
 //   .then((result) => {
@@ -55,3 +91,5 @@ export function registerUser(email, password) {
 //     const credential = GoogleAuthProvider.credentialFromError(error);
 //     // ...
 //   });
+
+

@@ -1,22 +1,6 @@
 // import { onNavigate } from "../../main.js";
  import { registerUser } from '../firebase/configuracion.js';
-
-//  const indexRegistro = document.getElementById('containerRegister');
-//  const indexInicioSesion = document.getElementById('container');
-//  const btnRegistrate = document.getElementById('registrate');
- 
-
-document.addEventListener("DOMContentLoaded", function() {
-  const registerButton = document.getElementById('register-button');
-  registerButton.addEventListener('click', (event) => {
-      event.preventDefault()
-      console.log("click se ejecutó")
-      const email = document.getElementById('emailRegister').value;
-      const password = document.getElementById('passwordRegister').value;
-      registerUser(email, password);
-  });
-});
-
+ import { next } from '../main.js'
 
 export const Register = () => {
   const divRegister = document.createElement('div');
@@ -68,16 +52,31 @@ export const Register = () => {
 
     <label class="fecha-nacimiento" for='fecha-nacimiento'> Edad * </label> <br>
     <input type="number" min="1" class="fecha-nacimiento" required> <br>
+  <a href="/timeLine">
     <button class="ingresar" id="register-button"> Registrar </button>
+    </a>
   </form>
 </section> </div>`
-//Este es el punto de entrada de tu aplicacion
-// import { GoogleAuthProvider } from "firebase/auth";
-
-
-
 
 divRegister.innerHTML = viewRegister;
+
+const registerBtn = divRegister.querySelector('#register-button');
+registerBtn.addEventListener('click', () => {
+  next('/timeLine');
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const registerButton = document.getElementById('register-button');
+  registerButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      console.log("click register se ejecutó")
+      const email = document.getElementById('emailRegister').value;
+      const password = document.getElementById('passwordRegister').value;
+      registerUser(email, password);
+  });
+});
+
 return divRegister;
 
 };

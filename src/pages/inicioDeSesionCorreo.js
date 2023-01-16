@@ -1,8 +1,8 @@
 import { signInWithEmailAndPassword } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js"
 import { auth } from "../firebase/configuracion.js"
 
- const signin = document.getElementById('ingresar')
-  console.log('holitas')
+//  const signin = document.getElementById('ingresar')
+//   console.log('holitas')
 
 //const auth = getAuth();
 export function inicioDeSesionEmail (email, password) {
@@ -17,3 +17,4 @@ export function inicioDeSesionEmail (email, password) {
     const errorMessage = error.message;
   })
 };
+

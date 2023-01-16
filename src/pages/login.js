@@ -1,17 +1,10 @@
 import { onNavigate } from '../main.js';
 import { inicioDeSesionEmail} from '../pages/inicioDeSesionCorreo.js'
+import { next} from '../main.js'
+import { signInWithGoogle } from '../firebase/singInGoogle.js';
+import {authGoogle} from '../firebase/configuracion.js';
 
 
-document.addEventListener("DOMContentLoaded", function() {
-  const logInButton = document.getElementById('ingresar');
-  logInButton.addEventListener('click', (event) => {
-      event.preventDefault()
-      console.log("click se ejecutó")
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-     inicioDeSesionEmail (email, password);
-  });
-});
 
 export const Login = () => { 
   const divLogin = document.createElement('div');
@@ -31,7 +24,11 @@ export const Login = () => {
       <p class="or">O</p>
       <input id="email" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
       <input id="password" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
-      <button class="ingresar" id="ingresar"> Ingresar </button>
+     
+      <a href= "/timeLine">
+        <button class="ingresar" id="ingresar"> Ingresar </button>
+      </a>
+
     </form> 
    
     <p>¿Aún no tienes una cuenta?</p>
@@ -47,6 +44,47 @@ export const Login = () => {
   
   divLogin.innerHTML = viewLogin;
 
+  const signUpBtn = divLogin.querySelector('#ingresar');
+  signUpBtn.addEventListener('click', () => {
+    next('/timeLine');
+  });
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const logInButton = document.getElementById('ingresar');
+  logInButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      console.log("click se ejecutó")
+      const email = document.getElementById('email').value;
+      const password = document.getElementById('password').value;
+     inicioDeSesionEmail (email, password);
+  });
+});
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const googleButton = document.getElementById('inicio-sesion-google');
+  googleButton.addEventListener('click',async (event) => {
+      event.preventDefault()
+      console.log("click botón google")
+      await authGoogle();
+   
+     }) 
+  });
+  return divLogin;
+};
+
+// googleButton.addEventListener('click', async (event) => {
+//   event.preventDefault()
+//   console.log("click botón google")
+//   await authGoogle();
+// });
+
+
+export default Login
+
+
+
   // const buttonFinalLogin = document.createElement('button');
   // const buttonHome = document.createElement('button');
 
@@ -59,9 +97,4 @@ export const Login = () => {
   // divRegister.appendChild(buttonHome);
   // divRegister.appendChild(buttonFinalRegister);
 
-  return divLogin;
-};
-
-export default Login
-
-
+  
