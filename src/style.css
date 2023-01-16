@@ -1,0 +1,74 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    background-color: #F8FAE4;
+    align-items: center;
+
+}
+
+/*#root {
+    width: 375px;
+    /* height: max-content; */
+/*height: 900px;*/
+/*display: flex;*/
+/*flex-direction: column;*/
+/*justify-content: center;
+}*/
+
+.imageLogo {
+    width: 350px;
+    height: 350px;
+    left: 20%;
+    top: 60px;
+}
+
+
+#buttonLogin {
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    text-transform: uppercase;
+    height: 40px;
+    width: 50%;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+}
+
+#buttonRegister {
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    text-transform: uppercase;
+    height: 40px;
+    width: 50%;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+    display: block;
+}
+
+.nombreAplicacion {
+    font-size: 30px;
+    left: 50%;
+    top: 20px;
+    color: #aa8b56;
+}
+
+.welcomeh1 {
+    width: 291px;
+    height: 48px;
+    left: 42px;
+    top: 300px;
+    display: flex;
+    font-size: 30px;
+
+}
