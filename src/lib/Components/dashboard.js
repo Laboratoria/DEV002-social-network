@@ -29,7 +29,7 @@ export const login = () => {
     <img id='img-modal-post' src='images/user.png' alt='profile'>
     <div id='container-text'></div>
     </div>
-    <textarea type='text' id='input-post' placeholder=''>Deja aquí la reseña de tu libro</textarea>
+    <textarea type='text' id='input-post' placeholder='Deja aquí la reseña de tu libro'> </textarea>
       <button disabled type='button' id='btn-post' class='btn-post-inactive'>PUBLICAR</button>
     </div>
    </div>
