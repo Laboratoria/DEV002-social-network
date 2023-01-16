@@ -58,11 +58,11 @@ export const logOut = async (onNavigate) => {
 export const currentUserInfo = () => auth.currentUser;
 
 //función publicar
-export const submitPost = async (postTxt) => {
+export const submitPost = (postTxt) => {
   const post = {
     postText: postTxt,
     user: 'Laura',
     createdDateTime: new Date()
   }
-  const doc = await addDoc(postCollection, post);
+  return addDoc(postCollection, post);
 };
