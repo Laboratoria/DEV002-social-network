@@ -1,7 +1,7 @@
 // Importa la biblioteca de Firebase
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
-import { createUserWithEmailAndPassword} from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { getAuth, signInWithPopup, GoogleAuthProvider} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js'
+import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js'
 
 // const auth = getAuth();
 
@@ -22,22 +22,29 @@ export const provider = new GoogleAuthProvider(app);
 
 
 // Crea una función para registrar usuarios
-export function registerUser(email, password) {
+export function registerUser(email, password, callback) {
   createUserWithEmailAndPassword(auth, email, password)
-  .then(() => {
-    // El usuario ha sido registrado correctamente
-    console.log('Usuario registrado correctamente');
-  })
-  .catch((error) => {
-    console.error(error.code);
-    if (error.code === 'auth/email-already-in-use'){
-          alert('Este correo ya está registrado')
-      }else if (error.code === 'auth/weak-password'){
-          alert('Tu contraseña no es segura')
-      }else if (error.code === 'auth/invalid-email'){
-          alert('Este correo no existe o es inválido')
+    .then((userCredential) => {
+      // El usuario ha sido registrado correctamente
+      console.log('Usuario registrado correctamente');
+      const user = userCredential.user;
+      const userId = user.uid
+      console.log(user, userId)
+      callback(true)
+    })
+    .catch((error) => {
+      console.error(error.code);
+      if (error.code === 'auth/email-already-in-use') {
+        alert('Este correo ya está registrado')
+      } else if (error.code === 'auth/weak-password') {
+        alert('Tu contraseña no es segura')
+      } else if (error.code === 'auth/invalid-email') {
+        alert('Este correo no existe o es inválido')
+      } else if (error.code === 'auth/internal-error') {
+        alert("completa todos los campos")
       }
-  });
+      callback(false)
+    });
 }
 
 export const authGoogle = async () => {
@@ -49,7 +56,7 @@ export const authGoogle = async () => {
     const errorCode = error.code;
     const errorMessage = error.message;
     const correo = error.customData.email;
-    console.log(errorCode, errorMessage, correo, credential);
+    console.log(error);
   }
 };
 

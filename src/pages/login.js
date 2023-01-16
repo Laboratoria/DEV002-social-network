@@ -41,38 +41,71 @@ export const Login = () => {
   </section>
   
 `
-  
-  divLogin.innerHTML = viewLogin;
-
-  const signUpBtn = divLogin.querySelector('#ingresar');
-  signUpBtn.addEventListener('click', () => {
-    next('/timeLine');
-  });
-
-
+divLogin.innerHTML = viewLogin;
 document.addEventListener("DOMContentLoaded", function() {
-  const logInButton = document.getElementById('ingresar');
-  logInButton.addEventListener('click', (event) => {
-      event.preventDefault()
-      console.log("click se ejecutó")
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-     inicioDeSesionEmail (email, password);
-  });
-});
+    const logInButton = document.getElementById('ingresar');
+    logInButton.addEventListener('click', (event) => {
+        event.preventDefault()
+        console.log("click se ejecutó")
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+       const  alertLogin = (valid) => {
+        if(valid){
+          next('/timeLine');
+        }
+       }
+        inicioDeSesionEmail (email, password,alertLogin);
 
+    });
+});
 
 document.addEventListener("DOMContentLoaded", function() {
   const googleButton = document.getElementById('inicio-sesion-google');
   googleButton.addEventListener('click',async (event) => {
       event.preventDefault()
       console.log("click botón google")
-      await authGoogle();
-   
-     }) 
-  });
-  return divLogin;
+      await authGoogle(); 
+   }) 
+});
+return divLogin;
 };
+  
+
+
+
+
+
+//   divLogin.innerHTML = viewLogin;
+
+//   const signUpBtn = divLogin.querySelector('#ingresar');
+//   signUpBtn.addEventListener('click', () => {
+//     next('/timeLine');
+//   });
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   const logInButton = document.getElementById('ingresar');
+//   logInButton.addEventListener('click', (event) => {
+//       event.preventDefault()
+//       console.log("click se ejecutó")
+//       const email = document.getElementById('email').value;
+//       const password = document.getElementById('password').value;
+//      inicioDeSesionEmail (email, password);
+//   });
+// });
+
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   const googleButton = document.getElementById('inicio-sesion-google');
+//   googleButton.addEventListener('click',async (event) => {
+//       event.preventDefault()
+//       console.log("click botón google")
+//       await authGoogle();
+   
+//      }) 
+//   });
+//   return divLogin;
+// };
 
 // googleButton.addEventListener('click', async (event) => {
 //   event.preventDefault()

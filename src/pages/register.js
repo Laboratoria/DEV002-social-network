@@ -16,9 +16,6 @@ export const Register = () => {
 
   <h2 class="inicia-sesion-h2">Regístrate</h2>
 
-  <img class="logo-google" id="registrate-google" src="./images/google buttons/google_signin_buttons/web/2x/1.google-button.png" alt="">
-  <p class="or">O</p>
-
   <form> 
   <input type="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
   <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
@@ -60,10 +57,10 @@ export const Register = () => {
 
 divRegister.innerHTML = viewRegister;
 
-const registerBtn = divRegister.querySelector('#register-button');
-registerBtn.addEventListener('click', () => {
-  next('/timeLine');
-});
+// const registerBtn = divRegister.querySelector('#register-button');
+// registerBtn.addEventListener('click', () => {
+//   next('/timeLine');
+// });
 
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -73,7 +70,13 @@ document.addEventListener("DOMContentLoaded", function() {
       console.log("click register se ejecutó")
       const email = document.getElementById('emailRegister').value;
       const password = document.getElementById('passwordRegister').value;
-      registerUser(email, password);
+         
+     const alertRegister = (valid) => {
+     if(valid){
+       next('/timeLine');
+     }
+     }
+     registerUser(email, password,alertRegister);
   });
 });
 
