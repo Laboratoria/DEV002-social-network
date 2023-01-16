@@ -15,6 +15,12 @@ export const onNavigate = (pathname) => {
         pathname,
         window.location.origin + pathname, // requiere 3 parámetros - 1 estado vacio - asignar título - asignar la ruta//
     );
+    while(rootDiv.firstChild){
+        rootDiv.removeChild(rootDiv.firstChild);
+    }
+        
+      rootDiv.appendChild = (routes[pathname]());
+   };      
 
     while(rootDiv.firstChild){
         rootDiv.removeChild(rootDiv.firstChild)

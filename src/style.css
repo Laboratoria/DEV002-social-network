@@ -148,7 +148,7 @@ input:hover{
   border-style: solid;
 }
 
-/* Estilos para formulario dinámico*/
+/* Estilos para vista HOME*/
 h1 {
   font-family: 'Fredoka One';
   position: absolute;
@@ -177,13 +177,38 @@ h5 {
 }
 
 .navLink {
-display: inline-block;
-font-family: century Gothic;
-color: #0f12bf;
-padding-left: 20px;
-margin: 5px;
-text-align: right;
-cursor:pointer
+  display: inline-block;
+  font-family: century Gothic;
+  color: #575454;
+  padding-left: 20px;
+  margin: 5px;
+  text-align: right;
+}
+
+/* Estilos para Vista REGISTER */
+.sectionSignup {
+  width: 360px;
+  height: 800px;
+  justify-content: center;
+  background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
+}
+
+.tituloh2register {
+  font-family: 'Fredoka One';
+  width: 300px;
+  height: 47px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  color: rgba(255, 242, 242, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  position: absolute;
+  top: 100px;
+  left: 35px;
+}
 
 .contenedorForm {
   background: rgba(255, 255, 255, 0.32);
@@ -207,23 +232,22 @@ cursor:pointer
   align-items: center;
 }
 
-.tituloh2register {
-  font-family: 'Fredoka One';
-  width: 300px;
-  height: 47px;
+.password,
+.email,
+.username {
+  line-height: 24px;
+  color: #000000;
+  align-items: center;
   text-align: center;
-  font-style: normal;
-  font-weight: 400;
-  font-size: 35px;
-  line-height: 42px;
-  color: rgba(255, 242, 242, 0.25);
-  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin: 0;
-  position: absolute;
-  top: 100px;
-  left: 35px;
+
 }
 
+/* Dar color más tenue al placeholder de los input */
+input::placeholder{
+  color:#8F9CA3;
+}
+
+/* Estilos para los títulos de los labels de cada input */
 .usuario {
   font-family: 'Century Gothic';
   font-style: normal;
@@ -233,6 +257,86 @@ cursor:pointer
   color: #52525C;
   position: absolute;
   left: 55px;
+  /* left: 140px; */
+}
+
+.labelEmail {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  /* left: 152px; */
+  left: 55px;
+  top: 120px;
+}
+
+.labelPassword {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 55px;
+  /* left: 141px; */
+  top: 215px;
+
+}
+
+/* Estilos para mensaje de error */
+
+.message-error-email {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #d16b49;
+  position: absolute;
+  left: 111px;
+  top: 190px;
+}
+
+.message-error-password {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #d16b49;
+  position: absolute;
+  left: 102px;
+  top: 285px;
+}
+
+/* Parrafo con enlace a sigin */
+
+.p-tienes-cuenta{
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 100px;
+  bottom: 60px;
+}
+
+.enlace-signin {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 60px;
+  bottom: 60px;
 }
 
 .imgInicio {

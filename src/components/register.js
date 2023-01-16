@@ -1,4 +1,4 @@
-import { onNavigate } from "../js/routes.js";
+import { onNavigate } from '../js/routes.js'
 
 export const register = () => {
     
@@ -20,32 +20,51 @@ export const register = () => {
 
     const inputUser = document.createElement('input');
     const labelUser = document.createElement('label');
-    labelUser.textContent = 'username';
-    labelUser.className ='usuario'
-    inputUser.setAttribute('name','username');
+    labelUser.textContent = 'Username';
+    labelUser.className ='usuario';  
     formSU.appendChild(labelUser);
-    inputUser.setAttribute('type', 'user');
+    inputUser.type ='user';
     inputUser.className = 'username';
     inputUser.id = 'idUsername';
-    inputUser.placeholder = 'Amy Schumer';
+    inputUser.placeholder = 'Rob Scott';
     formSU.appendChild(inputUser);
 
 
     const inputEmail = document.createElement('input');
-    inputEmail.setAttribute('type', 'e-mail');
+    const labelEmail = document.createElement('label');
+    labelEmail.textContent = 'E-mail';
+    labelEmail.className = 'labelEmail';
+    formSU.appendChild(labelEmail);
+    inputEmail.type = 'e-mail';
     inputEmail.className = 'email';
     inputEmail.id = 'idCorreoSU';
     inputEmail.placeholder = 'example@gmail.com'
     formSU.appendChild(inputEmail);
 
+    //considerar agregar una diferencia en el parrafo que se imprima el mensaje de error segun sea para mail o pass
+    const errorSignupEmail = document.createElement('p');
+    errorSignupEmail.className ='message-error-email'; //aquí debe estar la diferencia en la className, distinto para email y pass
+    errorSignupEmail.textContent = 'Aquí va error para email';
+    formSU.appendChild(errorSignupEmail);
+
 
     const inputPasword = document.createElement('input');
+    const labelPassword = document.createElement('label');
+    labelPassword.textContent = 'Password';
+    labelPassword.className = 'labelPassword';
+    formSU.appendChild(labelPassword);
     inputPasword.type = 'password';
     inputPasword.textContent = 'password';
     inputPasword.className = 'password';
     inputPasword.id = 'idContraseñaSU';
-    inputPasword.placeholder = '*******'
+    inputPasword.placeholder = '******'
     formSU.appendChild(inputPasword);
+
+    //considerar agregar una diferencia en el parrafo que se imprima el mensaje de error segun sea para mail o pass
+    const errorSignupPassword = document.createElement('p');
+    errorSignupPassword.className ='message-error-password'; //aquí debe estar la diferencia en la className, distinto para email y pass
+    errorSignupPassword.textContent = 'Aquí va error para password';
+    formSU.appendChild(errorSignupPassword);
 
 
     const buttonSU = document.createElement('button');
@@ -53,11 +72,15 @@ export const register = () => {
     buttonSU.textContent = 'submit'
     buttonSU.className = 'btnSubmit';
     buttonSU.id = 'btnEnviarSU';
-    formSU.appendChild(buttonSU)
+    formSU.appendChild(buttonSU);
 
-    const errorSignup = document.createElement('p');
-    errorSignup.className ='message-error';
-    formSU.appendChild(errorSignup);
+    const tienesCuenta = document.createElement('p');
+    tienesCuenta.className = 'p-tienes-cuenta';
+    tienesCuenta.textContent = 'Already have an account ?';
+    formSU.appendChild(tienesCuenta);
+
+
+
 
 
 
