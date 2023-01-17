@@ -2,4 +2,14 @@
 
 //import { myFunction } from './lib/index.js';
 
-//myFunction();
+myFunction();
+
+const routes ={
+    "/":ingresaTusDatos,
+   // "/":comparteYbuscaLoQueNecesitas,
+   // "/":ayudantías,
+   // "/":gruposDeApoyo,
+   // "/":recomendaciones,
+   // "/":recursos,
+   // "/":experiencias,
+};
