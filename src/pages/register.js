@@ -57,11 +57,6 @@ export const Register = () => {
 
 divRegister.innerHTML = viewRegister;
 
-// const registerBtn = divRegister.querySelector('#register-button');
-// registerBtn.addEventListener('click', () => {
-//   next('/timeLine');
-// });
-
 
 document.addEventListener("DOMContentLoaded", function() {
   const registerButton = document.getElementById('register-button');

@@ -41,7 +41,7 @@ export function registerUser(email, password, callback) {
       } else if (error.code === 'auth/invalid-email') {
         alert('Este correo no existe o es inválido')
       } else if (error.code === 'auth/internal-error') {
-        alert("completa todos los campos")
+        alert("Completa todos los campos")
       }
       callback(false)
     });
@@ -80,23 +80,6 @@ export const authGoogle = async () => {
 
 
 
-// export const authGoogle = getAuth();
-// signInWithPopup(auth, provider)
-//   .then((result) => {
-//     // This gives you a Google Access Token. You can use it to access the Google API.
-//     const credential = GoogleAuthProvider.credentialFromResult(result);
-//     const token = credential.accessToken;
-//     // The signed-in user info.
-//     const user = result.user;
-//     // ...
-//   }).catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // The email of the user's account used.
-//     const email = error.customData.email;
-//     // The AuthCredential type that was used.
-//     const credential = GoogleAuthProvider.credentialFromError(error);
-//     // ...
-//   });
+
 
 

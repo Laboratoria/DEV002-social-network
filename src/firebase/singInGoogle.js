@@ -43,31 +43,6 @@ export function signInWithGoogle (callback){
     }
     
 
-// export const google = async () => {
-//     try {
-//       const result = await signInWithPopup(auth, provider);
-//       console.log(result.user, 'user en Google function');
-//       const userPhotoGoogle = result.user.photoURL;
-//       return result.user;
-//     } catch (error) {
-//       console.log('Falló conexión de Google');
-//     }
-//   }; 
 
-
-
-// // Iniciar sesión con Google
-// signInWithPopup(auth, provider)
-//   .then((result) => {
-//     // Obtener el correo electrónico del usuario
-//     const email = result.user.email;
-//     // ...
-//   })
-//   .catch((error) => {
-//     // Handle Errors here.
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//     // ...
-//   });
 
 
