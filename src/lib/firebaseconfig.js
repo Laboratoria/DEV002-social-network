@@ -1,6 +1,6 @@
 // Your web app's Firebase configuration
 // Configuración Firebase al inicializar sus servicios
-  export const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: "AIzaSyCxLhAk9jOlsC43X5vqcFhw-eBCbrELaI4",
   authDomain: "newme-13925.firebaseapp.com",
   projectId: "newme-13925",
