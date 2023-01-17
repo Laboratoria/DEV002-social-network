@@ -1,10 +1,6 @@
-import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { firebaseAuth } from './firebase.js';
+import { firebaseAuth, signInWithEmailAndPassword } from './firebase.js';
 
-export const signInAccount = async (EmailLoginForm) => {
-  const email = EmailLoginForm.EmailLoginFormInput.value
-  const password = EmailLoginForm.passwordEmailLoginInput.value
-
+export const signInAccount = async (email,password) => {
   try {
     const userCredential = await signInWithEmailAndPassword(firebaseAuth, email, password)
     const user = userCredential.user;
@@ -14,3 +10,4 @@ export const signInAccount = async (EmailLoginForm) => {
     return Promise.reject(error)
   }
 }
+ export {signInWithEmailAndPassword,firebaseAuth}

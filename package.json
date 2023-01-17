@@ -52,5 +52,18 @@
     "deploy": "^1.0.3",
     "dotenv": "^16.0.3",
     "firebase": "^9.15.0"
+  },
+  "jest": {
+    "roots": [
+      "<rootDir>",
+      "Petblr-social-network/../"
+    ],
+    "modulePaths": [
+      "<rootDir>",
+      "Petblr-social-network/../"
+    ],
+    "moduleDirectories": [
+      "node_modules"
+    ]
   }
 }

@@ -23,8 +23,8 @@ import { firebaseAuth, setPersistence, signInWithRedirect, inMemoryPersistence, 
     try {
       await setPersistence(firebaseAuth, inMemoryPersistence)
       const provider = new GoogleAuthProvider();
-      const signInWithRedirectFun = signInWithRedirect(firebaseAuth, provider);
-      return Promise.resolve(signInWithRedirectFun)
+      const signInWithRedirectFun = await signInWithRedirect(firebaseAuth, provider);
+      return signInWithRedirectFun
     } catch (error) {
       return Promise.reject(error)
     }
