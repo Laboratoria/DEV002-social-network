@@ -2,29 +2,29 @@ import { exitConsult, authGoogle } from '../lib/firebase.js';
 import { surfing } from '../main.js';
 
 export const login = () => {
-  const $section = document.createElement('section'),
-    $divLogo = document.createElement('div'),
-    $figureLogin = document.createElement('figure'),
-    $imgLogo = document.createElement('img'),
-    $containerICoulLogin = document.createElement('div'),
-    $iCouldLogin = document.createElement('h2'),
-    $divContainerF = document.createElement('div'),
-    $divContainerForm = document.createElement('div'),
-    $divForm = document.createElement('form'),
-    $divInput = document.createElement('div'),
-    $inputEmail = document.createElement('input'),
-    $inputPassword = document.createElement('input'),
-    $divContainerCat = document.createElement('div'),
-    $imgCat = document.createElement('img'),
-    $inputSignUpCat = document.createElement('input'),
-    $inputForgotP = document.createElement('input'),
-    $divContainerSpan = document.createElement('div'),
-    $spanOption = document.createElement('span'),
-    $divContainerRegister = document.createElement('div'),
-    $inputBtnGoogle = document.createElement('input'),
-    $figureGoogle = document.createElement('figure'),
-    $imgGoogle = document.createElement('img'),
-    $pSignUp = document.createElement('p');
+  const $section = document.createElement('section');
+  const $divLogo = document.createElement('div');
+  const $figureLogin = document.createElement('figure');
+  const $imgLogo = document.createElement('img');
+  const $containerICoulLogin = document.createElement('div');
+  const $iCouldLogin = document.createElement('h2');
+  const $divContainerF = document.createElement('div');
+  const $divContainerForm = document.createElement('div');
+  const $divForm = document.createElement('form');
+  const $divInput = document.createElement('div');
+  const $inputEmail = document.createElement('input');
+  const $inputPassword = document.createElement('input');
+  const $divContainerCat = document.createElement('div');
+  const $imgCat = document.createElement('img');
+  const $inputSignUpCat = document.createElement('input');
+  const $inputForgotP = document.createElement('input');
+  const $divContainerSpan = document.createElement('div');
+  const $spanOption = document.createElement('span');
+  const $divContainerRegister = document.createElement('div');
+  const $inputBtnGoogle = document.createElement('input');
+  const $figureGoogle = document.createElement('figure');
+  const $imgGoogle = document.createElement('img');
+  const $pSignUp = document.createElement('p');
 
   // agregamos HTML semantico------------------------------------
 
