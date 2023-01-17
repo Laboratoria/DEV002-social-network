@@ -23,7 +23,7 @@ export const verifiedWithEmail = (auth) => {
             // ...
         } else {
             // el suusario no se encuentra logueado
-            console.log('auth: log out')
+            console.log('auth: log out');
         }
     });
 }
@@ -31,7 +31,8 @@ export const verifiedWithEmail = (auth) => {
 export const verificarSendingMail = (auth) => {
     sendEmailVerification(auth.currentUser)
         .then(() => {
-            alert('Por avor verificar su gmail')
+            // Email verification sent!
+            alert('por favor verifique su correo');
             // ...
         });
 }

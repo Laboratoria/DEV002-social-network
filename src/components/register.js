@@ -3,10 +3,10 @@ import { onNavigate } from '../js/routes.js'
 export const register = () => {
     
     const signupSection = document.createElement('section');
-    signupSection.className = 'sectionSignup'
+    signupSection.className = 'sectionSignup-in'
     const titulo = document.createElement('h2');
     titulo.textContent = "Dad's Power";
-    titulo.className = 'tituloh2register';
+    titulo.className = 'tituloh2register-login';
     signupSection.appendChild(titulo);
 
     const formSU = document.createElement('form');
@@ -75,11 +75,19 @@ export const register = () => {
     formSU.appendChild(buttonSU);
 
     const tienesCuenta = document.createElement('p');
-    tienesCuenta.className = 'p-tienes-cuenta';
-    tienesCuenta.textContent = 'Already have an account?';
+    tienesCuenta.className = 'p-tienes-cuenta-register';
+    tienesCuenta.textContent = 'Already have an account ?';
     formSU.appendChild(tienesCuenta);
 
+     const buttonLogin = document.createElement('a');
+     buttonLogin.className = 'signin-a';
+    buttonLogin.textContent = 'Sign in';
+    buttonLogin.id = 'botonLoguear';
 
+
+
+    tienesCuenta.appendChild(buttonLogin);
+    buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
     return signupSection;
 }

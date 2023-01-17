@@ -5,22 +5,6 @@
   padding: 0;
   box-sizing: border-box;
 }
-
-
-/* BARRA NAVEGACIÓN */
-
-.navBar {
-  background-color: rgb(154, 116, 190);
-  height: 80px;
-  width: 100%;
-  top: 80px;
-  left: 0;
-  display: flex;
-}
-
-
-
-
 .modal {
   display: none;
   background: url(img/fondo10.png);
@@ -70,7 +54,8 @@ input {
 .btnSubmit:hover {
   background: rgba(56, 52, 52, 0.5);
 }
-input:hover{
+
+input:hover {
   background: rgba(245, 236, 236, 0.5);
 }
 
@@ -98,8 +83,7 @@ input:hover{
   line-height: 25px;
   letter-spacing: 2px;
   border: none;
-  
-
+  cursor: pointer;
 
 }
 
@@ -130,27 +114,9 @@ input:hover{
   padding: 0px 5px;
 }
 
-.logoGoogle {
-  width: 17px;
-  height: 17px;
-  /*padding: 1%;*/
-  margin: 0 0.5rem 0 0.5rem;
-}
-
-.btnGoogle {
-  /* background: transparent;*/
-  background: linear-gradient(294deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
-  width: 108%;
-  height: 35px;
-  border-radius: 5px;
-  border: none;
-  color: beige;
-  text-align: center;
-  border: 2px blue;
-  border-style: solid;
-}
 
 /* Estilos para vista HOME*/
+
 h1 {
   font-family: 'Fredoka One';
   position: absolute;
@@ -178,25 +144,47 @@ h5 {
   color: #f5efef;
 }
 
+/* BARRA NAVEGACIÓN */
+
+.navBarHome {
+  height: 40px;
+  width: 360px;
+  top: 5px;
+  left: 170px;
+  position: absolute;
+  z-index: 1;
+
+}
+
+.ul-home {
+  height: 40px;
+  width: 360px;
+  right: 0px;
+  justify-content: right;
+
+}
+
 .navLink {
   display: inline-block;
   font-family: century Gothic;
   color: #575454;
-  padding-left: 20px;
   margin: 5px;
   text-align: right;
-  line-height: 17px;
+  cursor: pointer;
+  color: #f5efef;
+  padding: 0 7px;
+  font-size: 14px;
 }
 
 /* Estilos para Vista REGISTER */
-.sectionSignup {
+.sectionSignup-in {
   width: 360px;
   height: 800px;
   justify-content: center;
   background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
 }
 
-.tituloh2register {
+.tituloh2register-login {
   font-family: 'Fredoka One';
   width: 300px;
   height: 47px;
@@ -246,8 +234,201 @@ h5 {
 }
 
 /* Dar color más tenue al placeholder de los input */
-input::placeholder{
-  color:#8F9CA3;
+input::placeholder {
+  color: #8F9CA3;
+}
+
+/* Estilos para los títulos de los labels de cada input */
+.usuario {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 55px;
+  /* left: 140px; */
+}
+
+
+
+.labelEmailLogin {
+  top: 25px;
+  left: 55px;
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+
+}
+
+.labelPasswordLogin {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 55px;
+  /* left: 141px; */
+  top: 120px;
+
+}
+
+/* Estilos para mensaje de error */
+
+.message-error-email-login {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #d16b49;
+  position: absolute;
+  left: 55px;
+  top: 97px;
+}
+
+.message-error-password-login {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #d16b49;
+  position: absolute;
+  left: 55px;
+  top: 190px;
+}
+.p-tienes-cuenta-register {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 72px;
+  bottom: 60px;
+}
+/* Parrafo con enlace a sigin */
+
+.p-tienes-cuenta {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 75px;
+  bottom: 60px;
+}
+
+.enlace-signin {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 60px;
+  bottom: 60px;
+}
+
+.imgInicio {
+  width: 360px;
+  height: 800px;
+  z-index: 0;
+}
+
+.signin-a {
+  text-decoration: underline;
+  color: #294074;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+.imgGoogle {
+  width: 45px;
+  height: 45px;
+  /*padding: 1%;*/
+  margin: -1.775rem .17rem 0rem 0rem;
+  padding: 0px;
+  display: flex;
+  align-items: baseline;
+  /* position: absolute; */
+  left: 55px;
+  border: solid 1px #f5efef;
+  background-color: #f5efef;
+  border-radius: 5px;
+}
+
+.btnGoogle {
+  /* background: transparent;*/
+  /*background: linear-gradient(294deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%); */
+  width: 230px;
+  height: 45px;
+  border-radius: 5px;
+  border: none;
+  color: rgb(225, 220, 245);
+  text-align: center;
+  background-color: rgb(0, 81, 255);
+  cursor: pointer;
+  justify-content: center;
+  margin: 25px 30px 0px 30px;
+  /* padding-left: 30px; */
+  font-size: 16px;
+  text-align: right;
+  padding-right: 30px;
+  padding-top: 10px;
+  box-shadow: 2px rgb(225, 220, 245);
+
+}
+
+/*estilos del SignUp*/
+.contenedorForm {
+  background: rgba(255, 255, 255, 0.32);
+  box-shadow: 0px 3px 10px rgba(46, 46, 66, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 24px;
+  position: absolute;
+  width: 340px;
+  height: 460px;
+  left: 10px;
+  top: 190px;
+  border-radius: 30px;
+}
+
+.form {
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+
+.password,
+.email,
+.username {
+  line-height: 24px;
+  color: #000000;
+  align-items: center;
+  text-align: center;
+
+}
+
+/* Dar color más tenue al placeholder de los input */
+input::placeholder {
+  color: #8F9CA3;
 }
 
 /* Estilos para los títulos de los labels de cada input */
@@ -300,7 +481,7 @@ input::placeholder{
   line-height: 150%;
   color: #d16b49;
   position: absolute;
-  left: 111px;
+  left: 55px;
   top: 190px;
 }
 
@@ -312,13 +493,13 @@ input::placeholder{
   line-height: 150%;
   color: #d16b49;
   position: absolute;
-  left: 102px;
+  left: 55px;
   top: 285px;
 }
 
 /* Parrafo con enlace a sigin */
 
-.p-tienes-cuenta{
+.p-tienes-cuenta {
   font-family: 'Century Gothic';
   font-style: normal;
   font-weight: 400;

@@ -8,6 +8,7 @@ export const home = () => {
    homeDiv.appendChild(barraNavegacion);
 
    const listaBotones = document.createElement('ul');
+   listaBotones.className = 'ul-home';
    barraNavegacion.appendChild(listaBotones);
 
    const buttonRegister = document.createElement('li');
@@ -28,7 +29,9 @@ export const home = () => {
    listaBotones.appendChild(buttonRegister);
    listaBotones.appendChild(buttonLogin);
 
-   
+   buttonRegister.addEventListener('click', () => onNavigate('/register'));
+   buttonLogin.addEventListener('click', () => onNavigate('/login'));
+
    const sectionDiv = document.createElement('section');
    sectionDiv.className = 'bienvenida';
    const bienvenidaH5 = document.createElement('h5');
