@@ -70,7 +70,7 @@ export const submitPost = (postTxt) => {
     user: getAuth().currentUser.displayName,
     createdDateTime: new Date()
   }
-  return addDoc(collection, post);
+  return addDoc(postCollection, post);
 };
 
 //función para consultar todos los posts dispobibles en firestore
