@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import { firebaseConfig } from "./firebaseconfig.js";
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
+import { firebaseConfig } from './firebaseconfig.js';
 // Consultas firebase
 import {
   getAuth,
@@ -8,7 +8,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -40,13 +40,13 @@ export const exitConsult = function (email, password) {
       const errorCode = error.code;
       const errorMessage = error.message;
 
-      if (errorCode === "auth/user-not-found") {
-        return alert("Usuario no encontrado");
-      } else if (errorCode === "auth/wrong-password") {
-        return alert("Contraseña incorrecta");
+      if (errorCode === 'auth/user-not-found') {
+        return alert('Usuario no encontrado');
+      } else if (errorCode === 'auth/wrong-password') {
+        return alert('Contraseña incorrecta');
       }
-      console.log("Erorr de codigo", errorCode);
-      console.log("Error del mensaje del codigo", errorMessage);
+      console.log('Erorr de codigo', errorCode);
+      console.log('Error del mensaje del codigo', errorMessage);
     });
 };
 
@@ -73,12 +73,12 @@ export const createUser = (email, password) => {
       const errorMessage = error.message;
       console.log(errorCode, errorMessage);
 
-      if (errorCode === "auth/email-already-in-use") {
-        return alert("Este usuario ya existe");
-      } else if (errorCode === "auth/weak-password") {
-        return alert("Contraseña débil");
+      if (errorCode === 'auth/email-already-in-use') {
+        return alert('Este usuario ya existe');
+      } else if (errorCode === 'auth/weak-password') {
+        return alert('Contraseña débil');
       }
-      console.log("Erorr de codigo", errorCode);
-      console.log("Error del mensaje del codigo", errorMessage);
+      console.log('Erorr de codigo', errorCode);
+      console.log('Error del mensaje del codigo', errorMessage);
     });
 };
