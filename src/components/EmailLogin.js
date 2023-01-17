@@ -4,6 +4,11 @@ import { signInAccount } from '../app/signIn.js'
 export const EmailLogin = (email, password) => {
     const EmailLoginDiv = document.createElement('div');
     const template = `
+        <section class="main-logo" id="mainLogo">
+            <div class="main-logo-div">
+            <img src="./Assets/logo.png"  alt="logo" class="main-logo-img" id="mainLogoImg" >
+            </div>
+        </section>
         <section class="Email-login" id="EmailLogin">
             <form class="Email-login-form" id="EmailLoginForm">
                 <div class="Email-login-form-background">

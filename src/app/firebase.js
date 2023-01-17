@@ -7,6 +7,7 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {
   getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, signInWithPopup,
+  setPersistence, signInWithRedirect, inMemoryPersistence, GoogleAuthProvider,
   signInWithEmailAndPassword
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 
@@ -34,5 +35,6 @@ const providerFacebookAuth = new FacebookAuthProvider();
 export {
   firebaseApp, firebaseAuth, createUserWithEmailAndPassword,
   providerFacebookAuth, signInWithPopup, getAuth, FacebookAuthProvider,
-  auth, signInWithEmailAndPassword
+  setPersistence, signInWithRedirect, inMemoryPersistence, GoogleAuthProvider,
+  signInWithEmailAndPassword
 };
