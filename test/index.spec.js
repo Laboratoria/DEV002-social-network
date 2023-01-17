@@ -31,8 +31,7 @@
          {
             try {
                 await signInAccount()
-            }catch(error){
-                console.log(error)                
+            }catch(error){             
                 expect(error).toEqual(new Error('ERROR'))
             }
         })
