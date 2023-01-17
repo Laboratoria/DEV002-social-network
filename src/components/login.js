@@ -25,14 +25,14 @@ export const login = () => {
     formSI.appendChild(labelEmail);
     inputEmail.type = 'e-mail';
     inputEmail.className = 'email';
-    inputEmail.id = 'idCorreoSU';
+    inputEmail.id = 'idCorreoSI';
     inputEmail.placeholder = 'example@gmail.com'
     formSI.appendChild(inputEmail);
 
     //considerar agregar una diferencia en el parrafo que se imprima el mensaje de error segun sea para mail o pass
     const errorSigninEmail = document.createElement('p');
     errorSigninEmail.className = 'message-error-email-login'; //aquí debe estar la diferencia en la className, distinto para email y pass
-    errorSigninEmail.textContent = 'Aquí va error para email';
+    // errorSigninEmail.textContent = 'Aquí va error para email';
     formSI.appendChild(errorSigninEmail);
 
     const inputPasword = document.createElement('input');
@@ -50,7 +50,7 @@ export const login = () => {
     //considerar agregar una diferencia en el parrafo que se imprima el mensaje de error segun sea para mail o pass
     const errorSigninPassword = document.createElement('p');
     errorSigninPassword.className = 'message-error-password-login'; //aquí debe estar la diferencia en la className, distinto para email y pass
-    errorSigninPassword.textContent = 'Aquí va error para password';
+    // errorSigninPassword.textContent = 'Aquí va error para password';
     formSI.appendChild(errorSigninPassword);
 
     const buttonSI = document.createElement('button');
