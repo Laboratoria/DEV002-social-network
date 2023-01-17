@@ -48,6 +48,7 @@ export const login = () => {
 
   divLogin.innerHTML = viewLogin;
 
+  //Funcion postear
   const posts = getAllPosts().then((posts) => {
     posts.forEach(post => {
 
@@ -78,7 +79,7 @@ export const login = () => {
     });
   });
 
-
+//Funcion cerrar sesion
   const btnLogout = divLogin.querySelector('#btn-sign-out');
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
@@ -93,7 +94,7 @@ export const login = () => {
   // timeLine.innerHTML = postCollection;
 
 
-
+//Funcion abrir modal
   const btnModal = divLogin.querySelector('#btn-input-modal');
   btnModal.addEventListener('click', () => {
     document.querySelector('#modal-background-post').style.display = 'flex';
@@ -101,7 +102,16 @@ export const login = () => {
     document.body.style.overflow = 'hidden';
     document.querySelector('#input-post').focus();
 
+//Funcion cerrar modal
+const btnExit = divLogin.querySelector('.btn-exit');
+btnExit.addEventListener('click', () => {
+  document.querySelector('#btn-post').innerText = 'PUBLICAR';
+  document.querySelector('#modal-background-post').style.display = 'none';
+  document.querySelector('#modal-content-post').style.display = 'none';
+  document.body.style.overflow = 'visible';
+});
 
+//Funcion activacion boton publicar
     const inputPost = divLogin.querySelector('#input-post');
     inputPost.addEventListener('keyup', () => {
       const valueInput = inputPost.value.trim();
