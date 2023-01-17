@@ -229,8 +229,8 @@ footer {
     width: 25px;
     height: 25px;
     position: absolute;
-    left: 330px;
-    top: 200px;
+    left: 260px;
+    top: 10px;
 }
 
 header {
@@ -299,32 +299,33 @@ header {
 
 #modal-content-post {
     margin-left: 3%;
-    width: 90%;
+    width: 92%;
     background-color: #94B49F;
     border-radius: 20px;
     cursor: pointer;
     display: none;
     height: auto;
     position: fixed;
-    top: 80px;
+    top: 100px;
 }
 
 .btn-post-inactive {
     background-color: #31E6F1;
     width: 25%;
     cursor: pointer;
+    border-radius: 10px;
 }
 
-/* #modal-background-post {
-    height: 100%;
+#modal-background-post {
+    height: 100vh;
     width: 100%;
     position: fixed;
-    background-color: rgba(164, 163, 163, 0.196);
+    z-index: 4;
+    background-color: rgba(63, 63, 63, 0.664);
     display: none;
     align-items: center;
     justify-content: center;
-    z-index: 4;
-} */
+}
 .timeLine-post{
     background-color: #94B49F;
     height: auto;
@@ -341,7 +342,6 @@ header {
     height: 40px;
     right: 250px;
     margin-top: 5px;
-
 }
 
 .textPost{
@@ -363,7 +363,10 @@ header {
     justify-content: center;
     padding: 7px;
     
-    
+}
+#modal-content-post p{
+    font-size: large;
+    font-weight: bold;
 }
 
 @media only screen and (min-width:600px) and (max-width:1700px) {
@@ -466,4 +469,26 @@ header {
     #btn-sign-out{
         left: 90%;
     }
+    #container-btn-input,
+    .timeLine-post{
+        margin: 20px 20px 20px 30px;
+        width: 97%;
+    }
+    #btn-input-modal,
+    .textPost{
+        width: 85%;
+        margin: 5px 10px 10px 30px;
+    }
+    .iconUser{
+        width: 50px;
+        height: 50px;
+        left: 45px;
+    }
+    .btn-exit{
+        width: 35px;
+        height: 35px;
+        top: 5px;
+        left: 95%;
+    }
+
 }
