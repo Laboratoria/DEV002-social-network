@@ -22,11 +22,6 @@ export const onNavigate = (pathname) => {
       rootDiv.appendChild = (routes[pathname]());
    };      
 
-    while(rootDiv.firstChild){
-        rootDiv.removeChild(rootDiv.firstChild)
-    }
-    rootDiv.appendChild(routes[pathname]());
-};
   
 const componentes = routes[window.location.pathname];
 

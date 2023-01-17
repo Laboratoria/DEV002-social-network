@@ -8,6 +8,7 @@ export const home = () => {
    homeDiv.appendChild(barraNavegacion);
 
    const listaBotones = document.createElement('ul');
+   listaBotones.className = 'ul-home';
    barraNavegacion.appendChild(listaBotones);
 
    const buttonRegister = document.createElement('li');
