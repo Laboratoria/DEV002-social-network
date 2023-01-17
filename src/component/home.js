@@ -1,6 +1,6 @@
 import { surfing } from '../main.js';
 
-export const home = () => { 
+export const home = () => {
   const $sectionHome = document.createElement('section'),
     $divLogoContainer = document.createElement('div'),
     $figureLogo = document.createElement('figure'),
