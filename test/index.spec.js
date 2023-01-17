@@ -21,19 +21,19 @@
     describe('Test for the login function',()=> {
         const email = "petblr@test.com"
         const password = "Petblrlomejor123"
-        //const ERROR = [Error=ERROR]
+        
         it('Should call signInWithEmailAndPassword', async()=> {
             await signInAccount(email, password)
             expect(signInWithEmailAndPassword).toHaveBeenCalled()
         })
 
-        it.only('Should throw an error if executed without arguments', async()=>
+        it('Should throw an error if executed without arguments', async()=>
          {
             try {
                 await signInAccount()
             }catch(error){
                 console.log(error)                
-                expect(error).toMatchObject({Error:'ERROR'})
+                expect(error).toEqual(new Error('ERROR'))
             }
         })
     
