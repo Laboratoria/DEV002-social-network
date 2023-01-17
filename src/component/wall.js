@@ -37,12 +37,12 @@ $imgWallCat = document.createElement("img")
 
 //---- HTML Semantico ----//
 
-$sectionW.appendChild($divContainerWall);
+$sectionW.appendChild($divContainerWall);  //HIJO PRINCIPAL 1
 $divContainerWall.appendChild($divSaludo);
 $divSaludo.appendChild($imgLogoW);
 $divSaludo.appendChild($h2name);
 
-$sectionW.appendChild($containerOrange);
+$sectionW.appendChild($containerOrange);  //HIJO PRINCIPAL 2
 $containerOrange.appendChild($divRightOrange);
 $divRightOrange.appendChild($divImgWall);
 $divImgWall.appendChild($imgWall);
@@ -55,7 +55,7 @@ $containerFormWall.appendChild($formWall);
 $formWall.appendChild($inputPublication);
 $formWall.appendChild($inputBtnWall);
 
-$sectionW.appendChild($containerPublication);
+$sectionW.appendChild($containerPublication); //HIJO PRINCIPAL 3
 $containerPublication.appendChild($divPublicUser);
 $divPublicUser.appendChild($divPublicU);
 $divPublicUser.appendChild($divReactions);

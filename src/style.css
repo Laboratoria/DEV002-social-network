@@ -250,7 +250,6 @@ img {
 .containerCatReg img{
     max-width: 4.5rem ;
 }
-
 .forgotP{
     background-color: transparent;
     color: white;
@@ -260,6 +259,9 @@ img {
     font-weight: bolder;
     cursor: pointer;
 }
+/*------------------------CSS REGISTER----------------------------------*/
+
+
 
 @media screen and ((min-width: 500px)) {
     main {
@@ -343,16 +345,18 @@ img {
 
      .logoNewM{
         margin: 0px;
-        width: 65%;
+        width: 60%;
         padding: 0px;
     }
 
     .figureLogin img{
-        width: 80%;
+        width: 91%;
         padding: 2rem 3rem 1rem 0;
         margin: 0px;
     }
-
+    .figureLogin{
+        padding: 0rem 0rem 0;
+    }
     .sloganLogin{
         display: block;
         text-align: start;
@@ -361,14 +365,16 @@ img {
         font-size: 3.2rem;
         line-height: 1;
         color: var(--colorWhite);
-        padding: 0 5.5rem;
+        padding: 0 0 0 2rem;
         margin-bottom: 3rem;
     }
 
     .containerF{
-        width: 40%;
+        width: 50%;
         height: 80vh;
-        border: 1px solid white;
+        background: linear-gradient(179.98deg, #03a7bb 0.02%, #3fa8b14a 0.03%, rgba(0, 0, 0, 0) 94.5%), linear-gradient(180deg, rgb(76 101 115 / 40%) 0%, rgba(0, 0, 0, 0) 100%), rgba(255, 255, 255, 0.1);
+         box-shadow: 0px 4px 24px -1px rgb(0 0 0 / 20%), inset 5px 5px 4px rgb(88 124 155 / 20%);
+         border-radius: 25px;
     }
 
    .containerFormLogin{
@@ -429,7 +435,6 @@ img {
    .containerF{
         width: 50%;
         height: 80vh;
-        border: 1px solid white;
    }
 
    .containerInputsRegister{
