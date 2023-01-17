@@ -50,24 +50,29 @@ export const login = () => {
 
   const posts = getAllPosts().then((posts) => {
     posts.forEach(post => {
-      console.log('response id', post.id);
-      console.log('response data', post.data());
 
       const postObj = post.data();
 
       let divPostEntry = document.createElement("div");
-      let userName = document.createElement("h1");
+      let imgUser = document.createElement("img");
+      let userName = document.createElement("h2");
       let userPostText = document.createElement("h2");
       let dateTimePost = document.createElement("h1");
 
-      divPostEntry.className = "timeLine-post"
+      divPostEntry.className = "timeLine-post";
+      imgUser.setAttribute('src', 'images/user.png');
+      imgUser.className = "iconUser";
       userName.innerHTML = postObj.user;
+      userName.className = 'user-name-post'
       userPostText.innerHTML = postObj.postText;
+      userPostText.className = 'textPost';
       dateTimePost.className = postObj.createdDateTime;
+
 
       divPostEntry.appendChild(userName);
       divPostEntry.appendChild(userPostText);
       divPostEntry.appendChild(dateTimePost);
+      divPostEntry.appendChild(imgUser);
 
       divTimeLine.appendChild(divPostEntry);
     });
