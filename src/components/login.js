@@ -73,6 +73,5 @@ export const login = () => {
    buttonGoogle.appendChild(imagenGoogle);
     formSI.appendChild(buttonGoogle);
 
-
     return signinSection;
 }

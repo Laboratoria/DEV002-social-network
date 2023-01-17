@@ -44,7 +44,11 @@ export const register = () => {
     //considerar agregar una diferencia en el parrafo que se imprima el mensaje de error segun sea para mail o pass
     const errorSignupEmail = document.createElement('p');
     errorSignupEmail.className ='message-error-email'; //aquí debe estar la diferencia en la className, distinto para email y pass
+<<<<<<< HEAD
     //errorSignupEmail.textContent = 'Aquí va error para email';
+=======
+    // errorSignupEmail.textContent = 'Aquí va error para email';
+>>>>>>> ca4c9d78a6c07462a2e3315b2006d9ae1dc5baa8
     formSU.appendChild(errorSignupEmail);
 
 
@@ -63,7 +67,7 @@ export const register = () => {
     //considerar agregar una diferencia en el parrafo que se imprima el mensaje de error segun sea para mail o pass
     const errorSignupPassword = document.createElement('p');
     errorSignupPassword.className ='message-error-password'; //aquí debe estar la diferencia en la className, distinto para email y pass
-   // errorSignupPassword.textContent = 'Aquí va error para password';
+    // errorSignupPassword.textContent = 'Aquí va error para password';
     formSU.appendChild(errorSignupPassword);
 
 
