@@ -17,14 +17,14 @@ export const login = () => {
     $divContainerCat = document.createElement("div"),
     $imgCat = document.createElement("img"),
     $inputSignUpCat = document.createElement("input"),
-    $inputForgotP = document.createElement('input'),
+    $inputForgotP = document.createElement("input"),
     $divContainerSpan = document.createElement("div"),
     $spanOption = document.createElement("span"),
     $divContainerRegister = document.createElement("div"),
     $inputBtnGoogle = document.createElement("input"),
     $figureGoogle = document.createElement("figure"),
     $imgGoogle = document.createElement("img"),
-    $pSignUp = document.createElement("p")
+    $pSignUp = document.createElement("p");
 
   //agregamos HTML semantico------------------------------------
 
@@ -32,8 +32,8 @@ export const login = () => {
     .appendChild($divLogo)
     .appendChild($figureLogin)
     .appendChild($imgLogo);
-    $divLogo.appendChild($containerICoulLogin).appendChild($iCouldLogin)
-  
+  $divLogo.appendChild($containerICoulLogin).appendChild($iCouldLogin);
+
   $section.appendChild($divContainerF);
   $divContainerF.appendChild($divContainerForm);
   $divContainerForm.appendChild($divForm);
@@ -44,7 +44,6 @@ export const login = () => {
   $divContainerCat.appendChild($inputSignUpCat);
   $divContainerCat.appendChild($inputForgotP);
 
-
   $divContainerF.appendChild($divContainerSpan).appendChild($spanOption);
 
   $divContainerF.appendChild($divContainerRegister);
@@ -54,14 +53,14 @@ export const login = () => {
 
   //agregamos atributos----------------------------------------
   $section.setAttribute("class", "sectionLogin");
-  $divLogo.setAttribute("class", "logoNewM")
+  $divLogo.setAttribute("class", "logoNewM");
   $figureLogin.setAttribute("class", "figureLogin");
   $imgLogo.setAttribute("src", "img/logoNewMe.png");
   $imgLogo.setAttribute("alt", "Logo de la aplicacion Newme");
   $iCouldLogin.setAttribute("class", "sloganLogin");
   $iCouldLogin.textContent = "I could you can!";
 
-  $divContainerF.setAttribute("class", "containerF")
+  $divContainerF.setAttribute("class", "containerF");
   $divContainerForm.setAttribute("class", "containerFormLogin");
   $divForm.setAttribute("id", "formLogin");
   $divForm.setAttribute("class", "formLogin");
@@ -92,7 +91,7 @@ export const login = () => {
   $inputForgotP.setAttribute("type", "submit");
   $inputForgotP.setAttribute("class", "forgotP");
   $inputForgotP.setAttribute("id", "forgotP");
-  $inputForgotP.setAttribute("value", "I forgot my password")
+  $inputForgotP.setAttribute("value", "I forgot my password");
 
   $divContainerSpan.setAttribute("class", "containerSpan");
   $spanOption.setAttribute("class", "option");
@@ -102,7 +101,7 @@ export const login = () => {
 
   $inputBtnGoogle.setAttribute("type", "button");
   $inputBtnGoogle.setAttribute("class", "btn_google");
-  $figureGoogle.setAttribute("class", "log_google")
+  $figureGoogle.setAttribute("class", "log_google");
   $imgGoogle.setAttribute("src", "img/imgGoogle.png");
   $inputBtnGoogle.setAttribute("id", "btn_googleId");
   $inputBtnGoogle.setAttribute("value", "WITH GOOGLE");
@@ -111,7 +110,7 @@ export const login = () => {
   $pSignUp.innerHTML = `
   You don't have an account?
   <input type="button" class="btn_signUp" id="btn_signUpId" value="SIGN UP">
-  `
+  `;
 
   $divForm.addEventListener("submit", (e) => {
     e.preventDefault();
@@ -127,9 +126,7 @@ export const login = () => {
 
   $pSignUp.addEventListener("click", () => {
     surfing("/register");
-})
+  });
 
   return $section;
-
-  
 };
