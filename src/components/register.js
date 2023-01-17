@@ -1,4 +1,5 @@
 import { toNavigate } from "../main.js";
+import { registerFirebase } from "../Firebase/firebase.js";
 
 export const register = () => {
     //Creamos elementos de Register
@@ -11,6 +12,7 @@ export const register = () => {
     const inputUserCheckPass = document.createElement("input");
     const selectIsVegan = document.createElement("select");
     const buttonRegister = document.createElement("button");
+    const buttonPrueba = document.createElement("button");
 
     buttonRegister.textContent = "REGISTRARSE"
 
@@ -24,6 +26,13 @@ export const register = () => {
     registerDiv.appendChild(inputUserCheckPass);
     registerDiv.appendChild(selectIsVegan);
     registerDiv.appendChild(buttonRegister);
+
+    buttonPrueba.addEventListener("click", () => {
+        registerFirebase(inputUserMail.value, inputUserPass.value)
+
+    })
+    
+
     
     return registerDiv
 }
