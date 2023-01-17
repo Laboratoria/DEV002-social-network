@@ -11,6 +11,8 @@ import {
   getFirestore,
   collection,
   addDoc,
+  getDocs,
+
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { onNavigate } from "../main.js";
 import { app } from './Firebase.js';
@@ -65,4 +67,10 @@ export const submitPost = (postTxt) => {
     createdDateTime: new Date()
   }
   return addDoc(postCollection, post);
+};
+
+//función para consultar todos los posts dispobibles en firestore
+export const getAllPosts = async () => {
+  const querySnapshot = await getDocs(postCollection);
+  return querySnapshot;
 };
