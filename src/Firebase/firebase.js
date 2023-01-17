@@ -6,6 +6,7 @@ const app = initializeApp(firebaseConfig);
 
 const auth = getAuth(app);
 
+//Crear Usuario
 export const registerFirebase = (email, password) => {
     createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -20,4 +21,3 @@ export const registerFirebase = (email, password) => {
         // ..
       });
 }
- 
