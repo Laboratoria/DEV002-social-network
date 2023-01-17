@@ -1,7 +1,7 @@
    // import { EmailLogin } from '../src/components/EmailLogin.js'
     import { signInWithEmailAndPassword, firebaseAuth } from '../src/app/firebase.js'
     import { signInAccount } from '../src/app/signIn.js'
-   
+
     jest.mock('../src/app/firebase.js', ()=>{
         return{
             firebaseAuth: jest.fn(() =>{
@@ -16,8 +16,6 @@
         }   
     })
 
-   
-
     describe('Test for the login function',()=> {
         const email = "petblr@test.com"
         const password = "Petblrlomejor123"
@@ -27,8 +25,7 @@
             expect(signInWithEmailAndPassword).toHaveBeenCalled()
         })
 
-        it('Should throw an error if executed without arguments', async()=>
-         {
+        it('Should throw an error if executed without arguments', async()=> {
             try {
                 await signInAccount()
             }catch(error){             
