@@ -1,28 +1,6 @@
 // import { onNavigate } from "../../main.js";
  import { registerUser } from '../firebase/configuracion.js';
-
-//  const indexRegistro = document.getElementById('containerRegister');
-//  const indexInicioSesion = document.getElementById('container');
-//  const btnRegistrate = document.getElementById('registrate');
- 
-//  const registerButton = document.getElementById('register-button');
-//  registerButton.addEventListener('click', () => {
-//    console.log("click se ejecutó")
-//    const email = document.getElementById('emailRegister').value;
-//    const password = document.getElementById('passwordRegister').value;
-//    registerUser(email, password);
-//  });
-
-document.addEventListener("DOMContentLoaded", function() {
-  const registerButton = document.getElementById('register-button');
-  registerButton.addEventListener('click', () => {
-      console.log("click se ejecutó")
-      const email = document.getElementById('emailRegister').value;
-      const password = document.getElementById('passwordRegister').value;
-      registerUser(email, password);
-  });
-});
-
+ import { next } from '../main.js'
 
 export const Register = () => {
   const divRegister = document.createElement('div');
@@ -38,8 +16,6 @@ export const Register = () => {
 
   <h2 class="inicia-sesion-h2">Regístrate</h2>
 
-  <img class="logo-google" id="registrate-google" src="./images/google buttons/google_signin_buttons/web/2x/1.google-button.png" alt="">
-  <p class="or">O</p>
   <form> 
   <input type="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
   <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
@@ -72,32 +48,36 @@ export const Register = () => {
   </div>
 
     <label class="fecha-nacimiento" for='fecha-nacimiento'> Edad * </label> <br>
-    <input type="number" class="fecha-nacimiento" required> <br>
+    <input type="number" min="1" class="fecha-nacimiento" required> <br>
+  <a href="/timeLine">
     <button class="ingresar" id="register-button"> Registrar </button>
+    </a>
   </form>
 </section> </div>`
-//Este es el punto de entrada de tu aplicacion
-// import { GoogleAuthProvider } from "firebase/auth";
-
-
-
 
 divRegister.innerHTML = viewRegister;
+
+
+document.addEventListener("DOMContentLoaded", function() {
+  const registerButton = document.getElementById('register-button');
+  registerButton.addEventListener('click', (event) => {
+      event.preventDefault()
+      console.log("click register se ejecutó")
+      const email = document.getElementById('emailRegister').value;
+      const password = document.getElementById('passwordRegister').value;
+         
+     const alertRegister = (valid) => {
+     if(valid){
+       next('/timeLine');
+     }
+     }
+     registerUser(email, password,alertRegister);
+  });
+});
+
 return divRegister;
 
 };
 
 export default Register
 
-//  export const Home = () =>{
-//     const HomeDiv= document.createElement("div");
-//     const botonRegistro=document.createElement("button");
-//     const botonIniciar=document.createElement("button");
-//     botonRegistro.textContent = 'Registrate';
-//     botonIniciar.textContent = 'Inicia sesión';
-
-//     HomeDiv.appendChild(botonIniciar);
-//     HomeDiv.appendChild(botonRegistro);
-
-//     return HomeDiv;
-// };
