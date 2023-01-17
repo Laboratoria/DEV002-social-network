@@ -11,7 +11,10 @@ import {
   getFirestore,
   collection,
   addDoc,
+  getDocs,
+
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+
 import { onNavigate } from "../main.js";
 import { app } from './Firebase.js';
 
@@ -57,12 +60,21 @@ export const logOut = async (onNavigate) => {
 // funcion currentuser
 export const currentUserInfo = () => auth.currentUser;
 
+//comienzo firestore
+const db =getFirestore();
+
 //función publicar
 export const submitPost = (postTxt) => {
   const post = {
     postText: postTxt,
-    user: 'Laura',
+    user: getAuth().currentUser.displayName,
     createdDateTime: new Date()
   }
-  return addDoc(postCollection, post);
+  return addDoc(collection, post);
+};
+
+//función para consultar todos los posts dispobibles en firestore
+export const getAllPosts = async () => {
+  const querySnapshot = await getDocs(postCollection);
+  return querySnapshot;
 };
