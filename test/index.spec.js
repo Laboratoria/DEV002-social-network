@@ -36,5 +36,9 @@
                 expect(error).toEqual(new Error('ERROR'))
             }
         })
-    
+
+        it('Should call signInWithEmailAndPassword with the auth, email and pass arguments', async()=> {
+            await signInAccount(email, password)
+            expect(signInWithEmailAndPassword).toHaveBeenCalledWith(firebaseAuth, email, password)
+        })    
     })
