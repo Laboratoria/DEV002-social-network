@@ -357,8 +357,8 @@ input::placeholder {
 }
 
 .imgGoogle {
-  width: 45px;
-  height: 45px;
+  width: 35px;
+  height: 35px;
   /*padding: 1%;*/
   margin: -1.775rem .17rem 0rem 0rem;
   padding: 0px;
@@ -368,28 +368,28 @@ input::placeholder {
   left: 55px;
   border: solid 1px #f5efef;
   background-color: #f5efef;
-  border-radius: 5px;
+  border-radius: 2px;
 }
 
 .btnGoogle {
   /* background: transparent;*/
   /*background: linear-gradient(294deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%); */
-  width: 230px;
-  height: 45px;
-  border-radius: 5px;
+  width: 219px;
+  height: 35px;
+  border-radius: 3px;
   border: none;
   color: rgb(225, 220, 245);
   text-align: center;
   background-color: rgb(0, 81, 255);
   cursor: pointer;
   justify-content: center;
-  margin: 25px 30px 0px 30px;
+  margin: 25px 30px 0px 38px;
   /* padding-left: 30px; */
   font-size: 16px;
   text-align: right;
-  padding-right: 30px;
+  padding-right: 28px;
   padding-top: 10px;
-  box-shadow: 2px rgb(225, 220, 245);
+  text-shadow: 1px 0  1px  #ffffff ;
 
 }
 
