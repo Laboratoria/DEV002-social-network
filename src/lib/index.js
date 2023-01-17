@@ -12,6 +12,7 @@ import {
   collection,
   addDoc,
   getDocs,
+
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 import { onNavigate } from "../main.js";
@@ -72,3 +73,8 @@ export const submitPost = (postTxt) => {
   return addDoc(collection, post);
 };
 
+//función para consultar todos los posts dispobibles en firestore
+export const getAllPosts = async () => {
+  const querySnapshot = await getDocs(postCollection);
+  return querySnapshot;
+};
