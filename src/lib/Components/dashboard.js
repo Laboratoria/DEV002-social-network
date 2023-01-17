@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut } from "../index.js";
+import { submitPost, logOut, } from "../index.js";
 
 
 export const login = () => {
