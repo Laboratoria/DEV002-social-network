@@ -76,9 +76,8 @@ export const register = () => {
 
     const tienesCuenta = document.createElement('p');
     tienesCuenta.className = 'p-tienes-cuenta';
-    tienesCuenta.textContent = 'Already have an account ?';
+    tienesCuenta.textContent = 'Already have an account?';
     formSU.appendChild(tienesCuenta);
-
 
 
 
