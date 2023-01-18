@@ -1,7 +1,8 @@
 import { Login } from "./pages/Login.js";
 import { Register } from  "./pages/Register.js";
 import { timeLine } from  "./pages/timeLine.js";
-// import { registerButton } from "./firebase/registro.js";
+import { profile } from  "./pages/profile.js";
+
 
 const root = document.getElementById('root')
 const routes = {
@@ -9,6 +10,7 @@ const routes = {
 '/login': Login,
 '/register': Register,
 '/timeLine': timeLine,
+'/profile': profile,
 };
 
 export const next = (pathname) => {
