@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
 
 export const Home = () => {

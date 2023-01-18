@@ -202,11 +202,8 @@ img {
     padding-top: 1rem;
     font-weight: 700;
 }
-
 .welcomeContainer{
     padding: 2rem 6rem 0;
-}
-.welcomeContainer{
     color:  var(--colorWhite);
     text-align: center;
     font-family: monospace;
@@ -263,7 +260,7 @@ img {
 
 
 
-@media screen and ((min-width: 500px)) {
+@media screen and (min-width: 500px) {
     main {
         height: 100vh;
         display: flex;
@@ -277,6 +274,7 @@ img {
 
     .welcome {
         position: relative;
+        padding: 0 14rem 0 0;
     }
 
     .welcome::after {
@@ -330,11 +328,6 @@ img {
     .c_logo img {
         width: 75%;
     }
-
-    .welcome {
-        padding: 0 14rem 0 0;
-    }
-
     .sectionLogin{
         width: 63%;
         display: flex;
@@ -412,13 +405,6 @@ img {
         height: 5vh;
         font-weight: bolder;
    }
-
-   .log_google img{
-        width: 1.5rem;
-        left: 23%;
-        top: 40px;
-   }
-
    .welcomeContainer{
         display: none;
    }
@@ -431,12 +417,6 @@ img {
         position: relative;
         top: 37vh;
    }
-
-   .containerF{
-        width: 50%;
-        height: 80vh;
-   }
-
    .containerInputsRegister{
         background: transparent;
         width: 76%;
@@ -456,5 +436,3 @@ img {
         top: 40px;
    }
 }
-
-

@@ -1,9 +1,10 @@
+// eslint-disable-next-line import/no-cycle
 import { surfing } from '../main.js';
 import { createUser } from '../lib/firebase.js';
 
 export const Register = () => {
   const $sectionF = document.createElement('section');
-  const $divWelcomeF = document.createElement('div'); // mobile  Divprincipal#1
+  const $divWelcomeF = document.createElement('div'); // mobile  Divprincipal # 1
   const $btnBack = document.createElement('input'); // este boton queda afuera de todos los div
   const $welcomeF = document.createElement('h2'); // mobile
   const $divLogoF = document.createElement('div');// desktop     DivPrincipal#1

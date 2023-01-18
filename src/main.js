@@ -1,8 +1,11 @@
 // Este es el punto de entrada de tu aplicacion
-
+// eslint-disable-next-line import/no-cycle
 // import { myFunction } from './lib/index.js';
+// eslint-disable-next-line import/no-cycle
 import { Login } from './component/Login.js';
+// eslint-disable-next-line import/no-cycle
 import { Home } from './component/Home.js';
+// eslint-disable-next-line import/no-cycle
 import { Register } from './component/Register.js';
 
 const routes = {
