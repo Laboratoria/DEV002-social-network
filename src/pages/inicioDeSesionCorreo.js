@@ -25,7 +25,7 @@ export function inicioDeSesionEmail (email, password, callback) {
     } else if (error.code === 'auth/invalid-email') {
       alert('Este correo no existe o es inválido')
     } else if (error.code === 'auth/internal-error') {
-      alert("completa todos los campos")
+      alert("Completa todos los campos")
     }
     callback(false)
   })

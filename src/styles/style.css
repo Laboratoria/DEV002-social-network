@@ -110,3 +110,147 @@ button {
     width: 15rem;
 }
 
+
+li {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    background-color: #35123C;
+    height: 6rem;
+    text-align:center;
+    list-style: none;
+    padding: 1.5rem;
+   
+}
+
+.logo-nav {
+    margin: -1rem;
+    margin-left: 30%;
+    width: 4rem;
+}
+
+.perfil-nav {
+    margin-left: 30%;
+}
+
+.contenedor-nav {
+    background-color: #35123C;
+    display: grid;
+    grid-template-columns: 320px 90px;
+}
+
+.user-logo {
+    width: 9rem;
+}
+
+.foto-perfil {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.3rem;
+}
+
+.p-actualizar-foto {
+    padding: .5rem;
+}
+.about-me {
+    border-style:solid;
+    border-width: 1.5px;
+    border-radius: 10px;
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+
+}
+.datos-personales{
+    font-size: 1.7rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+p {
+    padding: 1px;
+}
+.input-about-me{
+    text-align: center;
+    margin-top: 2rem;
+}
+#textArea {
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+.contenedor-publicaciones {
+    display: grid;
+    grid-template-columns: 85px 300px;
+    margin-top: 2rem;
+}
+
+.user-logo-publicaciones {
+    width: 5rem;
+    margin-top: 2.5rem;
+    margin-left: 1.5rem;
+}
+.user-logo-publicaciones2 {
+    width: 5rem;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+}
+
+.input-recomendaciones {
+    height: 8rem;
+    width: 24rem;
+    font-size: 14px;
+
+}
+.btn-publicar {
+    width: 7rem;
+    height: 4rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.seccion-publicar {
+    text-align: end;
+}
+
+.input-publicacion{
+    height: 5rem;
+    width: 24rem;
+    font-size: 14px;
+}
+
+.heart-logo{
+    width: 25px;
+}
+
+.seccion-publicar2 {
+text-align: end;
+}
+
+.contenedor-likes{
+    display: grid;
+    grid-template-columns: 25px 25px;
+    align-items: self-end;
+    margin-left: 80%;
+
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 138px 138px 138px;
+    align-items: center;
+    position: fixed;
+    top:92%;
+    width:100%;
+    background-color:#35123C;
+   
+}
+
+.navbar-img {
+    width: 3rem;
+}
+
+.li-navbar{
+    padding: 1rem;
+}
