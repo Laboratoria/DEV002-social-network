@@ -114,8 +114,8 @@ export const login = () => {
 
   $divForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = $divForm['emailUserId'].value;
-    const password = $divForm['passwordUserId'].value;
+    const email = $divForm['email.UserId'].value;
+    const password = $divForm['password.UserId'].value;
 
     exitConsult(email, password);
   });

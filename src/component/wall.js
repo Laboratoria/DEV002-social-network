@@ -68,6 +68,5 @@ export const wall = () => {
   $containerPublication.appendChild($divSignOffCat);
   $divSignOffCat.appendChild($btnSingOff);
   $divSignOffCat.appendChild($imgWallCat);
-
-  // ---------- ATRIBUTOS -------------//
 };
+// ----------ATRIBUTOS-------------//

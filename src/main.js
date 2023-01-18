@@ -3,12 +3,12 @@
 // import { myFunction } from './lib/index.js';
 import { login } from './component/login.js';
 import { home } from './component/home.js';
-import { form } from './component/register.js';
+import { register } from './component/register.js';
 
 const routes = {
   '/': home, // objeto que contiene las direcciones
   '/login': login,
-  '/register': form,
+  '/register': register,
 };
 
 export const surfing = (pathname, archivoNuevo = routes) => {

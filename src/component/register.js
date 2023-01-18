@@ -1,7 +1,7 @@
 import { surfing } from '../main.js';
 import { createUser } from '../lib/firebase.js';
 
-export const form = () => {
+export const register = () => {
   const $sectionF = document.createElement('section');
   const $divWelcomeF = document.createElement('div'); // mobile  Divprincipal#1
   const $btnBack = document.createElement('input'); // este boton queda afuera de todos los div
