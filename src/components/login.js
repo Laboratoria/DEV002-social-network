@@ -30,9 +30,6 @@ export const login = () => {
     divUser.appendChild(formSU);
 
     const inputUser = document.createElement('input');
-    /*const labelUser = document.createElement('label');
-    labelUser.className = 'labelUser';
-    formSU.appendChild(labelUser);*/
     inputUser.type ='user';
     inputUser.className = 'username';
     inputUser.id = 'idUsername';
@@ -40,9 +37,6 @@ export const login = () => {
     formSU.appendChild(inputUser);
 
     const inputPassword = document.createElement('input');
-    /*const labelPassword = document.createElement('label');
-    labelPassword.className = 'labelPassword';
-    formSU.appendChild(labelPassword);*/
     inputPassword.type ='password';
     inputPassword.className = 'userpassword';
     inputPassword.id = 'idPassword';
@@ -55,7 +49,7 @@ export const login = () => {
     button.className = 'button';
     button.id = 'button';
     formSU.appendChild(button);
-   
+
     const buttonHome = document.createElement('button');
 
     buttonHome.textContent = 'regresar al home';
