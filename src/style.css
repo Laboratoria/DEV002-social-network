@@ -37,18 +37,7 @@
 
 }
 
-input {
-  backdrop-filter: blur(15px);
-  width: 240px;
-  height: 45px;
-  border: transparent;
-  margin: 25px 30px 0px 30px;
-  cursor: pointer;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.32);
-  border-radius: 8px;
 
-}
 
 
 .btnSubmit:hover {
@@ -61,30 +50,6 @@ input:hover {
 
 .btnGoogle:hover {
   background: rgb(41, 41, 248);
-}
-
-.btnSubmit {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 25px 30px 0 30px;
-  width: 240px;
-  height: 45px;
-  background: rgba(82, 82, 92, 0.8);
-  border-radius: 6px;
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-  color: rgba(255, 255, 255, 0.32);
-  font-size: 16px;
-  line-height: 25px;
-  letter-spacing: 2px;
-  border: none;
-  cursor: pointer;
-
 }
 
 
@@ -114,6 +79,44 @@ input:hover {
   padding: 0px 5px;
 }
 
+/* ESTILOS GENERALES */
+
+input {
+  backdrop-filter: blur(15px);
+  width: 240px;
+  height: 45px;
+  border: transparent;
+  margin: 25px 30px 0px 30px;
+  cursor: pointer;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+
+}
+
+.btnSubmit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 30px 0 30px;
+  width: 240px;
+  height: 45px;
+  background: rgba(82, 82, 92, 0.8);
+  border-radius: 6px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+
+}
 
 /* Estilos para vista HOME*/
 
@@ -530,6 +533,26 @@ input::placeholder {
   height: 800px;
 }
 
+/* estilos SECTION FEED */
+
+.section-feed {
+  width: 360px;
+  height: 800px;
+  display: grid;
+  grid-template-columns: 80px 200px 80px;
+  grid-template-rows: repeat(3, 200px);
+  gap: 5px;
+  justify-content: center;
+  background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
+}
+
+.section-feed > * {
+  border: 2px solid black;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
 .tituloh2-feed {
   font-family: 'Fredoka One';
   width: 300px;
@@ -542,21 +565,23 @@ input::placeholder {
   color: rgba(255, 242, 242, 0.25);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
-  position: absolute;
+  /* position: absolute;
   top: 25px;
-  left: 19px
+  left: 19px */
 }
 
 .avatarImg{
-   width: 65px;
-   height: 65px;
-   position: absolute;
-   right: 12px;
-   top:12px
+  width: 65px;
+  height: 65px;
+
+  /* position: absolute;
+  right: 12px;
+  top:12px */
 }
-.section-feed {
-  width: 360px;
-  height: 800px;
+
+.post-div{
   justify-content: center;
-  background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
+  align-items: center;
+ 
+
 }

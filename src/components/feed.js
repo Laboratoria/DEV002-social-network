@@ -22,7 +22,25 @@ export const feed = () => {
     perfil.appendChild(avatarImg);
     feedSection.appendChild(perfil);
     
-    const fondo = document.createElement('section')
+    const postDiv = document.createElement('div');
+    postDiv.className = 'post-div';
+    feedSection.appendChild(postDiv);
+    
+    const post = document.createElement('input');
+    post.type = 'text';
+    post.className ='post-input';
+    post.placeholder = 'what do you need?';
+    post.id = 'idPost';
+    postDiv.appendChild(post);
+
+    const postButton = document.createElement('button');
+    postButton.className = 'post-btn';
+    postButton.id = 'idPostButton';
+    postButton.textContent = 'Help!';
+    postDiv.appendChild(postButton);
+
+
+
 
 
     return feedSection;
