@@ -10,7 +10,7 @@ export const registrar = async (registerForm) => {
   const repeatPsw = registerForm.registerFormRepeatPasswordInput.value;
 
   try {
-    if (psw.length > 6 && psw === repeatPsw) {
+    if (psw.length >=6 && psw === repeatPsw) {
       /[A-Z]/.test(psw) && /[a-z]/.test(psw) && /[0-9]/.test(psw);
       await createUserWithEmailAndPassword(firebaseAuth, email, psw);
       await sendEmailVerification(firebaseAuth.currentUser);
