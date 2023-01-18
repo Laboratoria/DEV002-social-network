@@ -1,32 +1,32 @@
 import { surfing } from '../main.js';
 import { createUser } from '../lib/firebase.js';
 
-export const form = () => {
-  const $sectionF = document.createElement('section'),
-    $btnBack = document.createElement('input'), // este boton queda afuera de todos los div
-    $divWelcomeF = document.createElement('div'), // mobile  Divprincipal#1
-    $welcomeF = document.createElement('h2'), // mobile
-    $divLogoF = document.createElement('div'), // desktop     DivPrincipal#1
-    $figureFormularioF = document.createElement('figure'), // desktop
-    $imgLogoF = document.createElement('img'), // desktop
-    $containerICouldForm = document.createElement('div'), // desktop
-    $iCouldForm = document.createElement('h2'), // desktop
-    $divContainerFormF = document.createElement('div'), // divprincipal#2
-    $divFormF = document.createElement('form'), // hijo de DivContainerFormF
-    $divInputsF = document.createElement('div'),
-    $inputEmailF = document.createElement('input'),
-    $inputUsernameF = document.createElement('input'),
-    $inputPasswordF = document.createElement('input'),
-    $inputPasswordDos = document.createElement('input'),
-    $divContainerCat = document.createElement('div'), // hijo de DivFormF
-    $imgCat = document.createElement('img'),
-    $inputSignUpCat = document.createElement('input'),
-    $divContainerSpanF = document.createElement('div'), // hijo de divContainerFormF
-    $spanOptionF = document.createElement('span'),
-    $divContainerRegisterF = document.createElement('div'), // hijo divContainerFormF
-    $inputBtnGoogleF = document.createElement('input'),
-    $figureGoogleF = document.createElement('figure'),
-    $imgGoogleF = document.createElement('img');
+export const Register = () => {
+  const $sectionF = document.createElement('section');
+  const $divWelcomeF = document.createElement('div'); // mobile  Divprincipal#1
+  const $btnBack = document.createElement('input'); // este boton queda afuera de todos los div
+  const $welcomeF = document.createElement('h2'); // mobile
+  const $divLogoF = document.createElement('div');// desktop     DivPrincipal#1
+  const $figureFormularioF = document.createElement('figure'); // desktop
+  const $imgLogoF = document.createElement('img'); // desktop
+  const $containerICouldForm = document.createElement('div'); // desktop
+  const $iCouldForm = document.createElement('h2'); // desktop
+  const $divContainerFormF = document.createElement('div'); // divprincipal#2
+  const $divFormF = document.createElement('form'); // hijo de DivContainerFormF
+  const $divInputsF = document.createElement('div');
+  const $inputEmailF = document.createElement('input');
+  const $inputUsernameF = document.createElement('input');
+  const $inputPasswordF = document.createElement('input');
+  const $inputPasswordDos = document.createElement('input');
+  const $divContainerCat = document.createElement('div'); // hijo de DivFormF
+  const $imgCat = document.createElement('img');
+  const $inputSignUpCat = document.createElement('input');
+  const $divContainerSpanF = document.createElement('div'); // hijo de divContainerFormF
+  const $spanOptionF = document.createElement('span');
+  const $divContainerRegisterF = document.createElement('div'); // hijo divContainerFormF
+  const $inputBtnGoogleF = document.createElement('input');
+  const $figureGoogleF = document.createElement('figure');
+  const $imgGoogleF = document.createElement('img');
 
   // -----------------------agregamos HTML semantico------------------------------------
 
@@ -123,7 +123,7 @@ export const form = () => {
   $inputBtnGoogleF.setAttribute('value', 'WITH GOOGLE');
 
   $btnBack.addEventListener('click', () => {
-    surfing('/login');
+    surfing('/Login');
   });
 
   $divFormF.addEventListener('submit', (e) => {

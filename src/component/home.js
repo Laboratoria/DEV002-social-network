@@ -1,20 +1,22 @@
 import { surfing } from '../main.js';
 
-export const home = () => {
-  const $sectionHome = document.createElement('section'),
-    $divLogoContainer = document.createElement('div'),
-    $figureLogo = document.createElement('figure'),
-    $imgLogo = document.createElement('img'),
-    $divWelcomeContainer = document.createElement('div'),
-    $h1Slogan = document.createElement('h1'),
-    $imgCat = document.createElement('img'),
-    $divBtnClickHere = document.createElement('div'),
-    $inputBtnClickHere = document.createElement('input');
-  $sectionHome.classList.add('home'),
-  $divLogoContainer.classList.add('c_logo', 'logo_container'),
-  $figureLogo.classList.add('logo'),
-  $divWelcomeContainer.classList.add('welcome', 'logo_container'),
-  $inputBtnClickHere.classList.add('btn_click'),
+export const Home = () => {
+  const $sectionHome = document.createElement('section');
+  const $divLogoContainer = document.createElement('div');
+  const $figureLogo = document.createElement('figure');
+  const $imgLogo = document.createElement('img');
+  const $divWelcomeContainer = document.createElement('div');
+  const $h1Slogan = document.createElement('h1');
+  const $imgCat = document.createElement('img');
+  const $divBtnClickHere = document.createElement('div');
+  const $inputBtnClickHere = document.createElement('input');
+
+  $sectionHome.classList.add('home');
+  $divLogoContainer.classList.add('c_logo', 'logo_container');
+  $figureLogo.classList.add('logo');
+  $divWelcomeContainer.classList.add('welcome', 'logo_container');
+  $inputBtnClickHere.classList.add('btn_click');
+
   $imgLogo.setAttribute('src', 'img/logoNewMe.png');
   $imgLogo.setAttribute('alt', 'logo de la aplicacion');
   $h1Slogan.textContent = 'I could you can!';
@@ -36,7 +38,7 @@ export const home = () => {
     .appendChild($inputBtnClickHere);
 
   $inputBtnClickHere.addEventListener('click', () => {
-    surfing('/login');
+    surfing('/Login');
   });
 
   return $sectionHome;

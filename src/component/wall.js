@@ -1,34 +1,34 @@
-export const wall = () => {
-  const $sectionW = document.createElement('section'), // padre de tres
-    $divContainerWall = document.createElement('div'), // hijo 1
-    $divSaludo = document.createElement('div'),
-    $imgLogoW = document.createElement('img'),
-    $h2name = document.createElement('h2'),
-    $containerOrange = document.createElement('div'), // hijo 2
-    $divRightOrange = document.createElement('div'),
-    $divImgWall = document.createElement('div'),
-    $imgWall = document.createElement('img'),
-    $divLeftOrange = document.createElement('div'),
-    $divH3Post = document.createElement('div'),
-    $h3Post = document.createElement('h3'),
-    $containerFormWall = document.createElement('div'),
-    $formWall = document.createElement('form'),
-    $inputPublication = document.createElement('input'),
-    $inputBtnWall = document.createElement('input'),
-    $containerPublication = document.createElement('div'), // hijo de section y padre de dos 2
-    $divPublicUser = document.createElement('div'), // padre gris y blanca   hijo 1
-    $divPublicU = document.createElement('input'), // parte gris
-    $divReactions = document.createElement('div'), // parte blanca padre de tres
-    $divReactionLikes = document.createElement('div'), // padrecorazon
-    $imgHeart = document.createElement('img'),
-    $inputReactionLikes = document.createElement('input'),
-    $divReactionEdit = document.createElement('div'), // padreeditar
-    $inputReactionEdit = document.createElement('input'),
-    $divReactionDelete = document.createElement('div'), // padre eliminar
-    $inputReactionDelete = document.createElement('input'),
-    $divSignOffCat = document.createElement('div'), // hijo 2
-    $btnSingOff = document.createElement('button'),
-    $imgWallCat = document.createElement('img');
+export const Wall = () => {
+  const $sectionW = document.createElement('section'); // padre de tres
+  const $divContainerWall = document.createElement('div'); // hijo 1
+  const $divSaludo = document.createElement('div');
+  const $imgLogoW = document.createElement('img');
+  const $h2name = document.createElement('h2');
+  const $containerOrange = document.createElement('div'); // hijo 2
+  const $divRightOrange = document.createElement('div');
+  const $divImgWall = document.createElement('div');
+  const $imgWall = document.createElement('img');
+  const $divLeftOrange = document.createElement('div');
+  const $divH3Post = document.createElement('div');
+  const $h3Post = document.createElement('h3');
+  const $containerFormWall = document.createElement('div');
+  const $formWall = document.createElement('form');
+  const $inputPublication = document.createElement('input');
+  const $inputBtnWall = document.createElement('input');
+  const $containerPublication = document.createElement('div'); // hijo de section y padre de dos 2
+  const $divPublicUser = document.createElement('div'); // padre gris y blanca   hijo 1
+  const $divPublicU = document.createElement('input'); // parte gris
+  const $divReactions = document.createElement('div'); // parte blanca padre de tres
+  const $divReactionLikes = document.createElement('div'); // padrecorazon
+  const $imgHeart = document.createElement('img');
+  const $inputReactionLikes = document.createElement('input');
+  const $divReactionEdit = document.createElement('div'); // padreeditar
+  const $inputReactionEdit = document.createElement('input');
+  const $divReactionDelete = document.createElement('div'); // padre eliminar
+  const $inputReactionDelete = document.createElement('input');
+  const $divSignOffCat = document.createElement('div'); // hijo 2
+  const $btnSingOff = document.createElement('button');
+  const $imgWallCat = document.createElement('img');
 
   // ---- HTML Semantico ----//
 
@@ -68,6 +68,5 @@ export const wall = () => {
   $containerPublication.appendChild($divSignOffCat);
   $divSignOffCat.appendChild($btnSingOff);
   $divSignOffCat.appendChild($imgWallCat);
-
-  // ---------- ATRIBUTOS -------------//
 };
+// ----------ATRIBUTOS-------------//
