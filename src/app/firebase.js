@@ -10,7 +10,6 @@ import { getFirestore, collection, getDoc, getDocs, setDoc, doc,
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
 import { getStorage, ref } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js'
 
-
 // configuración de la app de firebase
 const firebaseConfig = {
   apiKey: 'AIzaSyCVFwSqmwf3nPLqyBd-_SrnWdKfmv8kRVc',
@@ -40,9 +39,10 @@ const collectionUserNamesSpanish = collection(database, 'usuarios');
 const collectionPost = collection(database, 'posts');
 
 // Guardar username desde el registro de la mascota
-const saveDisplayName = (usernameIngresado) => updateProfile(firebaseAuth.currentUser, {
-    displayName: usernameIngresado,
-});
+const saveDisplayName = (usernameIngresado) => {
+  updateProfile(firebaseAuth.currentUser,
+    {displayName: usernameIngresado})
+};
 
 // Get the currently signed-in user
 // The recommended way to get the current user is by setting an observer on the Auth object:
@@ -60,18 +60,14 @@ const getCurrentUser = () => {
     });
 };
 
-// Borrar post
-const deletePost = uid => deleteDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid));
-
 // obtener datos
-const getPostData = (uid) => getDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid));
-const getPostData2 = (uid) => getDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid));
-
-// Like post
-const likePost = (uid, likes, userLike) => updateDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid), { amountLikes: likes, arrayUsersLikes: arrayUnion(userLike) });
-
-// Dislike post
-const dislikePost = (uid, likes, userLike) => updateDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid), { amountLikes: likes, arrayUsersLikes: arrayRemove(userLike) });
+const getPostData = (uid) => {
+  getDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid))
+};
+const getPostData2 = (uid) => {
+  getDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid))
+};
+// https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document
 
 export {
   firebaseApp, firebaseAuth, createUserWithEmailAndPassword,
@@ -81,8 +77,9 @@ export {
   signInWithEmailAndPassword, signOut, getFirestore, collection, getDoc,
   getDocs, setDoc, doc, onSnapshot, query, where, deleteDoc,
   updateDoc, arrayRemove, arrayUnion, getStorage, ref,
+  database,
 
-  storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
-  collectionPost, deletePost, getPostData, getPostData2, likePost, dislikePost,
+  storage, storageRef, collectionUserName, collectionUserNamesSpanish,
+  collectionPost, getPostData, getPostData2,
   saveDisplayName, currentUser, getCurrentUser
 };

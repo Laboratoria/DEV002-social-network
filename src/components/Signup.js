@@ -45,6 +45,8 @@ export const Signup = () => {
             document.getElementById('registerFormRepeatPsw').classList.add('hidden');
             document.getElementById('registerFormRepeatPasswordInput').classList.remove('wrongAlert');
             document.getElementById('authFunciona').classList.remove('hidden')
+            // const emailCredential = document.getElementById('registerFormPetEmailInput').value
+            // const pswCredential = document.getElementById('registerFormPasswordInput').value
         } catch (error) {
             switch (error) {
                 case "wrong password":
