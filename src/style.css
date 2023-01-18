@@ -65,6 +65,8 @@ body {
     margin-top: 420px;
     color: #aa8b56;
     font-size: 40px;
+    /*padding: 10px;
+    margin: 150px;*/
 }
 
 #google {
@@ -115,3 +117,44 @@ body {
     margin: 2px;
     padding: 2px;
 }
+
+/*Loguin css */
+
+.contenedorForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:  1px;
+}
+  
+  .userpassword,
+  .username ,
+  .button {
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    height: 30px;
+    width: 250px;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 20px;
+
+  }
+
+  .buttonHome{
+    margin-top: 20px;
+  }
+  
+  /* Dar color más tenue al placeholder de los input */
+  input::placeholder {
+    color: hsl(210, 40%, 96%);
+  }
+
