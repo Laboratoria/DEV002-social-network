@@ -87,7 +87,7 @@ if (signinForm) {
       const { emailVerified, email } = await login(auth, emailInput, passwordInput)
 
       //console.log(emailVerified,email);
-      /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del cooreo electrónico enviado */
+      /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del correo electrónico enviado */
       if (emailVerified) {
         onNavigate('/feed');
         console.log('Bienvenid@', email);

@@ -9,6 +9,7 @@ export const login = () => {
 
     const formSI = document.createElement('form');
     formSI.className = 'form';
+    formSI.method = 'post';
     formSI.id = 'formularioSI';
 
     const divUser = document.createElement('div');
@@ -20,8 +21,8 @@ export const login = () => {
     const inputEmail = document.createElement('input');
     const labelEmail = document.createElement('label');
     labelEmail.textContent = 'E-mail';
-    labelEmail.className = 'labelEmailLogin';    
-   
+    labelEmail.className = 'labelEmailLogin';
+
     formSI.appendChild(labelEmail);
     inputEmail.type = 'e-mail';
     inputEmail.className = 'email';
@@ -70,7 +71,7 @@ export const login = () => {
     imagenGoogle.src = '/img/google.png';
     imagenGoogle.className = 'imgGoogle';
 
-   buttonGoogle.appendChild(imagenGoogle);
+    buttonGoogle.appendChild(imagenGoogle);
     formSI.appendChild(buttonGoogle);
 
     return signinSection;

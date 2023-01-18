@@ -11,6 +11,7 @@ export const register = () => {
 
     const formSU = document.createElement('form');
     formSU.className = 'form';
+    formSU.method = 'post';
     formSU.id = 'formularioSU';
 
     const divUser = document.createElement('div');
