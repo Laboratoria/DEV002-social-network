@@ -65,7 +65,7 @@ export const Feed = () => {
         signOutFun(firebaseAuth)
         onNavigate('/')
     })
-
+    //ver lo que se escribe en el textArea
     FeedDiv.querySelector('#postsTextArea').addEventListener('keyup', ()=>{
         const postText = FeedDiv.querySelector('#postsTextArea').value
         console.log({postText})
