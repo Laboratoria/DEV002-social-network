@@ -39,5 +39,8 @@
     "createdAt": "2022-11-30T16:52:37.204Z",
     "version": "5.5.0",
     "commit": "51e941edf1cc991930aefd7dd9c406a7c43741c1"
+  },
+  "dependencies": {
+    "firebase": "^9.15.0"
   }
 }
