@@ -1,5 +1,6 @@
 // Este es el punto de entrada de tu aplicacion
 
+import "./Firebase/firebaseConfig.js";
 import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { feed } from './components/feed.js';

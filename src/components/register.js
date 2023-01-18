@@ -1,41 +1,56 @@
 import { toNavigate } from "../main.js";
-import { registerFirebase } from "../Firebase/registerFirebase.js";
+import { auth, signUpWithPass } from "../Firebase/firebase.js";
+import {signUpWithPass} from "../Firebase/signUpForm.js";
+
 
 export const register = () => {
-    //Creamos elementos de Register
+    //Creamos elementos de para el formulario de registro
     const registerForm = document.createElement("form");
+    const labelUserName = document.createElement("label");
     const inputUserName = document.createElement("input");
+    const labelUserCity = document.createElement("label");
     const inputUserCity = document.createElement("input");
+    const labelUserCountry = document.createElement("label");
     const inputUserCountry = document.createElement("input");
+    const labelUserMail = document.createElement("label");
     const inputUserMail = document.createElement("input");
+    inputUserMail.type = "email";
+    inputUserMail.placeholder = "E-mail";
+    const labelUserPass = document.createElement("label");
     const inputUserPass = document.createElement("input");
+    inputUserPass.type = "password";
+    inputUserPass.placeholder = "Password";
+    const labelUserCheckPass = document.createElement("label");
     const inputUserCheckPass = document.createElement("input");
     const selectIsVegan = document.createElement("select");
     const buttonRegister = document.createElement("button");
-    const buttonPrueba = document.createElement("button");
-
-    buttonPrueba.textContent = "probando"
 
     buttonRegister.textContent = "REGISTRARSE"
 
-    buttonRegister.addEventListener("click", () => toNavigate("/registerOk"));
-
-   /*  registerForm.appendChild(inputUserName);
+    registerForm.appendChild(inputUserName);
     registerForm.appendChild(inputUserCity);
-    registerForm.appendChild(inputUserCountry); */
+    registerForm.appendChild(inputUserCountry);
     registerForm.appendChild(inputUserMail);
     registerForm.appendChild(inputUserPass);
-    /* registerForm.appendChild(inputUserCheckPass);
+    registerForm.appendChild(inputUserCheckPass);
     registerForm.appendChild(selectIsVegan);
-    registerForm.appendChild(buttonRegister); */
-    registerForm.appendChild(buttonPrueba);
+    registerForm.appendChild(buttonRegister);
 
-    buttonPrueba.addEventListener("click", () => {
-        registerFirebase(inputUserMail.value, inputUserPass.value)
-        return console.log(inputUserMail.value)
-   })
-    
+    buttonRegister.addEventListener("click", () => {
+        registerForm.addEventListener("submit", async (e) => {
+            e.preventDefault() //cancela comportamiento por defecto de refrescar la pagina
+            const emailForm = inputUserMail.value
+            const passwordForm = inputUserPass.value
+            console.log(emailForm, passwordForm)
+            try {
+                const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
+                console.log(userCredentials)
+            } catch (error) {
+                console.log(error)
+            }
 
-    
+            toNavigate("/registerOk");
+        })
+    })
     return registerForm
 }
