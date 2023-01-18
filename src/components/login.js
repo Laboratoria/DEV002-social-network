@@ -50,14 +50,13 @@ export const login = () => {
     button.id = 'button';
     formSU.appendChild(button);
 
-    const buttonHome = document.createElement('button');
+    const hrefHome = document.createElement('href');
+    hrefHome.textContent =  'Regresar al home';
+    hrefHome.className = 'hrefHome';
+    hrefHome.id = 'hrefHome';
+    hrefHome.addEventListener('click',() => onNavigate('/'));
 
-    buttonHome.textContent = 'regresar al home';
-    buttonHome.className= 'buttonHome';
-
-    buttonHome.addEventListener('click', () => onNavigate('/'));
-
-    homeDiv.appendChild(buttonHome);
+    homeDiv.appendChild(hrefHome);
 
     return homeDiv;
 };
