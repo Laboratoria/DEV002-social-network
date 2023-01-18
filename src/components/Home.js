@@ -23,14 +23,11 @@ export const home = () => {
    buttonLogin.textContent = 'Sign in / login';
    buttonLogin.id = 'botonLoguear';
 
-   buttonRegister.addEventListener('click', () => onNavigate('/register'));
+   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
 
    listaBotones.appendChild(buttonRegister);
    listaBotones.appendChild(buttonLogin);
-
-   buttonRegister.addEventListener('click', () => onNavigate('/register'));
-   buttonLogin.addEventListener('click', () => onNavigate('/login'));
 
    const sectionDiv = document.createElement('section');
    sectionDiv.className = 'bienvenida';

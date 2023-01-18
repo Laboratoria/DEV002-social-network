@@ -184,7 +184,7 @@ h5 {
   background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
 }
 
-.tituloh2register-login {
+.tituloh2register-login{
   font-family: 'Fredoka One';
   width: 300px;
   height: 47px;
@@ -357,8 +357,8 @@ input::placeholder {
 }
 
 .imgGoogle {
-  width: 35px;
-  height: 35px;
+  width: 34px;
+  height: 33.4px;
   /*padding: 1%;*/
   margin: -1.775rem .17rem 0rem 0rem;
   padding: 0px;
@@ -366,9 +366,10 @@ input::placeholder {
   align-items: baseline;
   /* position: absolute; */
   left: 55px;
-  border: solid 1px #f5efef;
   background-color: #f5efef;
-  border-radius: 2px;
+  border: 6px solid #f5efef ;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
 }
 
 .btnGoogle {
@@ -380,6 +381,7 @@ input::placeholder {
   border: none;
   color: rgb(225, 220, 245);
   text-align: center;
+  border: 1px solid  rgb(0, 81, 255);
   background-color: rgb(0, 81, 255);
   cursor: pointer;
   justify-content: center;
@@ -526,4 +528,35 @@ input::placeholder {
 .imgInicio {
   width: 360px;
   height: 800px;
+}
+
+.tituloh2-feed {
+  font-family: 'Fredoka One';
+  width: 300px;
+  height: 47px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  color: rgba(255, 242, 242, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  position: absolute;
+  top: 25px;
+  left: 19px
+}
+
+.avatarImg{
+   width: 65px;
+   height: 65px;
+   position: absolute;
+   right: 12px;
+   top:12px
+}
+.section-feed {
+  width: 360px;
+  height: 800px;
+  justify-content: center;
+  background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
 }
