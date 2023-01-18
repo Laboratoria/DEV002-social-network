@@ -10,7 +10,7 @@ export const feed = () => {
     titulo.className = 'tituloh2-feed';
     feedSection.appendChild(titulo);
 
-    const Post = asdasd;
+    //const Post = asdasd;
     
 
 
