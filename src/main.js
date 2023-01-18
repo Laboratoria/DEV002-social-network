@@ -2,8 +2,8 @@
 
 //import { myFunction } from './lib/index.js';
 
-myFunction();
-
+//myFunction();
+const ingresaTusDatos = "home"
 const routes ={
     "/":ingresaTusDatos,
    // "/":comparteYbuscaLoQueNecesitas,
