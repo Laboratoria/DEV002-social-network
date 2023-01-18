@@ -126,7 +126,7 @@ main .email-facebook-page .email-facebook-div {
     display: flex;
     flex-direction: column;
     align-items: center;
-    margin: 10%;
+    margin: 5%;
 }
 
 main .email-facebook-page .email-facebook-div label {
@@ -159,6 +159,32 @@ main .email-facebook-page .email-facebook-div .facebook-btn {
     margin-top: 2rem;
     background-color: var(--blue);
     font-size: 1.9rem;
+}
+
+main .email-facebook-page{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+main .email-facebook-page p{
+    display: block;
+    background: none;
+    font-size: 1.5rem;
+    color: var(--blue);
+}
+
+main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a{
+    background: none;
+}
+
+main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+    background: none;
+    cursor: pointer;
+    border: none;
+    font-size: 1.5rem;
+    color: var(--blue);
+    text-decoration-line: underline;
 }
 
 /* Register section */
@@ -570,6 +596,15 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 1.4rem;
     }
 
+    main .email-facebook-page p{
+        font-size: 1.2rem;
+        font-style: italic;
+    }
+
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+        font-size: 1.2rem;
+    }
+
     main .register .register-form input {
         width: 20rem;
         height: 3rem;
@@ -740,6 +775,15 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 1.9rem;
     }
 
+    main .email-facebook-page p{
+        font-size: 1.5rem;
+        font-style: italic;
+    }
+
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+        font-size: 1.5rem;
+    }
+
     main .Email-login {
         width: 100%;
         margin: 0%;
@@ -879,6 +923,15 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 2rem;
     }
 
+    main .email-facebook-page p{
+        font-size: 1.7rem;
+        font-style: italic;
+    }
+
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+        font-size: 1.7rem;
+    }
+
     main .Email-login .Email-login-form .Email-login-form-background {
         width: 100%;
     }
@@ -1013,6 +1066,15 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 1.9rem;
     }
 
+    main .email-facebook-page p{
+        font-size: 1.9rem;
+        font-style: italic;
+    }
+
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+        font-size: 1.9rem;
+    }
+
     main .auth-funciona .auth-error-div .email-confirmation-done-btn {
         width: 23rem;
         height: 3rem;
@@ -1094,6 +1156,15 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         width: 22rem;
         height: 3rem;
         border-radius: 1rem;
+        font-size: 2rem;
+    }
+
+    main .email-facebook-page p{
+        font-size: 2rem;
+        font-style: italic;
+    }
+
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
         font-size: 2rem;
     }
 
