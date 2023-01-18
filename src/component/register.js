@@ -1,7 +1,7 @@
 import { surfing } from '../main.js';
 import { createUser } from '../lib/firebase.js';
 
-export const register = () => {
+export const Register = () => {
   const $sectionF = document.createElement('section');
   const $divWelcomeF = document.createElement('div'); // mobile  Divprincipal#1
   const $btnBack = document.createElement('input'); // este boton queda afuera de todos los div
@@ -123,7 +123,7 @@ export const register = () => {
   $inputBtnGoogleF.setAttribute('value', 'WITH GOOGLE');
 
   $btnBack.addEventListener('click', () => {
-    surfing('/login');
+    surfing('/Login');
   });
 
   $divFormF.addEventListener('submit', (e) => {

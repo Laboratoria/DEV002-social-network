@@ -1,14 +1,14 @@
 // Este es el punto de entrada de tu aplicacion
 
 // import { myFunction } from './lib/index.js';
-import { login } from './component/login.js';
-import { home } from './component/home.js';
-import { register } from './component/register.js';
+import { Login } from './component/Login.js';
+import { Home } from './component/Home.js';
+import { Register } from './component/Register.js';
 
 const routes = {
-  '/': home, // objeto que contiene las direcciones
-  '/login': login,
-  '/register': register,
+  '/': Home, // objeto que contiene las direcciones
+  '/Login': Login,
+  '/Register': Register,
 };
 
 export const surfing = (pathname, archivoNuevo = routes) => {

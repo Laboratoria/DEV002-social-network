@@ -1,6 +1,6 @@
 import { surfing } from '../main.js';
 
-export const home = () => {
+export const Home = () => {
   const $sectionHome = document.createElement('section');
   const $divLogoContainer = document.createElement('div');
   const $figureLogo = document.createElement('figure');
@@ -38,7 +38,7 @@ export const home = () => {
     .appendChild($inputBtnClickHere);
 
   $inputBtnClickHere.addEventListener('click', () => {
-    surfing('/login');
+    surfing('/Login');
   });
 
   return $sectionHome;

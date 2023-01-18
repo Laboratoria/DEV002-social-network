@@ -1,4 +1,4 @@
-export const wall = () => {
+export const Wall = () => {
   const $sectionW = document.createElement('section'); // padre de tres
   const $divContainerWall = document.createElement('div'); // hijo 1
   const $divSaludo = document.createElement('div');

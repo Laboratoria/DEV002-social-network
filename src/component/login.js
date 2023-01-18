@@ -1,7 +1,7 @@
 import { exitConsult, authGoogle } from '../lib/firebase.js';
 import { surfing } from '../main.js';
 
-export const login = () => {
+export const Login = () => {
   const $section = document.createElement('section');
   const $divLogo = document.createElement('div');
   const $figureLogin = document.createElement('figure');
@@ -125,7 +125,7 @@ export const login = () => {
   });
 
   $pSignUp.addEventListener('click', () => {
-    surfing('/register');
+    surfing('/Register');
   });
 
   return $section;
