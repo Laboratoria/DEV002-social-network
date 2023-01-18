@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, getAllPosts } from "../index.js";
+import { submitPost, logOut, onGetPost, currentUserInfo } from "../index.js";
 
 
 export const login = () => {
@@ -19,9 +19,7 @@ export const login = () => {
           <img id='img-input' src='images/user.png' alt='profile'>
           <button type='button' id='btn-input-modal'>Deja aqui la reseña de tu libro...</button>
       </div>
-      <div id='timeline-posts'>
-        
-      </div>
+      <div id='timeline-posts'></div>
       <div id='modal-background-post'>
           <div id='modal-content-post'>
               <div id='space-line'>
@@ -49,16 +47,18 @@ export const login = () => {
   divLogin.innerHTML = viewLogin;
 
   //Funcion postear
-  const posts = getAllPosts().then((posts) => {
-    posts.forEach(post => {
-
+  const divTimeLine = divLogin.querySelector('#timeline-posts');
+    onGetPost((querySnapshot) => {
+      
+      querySnapshot.forEach(post => {
       const postObj = post.data();
-
       let divPostEntry = document.createElement("div");
+
       let imgUser = document.createElement("img");
       let userName = document.createElement("h2");
       let userPostText = document.createElement("h2");
       let dateTimePost = document.createElement("h1");
+      let likePost = document.createElement('img');
 
       divPostEntry.className = "timeLine-post";
       imgUser.setAttribute('src', 'images/user.png');
@@ -66,20 +66,32 @@ export const login = () => {
       userName.innerHTML = postObj.user;
       userName.className = 'user-name-post'
       userPostText.innerHTML = postObj.postText;
+      likePost.setAttribute('src', '/images/1erlike.png');
+      likePost.className = 'primer-like'
+      
       userPostText.className = 'textPost';
-      dateTimePost.className = postObj.createdDateTime;
+      dateTimePost.innerHTML = new Date (post.data().createdDateTime.seconds * 1000);
+      dateTimePost
+
+      dateTimePost.className = 'date-post'
+
 
 
       divPostEntry.appendChild(userName);
       divPostEntry.appendChild(userPostText);
       divPostEntry.appendChild(dateTimePost);
       divPostEntry.appendChild(imgUser);
+      divPostEntry.appendChild(likePost);
 
       divTimeLine.appendChild(divPostEntry);
+      document.querySelector('#btn-post').innerText = 'PUBLICAR';
+      document.querySelector('#modal-background-post').style.display = 'none';
+      document.querySelector('#modal-content-post').style.display = 'none';
     });
   });
 
-//Funcion cerrar sesion
+
+  //Funcion cerrar sesion
   const btnLogout = divLogin.querySelector('#btn-sign-out');
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
@@ -90,11 +102,11 @@ export const login = () => {
   );
 
 
-  const divTimeLine = divLogin.querySelector('#timeline-posts');
-  // timeLine.innerHTML = postCollection;
+  
+  // // timeLine.innerHTML = postCollection;
 
 
-//Funcion abrir modal
+  //Funcion abrir modal
   const btnModal = divLogin.querySelector('#btn-input-modal');
   btnModal.addEventListener('click', () => {
     document.querySelector('#modal-background-post').style.display = 'flex';
@@ -102,16 +114,16 @@ export const login = () => {
     document.body.style.overflow = 'hidden';
     document.querySelector('#input-post').focus();
 
-//Funcion cerrar modal
-const btnExit = divLogin.querySelector('.btn-exit');
-btnExit.addEventListener('click', () => {
-  document.querySelector('#btn-post').innerText = 'PUBLICAR';
-  document.querySelector('#modal-background-post').style.display = 'none';
-  document.querySelector('#modal-content-post').style.display = 'none';
-  document.body.style.overflow = 'visible';
-});
+    //Funcion cerrar modal
+    const btnExit = divLogin.querySelector('.btn-exit');
+    btnExit.addEventListener('click', () => {
+      document.querySelector('#btn-post').innerText = 'PUBLICAR';
+      document.querySelector('#modal-background-post').style.display = 'none';
+      document.querySelector('#modal-content-post').style.display = 'none';
+      document.body.style.overflow = 'visible';
+    });
 
-//Funcion activacion boton publicar
+    //Funcion activacion boton publicar
     const inputPost = divLogin.querySelector('#input-post');
     inputPost.addEventListener('keyup', () => {
       const valueInput = inputPost.value.trim();
