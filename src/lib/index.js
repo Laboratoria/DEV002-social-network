@@ -12,7 +12,8 @@ import {
   collection,
   addDoc,
   getDocs,
-
+  onSnapshot,
+  query,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 import { onNavigate } from "../main.js";
@@ -68,13 +69,19 @@ export const submitPost = (postTxt) => {
   const post = {
     postText: postTxt,
     user: getAuth().currentUser.displayName,
-    createdDateTime: new Date()
+    createdDateTime: new Date(),
+    likes: []
   }
   return addDoc(postCollection, post);
 };
 
 //función para consultar todos los posts dispobibles en firestore
 export const getAllPosts = async () => {
-  const querySnapshot = await getDocs(postCollection);
+  const querySnapshot = await onSnapshot(postCollection);
   return querySnapshot;
 };
+
+export const onGetPost = (querySnapshot) => {
+  const querypost = query(collection(db, 'post'));
+  onSnapshot(querypost, querySnapshot);
+}
