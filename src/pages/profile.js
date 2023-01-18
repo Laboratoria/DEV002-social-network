@@ -47,12 +47,20 @@ export const profile = () => {
             <p> 3 </p>
         </div>  
         </section>
-    
+
         <nav class="navbar">
-            <li class="li-navbar"> <img class="navbar-img" src="./images/home.png" alt="Home"> </li>
+        <a href="/timeLine">
+           <li class="li-navbar"> <img class="navbar-img" src="./images/home.png" alt="Home"> </li>
+        </a>
+        
+        <a href="/profile">
             <li class="li-navbar"> <img class="navbar-img" src="./images/profilelogo.png" alt="Profile"> </li>
-            <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
-        </nav>
+        </a>
+
+        <a href="/login">
+           <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
+        </a>
+    </nav>
   `
     divProfile.innerHTML = viewProfile;
     return divProfile;
