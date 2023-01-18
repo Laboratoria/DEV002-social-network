@@ -1,5 +1,5 @@
 // Import the functions you need from the SDKs you need
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from './firebase/app';
 // Consultas firebase
 import {
   getAuth,
@@ -7,7 +7,7 @@ import {
   createUserWithEmailAndPassword,
   GoogleAuthProvider,
   signInWithPopup,
-} from 'firebase/auth';
+} from './firebase/auth';
 
 import firebaseConfig from './firebaseconfig.js';
 
