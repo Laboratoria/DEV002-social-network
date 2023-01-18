@@ -31,7 +31,9 @@ export const Feed = () => {
     </section>
     <section class="posts" id="posts">
         <div class="posts-background" id="postsBackground">
-            <p class="posts-div-p" id="postsDivP">PUBLICACIÓN</p>
+            <label>Post:</label>
+            <textarea class="posts-div-p" id="postsTextArea" placeholder="PUBLICACIÓN"></textarea>
+            <button class="create-post-button">Publicar</button>
         </div>
     </section>
     <section class="btn-posts" id="btnPosts">
@@ -42,7 +44,6 @@ export const Feed = () => {
     <section class="posts" id="posts">
     `
     FeedDiv.innerHTML = template
-
     const hamburger = FeedDiv.querySelector('#hamburgerDiv')
     const navMenu = FeedDiv.querySelector('#navMenu')
     hamburger.addEventListener('click', ()=>{
@@ -63,6 +64,11 @@ export const Feed = () => {
         navMenu.classList.remove('active')
         signOutFun(firebaseAuth)
         onNavigate('/')
+    })
+    //ver lo que se escribe en el textArea
+    FeedDiv.querySelector('#postsTextArea').addEventListener('keyup', ()=>{
+        const postText = FeedDiv.querySelector('#postsTextArea').value
+        console.log({postText})
     })
 
     return FeedDiv;

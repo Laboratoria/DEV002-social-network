@@ -1,5 +1,4 @@
-import { sendPasswordResetEmail } from  'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { firebaseAuth } from './firebase.js';
+import { firebaseAuth, sendPasswordResetEmail } from './firebase.js';
 
 
 export const pswReset = async (documentt) =>{

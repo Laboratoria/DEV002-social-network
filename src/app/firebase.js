@@ -1,15 +1,14 @@
 /* eslint-disable import/no-unresolved */
-// como utilizamos CDN, en lugar de utilizar "from "firebase/auth"" se utiliza el link
-// https://firebase.google.com/docs/web/learn-more#available-libraries
-// link que lleva al link anterior
-// https://firebase.google.com/docs/web/setup#available-libraries
-
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {
   getAuth, createUserWithEmailAndPassword, FacebookAuthProvider, signInWithPopup,
   setPersistence, signInWithRedirect, inMemoryPersistence, GoogleAuthProvider,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword, signOut, sendPasswordResetEmail, sendEmailVerification
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getFirestore, collection, getDoc, getDocs, setDoc, doc,
+  onSnapshot, query, where, deleteDoc, updateDoc, arrayRemove, arrayUnion
+} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js'
+import { getStorage, ref } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-storage.js'
 
 
 // configuración de la app de firebase
@@ -28,13 +27,62 @@ const firebaseApp = initializeApp(firebaseConfig);
 // uso de firebase auth
 const firebaseAuth = getAuth(firebaseApp);
 
-const auth = getAuth();
-
 const providerFacebookAuth = new FacebookAuthProvider();
+
+// NUUUUUUUUUUUEEEEEEEEEEEEEEEVOOOOOOOOOOOOOOOOOOOOOOOOOOOOOO
+
+const storage = getStorage(firebaseApp);
+const database = getFirestore();
+// (está en setPersistence) const provider = new GoogleAuthProvider(firebaseApp);
+const storageRef = ref(storage);
+const collectionUserName = collection(database, 'usernames');
+const collectionUserNamesSpanish = collection(database, 'usuarios');
+const collectionPost = collection(database, 'posts');
+
+// Guardar username desde el registro de la mascota
+const saveDisplayName = (usernameIngresado) => updateProfile(firebaseAuth.currentUser, {
+    displayName: usernameIngresado,
+});
+
+// Get the currently signed-in user
+// The recommended way to get the current user is by setting an observer on the Auth object:
+const currentUser = {};
+
+const getCurrentUser = () => {
+    onAuthStateChanged(firebaseAuth, (user) => {
+        if (user) {
+            currentUser.email = user.email;
+            currentUser.uid = user.uid;
+            currentUser.displayName = user.displayName;
+            currentUser.petName = user.petName;
+            currentUser.username = user.username;
+        }
+    });
+};
+
+// Borrar post
+const deletePost = uid => deleteDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid));
+
+// obtener datos
+const getPostData = (uid) => getDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid));
+const getPostData2 = (uid) => getDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid));
+
+// Like post
+const likePost = (uid, likes, userLike) => updateDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid), { amountLikes: likes, arrayUsersLikes: arrayUnion(userLike) });
+
+// Dislike post
+const dislikePost = (uid, likes, userLike) => updateDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid), { amountLikes: likes, arrayUsersLikes: arrayRemove(userLike) });
 
 export {
   firebaseApp, firebaseAuth, createUserWithEmailAndPassword,
+  sendPasswordResetEmail, sendEmailVerification,
   providerFacebookAuth, signInWithPopup, getAuth, FacebookAuthProvider,
   setPersistence, signInWithRedirect, inMemoryPersistence, GoogleAuthProvider,
-  signInWithEmailAndPassword
+  signInWithEmailAndPassword, signOut, getFirestore, collection, getDoc,
+  getDocs, setDoc, doc, onSnapshot, query, where, deleteDoc,
+  updateDoc, arrayRemove, arrayUnion, getStorage, ref,
+
+  storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
+  collectionPost, deletePost, getPostData, getPostData2, likePost, dislikePost,
+  saveDisplayName, currentUser, getCurrentUser
 };

@@ -1,5 +1,4 @@
-import { signOut } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { firebaseAuth } from './firebase.js';
+import { firebaseAuth, signOut } from './firebase.js';
 
 export const signOutFun = async (firebaseAuth) => {
   try {
