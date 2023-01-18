@@ -30,6 +30,6 @@ const componentes = routes[window.location.pathname];
 window.onpopstate = () => {
     rootDiv.appendChild(componentes());
 };
-
 rootDiv.appendChild(componentes());
+
 
