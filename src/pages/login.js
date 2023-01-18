@@ -5,7 +5,6 @@ import { signInWithGoogle } from '../firebase/singInGoogle.js';
 import {authGoogle} from '../firebase/configuracion.js';
 
 
-
 export const Login = () => { 
   const divLogin = document.createElement('div');
   divLogin.setAttribute('id', 'container-div-login');
@@ -20,9 +19,7 @@ export const Login = () => {
     <form> 
       <h1 class="title">Journey Mates 🛫 </h1>
       <h2 class="inicia-sesion-h2">Inicia sesión</h2>
-      <a href= "/timeLine"> 
       <img class="logo-google" id="inicio-sesion-google" src="./images/google buttons/google_signin_buttons/web/2x/1.google-button.png" alt="">
-      </a>
       <p class="or">O</p>
       <input id="email" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
       <input id="password" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
@@ -30,15 +27,12 @@ export const Login = () => {
       <a href= "/timeLine">
         <button class="ingresar" id="ingresar"> Ingresar </button>
       </a>
-
     </form> 
    
     <p>¿Aún no tienes una cuenta?</p>
-
     <a href= "/register"> 
         <button class="registrate" id="registrate"> Regístrate </button>
     </a>
-
   </div>
   </section>
   
@@ -51,89 +45,24 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("click se ejecutó")
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-        const  alertLogin = (valid) => {
+       const  alertLogin = (valid) => {
         if(valid){
           next('/timeLine');
         }
        }
-        inicioDeSesionEmail (email, password, alertLogin);
-
+        inicioDeSesionEmail (email, password,alertLogin);
     });
 });
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   const googleButton = document.getElementById('inicio-sesion-google');
-//   googleButton.addEventListener('click',async (event) => {
-//       event.preventDefault()
-//       console.log("click botón google")
-//       await authGoogle(); 
-//    }) 
-//    if (authGoogle() === true) {
-//     window.location.href = '/timeLine';
-//   }
-// });
-
 document.addEventListener("DOMContentLoaded", function() {
   const googleButton = document.getElementById('inicio-sesion-google');
   googleButton.addEventListener('click',async (event) => {
       event.preventDefault()
       console.log("click botón google")
       await authGoogle(); 
-      if (authGoogle() === true) {
-        window.location.href = '/timeLine';
-      }
    }) 
-}); 
-
+});
 return divLogin;
 };
-  
+
 
 export default Login
-
-
-//   divLogin.innerHTML = viewLogin;
-
-//   const signUpBtn = divLogin.querySelector('#ingresar');
-//   signUpBtn.addEventListener('click', () => {
-//     next('/timeLine');
-//   });
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   const logInButton = document.getElementById('ingresar');
-//   logInButton.addEventListener('click', (event) => {
-//       event.preventDefault()
-//       console.log("click se ejecutó")
-//       const email = document.getElementById('email').value;
-//       const password = document.getElementById('password').value;
-//      inicioDeSesionEmail (email, password);
-//   });
-// });
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   const googleButton = document.getElementById('inicio-sesion-google');
-//   googleButton.addEventListener('click',async (event) => {
-//       event.preventDefault()
-//       console.log("click botón google")
-//       await authGoogle();
-   
-//      }) 
-//   });
-//   return divLogin;
-// };
-
-// googleButton.addEventListener('click', async (event) => {
-//   event.preventDefault()
-//   console.log("click botón google")
-//   await authGoogle();
-// });
-
-
-
-
-
-
-
-  

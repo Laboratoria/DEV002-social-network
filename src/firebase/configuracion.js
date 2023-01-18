@@ -54,6 +54,7 @@ export const authGoogle = async () => {
     console.log("probando");
     window.location.href = '/timeLine';
 
+    window.location.href = '/timeLine';
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
