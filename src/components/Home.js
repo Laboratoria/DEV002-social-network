@@ -16,7 +16,7 @@ export const Home = () => {
                 <h1 class="hello-home">
                     ¡Hola!
                 </h1>
-                    Hemos pensado para tí y tu amo esta novedosa red social dónde la
+                    Hemos pensado para ti y tu amo esta novedosa red social donde la
                     estrella serás tú.
                 </a>
                 <a class="home-question">¿Qué quieres hacer hoy?</a>
