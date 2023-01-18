@@ -70,64 +70,8 @@ document.addEventListener("DOMContentLoaded", function() {
 return divLogin;
 };
   
-
-
-
-
-
-//   divLogin.innerHTML = viewLogin;
-
-//   const signUpBtn = divLogin.querySelector('#ingresar');
-//   signUpBtn.addEventListener('click', () => {
-//     next('/timeLine');
-//   });
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   const logInButton = document.getElementById('ingresar');
-//   logInButton.addEventListener('click', (event) => {
-//       event.preventDefault()
-//       console.log("click se ejecutó")
-//       const email = document.getElementById('email').value;
-//       const password = document.getElementById('password').value;
-//      inicioDeSesionEmail (email, password);
-//   });
-// });
-
-
-// document.addEventListener("DOMContentLoaded", function() {
-//   const googleButton = document.getElementById('inicio-sesion-google');
-//   googleButton.addEventListener('click',async (event) => {
-//       event.preventDefault()
-//       console.log("click botón google")
-//       await authGoogle();
-   
-//      }) 
-//   });
-//   return divLogin;
-// };
-
-// googleButton.addEventListener('click', async (event) => {
-//   event.preventDefault()
-//   console.log("click botón google")
-//   await authGoogle();
-// });
-
-
 export default Login
 
 
-
-  // const buttonFinalLogin = document.createElement('button');
-  // const buttonHome = document.createElement('button');
-
-  // buttonFinalRegister.textContent = 'Iniciar sesión'
-  // buttonFinalRegister.addEventListener('click', () => onNavigate('/login'));
-
-  // // buttonHome.textContent = 'Volver al inicio';
-  // // buttonHome.addEventListener('click', () => onNavigate('/'));
-
-  // divRegister.appendChild(buttonHome);
-  // divRegister.appendChild(buttonFinalRegister);
 
   
