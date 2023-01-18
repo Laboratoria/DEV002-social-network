@@ -20,7 +20,9 @@ export const Login = () => {
     <form> 
       <h1 class="title">Journey Mates 🛫 </h1>
       <h2 class="inicia-sesion-h2">Inicia sesión</h2>
+      <a href= "/timeLine"> 
       <img class="logo-google" id="inicio-sesion-google" src="./images/google buttons/google_signin_buttons/web/2x/1.google-button.png" alt="">
+      </a>
       <p class="or">O</p>
       <input id="email" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
       <input id="password" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
@@ -49,15 +51,27 @@ document.addEventListener("DOMContentLoaded", function() {
         console.log("click se ejecutó")
         const email = document.getElementById('email').value;
         const password = document.getElementById('password').value;
-       const  alertLogin = (valid) => {
+        const  alertLogin = (valid) => {
         if(valid){
           next('/timeLine');
         }
        }
-        inicioDeSesionEmail (email, password,alertLogin);
+        inicioDeSesionEmail (email, password, alertLogin);
 
     });
 });
+
+// document.addEventListener("DOMContentLoaded", function() {
+//   const googleButton = document.getElementById('inicio-sesion-google');
+//   googleButton.addEventListener('click',async (event) => {
+//       event.preventDefault()
+//       console.log("click botón google")
+//       await authGoogle(); 
+//    }) 
+//    if (authGoogle() === true) {
+//     window.location.href = '/timeLine';
+//   }
+// });
 
 document.addEventListener("DOMContentLoaded", function() {
   const googleButton = document.getElementById('inicio-sesion-google');
@@ -65,14 +79,17 @@ document.addEventListener("DOMContentLoaded", function() {
       event.preventDefault()
       console.log("click botón google")
       await authGoogle(); 
+      if (authGoogle() === true) {
+        window.location.href = '/timeLine';
+      }
    }) 
-});
+}); 
+
 return divLogin;
 };
   
 
-
-
+export default Login
 
 
 //   divLogin.innerHTML = viewLogin;
@@ -114,20 +131,9 @@ return divLogin;
 // });
 
 
-export default Login
 
 
 
-  // const buttonFinalLogin = document.createElement('button');
-  // const buttonHome = document.createElement('button');
 
-  // buttonFinalRegister.textContent = 'Iniciar sesión'
-  // buttonFinalRegister.addEventListener('click', () => onNavigate('/login'));
-
-  // // buttonHome.textContent = 'Volver al inicio';
-  // // buttonHome.addEventListener('click', () => onNavigate('/'));
-
-  // divRegister.appendChild(buttonHome);
-  // divRegister.appendChild(buttonFinalRegister);
 
   

@@ -3,18 +3,18 @@ import {  signInWithPopup, GoogleAuthProvider} from 'https://www.gstatic.com/fir
 //const auth = getAuth();
 const provider = new GoogleAuthProvider();
 
-export const authGoogle = async () => {
-  try {
-    const userResult = await signInWithPopup(auth, provider);
-    console.log(userResult);
-    console.log("probando")
-  } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const correo = error.customData.email;
-    console.log(errorCode, errorMessage, correo, credential);
-  }
-};
+// export const authGoogle = async () => {
+//   try {
+//     const userResult = await signInWithPopup(auth, provider);
+//     console.log(userResult);
+//     console.log("probando")
+//   } catch (error) {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//     const correo = error.customData.email;
+//     console.log(errorCode, errorMessage, correo, credential);
+//   }
+// };
 
 export function signInWithGoogle (callback){
     signInWithPopup(auth, provider)

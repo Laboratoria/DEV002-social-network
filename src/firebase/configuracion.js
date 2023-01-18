@@ -51,7 +51,9 @@ export const authGoogle = async () => {
   try {
     const userResult = await signInWithPopup(auth, provider);
     console.log(userResult);
-    console.log("probando")
+    console.log("probando");
+    window.location.href = '/timeLine';
+
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
