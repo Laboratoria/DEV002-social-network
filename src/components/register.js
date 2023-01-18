@@ -1,7 +1,6 @@
 import { toNavigate } from "../main.js";
+import { app } from "../Firebase/firebaseConfig.js"
 import { auth, signUpWithPass } from "../Firebase/firebase.js";
-import {signUpWithPass} from "../Firebase/signUpForm.js";
-
 
 export const register = () => {
     //Creamos elementos de para el formulario de registro
