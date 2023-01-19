@@ -68,5 +68,83 @@ export const Wall = () => {
   $containerPublication.appendChild($divSignOffCat);
   $divSignOffCat.appendChild($btnSingOff);
   $divSignOffCat.appendChild($imgWallCat);
+
+  // ----------ATRIBUTOS-------------//
+
+  $sectionW.setAtribute('class', 'sectionWall');
+  $divContainerWall.setAtribute('class', 'wallContainer');
+  $divSaludo.setAtribute('class', 'Saludo');
+  $imgLogoW.setAttribute('src', 'img/logoNewMe.png');
+  $imgLogoW.setAttribute('alt', 'Logo NewMe');
+  $h2name.textContent = 'Hello';
+
+  $containerOrange.setAtribute('class', 'ContainerOrange');
+
+  $divRightOrange.setAtribute('class', 'rightOrange');
+  $divImgWall.setAtribute('class', 'imagenWall');
+  $imgWall.setAttribute('src', 'img/imgMuro.png');
+  $imgWall.setAttribute('alt', 'Img Niña Muro');
+
+  $divLeftOrange.setAtribute('class', 'leftOrange');
+  $divH3Post.setAtribute('class', 'hPost');
+  $h3Post.textContent = '';
+  $containerFormWall.setAtribute('class', 'ContFormWall');
+  $formWall.setAttribute('class', 'formWall');
+  $formWall.setAttribute('id', 'formWall');
+
+  $inputPublication.setAttribute('type', 'submit');
+  $inputPublication.setAttribute('name', 'inp_publication');
+  $inputPublication.setAttribute('class', 'inp_publication');
+  $inputPublication.setAttribute('id', 'inp_idPublication');
+
+  $inputBtnWall.setAttribute('type', 'submit');
+  $inputBtnWall.setAttribute('name', 'btn_send');
+  $inputBtnWall.setAttribute('class', 'btn_send');
+  $inputBtnWall.setAttribute('id', 'btn_idSend');
+  $inputBtnWall.setAttribute('value', 'SEND');
+
+  $containerPublication.setAttribute('class', 'contPublic');
+  $divPublicUser.setAttribute('class', 'publicUser');
+
+  $divPublicU.setAttribute('type', 'submit');
+  $divPublicU.setAttribute('name', 'inp_publiU');
+  $divPublicU.setAttribute('class', 'inp_publiU');
+  $divPublicU.setAttribute('id', 'inp_idPubliU');
+
+  $divReactions.setAttribute('class', 'reactions');
+  $divReactionLikes.setAttribute('class', 'reactionsLikes');
+
+  $imgHeart.setAttribute('src', 'img/heart.png');
+  $imgHeart.setAttribute('alt', 'heart');
+
+  $inputReactionLikes.setAttribute('type', 'submit');
+  $inputReactionLikes.setAttribute('name', 'inp_reaction');
+  $inputReactionLikes.setAttribute('class', 'inp_reaction');
+  $inputReactionLikes.setAttribute('id', 'inp_idReaction');
+  $inputReactionLikes.setAttribute('value', 'Likes');
+
+  $divReactionEdit.setAttribute('class', 'reactionEdit');
+
+  $inputReactionEdit.setAttribute('type', 'submit');
+  $inputReactionEdit.setAttribute('name', 'inp_reactionEdit');
+  $inputReactionEdit.setAttribute('class', 'inp_reactionEdit');
+  $inputReactionEdit.setAttribute('id', 'inp_idReactionEdit');
+  $inputReactionEdit.setAttribute('value', 'Edit');
+
+  $divReactionDelete.setAttribute('class', 'reactionDelete');
+
+  $inputReactionDelete.setAttribute('type', 'submit');
+  $inputReactionDelete.setAttribute('name', 'inp_reactionDelete');
+  $inputReactionDelete.setAttribute('class', 'inp_reactionDelete');
+  $inputReactionDelete.setAttribute('id', 'inp_idReactionDelete');
+  $inputReactionDelete.setAttribute('value', 'Delete');
+
+  $divSignOffCat.setAttribute('class', 'signOff');
+
+  $btnSingOff.setAttribute('type', 'button');
+  $btnSingOff.setAttribute('class', 'btnSignOff');
+  $btnSingOff.setAttribute('value', 'SIGN OFF');
+
+  $imgWallCat.setAttribute('src', 'img/gato.png');
+  $imgWallCat.setAttribute('alt', 'wallCat');
 };
-// ----------ATRIBUTOS-------------//
