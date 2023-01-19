@@ -1,4 +1,4 @@
-import { database, addDoc, getTask, onSnapshot } from './firebase.js';
+import { database, addDoc, getTask, onSnapshot, getDocs } from './firebase.js';
 
 const saveTask = (title, description) => {
   return addDoc(collection(database , 'tasks'), {title, description })

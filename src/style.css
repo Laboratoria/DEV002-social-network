@@ -161,24 +161,24 @@ main .email-facebook-page .email-facebook-div .facebook-btn {
     font-size: 1.9rem;
 }
 
-main .email-facebook-page{
+main .email-facebook-page {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-main .email-facebook-page p{
+main .email-facebook-page p {
     display: block;
     background: none;
     font-size: 1.5rem;
     color: var(--blue);
 }
 
-main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a{
+main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a {
     background: none;
 }
 
-main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn {
     background: none;
     cursor: pointer;
     border: none;
@@ -359,11 +359,11 @@ main .Email-login .Email-login-form .Email-login-form-background .email-login-di
 }
 
 /* recoverpsw.js */
-main .recover-psw{
+main .recover-psw {
     width: 75%;
 }
 
-main .recover-psw .recover-psw-form{
+main .recover-psw .recover-psw-form {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -372,7 +372,7 @@ main .recover-psw .recover-psw-form{
     margin: 18%;
 }
 
-main .recover-psw .recover-psw-form .recover-psw-form-background{
+main .recover-psw .recover-psw-form .recover-psw-form-background {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -381,7 +381,7 @@ main .recover-psw .recover-psw-form .recover-psw-form-background{
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
-main .recover-psw .recover-psw-form .recover-psw-form-background input{
+main .recover-psw .recover-psw-form .recover-psw-form-background input {
     outline: none;
     background: none;
     border: none;
@@ -393,7 +393,7 @@ main .recover-psw .recover-psw-form .recover-psw-form-background input{
     font-family: 'Merriweather', serif;
 }
 
-main .recover-psw .recover-psw-form .recover-psw-form-background button{
+main .recover-psw .recover-psw-form .recover-psw-form-background button {
     background: none;
     cursor: pointer;
     font-size: 2rem;
@@ -407,31 +407,31 @@ main .recover-psw .recover-psw-form .recover-psw-form-background button{
 }
 
 /* Feed logo */
-main .logo-feed{
+main .logo-feed {
     width: 100%;
     display: flex;
     flex-direction: column;
 }
 
-main .logo-feed .nav-bar .logo-feed-img{
+main .logo-feed .nav-bar .logo-feed-img {
     width: 20%;
     background: none;
 }
 
 /* menu / hamburger */
-main .logo-feed .nav-bar .nav-menu .nav-item-li{
+main .logo-feed .nav-bar .nav-menu .nav-item-li {
     background-color: var(--pigPink);
     list-style: none;
 }
 
-main .logo-feed .nav-bar .nav-menu .nav-item-li a{
+main .logo-feed .nav-bar .nav-menu .nav-item-li a {
     color: var(--lightIvory);
     text-decoration: none;
     background: none;
     font-size: 2rem;
 }
 
-main .logo-feed .nav-bar{
+main .logo-feed .nav-bar {
     min-height: 5rem;
     display: flex;
     justify-content: space-between;
@@ -439,7 +439,7 @@ main .logo-feed .nav-bar{
     background-color: var(--pigPink);
 }
 
-main .logo-feed .nav-bar .nav-menu{
+main .logo-feed .nav-bar .nav-menu {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -448,22 +448,22 @@ main .logo-feed .nav-bar .nav-menu{
     margin-right: 1rem;
 }
 
-main .logo-feed .nav-bar .nav-menu .nav-item-li .nav-link{
+main .logo-feed .nav-bar .nav-menu .nav-item-li .nav-link {
     transition: 0.7s ease;
 }
 
-main .logo-feed .nav-bar .nav-menu .nav-item-li .nav-link:hover{
+main .logo-feed .nav-bar .nav-menu .nav-item-li .nav-link:hover {
     color: var(--blue)
 }
 
-main .logo-feed .nav-bar .hamburger-div{
+main .logo-feed .nav-bar .hamburger-div {
     display: none;
     cursor: pointer;
     background-color: var(--pigPink);
     margin-right: 2rem;
 }
 
-main .logo-feed .nav-bar .hamburger-div .bar{
+main .logo-feed .nav-bar .hamburger-div .bar {
     display: block;
     width: 1.5rem;
     height: 0.5rem;
@@ -479,7 +479,7 @@ main .create-post {
     align-items: center;
 }
 
-main .create-post .create-post-button{
+main .create-post .create-post-button {
     background: none;
     cursor: pointer;
     margin-top: 2rem;
@@ -494,13 +494,13 @@ main .create-post .create-post-button{
 }
 
 /* Feed posts */
-main .posts{
+main .posts {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
-main .posts .posts-background{
+main .posts .posts-background {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -509,17 +509,18 @@ main .posts .posts-background{
     margin-top: 2rem;
 }
 
-main .posts .posts-background .posts-div-p{
+main .posts .posts-background .posts-div-p {
     font-size: 2.5rem;
     background: none;
 }
 
 /* Feed button posts */
-main .btn-posts{
+main .btn-posts {
     display: flex;
     flex-direction: column;
     align-items: center;
 }
+
 main .btn-posts .posts-div-btns {
     display: flex;
     flex-direction: row;
@@ -530,19 +531,19 @@ main .btn-posts .posts-div-btns {
     box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
 }
 
-main .btn-posts .posts-div-btns .paw-posts-div-btns{
+main .btn-posts .posts-div-btns .paw-posts-div-btns {
     background: none;
     cursor: pointer;
     border: none;
 }
 
-main .btn-posts .posts-div-btns .paw-posts-div-btns .paw-img{
+main .btn-posts .posts-div-btns .paw-posts-div-btns .paw-img {
     background: none;
     width: 3rem;
     height: 3rem;
 }
 
-main .btn-posts .posts-div-btns .edit-posts-div-btns{
+main .btn-posts .posts-div-btns .edit-posts-div-btns {
     background: none;
     cursor: pointer;
     font-size: 2rem;
@@ -596,12 +597,12 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 1.4rem;
     }
 
-    main .email-facebook-page p{
+    main .email-facebook-page p {
         font-size: 1.2rem;
         font-style: italic;
     }
 
-    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn {
         font-size: 1.2rem;
     }
 
@@ -683,46 +684,46 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
     }
 
     /* recoverpsw.js */
-    main .recover-psw{
+    main .recover-psw {
         width: 100%;
         margin-top: 3rem;
     }
 
-    main .recover-psw .recover-psw-form{
+    main .recover-psw .recover-psw-form {
         margin: 2%;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background{
+    main .recover-psw .recover-psw-form .recover-psw-form-background {
         width: 25em;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+    main .recover-psw .recover-psw-form .recover-psw-form-background input {
         width: 20rem;
         height: 3rem;
         font-size: 1rem;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+    main .recover-psw .recover-psw-form .recover-psw-form-background button {
         width: 15rem;
         height: 2.5rem;
         border-radius: 0.8rem;
         font-size: 1.4rem;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background .reset-recover-psw-div-btn{
+    main .recover-psw .recover-psw-form .recover-psw-form-background .reset-recover-psw-div-btn {
         margin-top: 3rem;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover-psw-div-btn{
+    main .recover-psw .recover-psw-form .recover-psw-form-background .cancel-recover-psw-div-btn {
         margin-top: 1rem;
     }
 
     /* hamburger */
-    main .logo-feed .nav-bar .nav-menu .nav-item-li a{
+    main .logo-feed .nav-bar .nav-menu .nav-item-li a {
         font-size: 1.4rem;
     }
 
-    main .create-post .create-post-button{
+    main .create-post .create-post-button {
         width: 20rem;
         height: 2.5rem;
         font-size: 1.4rem;
@@ -775,12 +776,12 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 1.9rem;
     }
 
-    main .email-facebook-page p{
+    main .email-facebook-page p {
         font-size: 1.5rem;
         font-style: italic;
     }
 
-    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn {
         font-size: 1.5rem;
     }
 
@@ -825,28 +826,28 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         height: 3rem;
         border-radius: 0.8rem;
         font-size: 1.9rem;
-    } 
+    }
 
     /* recoverpsw.js */
-    main .recover-psw{
+    main .recover-psw {
         width: 100%;
         margin-top: 3rem;
     }
 
-    main .recover-psw .recover-psw-form{
+    main .recover-psw .recover-psw-form {
         margin: 2%;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background{
+    main .recover-psw .recover-psw-form .recover-psw-form-background {
         width: 70%;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+    main .recover-psw .recover-psw-form .recover-psw-form-background input {
         width: 30rem;
         font-size: 2rem;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+    main .recover-psw .recover-psw-form .recover-psw-form-background button {
         width: 18rem;
         height: 3rem;
         border-radius: 0.8rem;
@@ -854,11 +855,11 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
     }
 
     /* hamburger */
-    main .logo-feed .nav-bar .nav-menu .nav-item-li a{
+    main .logo-feed .nav-bar .nav-menu .nav-item-li a {
         font-size: 1.7rem;
     }
 
-    main .create-post .create-post-button{
+    main .create-post .create-post-button {
         width: 22rem;
         height: 3rem;
         font-size: 1.7rem;
@@ -890,7 +891,7 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 2rem;
     }
 
-    main .home .home-div .home-create-account{
+    main .home .home-div .home-create-account {
         margin-top: 1.5rem;
     }
 
@@ -923,12 +924,12 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 2rem;
     }
 
-    main .email-facebook-page p{
+    main .email-facebook-page p {
         font-size: 1.7rem;
         font-style: italic;
     }
 
-    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn {
         font-size: 1.7rem;
     }
 
@@ -960,30 +961,30 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
     }
 
     /* recoverpsw.js */
-    main .recover-psw{
+    main .recover-psw {
         margin-top: 4rem;
     }
 
-    main .recover-psw .recover-psw-form{
+    main .recover-psw .recover-psw-form {
         margin: 2%;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background{
+    main .recover-psw .recover-psw-form .recover-psw-form-background {
         width: 35em;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+    main .recover-psw .recover-psw-form .recover-psw-form-background input {
         width: 30rem;
         height: 3rem;
         font-size: 2rem;
     }
 
     /* hamburger */
-    main .logo-feed .nav-bar .nav-menu .nav-item-li a{
+    main .logo-feed .nav-bar .nav-menu .nav-item-li a {
         font-size: 1.7rem;
     }
 
-    main .create-post .create-post-button{
+    main .create-post .create-post-button {
         width: 25rem;
         height: 4rem;
         border-radius: 0.8rem;
@@ -993,29 +994,30 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
 
 /* medida max hasta la cual aparece la hamburguesa */
 @media screen and (max-width: 40rem) {
+
     /* hamburger */
-    main .logo-feed .nav-bar .nav-menu .nav-item-li a{
+    main .logo-feed .nav-bar .nav-menu .nav-item-li a {
         font-size: 1.7rem;
     }
 
-    main .logo-feed .nav-bar .hamburger-div{
+    main .logo-feed .nav-bar .hamburger-div {
         display: block;
         cursor: pointer;
     }
 
-    main .logo-feed .nav-bar .hamburger-div.active .bar:nth-child(2){
+    main .logo-feed .nav-bar .hamburger-div.active .bar:nth-child(2) {
         opacity: 0;
     }
 
-    main .logo-feed .nav-bar .hamburger-div.active .bar:nth-child(1){
+    main .logo-feed .nav-bar .hamburger-div.active .bar:nth-child(1) {
         transform: translateY(0.5rem) rotate(45deg);
     }
 
-    main .logo-feed .nav-bar .hamburger-div.active .bar:nth-child(3){
+    main .logo-feed .nav-bar .hamburger-div.active .bar:nth-child(3) {
         transform: translateY(-0.5rem) rotate(-45deg);
     }
 
-    main .logo-feed .nav-bar .nav-menu{
+    main .logo-feed .nav-bar .nav-menu {
         /* para que quede fijo mientras se baja por la 
         pantalla hasta que se seleccione una opción */
         position: fixed;
@@ -1029,11 +1031,11 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         transition: 0.3s;
     }
 
-    main .logo-feed .nav-bar .nav-menu .nav-item-li{
+    main .logo-feed .nav-bar .nav-menu .nav-item-li {
         margin: 1rem 0;
     }
 
-    main .logo-feed .nav-bar .nav-menu.active{
+    main .logo-feed .nav-bar .nav-menu.active {
         left: 0;
     }
 }
@@ -1066,12 +1068,12 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 1.9rem;
     }
 
-    main .email-facebook-page p{
+    main .email-facebook-page p {
         font-size: 1.9rem;
         font-style: italic;
     }
 
-    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn {
         font-size: 1.9rem;
     }
 
@@ -1097,33 +1099,33 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
     }
 
     /* recoverpsw.js */
-    main .recover-psw{
+    main .recover-psw {
         margin-top: 5rem;
     }
 
-    main .recover-psw .recover-psw-form{
+    main .recover-psw .recover-psw-form {
         margin: 2%;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background{
+    main .recover-psw .recover-psw-form .recover-psw-form-background {
         width: 55em;
         height: 20em;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+    main .recover-psw .recover-psw-form .recover-psw-form-background input {
         width: 50rem;
         height: 3rem;
         font-size: 2.5rem;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+    main .recover-psw .recover-psw-form .recover-psw-form-background button {
         width: 23rem;
         height: 3rem;
         border-radius: 0.8rem;
         font-size: 1.9rem;
     }
 
-    main .logo-feed .nav-bar .nav-menu .nav-item-li a{
+    main .logo-feed .nav-bar .nav-menu .nav-item-li a {
         font-size: 2.5rem;
     }
 }
@@ -1159,12 +1161,12 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
         font-size: 2rem;
     }
 
-    main .email-facebook-page p{
+    main .email-facebook-page p {
         font-size: 2rem;
         font-style: italic;
     }
 
-    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn{
+    main .email-facebook-page .email-facebook-page-account .email-facebook-page-account-a .email-facebook-page-account-btn {
         font-size: 2rem;
     }
 
@@ -1221,36 +1223,38 @@ main .btn-posts .posts-div-btns .edit-posts-div-btns{
     }
 
     /* recoverpsw.js */
-    main .recover-psw{
+    main .recover-psw {
         margin-top: 7rem;
     }
 
-    main .recover-psw .recover-psw-form{
+    main .recover-psw .recover-psw-form {
         margin: 2%;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background{
+    main .recover-psw .recover-psw-form .recover-psw-form-background {
         width: 70em;
         height: 30em;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background input{
+    main .recover-psw .recover-psw-form .recover-psw-form-background input {
         margin-top: 4rem;
         font-size: 3rem;
     }
 
-    main .recover-psw .recover-psw-form .recover-psw-form-background button{
+    main .recover-psw .recover-psw-form .recover-psw-form-background button {
         width: 22rem;
         height: 3rem;
         border-radius: 1rem;
         font-size: 2rem;
     }
 
-    main .logo-feed .nav-bar .nav-menu .nav-item-li a{
+    main .logo-feed .nav-bar .nav-menu .nav-item-li a {
         font-size: 3rem;
     }
 
-    main .create-post .create-post-button{
+    main .create-post .create-post-button {
         font-size: 2rem;
     }
+
+
 }
