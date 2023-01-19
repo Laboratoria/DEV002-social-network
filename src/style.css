@@ -1,0 +1,438 @@
+:root {
+    --colorOrange: #FF9F00;
+    --colorTurquois: #03A7BB;
+    --colorDarkGrey: #C4C4C4;
+    --colorBlueLight: #A9D2F0;
+    --colorOlive: #C5D2B0;
+    --colorWhite: #FFF;
+    --colorBlack: #000000;
+    --colorGreen: #6ED788;
+    --colorForm: #546E85;
+    /*---------- colors-----------------*/
+    --fFamilyOleo: 'Oleo Script', cursive;
+    /*-------------tipos de letras-------------*/
+}
+
+html {
+    box-sizing: border-box;
+    font-size: 16px;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+body {
+    margin: 0;
+    background-color: var(--colorTurquois);
+}
+
+img {
+    max-width: 100%;
+}
+
+.home {
+    margin-top: 1rem;
+}
+
+.logo {
+    padding: 2.2rem 2.2rem 0;
+    margin: 0;
+}
+
+.welcome {
+    padding: 3rem 3.6rem 0;
+    text-align: center;
+}
+
+.welcome h1 {
+    font-family: var(--fFamilyOleo);
+    margin: 0;
+    font-size: 3.2rem;
+    line-height: 1;
+    color: var(--colorWhite);
+    padding: 0 0.5rem;
+    margin-bottom: 3rem;
+}
+
+.welcome img {
+    max-width: 4.5rem;
+    margin-bottom: -0.5rem;
+}
+
+.btn_click {
+    background: none;
+    width: 11rem;
+    border-radius: 1.4rem;
+    border: thick solid var(--colorOrange);
+    height: 3.6rem;
+    color: var(--colorWhite);
+    font-weight: bold;
+}
+/*------------------------CSS HOME----------------------------------*/
+
+.figureLogin{
+    padding: 2rem 3rem 0;
+}
+.sloganLogin{
+    display: none;
+}
+.formLogin{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.problemInput{
+    background-color: var(--colorOrange);
+    width: 55%;
+    height: 13vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+    margin-top: 4vh;
+}
+.emailUser{
+    width: 85%;
+    height: 4vh;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+.passwordUser{
+    width: 85%;
+    height: 4vh;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;    
+}
+::placeholder{
+    text-align: center;
+}
+.ContainerCat{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin-top: 10vh;
+    align-items: center;
+}
+.btn_signUpCat{
+    background-color: #ff9f00;
+    width: 35%;
+    height: 3.5vh;
+    border-radius: 20px;
+    border: none;
+    cursor: pointer;   
+}
+.ContainerCat img{
+    max-width: 4.5rem;
+}
+.containerSpan{
+    text-align: center;
+    margin-top: 7vh;
+    position: relative;
+}
+.option{
+    color: white;
+    font-size: 0.7rem;
+    font-family: system-ui;
+} 
+.option::before,
+.option::after{
+    content: "";
+    display: block;
+    width: 30%;
+    height: 1px;
+    background-color: white;
+    position: absolute;
+} 
+
+.option:before{
+    right: 0;
+    top: 10px;
+    margin-right: 15px;
+}
+.option::after{
+    top: 10px;
+    margin-left: 15px;
+}
+.ContainerReg{
+    text-align: center;
+    position: relative;
+}
+.btn_google{
+    background: #ff9f00;
+    height: 4vh;
+    width: 46%;
+    margin-top: 5vh;
+    color: white;
+    border: none;
+    border-radius: 20px;
+} 
+.log_google img{
+    position: absolute;
+    width: 1.8rem;
+    height: auto;
+    left: 29%;
+    top: 45px;
+}                  
+.register{
+    color: white;
+    font-size: 0.85rem;
+    font-family: system-ui;
+}
+.btn_signUp{
+    background: none;
+    border: none;
+    color: #f2a339;
+    font-size: 1.1rem;
+    cursor: pointer;
+    font-weight: bolder;
+    font-family: system-ui;
+}
+/*------------------------CSS LOGIN----------------------------------*/
+.btnBack{
+    background-color: transparent;
+    border: none;
+    color: var(--colorWhite);
+    padding-left: 1rem;
+    padding-top: 1rem;
+    font-weight: 700;
+}
+.welcomeContainer{
+    padding: 2rem 6rem 0;
+    color:  var(--colorWhite);
+    text-align: center;
+    font-family: monospace;
+    line-height: 1.5;
+}
+.welcomeContainer h2{
+    font-size: 2.2rem;
+}
+.logoNewF{
+    display: none;
+}
+.containerInputsRegister{
+    background-color: var(--colorOrange);
+    width: 55%;
+    height: 28vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    border-radius: 20px;
+}
+.containerInputsRegister input{
+    width: 85%;
+    height: 4vh;
+    border-radius: 25px;
+    border: none;
+    cursor: pointer;
+}
+.formRegister{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.containerCatReg{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 6vh;
+}
+.containerCatReg img{
+    max-width: 4.5rem ;
+}
+.forgotP{
+    background-color: transparent;
+    color: white;
+    border: none;
+    margin-top: 5vh;
+    font-family: system-ui;
+    font-weight: bolder;
+    cursor: pointer;
+}
+/*------------------------CSS REGISTER----------------------------------*/
+
+
+
+@media screen and (min-width: 500px) {
+    main {
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    figure {
+        position: relative;
+    }
+
+    .welcome {
+        position: relative;
+        padding: 0 14rem 0 0;
+    }
+
+    .welcome::after {
+        position: absolute;
+        content: "";
+        background-image: url("img/Vector\ 6.png");
+        background-repeat: no-repeat;
+        display: block;
+        width: 560px;
+        height: 241px;
+        top: 30vh;
+        left: -14vw;
+    }
+    .logo::after {
+        position: absolute;
+        content: "";
+        background-image: url("img/Vector\ 4.png");
+        display: block;
+        width: 349px;
+        height: 372px;
+        top: -29vh;
+        left: -10vw;
+    }
+
+    .logo::before {
+        position: absolute;
+        content: "";
+        background-image: url(img/Vector\ 5.png);
+        background-repeat: no-repeat;
+        display: block;
+        width: 349px;
+        height: 372px;
+        top: -23vh;
+        right: -50vw;
+    }
+
+    .home {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .home .logo_container {
+        width: 50%;
+    }
+
+    .c_logo {
+        text-align: end;
+    }
+
+    .c_logo img {
+        width: 75%;
+    }
+    .sectionLogin{
+        width: 63%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute
+    }
+
+     .logoNewM{
+        margin: 0px;
+        width: 60%;
+        padding: 0px;
+    }
+
+    .figureLogin img{
+        width: 91%;
+        padding: 2rem 3rem 1rem 0;
+        margin: 0px;
+    }
+    .figureLogin{
+        padding: 0rem 0rem 0;
+    }
+    .sloganLogin{
+        display: block;
+        text-align: start;
+        font-family: var(--fFamilyOleo);
+        margin: 0;
+        font-size: 3.2rem;
+        line-height: 1;
+        color: var(--colorWhite);
+        padding: 0 0 0 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .containerF{
+        width: 50%;
+        height: 80vh;
+        background: linear-gradient(179.98deg, #03a7bb 0.02%, #3fa8b14a 0.03%, rgba(0, 0, 0, 0) 94.5%), linear-gradient(180deg, rgb(76 101 115 / 40%) 0%, rgba(0, 0, 0, 0) 100%), rgba(255, 255, 255, 0.1);
+         box-shadow: 0px 4px 24px -1px rgb(0 0 0 / 20%), inset 5px 5px 4px rgb(88 124 155 / 20%);
+         border-radius: 25px;
+    }
+
+   .containerFormLogin{
+        margin-top: 5vh;
+   }
+
+   .forgotP{
+        background-color: transparent;
+        color: white;
+        border: none;
+        margin-top: 5vh;
+        font-family: system-ui;
+        font-weight: bolder;
+        cursor: pointer;
+   }
+
+   .problemInput{
+        background-color: transparent;
+        width: 76%;
+   }
+
+   .emailUser, .passwordUser{
+        height: 5vh;
+   }
+
+   .containerSpan{
+        margin-top: 3vh;
+   }
+
+   .ContainerReg{
+        margin-top: 4vh;
+   }
+
+   .btn_google{
+        height: 5vh;
+        font-weight: bolder;
+   }
+   .welcomeContainer{
+        display: none;
+   }
+
+   .logoNewF{
+        display: block;
+   }
+
+   .btnBack {
+        position: relative;
+        top: 37vh;
+   }
+   .containerInputsRegister{
+        background: transparent;
+        width: 76%;
+        margin-top: 2rem
+   }
+
+   .containerInputsRegister input{
+        width: 85%;
+        height: 5vh;
+        border-radius: 25px;
+        border: none;
+        cursor: pointer
+   }
+   .log_google img {
+        width: 1.5rem;
+        left: 23%;
+        top: 40px;
+   }
+}
