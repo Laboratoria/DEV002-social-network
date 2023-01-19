@@ -48,34 +48,31 @@ export const login = () => {
 
   //Funcion postear
   const divTimeLine = divLogin.querySelector('#timeline-posts');
-    onGetPost((querySnapshot) => {
-      
-      querySnapshot.forEach(post => {
+  onGetPost((querySnapshot) => {
+
+    querySnapshot.forEach(post => {
       const postObj = post.data();
       let divPostEntry = document.createElement("div");
 
-      let imgUser = document.createElement("img");
-      let userName = document.createElement("h2");
-      let userPostText = document.createElement("h2");
-      let dateTimePost = document.createElement("h1");
+      let imgUser = document.createElement('img');
+      let userName = document.createElement('h2');
+      let userPostText = document.createElement('h2');
+      let dateTimePost = document.createElement('h1');
       let likePost = document.createElement('img');
 
-      divPostEntry.className = "timeLine-post";
+      divPostEntry.className = 'timeLine-post';
       imgUser.setAttribute('src', 'images/user.png');
-      imgUser.className = "iconUser";
+      imgUser.className = 'iconUser';
       userName.innerHTML = postObj.user;
       userName.className = 'user-name-post'
       userPostText.innerHTML = postObj.postText;
       likePost.setAttribute('src', '/images/1erlike.png');
       likePost.className = 'primer-like'
-      
+
       userPostText.className = 'textPost';
-      dateTimePost.innerHTML = new Date (post.data().createdDateTime.seconds * 1000);
-      dateTimePost
+      dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000);
 
       dateTimePost.className = 'date-post'
-
-
 
       divPostEntry.appendChild(userName);
       divPostEntry.appendChild(userPostText);
@@ -101,8 +98,6 @@ export const login = () => {
     btnLogout,
   );
 
-
-  
   // // timeLine.innerHTML = postCollection;
 
 

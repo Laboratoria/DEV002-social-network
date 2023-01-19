@@ -11,7 +11,7 @@ import {
   getFirestore,
   collection,
   addDoc,
-  getDocs,
+  orderBy,
   onSnapshot,
   query,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
@@ -82,6 +82,6 @@ export const getAllPosts = async () => {
 };
 
 export const onGetPost = (querySnapshot) => {
-  const querypost = query(collection(db, 'post'));
+  const querypost = query(collection(db, 'post'), orderBy('createdDateTime', 'desc'));
   onSnapshot(querypost, querySnapshot);
 }
