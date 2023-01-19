@@ -72,7 +72,7 @@ export const login = () => {
         likePost.setAttribute('src', '/images/1erlike.png');
         likePost.className = 'primer-like'
         userPostText.className = 'textPost';
-        dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000);
+        dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000).toLocaleString();
         dateTimePost
 
         dateTimePost.className = 'date-post'
