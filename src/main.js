@@ -1,4 +1,3 @@
-
 import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
