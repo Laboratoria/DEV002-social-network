@@ -218,6 +218,19 @@ p {
     height: 5rem;
     width: 24rem;
     font-size: 14px;
+    margin-left: 1rem;
+    margin-top: 0;
+}
+
+.edit-logo{
+    width: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.delete-logo{
+    width: 1rem;
+    cursor: pointer;
 }
 
 .heart-logo{

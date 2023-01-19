@@ -1,11 +1,11 @@
 // import { onNavigate } from "../../main.js";
- import { registerUser } from '../firebase/configuracion.js';
- import { next } from '../main.js'
+import { registerUser } from '../firebase/configuracion.js';
+import { next } from '../main.js';
 
 export const Register = () => {
   const divRegister = document.createElement('div');
   divRegister.setAttribute('class', 'container-div-register');
-  const viewRegister =  `<div class="containerRegister" id="containerRegister"> 
+  const viewRegister = `<div class="containerRegister" id="containerRegister"> 
   <figure class="logo-inicio-sesion"> 
     <img class="logo" src="./images/logo.png" alt="Imagen de un avión dando la vuelta al mundo">
   </figure>
@@ -53,50 +53,45 @@ export const Register = () => {
     <button class="ingresar" id="register-button"> Registrar </button>
     </a>
   </form>
-</section> </div>`
+</section> </div>`;
 
-divRegister.innerHTML = viewRegister;
+  divRegister.innerHTML = viewRegister;
 
+  // document.addEventListener("DOMContentLoaded", function() {
+  //   const registerButton = document.getElementById('register-button');
+  //   registerButton.addEventListener('click', (event) => {
+  //       event.preventDefault()
+  //       console.log("click register se ejecutó")
+  //       const email = document.getElementById('emailRegister').value;
+  //       const password = document.getElementById('passwordRegister').value;
 
-// document.addEventListener("DOMContentLoaded", function() {
-//   const registerButton = document.getElementById('register-button');
-//   registerButton.addEventListener('click', (event) => {
-//       event.preventDefault()
-//       console.log("click register se ejecutó")
-//       const email = document.getElementById('emailRegister').value;
-//       const password = document.getElementById('passwordRegister').value;
-         
-//      const alertRegister = (valid) => {
-//      if(valid){
-//        next('/timeLine');
-//      }
-//      }
-//      registerUser(email, password,alertRegister);
-//   });
-// });
+  //      const alertRegister = (valid) => {
+  //      if(valid){
+  //        next('/timeLine');
+  //      }
+  //      }
+  //      registerUser(email, password,alertRegister);
+  //   });
+  // });
 
-document.addEventListener("DOMContentLoaded", function() {
-  const registerButton = document.getElementById('register-button');
-  registerButton.addEventListener('click', (event) => {
-    // event.preventDefault()
-    console.log("click register se ejecutó")
-    
-    const email = document.getElementById('emailRegister').value;
-    const password = document.getElementById('passwordRegister').value;
-    const alertRegister = (valid) => {
-      if(valid){
-        next('/timeLine');
-      }
-    }
-    registerUser(email, password, alertRegister);
+  document.addEventListener('DOMContentLoaded', () => {
+    const registerButton = document.getElementById('register-button');
+    registerButton.addEventListener('click', (event) => {
+      event.preventDefault();
+      console.log('click register se ejecutó');
+
+      const email = document.getElementById('emailRegister').value;
+      const password = document.getElementById('passwordRegister').value;
+      const alertRegister = (valid) => {
+        if (valid) {
+          next('/timeLine');
+        }
+      };
+      registerUser(email, password, alertRegister);
+    });
   });
-});
 
-
-
-return divRegister;
-
+  return divRegister;
 };
 
-export default Register
-
+export default Register;
