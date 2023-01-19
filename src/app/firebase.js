@@ -39,26 +39,12 @@ const collectionUserNamesSpanish = collection(database, 'usuarios');
 const collectionPost = collection(database, 'posts');
 
 // Guardar username desde el registro de la mascota
-const saveDisplayName = (usernameIngresado) => {
-  updateProfile(firebaseAuth.currentUser,
-    {displayName: usernameIngresado})
-};
+const saveDisplayName = (usernameIngresado) => updateProfile(firebaseAuth.currentUser, {
+    displayName: usernameIngresado,
+});
+// Borrar post
+const deletePost = uid => deleteDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid));
 
-// Get the currently signed-in user
-// The recommended way to get the current user is by setting an observer on the Auth object:
-const currentUser = {};
-
-const getCurrentUser = () => {
-    onAuthStateChanged(firebaseAuth, (user) => {
-        if (user) {
-            currentUser.email = user.email;
-            currentUser.uid = user.uid;
-            currentUser.displayName = user.displayName;
-            currentUser.petName = user.petName;
-            currentUser.username = user.username;
-        }
-    });
-};
 
 // obtener datos
 const getPostData = (uid) => {
@@ -79,7 +65,7 @@ export {
   updateDoc, arrayRemove, arrayUnion, getStorage, ref,
   database,
 
-  storage, storageRef, collectionUserName, collectionUserNamesSpanish,
-  collectionPost, getPostData, getPostData2,
-  saveDisplayName, currentUser, getCurrentUser
+  storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
+  collectionPost, deletePost, getPostData, getPostData2, likePost, dislikePost,
+  saveDisplayName
 };
