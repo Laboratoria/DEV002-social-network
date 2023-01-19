@@ -12,7 +12,7 @@ import {
   getFirestore,
   collection,
   addDoc,
-  orderBy,
+  getDocs,
   onSnapshot,
   query,
   orderBy
@@ -86,6 +86,6 @@ export const getAllPosts = async () => {
 };
 
 export const onGetPost = (querySnapshot) => {
-  const querypost = query(collection(db, 'post'), orderBy('createdDateTime', 'desc'));
+  const querypost = query(collection(db, 'post'));
   onSnapshot(querypost, querySnapshot);
 }
