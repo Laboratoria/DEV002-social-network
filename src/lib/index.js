@@ -1,6 +1,6 @@
 // aqui exportaras las funciones que necesites
-// import { route } from "../../Router/router.js"
-import { route } from "../../Router/router";
+import { route } from "../Router/router.js"
+// import { route } from "../../Router/router"; ESTO ESTA MAL
 
 
 console.log("hola",route)
