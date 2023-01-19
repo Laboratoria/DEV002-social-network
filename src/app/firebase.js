@@ -43,23 +43,6 @@ const collectionPost = collection(database, 'posts');
 const saveDisplayName = (usernameIngresado) => updateProfile(firebaseAuth.currentUser, {
     displayName: usernameIngresado,
 });
-
-// Get the currently signed-in user
-// The recommended way to get the current user is by setting an observer on the Auth object:
-const currentUser = {};
-
-const getCurrentUser = () => {
-    onAuthStateChanged(firebaseAuth, (user) => {
-        if (user) {
-            currentUser.email = user.email;
-            currentUser.uid = user.uid;
-            currentUser.displayName = user.displayName;
-            currentUser.petName = user.petName;
-            currentUser.username = user.username;
-        }
-    });
-};
-
 // Borrar post
 const deletePost = uid => deleteDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid));
 
@@ -84,5 +67,5 @@ export {
 
   storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
   collectionPost, deletePost, getPostData, getPostData2, likePost, dislikePost,
-  saveDisplayName, currentUser, getCurrentUser
+  saveDisplayName
 };
