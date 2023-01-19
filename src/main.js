@@ -2,11 +2,11 @@
 // eslint-disable-next-line import/no-cycle
 // import { myFunction } from './lib/index.js';
 // eslint-disable-next-line import/no-cycle
-import { Login } from './component/Login.js';
+import { Login } from './component/login.js';
 // eslint-disable-next-line import/no-cycle
-import { Home } from './component/Home.js';
+import { Home } from './component/home.js';
 // eslint-disable-next-line import/no-cycle
-import { Register } from './component/Register.js';
+import { Register } from './component/register.js';
 
 const routes = {
   '/': Home, // objeto que contiene las direcciones
