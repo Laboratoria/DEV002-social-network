@@ -48,7 +48,7 @@ export const Register = () => {
   </div>
 
     <label class="fecha-nacimiento" for='fecha-nacimiento'> Edad * </label> <br>
-    <input type="number" min="1" class="fecha-nacimiento" required> <br>
+    <input type="number" min="1" class="fecha-nacimiento" id="fecha-nacimiento" required> <br>
   <a href="/timeLine">
     <button class="ingresar" id="register-button"> Registrar </button>
     </a>
@@ -58,22 +58,41 @@ export const Register = () => {
 divRegister.innerHTML = viewRegister;
 
 
+// document.addEventListener("DOMContentLoaded", function() {
+//   const registerButton = document.getElementById('register-button');
+//   registerButton.addEventListener('click', (event) => {
+//       event.preventDefault()
+//       console.log("click register se ejecutó")
+//       const email = document.getElementById('emailRegister').value;
+//       const password = document.getElementById('passwordRegister').value;
+         
+//      const alertRegister = (valid) => {
+//      if(valid){
+//        next('/timeLine');
+//      }
+//      }
+//      registerUser(email, password,alertRegister);
+//   });
+// });
+
 document.addEventListener("DOMContentLoaded", function() {
   const registerButton = document.getElementById('register-button');
   registerButton.addEventListener('click', (event) => {
-      event.preventDefault()
-      console.log("click register se ejecutó")
-      const email = document.getElementById('emailRegister').value;
-      const password = document.getElementById('passwordRegister').value;
-         
-     const alertRegister = (valid) => {
-     if(valid){
-       next('/timeLine');
-     }
-     }
-     registerUser(email, password,alertRegister);
+    // event.preventDefault()
+    console.log("click register se ejecutó")
+    
+    const email = document.getElementById('emailRegister').value;
+    const password = document.getElementById('passwordRegister').value;
+    const alertRegister = (valid) => {
+      if(valid){
+        next('/timeLine');
+      }
+    }
+    registerUser(email, password, alertRegister);
   });
 });
+
+
 
 return divRegister;
 
