@@ -2,22 +2,28 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
 
-//import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { init } from "./lib/firebase/config.js";
-import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methods.js";
+import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
 
 /*logout importar*/
+const app = init();
 
-init();
 const auth = getAuth();
-
 
 
 // Initialize Cloud Firestore and get a reference to the service
 
-// const fs = getFirestore(app);
-
-
+const db = getFirestore(app);
+const postsRef = await getDocs(collection(db, 'posts'));
+//console.log('posts', postsRef);
+let posts = [];
+// const posts = postsRef.map((item) => ({ id: item.id, data: item.data() }))
+postsRef.forEach((item) => { /*para traer los posts de mi colección */
+  // console.log(`${doc.id} => ${doc.data()}`);
+  posts.push({ id: item.id, data: item.data() });
+});
+console.log('posts', posts);
 
 function validarCorreo(correo) {
   const expReg = /^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -89,7 +95,7 @@ if (signinForm) {
       const { emailVerified, email } = await login(auth, emailInput, passwordInput)
 
       //console.log(emailVerified,email);
-      /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del cooreo electrónico enviado */
+      /* permitir acceder a la página a solo los usuarios que hayan verificado su cuenta a través del correo electrónico enviado */
       if (emailVerified) {
         onNavigate('/feed');
         console.log('Bienvenid@', email);
@@ -123,19 +129,25 @@ if (signinForm) {
   });
 };
 
-  // // LOGOUT
-  // /*const logout = document.getElementById('salir');
-  // logout.addEventListener('click', () => {
-  //   logOut(auth)
+// // LOGOUT
+// /*const logout = document.getElementById('salir');
+// logout.addEventListener('click', () => {
+//   logOut(auth)
 
-  // });*/
+// });*/
 
-  // GOOGLE LOGIN
-  const googleButton = document.getElementById('entrarGoogle')
-  if (googleButton) {
-    googleButton.addEventListener('click', (e) => {
-      e.preventDefault();
-      loginWithGoogle(auth);
-      signinForm.reset();
-    });
-  };
+// GOOGLE LOGIN
+const googleButton = document.getElementById('entrarGoogle')
+if (googleButton) {
+  googleButton.addEventListener('click', (e) => {
+    e.preventDefault();
+    loginWithGoogle(auth);
+    signinForm.reset();
+  });
+};
+
+
+
+  //FEED CONTROLLER
+
+

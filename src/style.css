@@ -37,18 +37,7 @@
 
 }
 
-input {
-  backdrop-filter: blur(15px);
-  width: 240px;
-  height: 45px;
-  border: transparent;
-  margin: 25px 30px 0px 30px;
-  cursor: pointer;
-  justify-content: center;
-  background: rgba(255, 255, 255, 0.32);
-  border-radius: 8px;
 
-}
 
 
 .btnSubmit:hover {
@@ -61,30 +50,6 @@ input:hover {
 
 .btnGoogle:hover {
   background: rgb(41, 41, 248);
-}
-
-.btnSubmit {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  margin: 25px 30px 0 30px;
-  width: 240px;
-  height: 45px;
-  background: rgba(82, 82, 92, 0.8);
-  border-radius: 6px;
-  /* Inside auto layout */
-  flex: none;
-  order: 0;
-  align-self: stretch;
-  flex-grow: 0;
-  color: rgba(255, 255, 255, 0.32);
-  font-size: 16px;
-  line-height: 25px;
-  letter-spacing: 2px;
-  border: none;
-  cursor: pointer;
-
 }
 
 
@@ -114,6 +79,44 @@ input:hover {
   padding: 0px 5px;
 }
 
+/* ESTILOS GENERALES */
+
+input {
+  backdrop-filter: blur(15px);
+  width: 240px;
+  height: 45px;
+  border: transparent;
+  margin: 25px 30px 0px 30px;
+  cursor: pointer;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+
+}
+
+.btnSubmit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 30px 0 30px;
+  width: 240px;
+  height: 45px;
+  background: rgba(82, 82, 92, 0.8);
+  border-radius: 6px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+
+}
 
 /* Estilos para vista HOME*/
 
@@ -530,6 +533,26 @@ input::placeholder {
   height: 800px;
 }
 
+/* estilos SECTION FEED */
+
+.section-feed {
+  width: 360px;
+  height: 100vh; /*es el 100% para cualquier dispositivo*/
+  /* display: grid;
+  grid-template-columns: 80px 200px 80px;
+  grid-template-rows: repeat(3, 200px);
+  gap: 5px; */
+  position: relative; /*para que el hijo posicionarse respecto al section-feed*/
+  /* justify-content: center; */
+  background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
+}
+
+/* .section-feed > * {
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+} */
 .tituloh2-feed {
   font-family: 'Fredoka One';
   width: 300px;
@@ -542,39 +565,63 @@ input::placeholder {
   color: rgba(255, 242, 242, 0.25);
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
-  position: absolute;
-  top: 35px;
-  left: 17px
+  /* position: absolute;
+  top: 25px;
+  left: 19px */
 }
 
 .avatarImg{
-   width: 65px;
-   height: 65px;
-   position: absolute;
-   left:280px; 
-   top:20px
-}
-.section-feed {
-  width: 360px;
-  height: 800px;
-  justify-content: center;
-  background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
-}
- .buttonUnpload{
-  width: 128px;
-  height: 20px;
-  border: none;
-  position: absolute;
-  top: 70px;
-  left: 190px;
+  width: 65px;
+  height: 65px;
+
+  /* position: absolute;
+  right: 12px;
+  top:12px */
 }
 
-.inputProfile{
-  text-align: center;
-  width: 100px;
-  height: 50px;
-  color: #575454;
+.post-div{
+  justify-content: center;
+  align-items: center;
+ 
+}
+.container-buttons{
   position: absolute;
-  top: 25px;
-  text-indent: 25px;
+  bottom: 0;
+  left: 0;
+  width: 360px;
+  background-color: #F7DAE5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);/*las tres columnas tendrán la misma dimensión en cualquier dispositivo*/
+}
+
+.container-buttons button {
+  padding: 1rem;
+  border: none;
+  background: transparent;
+}
+
+.feed-container-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100% !important;
+  padding: 1rem;
+}
+.container-add-post{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-add-post{
+  width: 80%;
+  height: 50vh;
+background: #334E6F;
+border-radius: 12px;
 }

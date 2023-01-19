@@ -1,4 +1,4 @@
-import { home } from '../components/Home.js';
+import { home } from '../components/home.js';
 import { register } from '../components/register.js';
 import { login } from '../components/login.js';
 import { feed } from '../components/feed.js';
@@ -9,10 +9,9 @@ const routes = {
     '/register': register,
     '/login': login,
     '/feed': feed,
-
 };
 
-export const onNavigate = (pathname) => {
+export const onNavigate = (pathname) => { //se cambia la ruta
     window.history.pushState(
         {},
         pathname,
