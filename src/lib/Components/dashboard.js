@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, onGetPost, currentUserInfo } from "../index.js";
+import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts } from "../index.js";
 
 
 export const login = () => {
@@ -48,11 +48,14 @@ export const login = () => {
 
   //Funcion postear
   const divTimeLine = divLogin.querySelector('#timeline-posts');
-  onGetPost((querySnapshot) => {
+  //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
+  const refreshPosts = () => {
 
-    querySnapshot.forEach(post => {
-      const postObj = post.data();
-      let divPostEntry = document.createElement("div");
+    getAllPosts().then((posts) => {
+      divTimeLine.innerHTML = '';
+      posts.forEach(post => {
+        const postObj = post.data();
+        let divPostEntry = document.createElement("div");
 
       let imgUser = document.createElement('img');
       let userName = document.createElement('h2');
@@ -72,20 +75,27 @@ export const login = () => {
       userPostText.className = 'textPost';
       dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000);
 
-      dateTimePost.className = 'date-post'
+        dateTimePost.className = 'date-post'
 
-      divPostEntry.appendChild(userName);
-      divPostEntry.appendChild(userPostText);
-      divPostEntry.appendChild(dateTimePost);
-      divPostEntry.appendChild(imgUser);
-      divPostEntry.appendChild(likePost);
 
-      divTimeLine.appendChild(divPostEntry);
-      document.querySelector('#btn-post').innerText = 'PUBLICAR';
-      document.querySelector('#modal-background-post').style.display = 'none';
-      document.querySelector('#modal-content-post').style.display = 'none';
+
+        divPostEntry.appendChild(userName);
+        divPostEntry.appendChild(userPostText);
+        divPostEntry.appendChild(dateTimePost);
+        divPostEntry.appendChild(imgUser);
+        divPostEntry.appendChild(likePost);
+
+        divTimeLine.appendChild(divPostEntry);
+        document.querySelector('#btn-post').innerText = 'PUBLICAR';
+        document.querySelector('#modal-background-post').style.display = 'none';
+        document.querySelector('#modal-content-post').style.display = 'none';
+      });
     });
-  });
+  };
+
+  //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
+  refreshPosts();
+
 
 
   //Funcion cerrar sesion
@@ -98,7 +108,7 @@ export const login = () => {
     btnLogout,
   );
 
-  // // timeLine.innerHTML = postCollection;
+
 
 
   //Funcion abrir modal
@@ -141,6 +151,8 @@ export const login = () => {
           document.querySelector('#modal-background-post').style.display = 'none';
           document.querySelector('#modal-content-post').style.display = 'none';
           divLogin.querySelector('#input-post').value = '';
+          //se vuelve a mandar llamar getDocs una vez que el nuevo post fue posteado correctamente
+          refreshPosts();
         })
         .catch((error) => {
           console.error('Error: ', error);
