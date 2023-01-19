@@ -32,28 +32,16 @@ const providerFacebookAuth = new FacebookAuthProvider();
 
 const storage = getStorage(firebaseApp);
 const database = getFirestore();
-// (está en setPersistence) const provider = new GoogleAuthProvider(firebaseApp);
 const storageRef = ref(storage);
 const collectionUserName = collection(database, 'usernames');
 const collectionUserNamesSpanish = collection(database, 'usuarios');
 const collectionPost = collection(database, 'posts');
 
-// Guardar username desde el registro de la mascota
+// Guardar username desde el registro
 const saveDisplayName = (usernameIngresado) => updateProfile(firebaseAuth.currentUser, {
     displayName: usernameIngresado,
 });
-// Borrar post
-const deletePost = uid => deleteDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid));
 
-
-// obtener datos
-const getPostData = (uid) => {
-  getDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid))
-};
-const getPostData2 = (uid) => {
-  getDoc(doc(database, 'usuarios', firebaseAuth.currentUser.uid, 'userPosts', uid))
-};
-// https://firebase.google.com/docs/firestore/query-data/get-data#get_a_document
 
 export {
   firebaseApp, firebaseAuth, createUserWithEmailAndPassword,
@@ -63,9 +51,6 @@ export {
   signInWithEmailAndPassword, signOut, getFirestore, collection, getDoc,
   getDocs, setDoc, doc, onSnapshot, query, where, deleteDoc,
   updateDoc, arrayRemove, arrayUnion, getStorage, ref,
-  database,
-
   storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
-  collectionPost, deletePost, getPostData, getPostData2, likePost, dislikePost,
-  saveDisplayName
+  collectionPost, saveDisplayName
 };
