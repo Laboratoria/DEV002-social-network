@@ -177,7 +177,6 @@
     "file-entry-cache": "^6.0.1",
     "fill-range": "^7.0.1",
     "find-up": "^4.1.0",
-    "firebase": "^9.15.0",
     "flat-cache": "^3.0.4",
     "flatted": "^3.2.7",
     "form-data": "^3.0.1",
