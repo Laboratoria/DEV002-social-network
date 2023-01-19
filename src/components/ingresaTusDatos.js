@@ -10,5 +10,5 @@ export const ingresaTusDatos = () =>{
     datosDiv.appendChild(buttonRegistro);
     datosDiv.appendChild(buttonLogin);
 
-    return datosDiv;
+    return datosDiv
 };
