@@ -1,5 +1,5 @@
 
-export const ingresaTusDatos = () =>{
+export const home = () =>{
     const datosDiv = document.createElement("div");
     const buttonRegistro = document.createElement("button")
     const buttonLogin = document.createElement("button")
