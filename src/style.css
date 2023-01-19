@@ -537,22 +537,22 @@ input::placeholder {
 
 .section-feed {
   width: 360px;
-  height: 800px;
-  display: grid;
+  height: 100vh; /*es el 100% para cualquier dispositivo*/
+  /* display: grid;
   grid-template-columns: 80px 200px 80px;
   grid-template-rows: repeat(3, 200px);
-  gap: 5px;
-  justify-content: center;
+  gap: 5px; */
+  position: relative; /*para que el hijo posicionarse respecto al section-feed*/
+  /* justify-content: center; */
   background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
 }
 
-.section-feed > * {
-  border: 2px solid black;
+/* .section-feed > * {
   text-align: center;
   justify-content: center;
   align-items: center;
   display: flex;
-}
+} */
 .tituloh2-feed {
   font-family: 'Fredoka One';
   width: 300px;
@@ -583,5 +583,45 @@ input::placeholder {
   justify-content: center;
   align-items: center;
  
+}
+.container-buttons{
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 360px;
+  background-color: #F7DAE5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);/*las tres columnas tendrán la misma dimensión en cualquier dispositivo*/
+}
 
+.container-buttons button {
+  padding: 1rem;
+  border: none;
+  background: transparent;
+}
+
+.feed-container-header{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100% !important;
+  padding: 1rem;
+}
+.container-add-post{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.4);
+}
+
+.modal-add-post{
+  width: 80%;
+  height: 50vh;
+background: #334E6F;
+border-radius: 12px;
 }

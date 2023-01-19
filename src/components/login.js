@@ -68,7 +68,7 @@ export const login = () => {
     buttonGoogle.id = 'entrarGoogle';
 
     const imagenGoogle = document.createElement('img');
-    imagenGoogle.src = '/img/google.png';
+    imagenGoogle.src = '/components/imagen/google.png';
     imagenGoogle.className = 'imgGoogle';
 
     buttonGoogle.appendChild(imagenGoogle);
