@@ -7,6 +7,7 @@ import {
   signOut,
   updateProfile,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+// } from "firebase/auth";
 import {
   getFirestore,
   collection,
@@ -14,7 +15,9 @@ import {
   getDocs,
   onSnapshot,
   query,
+  orderBy
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+// } from "firebase/firestore";
 
 import { onNavigate } from "../main.js";
 import { app } from './Firebase.js';
@@ -61,8 +64,8 @@ export const logOut = async (onNavigate) => {
 // funcion currentuser
 export const currentUserInfo = () => auth.currentUser;
 
-//comienzo firestore
-const db =getFirestore();
+//comienzo firestore YA ESTA ARRIBA como firestore en vez de db
+// const db =getFirestore();
 
 //función publicar
 export const submitPost = (postTxt) => {
@@ -77,7 +80,8 @@ export const submitPost = (postTxt) => {
 
 //función para consultar todos los posts dispobibles en firestore
 export const getAllPosts = async () => {
-  const querySnapshot = await onSnapshot(postCollection);
+  const querypost = query(postCollection, orderBy('createdDateTime', 'desc'));
+  const querySnapshot = await getDocs(querypost);
   return querySnapshot;
 };
 

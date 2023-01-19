@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, onGetPost, currentUserInfo } from "../index.js";
+import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts } from "../index.js";
 
 
 export const login = () => {
@@ -48,47 +48,54 @@ export const login = () => {
 
   //Funcion postear
   const divTimeLine = divLogin.querySelector('#timeline-posts');
-    onGetPost((querySnapshot) => {
-      
-      querySnapshot.forEach(post => {
-      const postObj = post.data();
-      let divPostEntry = document.createElement("div");
+  //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
+  const refreshPosts = () => {
 
-      let imgUser = document.createElement("img");
-      let userName = document.createElement("h2");
-      let userPostText = document.createElement("h2");
-      let dateTimePost = document.createElement("h1");
-      let likePost = document.createElement('img');
+    getAllPosts().then((posts) => {
+      divTimeLine.innerHTML = '';
+      posts.forEach(post => {
+        const postObj = post.data();
+        let divPostEntry = document.createElement("div");
 
-      divPostEntry.className = "timeLine-post";
-      imgUser.setAttribute('src', 'images/user.png');
-      imgUser.className = "iconUser";
-      userName.innerHTML = postObj.user;
-      userName.className = 'user-name-post'
-      userPostText.innerHTML = postObj.postText;
-      likePost.setAttribute('src', '/images/1erlike.png');
-      likePost.className = 'primer-like'
-      
-      userPostText.className = 'textPost';
-      dateTimePost.innerHTML = new Date (post.data().createdDateTime.seconds * 1000);
-      dateTimePost
+        let imgUser = document.createElement("img");
+        let userName = document.createElement("h2");
+        let userPostText = document.createElement("h2");
+        let dateTimePost = document.createElement("h1");
+        let likePost = document.createElement('img');
 
-      dateTimePost.className = 'date-post'
+        divPostEntry.className = "timeLine-post";
+        imgUser.setAttribute('src', 'images/user.png');
+        imgUser.className = "iconUser";
+        userName.innerHTML = postObj.user;
+        userName.className = 'user-name-post'
+        userPostText.innerHTML = postObj.postText;
+        likePost.setAttribute('src', '/images/1erlike.png');
+        likePost.className = 'primer-like'
+        userPostText.className = 'textPost';
+        dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000).toLocaleString();
+        dateTimePost
+
+        dateTimePost.className = 'date-post'
 
 
 
-      divPostEntry.appendChild(userName);
-      divPostEntry.appendChild(userPostText);
-      divPostEntry.appendChild(dateTimePost);
-      divPostEntry.appendChild(imgUser);
-      divPostEntry.appendChild(likePost);
+        divPostEntry.appendChild(userName);
+        divPostEntry.appendChild(userPostText);
+        divPostEntry.appendChild(dateTimePost);
+        divPostEntry.appendChild(imgUser);
+        divPostEntry.appendChild(likePost);
 
-      divTimeLine.appendChild(divPostEntry);
-      document.querySelector('#btn-post').innerText = 'PUBLICAR';
-      document.querySelector('#modal-background-post').style.display = 'none';
-      document.querySelector('#modal-content-post').style.display = 'none';
+        divTimeLine.appendChild(divPostEntry);
+        document.querySelector('#btn-post').innerText = 'PUBLICAR';
+        document.querySelector('#modal-background-post').style.display = 'none';
+        document.querySelector('#modal-content-post').style.display = 'none';
+      });
     });
-  });
+  };
+
+  //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
+  refreshPosts();
+
 
 
   //Funcion cerrar sesion
@@ -102,8 +109,6 @@ export const login = () => {
   );
 
 
-  
-  // // timeLine.innerHTML = postCollection;
 
 
   //Funcion abrir modal
@@ -146,6 +151,8 @@ export const login = () => {
           document.querySelector('#modal-background-post').style.display = 'none';
           document.querySelector('#modal-content-post').style.display = 'none';
           divLogin.querySelector('#input-post').value = '';
+          //se vuelve a mandar llamar getDocs una vez que el nuevo post fue posteado correctamente
+          refreshPosts();
         })
         .catch((error) => {
           console.error('Error: ', error);
