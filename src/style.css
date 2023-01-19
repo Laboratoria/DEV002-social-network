@@ -543,20 +543,38 @@ input::placeholder {
   text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   margin: 0;
   position: absolute;
-  top: 25px;
-  left: 19px
+  top: 35px;
+  left: 17px
 }
 
 .avatarImg{
    width: 65px;
    height: 65px;
    position: absolute;
-   right: 12px;
-   top:12px
+   left:280px; 
+   top:20px
 }
 .section-feed {
   width: 360px;
   height: 800px;
   justify-content: center;
   background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
+}
+ .buttonUnpload{
+  width: 128px;
+  height: 20px;
+  border: none;
+  position: absolute;
+  top: 70px;
+  left: 190px;
+}
+
+.inputProfile{
+  text-align: center;
+  width: 100px;
+  height: 50px;
+  color: #575454;
+  position: absolute;
+  top: 25px;
+  text-indent: 25px;
 }

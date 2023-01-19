@@ -9,20 +9,28 @@ export const feed = () => {
     titulo.textContent = "Dad's Power";
     titulo.className = 'tituloh2-feed';
     feedSection.appendChild(titulo);
-     
-    const perfil = document.createElement('div') 
+
+    const perfil = document.createElement('div')
     perfil.className = 'avatarUser';
-    // const username = document.getElementById('idUsername');
-    // username.id = 'idUsername';
-    // perfil.appendChild(username);
-    // perfil.type = 'file'
+    const buttonUnpload = document.createElement('input')
+    buttonUnpload.className= 'buttonUnpload';
+    buttonUnpload.type = 'file';
+    buttonUnpload.id = 'perfilAvatar'
+    perfil.appendChild(buttonUnpload)
+    
+
     const avatarImg = document.createElement('img');
     avatarImg.className = 'avatarImg';
     avatarImg.src = '/components/imagen/avatar.png';
     perfil.appendChild(avatarImg);
     feedSection.appendChild(perfil);
+
+
+
     
-    const fondo = document.createElement('section')
+    
+    
+
 
 
     return feedSection;
