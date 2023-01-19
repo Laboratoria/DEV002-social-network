@@ -1,0 +1,154 @@
+/*vista de bienvenido*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8FAE4;
+}
+
+.nombreAplicacion {
+    display: flex;
+    text-align: center;
+    margin-top: 150px;
+    font-size: 40px;
+    color: #aa8b56;
+}
+
+.imageLogo {
+    position: absolute;
+    top: 25%;
+    left: 40.8%;
+    width: 350px;
+    height: 350px;
+}
+
+.welcomeh1 {
+    margin-top: 420px;
+    color: #aa8b56;
+    font-size: 40px;
+}
+
+#buttonRegister {
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    text-transform: uppercase;
+    height: 40px;
+    width: 50%;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+}
+
+#buttonLogin {
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    text-transform: uppercase;
+    height: 40px;
+    width: 50%;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+}
+
+/*vista de regitrarse*/
+.registrate{
+    margin-top: 420px;
+    color: #aa8b56;
+    font-size: 40px;
+}
+
+#google {
+    border-radius: 40px;
+    font-size: 18px;
+    background: #ffffff;
+    text-transform: uppercase;
+    height: 40px;
+    width: 50%;
+    color: #000000;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+}
+
+.iconGoogle{
+    height: 22px;
+    width: 22px;
+    position: absolute;
+    left: 42%;
+}
+
+.iconCorreo{
+    height: 25px;
+    width: 25px;
+    position: absolute;
+    left: 42%;
+}
+
+#correo {
+    border-radius: 40px;
+    font-size: 18px;
+    background: #1BA87E;
+    text-transform: uppercase;
+    height: 40px;
+    width: 50%;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+}
+
+#home{
+    font-size: 14px;
+    height: 30px;
+    width: 50%;
+    color: #000000;
+    border: 1px solid #658351;
+    margin: 2px;
+    padding: 2px;
+}
+
+/*Loguin css */
+
+.contenedorForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top:  1px;
+}
+
+.userpassword,
+.username ,
+.button {
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    height: 30px;
+    width: 250px;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 20px;
+
+}
+
+.hrefHome{
+    margin-top: 20px;
+    display: block;
+}
+
+  /* Dar color más tenue al placeholder de los input */
+input::placeholder {
+    color: hsl(210, 40%, 96%);
+}
+
