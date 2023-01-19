@@ -1,4 +1,5 @@
 import {onNavigate} from '../main.js';
+import {popupRegister} from '../lib/firebase/registerFir.js';
 
 export const register =() => {
     const homeDiv = document.createElement('div');
@@ -36,7 +37,10 @@ export const register =() => {
     buttonGoogle.id= 'google';
     buttonCorreo.id= 'correo';
 
-    buttonGoogle.addEventListener('click',() => onNavigate('/'));
+    buttonGoogle.addEventListener('click',() => {
+        popupRegister();
+        onNavigate('/')
+    });
     buttonCorreo.addEventListener('click',() => onNavigate('/'));
     
 
