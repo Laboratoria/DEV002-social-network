@@ -1,32 +1,15 @@
-/*export const login = document.createElement("div")
-const inicio = (x) =>{
-inicio.innerHTML +=`
-<section class="flex-cont">
-  <img src="" alt="">
-  <h1>We Study</h1>
-  <button class="login">Login</button>
-  <button class="IniciaSesión">Inicia Sesión</button>
-  <button class="Creaunacuenta">Crea una cuenta</button>
-</section>
+/* eslint-disable import/no-cycle */
+import { navigateRoutes } from '../main';
+/* PAGINA DE INICIO DE SESION */
+export const login = () => {
+  const div = document.createElement('div');
+  div.textContent = 'LOG IN';
+  const btnHome = document.createElement('button');
 
+  btnHome.textContent = 'Regresar';
+  btnHome.addEventListener('click', () => navigateRoutes('/'));
 
-}
-login.appendChild(inicio)*/
+  div.appendChild(btnHome);
 
-export const login = () =>{
-    const datosDiv = document.createElement("div");
-
-    const buttonLogin = document.createElement("button");
-    const buttonIniciaSesion = document.createElement("button");
-    const buttonCreaUnaCuenta = document.createElement("button");
-
-    buttonLogin.textContent = "Log in";
-    buttonIniciaSesion.textContent = "Inicia Sesión";
-    buttonCreaUnaCuenta.textContent = "Crea una cuenta";
-
-    datosDiv.appendChild(buttonLogin);
-    datosDiv.appendChild(buttonIniciaSesion);
-    datosDiv.appendChild(buttonCreaUnaCuenta);
-
-    return datosDiv;
-}
+  return div;
+};

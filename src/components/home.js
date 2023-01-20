@@ -1,14 +1,20 @@
+/* eslint-disable import/no-cycle */
+import { navigateRoutes } from '../main.js';
+/* HOME DE INICIO DE SESION DE LA APP */
+export const home = () => {
+  const divHome = document.createElement('div');
 
-export const home = () =>{
-    const datosDiv = document.createElement("div");
-    const buttonRegistro = document.createElement("button")
-    const buttonLogin = document.createElement("button")
+  const btnRegister = document.createElement('button'); /* boton de registro */
+  const btnLogin = document.createElement('button'); /* inicia sesion - continue with google */
 
-    buttonRegistro.textContent = "Registrate";
-    buttonLogin.textContent = "Inicia Sesión";
+  btnRegister.textContent = 'Registrate';
+  btnLogin.textContent = 'Inicia Sesión';
 
-    datosDiv.appendChild(buttonRegistro);
-    datosDiv.appendChild(buttonLogin);
+  btnRegister.addEventListener('click', () => navigateRoutes('/Register')); /* evento click para ejecutar funcion navigate. -param:pathname- */
+  btnLogin.addEventListener('click', () => navigateRoutes('/Login'));
 
-    return datosDiv
+  divHome.appendChild(btnRegister);
+  divHome.appendChild(btnLogin);
+
+  return divHome;
 };
