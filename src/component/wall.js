@@ -1,4 +1,4 @@
-import { savePublic } from "../lib/firestore.js";
+import { savePublic } from '../lib/firestore.js';
 
 export const Wall = () => {
   const $sectionW = document.createElement('section'); // padre de tres
@@ -151,9 +151,9 @@ export const Wall = () => {
   $imgWallCat.setAttribute('alt', 'wallCat');
 
   $formWall.addEventListener('submit', (e) => {
-    e.preventDefault()
-    savePublic($inputPublication.value)
-    $formWall.reset()
-  })
+    e.preventDefault();
+    savePublic($inputPublication.value);
+    $formWall.reset();
+  });
   return $sectionW;
 };
