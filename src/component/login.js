@@ -88,7 +88,7 @@ export const Login = () => {
   $inputSignUpCat.setAttribute('name', 'btn_signUpCat');
   $inputSignUpCat.setAttribute('class', 'btn_signUpCat');
   $inputSignUpCat.setAttribute('id', 'btn_signUpIdCat');
-  $inputSignUpCat.setAttribute('value', 'SIGN UP');
+  $inputSignUpCat.setAttribute('value', 'SIGN IN');
 
   $inputForgotP.setAttribute('type', 'submit');
   $inputForgotP.setAttribute('class', 'forgotP');
@@ -116,14 +116,13 @@ export const Login = () => {
 
   $divForm.addEventListener('submit', (e) => {
     e.preventDefault();
-    const email = $divForm['email.UserId'].value;
-    const password = $divForm['password.UserId'].value;
-
-    exitConsult(email, password);
+    exitConsult($inputEmail.value, $inputPassword.value);
+    surfing('/Wall');
   });
 
   $inputBtnGoogle.addEventListener('click', async () => {
     await authGoogle();
+    surfing('/Wall');
   });
 
   $pSignUp.addEventListener('click', () => {

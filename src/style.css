@@ -258,6 +258,77 @@ img {
 }
 /*------------------------CSS REGISTER----------------------------------*/
 
+.Saludo{
+    width: 100%;
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem 2rem;
+}
+.Saludo img{
+    width: 20%;
+}
+.Saludo h2{
+    color: white;
+    font-family: system-ui;
+}
+.ContainerOrange{
+    height: 39vh;
+    width: 100vw;
+    background-color: #FF9F00;
+    display: flex;
+    flex-direction: row-reverse;
+}
+.rightOrange{
+    width: 35vw;
+}
+.imagenWall{
+    display: flex;
+    justify-content: flex-end;
+}
+.imagenWall img{
+    width: 90%;
+}
+.leftOrange{
+    width: 65vw;
+}
+.hPost{
+    width: 82%;
+    margin-left: 9%;
+}
+.hPost h3{
+    color: white;
+    font-size: 10vw;
+    text-align: end;
+    margin-top: 7%;
+    font-family: system-ui;
+    line-height: 5vh;
+}
+.ContFormWall{
+    height: 12vh;
+    display: flex;
+    justify-content: end;
+}
+.formWall{
+   display: flex;
+   justify-content: end;
+   flex-direction: column;
+   align-items: center;
+}
+.inp_publication{
+    background-color: #efefef;
+    border-radius: 17px;
+    height: 9vh;
+    border: none;
+}
+.btn_send{
+    background-color: var(--colorTurquois);
+    border: none;
+    border-radius: 5px;
+    color: var(--colorWhite);
+    margin-top: 6px;
+}
 
 
 @media screen and (min-width: 500px) {
