@@ -2,33 +2,18 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
 
-import { getFirestore} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { init } from "./lib/firebase/config.js";
+//import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+//import { init } from "./lib/firebase/config.js";
 import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
-import { saveDocs  } from "./lib/firebase/methodsFirestore.js";
+import { postsRef } from "./lib/firebase/methodsFirestore.js";
 
 /*logout importar*/
-
-
-
-const app = init();
+//const app = init();
 
 const auth = getAuth();
 
-/* FEED */
-// Initialize Cloud Firestore and get a reference to the service
 
-const db = getFirestore(app);
-
-const modalPost = document.getElementById('modal-add-post');
-modalPost.addEventListener('submit', (e) => {
-    e.preventDefault();
-    console.log('enviado')
-   const descripcion =  modalPost ['modal-add-post']
-   saveDocs(descripcion.value)
-
-})
-
+  /*..................................AUTH CONTROLLER.................................*/
 
 
 function validarCorreo(correo) {
@@ -86,7 +71,6 @@ if (signupForm) {
 
   });
 };
-
 
 
 // SIGN IN
@@ -154,6 +138,13 @@ if (googleButton) {
 
 
 
-  //FEED CONTROLLER
+  /*..................................FIRESTORE CONTROLLER.................................*/
 
-
+//MOSTRAR POSTS EXISTENTES
+  //console.log('postsRef',postsRef);
+  export let posts = [];
+   postsRef.forEach((item) => { /*para traer los posts de mi colección */
+  //   // console.log(`${doc.id} => ${doc.data()}`);
+   posts.push({ id: item.id, data: item.data() });
+  });
+   //console.log('posts', posts);

@@ -1,39 +1,27 @@
-import { collection, addDoc} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+// Import the functions you need from the SDKs you need
+import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 
 
-export const saveDocs = (titulo , descripcion) => 
-addDoc(collection (db, 'posts'),{titulo,descripcion});
+const firebaseConfig = {
+    apiKey: 'AIzaSyAQKOcN9jLUCxn2zXz-mkJKV-BaeFjcKvo',
+    authDomain: 'redsocialnvj-47db7.firebaseapp.com',
+    projectId: 'redsocialnvj-47db7',
+    storageBucket: 'redsocialnvj-47db7.appspot.com',
+    messagingSenderId: '161909447570',
+    appId: '1:161909447570:web:b126b68b577520ab947f4b',
+  };
+
+  // Initialize Firebase
+// console.log('app', app)
+// export const init = () =>{
+//   return app;
+// }
+export const app = initializeApp(firebaseConfig);
 
 
+import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
-export const getDocs = () => {
-console.log('task-list')
-}
-
-
- const postsRef = await getDocs(collection(db, 'posts'));
-//  if (postsRef.exists()) {
-//     console.log(item.data)
-//  }
-let html = "";
-postsRef.forEach((item) => { /*para traer los posts de mi colección */
-// console.log(`${doc.id} => ${doc.data()}`);
- //post.push({ id: item.id, data: item.data() });
- const post = item.data()
- 
- html+= `
-     <div> 
-     <h1> ${post.titulo} </h1> 
-     <p> ${post.descripcion} </p>
-     </di>`
-});
-modalPost.innerText = html;
- 
-
-
-
-
- //};
-// console.log('posts', posts); 
-
- 
+// Initialize Cloud Firestore and get a reference to the service
+const db = getFirestore(app);
+export const postsRef = await getDocs(collection(db, 'posts'));
+//console.log('postsRef',postsRef);

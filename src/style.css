@@ -536,7 +536,7 @@ input::placeholder {
   height: 800px;
 }
 
-/* estilos SECTION FEED */
+/* .....................estilos SECTION FEED............... */
 
 .section-feed {
   width: 360px;
@@ -629,9 +629,29 @@ input::placeholder {
 
 .modal-add-post {
   width: 80%;
-  height: 15vh;
-  background: #ffffff;
-  border-radius: 10px;
-  text-indent: 10px;
+  height: 50vh;
+  background: #334E6F;
+  border-radius: 12px;
+}
 
+.contenedor-posts {
+  width: 100%;
+  height: 82vh;
+  background-color: transparent;
+  border: 2px solid rgb(244, 130, 197);
+
+  display: flex;
+  /* or inline-flex */
+  flex-direction: column;
+  flex-direction: row;
+
+  justify-content: center;
+
+}
+
+.post-div {
+  width: 95%;
+  height: 25vh;
+  border: 1px solid rgb(67, 33, 53);
+  border-radius: 10px;
 }
