@@ -321,6 +321,7 @@ img {
     border-radius: 17px;
     height: 9vh;
     border: none;
+    outline: none;
 }
 .btn_send{
     background-color: var(--colorTurquois);

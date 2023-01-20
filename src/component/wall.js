@@ -13,9 +13,8 @@ export const Wall = () => {
   const $h3Post = document.createElement('h3');
   const $containerFormWall = document.createElement('div');
   const $formWall = document.createElement('form');
-  const $inputPublication = document.createElement('input');
+  const $inputPublication = document.createElement('textarea');
   const $inputBtnWall = document.createElement('input');
-
   const $containerPublication = document.createElement('div'); // hijo de section y padre de dos 2
   const $divPublicUser = document.createElement('div'); // padre gris y blanca   hijo 1
   const $divPublicU = document.createElement('div'); // parte gris
@@ -27,11 +26,6 @@ export const Wall = () => {
   const $inputReactionEdit = document.createElement('input');
   const $divReactionDelete = document.createElement('div'); // padre eliminar
   const $inputReactionDelete = document.createElement('input');
-
-
-
-
-
   const $divSignOffCat = document.createElement('div'); // hijo 2
   const $btnSingOff = document.createElement('input');
   const $imgWallCat = document.createElement('img');
@@ -98,7 +92,7 @@ export const Wall = () => {
   $formWall.setAttribute('class', 'formWall');
   $formWall.setAttribute('id', 'formWall');
 
-  $inputPublication.setAttribute('type', 'text');
+  // $inputPublication.setAttribute('type', 'text');
   $inputPublication.setAttribute('name', 'inp_publication');
   $inputPublication.setAttribute('class', 'inp_publication');
   $inputPublication.setAttribute('id', 'inp_idPublication');
