@@ -1,6 +1,6 @@
 import { signOutFun } from '../app/signOut.js';
 import { onNavigate } from '../main.js';
-import { firebaseAuth, getDoc, getOnDatas, getPost } from '../app/firebase.js';
+import { firebaseAuth, getDoc, getOnDatas, getPost, updatePosts } from '../app/firebase.js';
 import { saveTask } from '../app/getDoc.js';
 
 
@@ -46,6 +46,9 @@ export const Feed = () => {
     FeedDiv.innerHTML = template
     const hamburger = FeedDiv.querySelector('#hamburgerDiv')
     const navMenu = FeedDiv.querySelector('#navMenu')
+    let stateEdit = false;
+    let id = ''
+
     hamburger.addEventListener('click', ()=>{
         // añade clases de css existan o no
         hamburger.classList.toggle('active')
@@ -68,9 +71,17 @@ export const Feed = () => {
     
     const taskForm = FeedDiv.querySelector('.task-form')
     taskForm.addEventListener ('submit', (e) => {
-       e.preventDefault()
-       const description = taskForm["postsTextArea"]
-       saveTask(description.value)
+       e.preventDefault();
+       if (stateEdit != false) {
+        const descriptio = taskForm["postsTextArea"]
+        saveTask(descriptio.value)
+       } else {
+        updatePosts(id, {description:descriptio.value});
+        stateEdit = false;
+        id = '';
+        console.log ("ayuda1500")
+    }
+       
        taskForm.reset();
     })
     
@@ -83,19 +94,28 @@ export const Feed = () => {
         <section class="btn-posts" id="btnPosts">        
         <div class="posts-div-btns" id="postsDivBtns">            
             <button class="paw-posts-div-btns"><img src="../Assets/pata-blanca.png"  alt="white_paw" class="paw-img" id="pawPostsDivBtns" ></button>
-            <button class="edit-posts-div-btns" id="editPostsDivBtns">Editar</button>
+            <button class="edit-posts-div-btns" id="editPostsDivBtns" data-id="${postsContent.id}">Editar</button>
         </div>
         <section class="posts" id="posts"><div>
         <h3>${lista.description}</h3>
-    </div></section></section>
+        </div></section></section>
             `
+            console.log("bandera123015",postsContent.id)
         })
-    const btnEditDiv= FeedDiv.querySelectorAll(".edit-posts-div-btns");
-    btnEditDiv.forEach(btn=>{
-        btn.addEventListener('click', (e)=>{
-            console.log(e, "este es el evento")
-        })
-    })
+    const btnEditDiv = FeedDiv.querySelectorAll(".edit-posts-div-btns");
+    const forTextArea = FeedDiv.querySelector("#postsTextArea");
+    btnEditDiv.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+            try{
+           const getId = await getPost(e.target.dataset.id)
+           const post = getId.data() 
+           stateEdit = true
+           id = getId.id
+           forTextArea.value = post.description           
+            }catch (error){console.log("quiero llorar",error)}
+        });
+    
+    }) 
        
         
     })
