@@ -48,6 +48,8 @@ const getPost = (id) => getDoc(doc(database, 'posts', id));
 const updatePosts = (id, newFields) =>
   updateDoc(doc(database, "posts", id), newFields);
 
+ const erasePost = (id) => deleteDoc(doc(database, 'posts', id))
+
 // Guardar username desde el registro
 // const saveDisplayName = (usernameIngresado) => {
 //   return updateProfile(firebaseAuth.currentUser, {displayName: usernameIngresado})
@@ -64,5 +66,5 @@ export {
   getDocs, setDoc, doc, onSnapshot, query, where, deleteDoc,
   updateDoc, arrayRemove, arrayUnion, getStorage, ref,
   storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
-  collectionPost, addDoc, getTask, getOnDatas,getPost, updatePosts
+  collectionPost, addDoc, getTask, getOnDatas,getPost, updatePosts, erasePost
 };

@@ -1,6 +1,6 @@
 import { signOutFun } from '../app/signOut.js';
 import { onNavigate } from '../main.js';
-import { firebaseAuth, getDoc, getOnDatas, getPost, updatePosts } from '../app/firebase.js';
+import { firebaseAuth, getDoc, getOnDatas, getPost, updatePosts, erasePost } from '../app/firebase.js';
 import { saveTask } from '../app/getDoc.js';
 
 
@@ -95,6 +95,8 @@ export const Feed = () => {
         <div class="posts-div-btns" id="postsDivBtns">            
             <button class="paw-posts-div-btns"><img src="../Assets/pata-blanca.png"  alt="white_paw" class="paw-img" id="pawPostsDivBtns" ></button>
             <button class="edit-posts-div-btns" id="editPostsDivBtns" data-id="${postsContent.id}">Editar</button>
+            <button class="delete-posts-div-btns" id="deletePostsDivBtns" data-id="${postsContent.id}">Eliminar</button>
+            
         </div>
         <section class="posts" id="posts"><div>
         <h3>${lista.description}</h3>
@@ -114,8 +116,19 @@ export const Feed = () => {
            forTextArea.value = post.description           
             }catch (error){console.log("quiero llorar",error)}
         });
+    })
+        const eraseBTn = FeedDiv.querySelectorAll(".delete-posts-div-btns");
+        eraseBTn.forEach((btn) => {
+            btn.addEventListener('click', ({ target:{dataset}}) => {
+            erasePost(dataset.id)
+               
+                console.log("quiero llorar por el boton de eliminar", )
+
+        })
+
     
-    }) 
+
+    });
        
         
     })
@@ -126,18 +139,3 @@ export const Feed = () => {
     
        return FeedDiv;
 }
-
-
-
-/*
-<div class="posts-background" id="postsBackground">
-    <label>Post:</label>
-    <textarea class="posts-div-p" id="postsTextArea" placeholder="PUBLICACIÓN"></textarea>
-    <button class="create-post-button">Publicar</button>
-</div>
-*/
-
-/*
-<label for="title">Title</label>
-<input type="text" placeholder="task title" id="taskTitle">
-*/
