@@ -1,3 +1,5 @@
+import { savePublic } from "../lib/firestore.js";
+
 export const Wall = () => {
   const $sectionW = document.createElement('section'); // padre de tres
   const $divContainerWall = document.createElement('div'); // hijo 1
@@ -148,5 +150,9 @@ export const Wall = () => {
   $imgWallCat.setAttribute('src', 'img/gato.png');
   $imgWallCat.setAttribute('alt', 'wallCat');
 
+  $formWall.addEventListener('submit', (e) => {
+    e.preventDefault()
+    savePublic($inputPublication.value)
+  })
   return $sectionW;
 };
