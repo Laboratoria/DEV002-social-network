@@ -130,6 +130,7 @@ export const Register = () => {
   $divFormF.addEventListener('submit', (e) => {
     e.preventDefault();
     createUser($inputEmailF.value, $inputPasswordF.value);
+    surfing('/Wall');
   });
 
   return $sectionF;

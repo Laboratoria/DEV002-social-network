@@ -71,28 +71,28 @@ export const Wall = () => {
 
   // ----------ATRIBUTOS-------------//
 
-  $sectionW.setAtribute('class', 'sectionWall');
-  $divContainerWall.setAtribute('class', 'wallContainer');
-  $divSaludo.setAtribute('class', 'Saludo');
+  $sectionW.setAttribute('class', 'sectionWall');
+  $divContainerWall.setAttribute('class', 'wallContainer');
+  $divSaludo.setAttribute('class', 'Saludo');
   $imgLogoW.setAttribute('src', 'img/logoNewMe.png');
   $imgLogoW.setAttribute('alt', 'Logo NewMe');
   $h2name.textContent = 'Hello';
 
-  $containerOrange.setAtribute('class', 'ContainerOrange');
+  $containerOrange.setAttribute('class', 'ContainerOrange');
 
-  $divRightOrange.setAtribute('class', 'rightOrange');
-  $divImgWall.setAtribute('class', 'imagenWall');
+  $divRightOrange.setAttribute('class', 'rightOrange');
+  $divImgWall.setAttribute('class', 'imagenWall');
   $imgWall.setAttribute('src', 'img/imgMuro.png');
   $imgWall.setAttribute('alt', 'Img Niña Muro');
 
-  $divLeftOrange.setAtribute('class', 'leftOrange');
-  $divH3Post.setAtribute('class', 'hPost');
-  $h3Post.textContent = '';
-  $containerFormWall.setAtribute('class', 'ContFormWall');
+  $divLeftOrange.setAttribute('class', 'leftOrange');
+  $divH3Post.setAttribute('class', 'hPost');
+  $h3Post.textContent = 'What was your change today?';
+  $containerFormWall.setAttribute('class', 'ContFormWall');
   $formWall.setAttribute('class', 'formWall');
   $formWall.setAttribute('id', 'formWall');
 
-  $inputPublication.setAttribute('type', 'submit');
+  $inputPublication.setAttribute('type', 'text');
   $inputPublication.setAttribute('name', 'inp_publication');
   $inputPublication.setAttribute('class', 'inp_publication');
   $inputPublication.setAttribute('id', 'inp_idPublication');
@@ -147,4 +147,6 @@ export const Wall = () => {
 
   $imgWallCat.setAttribute('src', 'img/gato.png');
   $imgWallCat.setAttribute('alt', 'wallCat');
+
+  return $sectionW;
 };
