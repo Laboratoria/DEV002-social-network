@@ -48,4 +48,5 @@ function render() {
 
 
 window.addEventListener('popstate', render);  
-window.addEventListener('load', render) 
+window.addEventListener('load', render)
+window.addEventListener("DOMContentLoaded", ready)

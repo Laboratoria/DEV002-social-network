@@ -52,5 +52,5 @@ export {
   getDocs, setDoc, doc, onSnapshot, query, where, deleteDoc,
   updateDoc, arrayRemove, arrayUnion, getStorage, ref,
   storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
-  collectionPost, addDoc,getTask
+  collectionPost, addDoc
 };

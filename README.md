@@ -25,140 +25,11 @@ En este proyecto construimos una Red Social pensada para los amantes de las masc
 - Empleamos un servicio externo (Firebase) para la persistencia de datos de la aplicación.
 - Creamos, implementamos y probamos pruebas unitarias que permiten testear código asíncrono.
 
-## 3. Objetivos de aprendizaje
-
-### HTML
-
-- [ ] **Uso de HTML semántico**
-
-  
-
-### CSS
-
-- [ ] **Uso de selectores de CSS**
-
-  
-
-- [ ] **Modelo de caja (box model): borde, margen, padding**
-
-  
-
-- [ ] **Uso de flexbox en CSS**
-
-  
-- [ ] **Uso de CSS Grid Layout**
-
-  
-### Web APIs
-
-- [ ] **Uso de selectores del DOM**
-
-  
-
-- [ ] **Manejo de eventos del DOM (listeners, propagación, delegación)**
-
- 
-
-- [ ] **Manipulación dinámica del DOM**
-
-  
-
-- [ ] **Ruteado (History API, evento hashchange, window.location)**
-
-  
-### JavaScript
-
-- [ ] **Arrays (arreglos)**
-
-  
-
-- [ ] **Objetos (key, value)**
-
-  
-
-- [ ] **Diferenciar entre tipos de datos primitivos y no primitivos**
-
-- [ ] **Variables (declaración, asignación, ámbito)**
-
-  
-- [ ] **Uso de condicionales (if-else, switch, operador ternario, lógica booleana)**
-
-  
-- [ ] **Uso de bucles/ciclos (while, for, for..of)**
-
-  
-
-- [ ] **Funciones (params, args, return)**
-
-  
-
-- [ ] **Pruebas unitarias (unit tests)**
-
-  
-
-- [ ] **Pruebas asíncronas**
-
-  
-
-- [ ] **Uso de mocks y espías**
-
-  
-- [ ] **Módulos de ECMAScript (ES Modules)**
-
-  
-- [ ] **Uso de linter (ESLINT)**
-
-- [ ] **Uso de identificadores descriptivos (Nomenclatura y Semántica)**
-
-- [ ] **Diferenciar entre expresiones (expressions) y sentencias (statements)**
-
-- [ ] **Callbacks**
-
-  
-- [ ] **Promesas**
-
-  
-### Control de Versiones (Git y GitHub)
-
-- [ ] **Git: Instalación y configuración**
-
-- [ ] **Git: Control de versiones con git (init, clone, add, commit, status, push, pull, remote)**
-
-- [ ] **Git: Integración de cambios entre ramas (branch, checkout, fetch, merge, reset, rebase, tag)**
-
-- [ ] **GitHub: Creación de cuenta y repos, configuración de llaves SSH**
-
-- [ ] **GitHub: Despliegue con GitHub Pages**
-
-  
-
-- [ ] **GitHub: Colaboración en Github (branches | forks | pull requests | code review | tags)**
-
-- [ ] **GitHub: Organización en Github (projects | issues | labels | milestones | releases)**
-
-### Centrado en el usuario
-
-- [ ] **Diseñar y desarrollar un producto o servicio poniendo a las usuarias en el centro**
-
 ### Diseño de producto
 
-- [ ] **Crear prototipos de alta fidelidad que incluyan interacciones** ( https://www.figma.com/file/okPNuzTyDvguHkHSiOED2b/Petblr%2C-Alta-fidelidad?node-id=0%3A1&t=BfRGsLcNUbFfGfms-0s)
 
-- [ ] **Seguir los principios básicos de diseño visual**
 
-### Investigación
 
-- [ ] **Planear y ejecutar testeos de usabilidad de prototipos en distintos niveles de fidelidad**
-
-  
-
-### Firebase
-
-- [ ] **Firebase Auth**
-
- 
-
-- [ ] **Firestore**
 
   
 ## 4. Consideraciones generales
@@ -195,9 +66,14 @@ que detalles:
 
 
 
-### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad)
+### 5.4 Diseño de la Interfaz de Usuario (prototipo de baja fidelidad y de alta fidelidad)
 
-[figma] (https://www.figma.com/file/VyqgzSv2gE2qza4Ddq5Zm7/Prototipo-baja-fidelidad?t=BfRGsLcNUbFfGfms-0)
+Diseño de baja fidelidad
+![Diseño de baja fidelidad](./src/Assets/Prototipobajafidelidad.jpg)
+
+Diseño de alta fidelidad
+![Diseño de alta fidelidad](./src/Assets/Altafidelidad.png)
+
 
 ### 5.5 Responsive
 
