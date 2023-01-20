@@ -153,6 +153,7 @@ export const Wall = () => {
   $formWall.addEventListener('submit', (e) => {
     e.preventDefault()
     savePublic($inputPublication.value)
+    $formWall.reset()
   })
   return $sectionW;
 };
