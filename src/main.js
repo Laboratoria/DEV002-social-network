@@ -2,28 +2,19 @@
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
 
-import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { init } from "./lib/firebase/config.js";
+//import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+//import { init } from "./lib/firebase/config.js";
 import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
+import { postsRef } from "./lib/firebase/methodsFirestore.js";
 
 /*logout importar*/
-const app = init();
+//const app = init();
 
 const auth = getAuth();
 
 
-// Initialize Cloud Firestore and get a reference to the service
+  /*..................................AUTH CONTROLLER.................................*/
 
-const db = getFirestore(app);
-const postsRef = await getDocs(collection(db, 'posts'));
-//console.log('posts', postsRef);
-let posts = [];
-// const posts = postsRef.map((item) => ({ id: item.id, data: item.data() }))
-postsRef.forEach((item) => { /*para traer los posts de mi colección */
-  // console.log(`${doc.id} => ${doc.data()}`);
-  posts.push({ id: item.id, data: item.data() });
-});
-console.log('posts', posts);
 
 function validarCorreo(correo) {
   const expReg = /^[a-z0-9!#$%&'+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'+/=?^_`{|}~-]+)@(?:[a-z0-9](?:[a-z0-9-][a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
@@ -80,7 +71,6 @@ if (signupForm) {
 
   });
 };
-
 
 
 // SIGN IN
@@ -148,6 +138,13 @@ if (googleButton) {
 
 
 
-  //FEED CONTROLLER
+  /*..................................FIRESTORE CONTROLLER.................................*/
 
-
+//MOSTRAR POSTS EXISTENTES
+  //console.log('postsRef',postsRef);
+  export let posts = [];
+   postsRef.forEach((item) => { /*para traer los posts de mi colección */
+  //   // console.log(`${doc.id} => ${doc.data()}`);
+   posts.push({ id: item.id, data: item.data() });
+  });
+   //console.log('posts', posts);
