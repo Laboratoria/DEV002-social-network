@@ -1,5 +1,5 @@
 import { toNavigate } from "../main.js";
-import { auth, signInWithPass, viewer } from "../Firebase/firebase.js";
+import { auth, signInWithPass, viewer, provider, popUpGoogle } from "../Firebase/firebase.js";
 
 export const home = () => {
     //Creamos elementos del Formulario
@@ -27,7 +27,7 @@ export const home = () => {
     homeForm.appendChild(buttonGoogle);
 
     viewer();
-   
+
     buttonLogin.addEventListener("click", () => {
         homeForm.addEventListener("submit", async (e) => {
             e.preventDefault()
@@ -38,19 +38,36 @@ export const home = () => {
                 const userCredentials = await signInWithPass(auth, emailLogin, passwordLogin)
                 console.log(userCredentials.user)
             } catch (error) {
-                console.log(error)
+                if (error.code === "auth/user-not-found"){
+                    alert("usuario NO encontrado");
+                }else if (error.code === "auth/wrong-password"){
+                    alert("Contraseña incorrecta");
+                } else if (error.code){
+                console.log(error.code);
+                }
             }
-    
+
             toNavigate("/feed");
         })
     })
 
     hrefRegister.addEventListener("click", () => toNavigate("/register"));
-    buttonGoogle.addEventListener("click", () => toNavigate("/feed"));
+    buttonGoogle.addEventListener("click", async (e) => {
+        e.preventDefault()
 
-    
+        try {
+            const credentials = await popUpGoogle(auth, provider);
+            console.log(credentials.user);
+            toNavigate("/feed");
+        } catch (error) {
+            console.log(error);
+        }
+    });
+
+
     return homeForm
 }
+
 
 
 

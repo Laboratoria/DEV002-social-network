@@ -45,8 +45,18 @@ export const register = () => {
                 const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
                 console.log(userCredentials)
             } catch (error) {
-                console.log(error)
+                if(error.code === "auth/invalid-email"){
+                    alert("email inválido");
+                } else if (error.code === "auth/weak-password"){
+                    alert("contraseña débil");
+                } else if (error.code === "auth/email-already-in-use"){
+                    alert("email en uso");
+                } else if (error.code){
+                    alert("algo anda mal");
+                }
             }
+
+            
 
             toNavigate("/registerOk");
         })
