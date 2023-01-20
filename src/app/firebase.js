@@ -37,9 +37,14 @@ const storageRef = ref(storage);
 const collectionUserName = collection(database, 'usernames');
 const collectionUserNamesSpanish = collection(database, 'usuarios');
 const collectionPost = collection(database, 'posts');
-const getTask = () => {
-console.log("HOLI")
-}
+const getTask = () => getDocs(collection(database, 'posts'));
+
+
+const getOnDatas = (callback) => {
+  const orderQuery = query(collection(database,'posts'));
+  onSnapshot(orderQuery,(callback))};
+
+const getPost = (id) => getDoc(doc(database, 'post', id));
 
 // Guardar username desde el registro
 // const saveDisplayName = (usernameIngresado) => {
@@ -57,5 +62,5 @@ export {
   getDocs, setDoc, doc, onSnapshot, query, where, deleteDoc,
   updateDoc, arrayRemove, arrayUnion, getStorage, ref,
   storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
-  collectionPost, addDoc, getTask
+  collectionPost, addDoc, getTask, getOnDatas,getPost
 };

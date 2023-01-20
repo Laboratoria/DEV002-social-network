@@ -1,6 +1,6 @@
 import { signOutFun } from '../app/signOut.js';
 import { onNavigate } from '../main.js';
-import { firebaseAuth} from '../app/firebase.js';
+import { firebaseAuth, getDoc, getOnDatas, getPost } from '../app/firebase.js';
 import { saveTask } from '../app/getDoc.js';
 
 
@@ -39,14 +39,9 @@ export const Feed = () => {
             <button class="create-post-btn" id="createPostBtn">Publicar</button>
         </form>
     </section>
-    <section class="btn-posts" id="btnPosts">
-    <div id="toPost"> </div>
-        <div class="posts-div-btns" id="postsDivBtns">
-            <div id="taskContainer"></div>
-            <button class="paw-posts-div-btns"><img src="../Assets/pata-blanca.png"  alt="white_paw" class="paw-img" id="pawPostsDivBtns" ></button>
-            <button class="edit-posts-div-btns" id="editPostsDivBtns">Editar</button>
-        </div>
-    <section class="posts" id="posts">
+    <div id="postsContainer">
+    
+    </div>
     `
     FeedDiv.innerHTML = template
     const hamburger = FeedDiv.querySelector('#hamburgerDiv')
@@ -76,17 +71,40 @@ export const Feed = () => {
        e.preventDefault()
        const description = taskForm["postsTextArea"]
        saveTask(description.value)
+       taskForm.reset();
     })
     
-    // const toPost = FeedDiv.querySelector('#toPost')
-    
-    //     const fun = async () => {
-    //     const querySnapshot = await getPosts() 
-    //     console.log(querySnapshot)
+    getOnDatas((listasPosts) => {
+        postsContainer.innerHTML =''
+        listasPosts.forEach((postsContent)=>{
+        const lista = postsContent.data();
+            postsContainer.innerHTML += `
+            
+        <section class="btn-posts" id="btnPosts">        
+        <div class="posts-div-btns" id="postsDivBtns">            
+            <button class="paw-posts-div-btns"><img src="../Assets/pata-blanca.png"  alt="white_paw" class="paw-img" id="pawPostsDivBtns" ></button>
+            <button class="edit-posts-div-btns" id="editPostsDivBtns">Editar</button>
+        </div>
+        <section class="posts" id="posts"><div>
+        <h3>${lista.description}</h3>
+    </div></section></section>
+            `
+        })
+    const btnEditDiv= FeedDiv.querySelectorAll(".edit-posts-div-btns");
+    btnEditDiv.forEach(btn=>{
+        btn.addEventListener('click', (e)=>{
+            console.log(e, "este es el evento")
+        })
+    })
        
-    // }
+        
+    })
+
+    
    
-    return FeedDiv;
+    
+    
+       return FeedDiv;
 }
 
 
