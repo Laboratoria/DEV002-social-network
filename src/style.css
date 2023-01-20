@@ -329,6 +329,59 @@ img {
     color: var(--colorWhite);
     margin-top: 6px;
 }
+.contPublic{
+    padding: 5vh 10% 0px 10%;
+    width: 100%;
+}
+.publicUser{
+    width: 100%;
+}
+.div_publiU{
+    height: 20vh;
+    background-color: var(--colorDarkGrey);
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+.reactions{
+    background-color: var(--colorWhite);
+    display: grid;
+    grid-template-rows: 41px;
+    grid-template-columns: repeat(3, 33.3%);
+    justify-items: center;
+    align-items: center;
+    border-bottom-left-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.reactionsLikes{
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+}
+.reactionsLikes img{
+    width: 18%;
+}
+.signOff{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 21px 0 21px;
+}
+.btnSignOff{
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: var(--colorWhite);
+    font-weight: bold;
+}
+.signOff img{
+    width: 20%;
+}
+.reactions div input{
+    background-color: transparent;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
 
 
 @media screen and (min-width: 500px) {
