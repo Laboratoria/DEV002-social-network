@@ -17,7 +17,7 @@ import firebaseConfig from './firebaseconfig.js';
 
 // Servivcios Firebase
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
 const provider = new GoogleAuthProvider();
 
