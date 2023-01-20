@@ -10,7 +10,7 @@ export const login = () => {
   <html>
   <header>
       <img src='./images/logo.png' alt='logoReading' class='logo-header'>
-      <button type='button' id='btn-sign-out'>Cerrar sesion</button>
+      <input type='image' id='btn-sign-out' src='../../images/logout.png'></input>
       <div class='container-images'>
       </div>
   </header>
@@ -60,30 +60,37 @@ export const login = () => {
         let imgUser = document.createElement("img");
         let userName = document.createElement("h2");
         let userPostText = document.createElement("h2");
+        let editIcon = document.createElement('img');
         let dateTimePost = document.createElement("h1");
         let likePost = document.createElement('img');
+        let deleteIcon = document.createElement('img');
+    
 
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
         imgUser.className = "iconUser";
         userName.innerHTML = postObj.user;
-        userName.className = 'user-name-post'
+        userName.className = 'user-name-post';
         userPostText.innerHTML = postObj.postText;
+        editIcon.setAttribute('src','/images/editar.png'); 
+        editIcon.className = 'edit-icon';
+        deleteIcon.setAttribute('src','/images/delete.png');
+        deleteIcon.className = 'delete-icon';
         likePost.setAttribute('src', '/images/1erlike.png');
-        likePost.className = 'primer-like'
+        likePost.className = 'primer-like';
         userPostText.className = 'textPost';
         dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000).toLocaleString();
-        dateTimePost
-
         dateTimePost.className = 'date-post'
 
 
 
         divPostEntry.appendChild(userName);
-        divPostEntry.appendChild(userPostText);
-        divPostEntry.appendChild(dateTimePost);
         divPostEntry.appendChild(imgUser);
-        divPostEntry.appendChild(likePost);
+        divPostEntry.appendChild(userPostText);
+        userPostText.appendChild(dateTimePost);
+        userPostText.appendChild(editIcon);
+        userPostText.append(deleteIcon);
+        userPostText.appendChild(likePost);
 
         divTimeLine.appendChild(divPostEntry);
         document.querySelector('#btn-post').innerText = 'PUBLICAR';
