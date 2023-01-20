@@ -1,4 +1,6 @@
 import { toNavigate } from "../main.js";
+import { auth, viewer, signInWithPass} from "../Firebase/firebase.js"
+import { register } from "../components/register.js"
 
 export const registerOk = () => {
 
@@ -7,7 +9,18 @@ export const registerOk = () => {
 
     buttonContinue.textContent = "Continuar";
 
-    buttonContinue.addEventListener("click", () => toNavigate("/feed"));
+    buttonContinue.addEventListener("click", () => {
+    viewer(auth, async (user) => {
+        if(user) {
+            register();
+            const signInOk = await signInWithPass(auth, userCredentials.email, userCredentials.password)
+            console.log(signInOk, "funciona");
+            toNavigate("/home");
+        }
+    })  
+    
+    toNavigate("/feed");
+});
 
     registerOkDiv.appendChild(buttonContinue);
 
