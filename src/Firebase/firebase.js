@@ -4,6 +4,4 @@ import { getAuth, createUserWithEmailAndPassword } from 'https://www.gstatic.com
 export const auth = getAuth(app);
 
 //Crear Usuario
-export const signUpWithPass = (auth, email, password) => {
-    createUserWithEmailAndPassword(auth, email, password)
-}
+export const signUpWithPass = (auth, email, password) => createUserWithEmailAndPassword(auth, email, password)

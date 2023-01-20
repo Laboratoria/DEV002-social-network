@@ -43,6 +43,7 @@ export const register = () => {
             console.log(emailForm, passwordForm)
             try {
                 const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
+                window.currentUser = userCredentials
                 console.log(userCredentials)
             } catch (error) {
                 console.log(error)
