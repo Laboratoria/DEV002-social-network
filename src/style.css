@@ -6,6 +6,7 @@
 }
 
 :root {
+    --snowWhite: #ffffff;
     --lightIvory: #F8EDE4;
     --dogBrown: #563c2e;
     --palePink: #dcc5b6;
@@ -490,7 +491,7 @@ main .create-post .create-post-button {
     background-color: var(--pigPink);
     color: var(--lightIvory);
     border: none;
-    box-shadow: 0px 4px 4px rgb(0 0 0 / 25%);
+    box-shadow: 0px 4px 4px rgba(42, 21, 21, 0.25);
 }
 
 /* Feed posts */
@@ -509,9 +510,11 @@ main .posts .posts-background {
     margin-top: 2rem;
 }
 
-main .posts .posts-background .posts-div-p {
-    font-size: 2.5rem;
-    background: none;
+main .posts .task-form .posts-div-p {
+    background-color: var(--snowWhite);
+    border: none;
+    width: 100%;
+    height: 4rem;
 }
 
 /* Feed button posts */

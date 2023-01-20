@@ -1,6 +1,9 @@
 import { signOutFun } from '../app/signOut.js';
 import { onNavigate } from '../main.js';
-import { firebaseAuth } from '../app/firebase.js';
+import { firebaseAuth} from '../app/firebase.js';
+import { saveTask } from '../app/getDoc.js';
+
+
 
 export const Feed = () => {
     const FeedDiv = document.createElement('div');
@@ -30,13 +33,14 @@ export const Feed = () => {
         <button class="create-post-button" id="createPostButton">CREAR PUBLICACIÓN</button>
     </section>
     <section class="posts" id="posts">
-        <form id="taskForm">
+        <form class="task-form" id="taskForm">
             <label for="user">Usuario</label>
             <textarea class="posts-div-p" id="postsTextArea" rows="3" placeholder="PUBLICACIÓN"></textarea>
-            <button class="create-post-button" id="createPostBtn">Publicar</button>
+            <button class="create-post-btn" id="createPostBtn">Publicar</button>
         </form>
     </section>
     <section class="btn-posts" id="btnPosts">
+    <div id="toPost"> </div>
         <div class="posts-div-btns" id="postsDivBtns">
             <div id="taskContainer"></div>
             <button class="paw-posts-div-btns"><img src="../Assets/pata-blanca.png"  alt="white_paw" class="paw-img" id="pawPostsDivBtns" ></button>
@@ -66,14 +70,26 @@ export const Feed = () => {
         signOutFun(firebaseAuth)
         onNavigate('/')
     })
-    //ver lo que se escribe en el textArea
-    FeedDiv.querySelector('#postsTextArea').addEventListener('keyup', ()=>{
-        const postText = FeedDiv.querySelector('#postsTextArea').value
-        console.log({postText})
+    
+    const taskForm = FeedDiv.querySelector('.task-form')
+    taskForm.addEventListener ('submit', (e) => {
+       e.preventDefault()
+       const description = taskForm["postsTextArea"]
+       saveTask(description.value)
     })
-
+    
+    // const toPost = FeedDiv.querySelector('#toPost')
+    
+    //     const fun = async () => {
+    //     const querySnapshot = await getPosts() 
+    //     console.log(querySnapshot)
+       
+    // }
+   
     return FeedDiv;
 }
+
+
 
 /*
 <div class="posts-background" id="postsBackground">

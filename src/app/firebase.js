@@ -37,11 +37,16 @@ const storageRef = ref(storage);
 const collectionUserName = collection(database, 'usernames');
 const collectionUserNamesSpanish = collection(database, 'usuarios');
 const collectionPost = collection(database, 'posts');
+const getTask = () => {
+console.log("HOLI")
+}
 
 // Guardar username desde el registro
 // const saveDisplayName = (usernameIngresado) => {
 //   return updateProfile(firebaseAuth.currentUser, {displayName: usernameIngresado})
 // };
+
+
 
 export {
   firebaseApp, firebaseAuth, createUserWithEmailAndPassword,
@@ -52,5 +57,5 @@ export {
   getDocs, setDoc, doc, onSnapshot, query, where, deleteDoc,
   updateDoc, arrayRemove, arrayUnion, getStorage, ref,
   storage, database, storageRef, collectionUserName, collectionUserNamesSpanish,
-  collectionPost, addDoc,getTask
+  collectionPost, addDoc, getTask
 };
