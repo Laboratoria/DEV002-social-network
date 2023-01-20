@@ -1,11 +1,15 @@
 import { toNavigate } from "../main.js";
+import { auth, signInWithPass } from "../Firebase/firebase.js";
 
 export const home = () => {
-    //Creamos elementos del Home
-    const homeDiv = document.createElement("div");
+    //Creamos elementos del Formulario
+    //const homeDiv = document.createElement("div");
+    const homeForm = document.createElement("form");
     const inputMail = document.createElement("input");
     const inputPassword = document.createElement("input");
     const buttonLogin = document.createElement("button");
+
+    const signInDiv = document.createElement("div");
     const hrefRegister = document.createElement("a");
     const buttonGoogle = document.createElement("button");
 
@@ -13,16 +17,39 @@ export const home = () => {
     hrefRegister.textContent = "Crea una cuenta";
     buttonGoogle.textContent = "Continuar con Google";
 
-    buttonLogin.addEventListener("click", () => toNavigate("/feed"));
+    //homeDiv.appendChild(homeForm);
+    homeForm.appendChild(inputMail);
+    homeForm.appendChild(inputPassword);
+    homeForm.appendChild(buttonLogin);
+
+    //homeForm.appendChild(homeForm);
+    homeForm.appendChild(hrefRegister);
+    homeForm.appendChild(buttonGoogle);
+
+   
+    buttonLogin.addEventListener("click", () => {
+        homeForm.addEventListener("submit", async (e) => {
+            e.preventDefault()
+            const emailLogin = inputMail.value
+            const passwordLogin = inputPassword.value
+            console.log(emailLogin, passwordLogin)
+            try {
+                const userCredentials = await signInWithPass(auth, emailLogin, passwordLogin)
+                console.log(userCredentials.user)
+            } catch (error) {
+                console.log(error)
+            }
+    
+            toNavigate("/feed");
+        })
+    })
+
     hrefRegister.addEventListener("click", () => toNavigate("/register"));
     buttonGoogle.addEventListener("click", () => toNavigate("/feed"));
 
-    homeDiv.appendChild(inputMail);
-    homeDiv.appendChild(inputPassword);
-    homeDiv.appendChild(buttonLogin);
-    homeDiv.appendChild(hrefRegister);
-    homeDiv.appendChild(buttonGoogle);
     
-    return homeDiv
+    return homeForm
 }
+
+
 
