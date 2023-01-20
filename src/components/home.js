@@ -1,5 +1,5 @@
 import { toNavigate } from "../main.js";
-import { auth, signInWithPass } from "../Firebase/firebase.js";
+import { auth, signInWithPass, viewer } from "../Firebase/firebase.js";
 
 export const home = () => {
     //Creamos elementos del Formulario
@@ -26,6 +26,7 @@ export const home = () => {
     homeForm.appendChild(hrefRegister);
     homeForm.appendChild(buttonGoogle);
 
+    viewer();
    
     buttonLogin.addEventListener("click", () => {
         homeForm.addEventListener("submit", async (e) => {
