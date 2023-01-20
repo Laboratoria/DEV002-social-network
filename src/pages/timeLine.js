@@ -13,9 +13,9 @@ export const timeLine = () => {
 <section class="seccion-publicar">
     <div class="contenedor-publicaciones">
         <picture>  <img class="user-logo-publicaciones" src="./images/user.png" alt=""> </picture>
-        <div> <input class="input-recomendaciones" type="text" placeholder="¿Cuáles son tus  recomendaciones de hoy?"> </div>
+        <div> <input  id="imprimir" class="input-recomendaciones" type="text" placeholder="¿Cuáles son tus  recomendaciones de hoy?"> </div>
     </div>
-    <button class="btn-publicar">Publicar</button>
+    <button class="btn-publicar" id="btn-publicar">Publicar</button>
 </section>
 <hr>
 <section class="seccion-publicar2">
@@ -25,7 +25,7 @@ export const timeLine = () => {
          
         <img src="./images/editlogo2.png" class="edit-logo" id="edit-logo" alt="edit-logo">
         <img src="./images/deletelogo2.png" class="delete-logo" id="delete-logo" alt="delete-logo">
-        <input class="input-publicacion" type="text" img src="./images/heart.png>   
+        <input class="input-publicacion" type="text"">   
         </div>
     <div class="contenedor-likes">
         <img class="heart-logo" src="./images/heart.png" alt="heart">
