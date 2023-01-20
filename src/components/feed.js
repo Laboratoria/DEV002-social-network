@@ -19,12 +19,7 @@ export const feed = () => {
 
     const perfil = document.createElement('div')
     perfil.className = 'avatarUser';
-    const buttonUnpload = document.createElement('input')
-    buttonUnpload.className= 'buttonUnpload';
-    buttonUnpload.type = 'file';
-    buttonUnpload.id = 'perfilAvatar'
-    perfil.appendChild(buttonUnpload)
-    
+
 
     const avatarImg = document.createElement('img');
     avatarImg.className = 'avatarImg';
@@ -33,14 +28,6 @@ export const feed = () => {
 
     containerHeader.appendChild(perfil);
 
-
-    /*
-    const post = document.createElement('input');
-    post.type = 'text';
-    post.className ='post-input';
-    post.placeholder = 'what do you need?';
-    post.id = 'idPost';
-    postDiv.appendChild(post); */
 
     const createContainerButtons = document.createElement('div');
     createContainerButtons.className = 'container-buttons';
@@ -51,6 +38,7 @@ export const feed = () => {
     createPostButton.innerHTML = '<i class="fa-solid fa-circle-plus fa-2xl"></i>';
 
     createPostButton.addEventListener('click', () => openModalAddPost(feedSection));
+
 
     const perfilButton = document.createElement('button');
     perfilButton.id = 'idPerfilButton'
@@ -117,11 +105,18 @@ export const feed = () => {
 }
 
 const openModalAddPost = (feedSection) => {
-    console.log('post');
     const containerAddPost = document.createElement('div');
     containerAddPost.className = 'container-add-post';
     feedSection.appendChild(containerAddPost);
-    const openModalAddPost = document.createElement('div');
+    const openModalAddPost = document.createElement('textarea');
     openModalAddPost.className = 'modal-add-post';
+    openModalAddPost.id = 'modal-add-post';
+    openModalAddPost.placeholder = 'What do you need?'
     containerAddPost.appendChild(openModalAddPost);
+    const buttonModal = document.createElement('button');
+    buttonModal.type= 'submit';
+    buttonModal.textContent = 'submit';
+    containerAddPost.appendChild(buttonModal)
+    
 }
+
