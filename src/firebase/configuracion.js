@@ -1,8 +1,8 @@
 // Importa la biblioteca de Firebase
-import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js'
-import { createUserWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { getAuth, signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js'
-
+// eslint-disable-next-line import/no-unresolved
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
+import {createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // const auth = getAuth();
 
 // Your web app's Firebase configuration
@@ -19,6 +19,15 @@ const firebaseConfig = {
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider(app);
+export const db = getFirestore(app);
+
+export const saveTask = (description) => 
+    addDoc(collection(db, 'tasks'),{description});
+export const getTasks =() => getDocs(collection(db, 'tasks'))
+export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback);
+export const deleteTask = id => deleteDoc(doc(db, 'tasks', id));
+export const getTask = id => getDoc(doc(db, "tasks", id));
+export const updateTask =  (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
 
 
 // Crea una función para registrar usuarios
@@ -28,22 +37,24 @@ export function registerUser(email, password, callback) {
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
       const user = userCredential.user;
-      const userId = user.uid
-      console.log(user, userId)
-      callback(true)
+      const userId = user.uid;
+      console.log(user, userId);
+      callback(true);
     })
     .catch((error) => {
       console.error(error.code);
       if (error.code === 'auth/email-already-in-use') {
-        alert('Este correo ya está registrado')
+        alert('Este correo ya está registrado');
       } else if (error.code === 'auth/weak-password') {
-        alert('Tu contraseña debe contener al menos 6 caracteres')
+
+        alert('Tu contraseña debe contener al menos 6 caracteres');
+        
       } else if (error.code === 'auth/invalid-email') {
-        alert('Este correo no existe o es inválido')
+        alert('Este correo no existe o es inválido');
       } else if (error.code === 'auth/internal-error') {
-        alert("Completa todos los campos")
+        alert('Completa todos los campos');
       }
-      callback(false)
+      callback(false);
     });
 }
 
@@ -51,36 +62,12 @@ export const authGoogle = async () => {
   try {
     const userResult = await signInWithPopup(auth, provider);
     console.log(userResult);
-    console.log("probando")
+    console.log('probando');
     window.location.href = '/timeLine';
   } catch (error) {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    const correo = error.customData.email;
-    console.log(error);
+    // const errorCode = error.code;
+    // const errorMessage = error.message;
+    // const correo = error.customData.email;
+    // console.log(error);
   }
 };
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

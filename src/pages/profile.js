@@ -1,7 +1,7 @@
 export const profile = () => {
-    const divProfile = document.createElement('div');
-    divProfile.setAttribute('class', 'container-div-profile');
-    const viewProfile = `
+  const divProfile = document.createElement('div');
+  divProfile.setAttribute('class', 'container-div-profile');
+  const viewProfile = `
     <header>
     <nav class="contenedor-nav"> 
         <li class="perfil-nav"> Perfil </li> 
@@ -43,7 +43,9 @@ export const profile = () => {
            <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
         </a>
     </nav>
-  `
-    divProfile.innerHTML = viewProfile;
-    return divProfile;
+
+  `;
+  divProfile.innerHTML = viewProfile;
+  return divProfile;
+
 };
