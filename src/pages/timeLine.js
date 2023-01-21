@@ -23,13 +23,8 @@ export const timeLine = () => {
 </section>
 <hr>
 <section class="seccion-publicar2">
-    <div class="contenedor-publicaciones" id="contenedor-publicaciones">
-     <picture>  <img class="user-logo-publicaciones2" src="./images/user.png" alt="user-logo"> </picture>
-       
-        <div> 
-            <img src="./images/editlogo2.png" class="edit-logo" id="edit-logo" alt="edit-logo">
-            <img src="./images/deletelogo2.png" class="delete-logo" id="delete-logo" alt="delete-logo">
-            <textarea id="post-publicado" class="input-publicacion" type="text"> </textarea>   
+    <div class="contenedor-publicaciones2" id="contenedor-publicaciones">
+    
         </div>
 
         <div class="contenedor-likes">

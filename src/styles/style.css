@@ -185,6 +185,9 @@ p {
     grid-template-columns: 85px 300px;
     margin-top: 2rem;
 }
+.contenedor-publicaciones2 {
+    text-align: left;
+}
 
 .user-logo-publicaciones {
     width: 5rem;
