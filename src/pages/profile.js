@@ -43,7 +43,9 @@ export const profile = () => {
            <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
         </a>
     </nav>
+
   `;
   divProfile.innerHTML = viewProfile;
   return divProfile;
+
 };

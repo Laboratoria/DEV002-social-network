@@ -46,7 +46,9 @@ export function registerUser(email, password, callback) {
       if (error.code === 'auth/email-already-in-use') {
         alert('Este correo ya está registrado');
       } else if (error.code === 'auth/weak-password') {
+
         alert('Tu contraseña debe contener al menos 6 caracteres');
+        
       } else if (error.code === 'auth/invalid-email') {
         alert('Este correo no existe o es inválido');
       } else if (error.code === 'auth/internal-error') {
