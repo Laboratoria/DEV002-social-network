@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
+import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // const auth = getAuth();
 
 // Your web app's Firebase configuration
@@ -26,7 +26,8 @@ export const saveTask = (description) =>
 export const getTasks =() => getDocs(collection(db, 'tasks'))
 export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback);
 export const deleteTask = id => deleteDoc(doc(db, 'tasks', id));
-export const getTask = id => getDoc(doc(db, "tasks", id))
+export const getTask = id => getDoc(doc(db, "tasks", id));
+export const updateTask =  (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
 
 
 // Crea una función para registrar usuarios

@@ -1,10 +1,11 @@
 //import { async } from 'regenerator-runtime';
-import { saveTask, getTasks, onGetTasks, deleteTask, getTask} from './configuracion.js'
+import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask} from './configuracion.js'
 
 const tasksContainer = document.getElementById('contenedor-publicaciones');
 const taskForm = document.getElementById('task-form');
 
 let editStatus = false;
+let id = '';
 
 window.addEventListener('DOMContentLoaded', async () =>{
         onGetTasks((querySnapshot) => {
@@ -39,7 +40,10 @@ window.addEventListener('DOMContentLoaded', async () =>{
             const task = doc.data() 
 
             taskForm['task-description'].value = task.description
-            editStatus = true
+            editStatus = true;
+            id= doc.id
+
+            taskForm['btn-publicar'].innerText = 'Update'
             })
         })
     });
@@ -50,12 +54,15 @@ taskForm.addEventListener('submit', (e)=>{
 
    const description = taskForm['task-description'];
     
-   if(editStatus) {
-        console.log('updating')
-    }else {
+   if(!editStatus) {
         saveTask(description.value);
+    }else {
+        updateTask(id, {
+            description: description.value,
+        });
 
+        editStatus = false;
     }
 
-   taskForm.reset()
+   taskForm.reset();
 })
