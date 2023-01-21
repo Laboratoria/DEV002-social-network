@@ -25,9 +25,8 @@ export const saveTask = (description) =>
     addDoc(collection(db, 'tasks'),{description});
 export const getTasks =() => getDocs(collection(db, 'tasks'))
 
-export const onGetTasks = () =>console.log('onGetTasks')
+export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback)
 
-  export { onSnapshot, collection }
 
 // Crea una función para registrar usuarios
 export function registerUser(email, password, callback) {
