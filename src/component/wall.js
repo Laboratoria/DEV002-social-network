@@ -1,4 +1,6 @@
 import { savePublic } from '../lib/firestore.js';
+// eslint-disable-next-line import/no-cycle
+import { surfing } from '../main.js';
 
 export const Wall = () => {
   const $sectionW = document.createElement('section'); // padre de tres
@@ -155,5 +157,10 @@ export const Wall = () => {
     savePublic($inputPublication.value);
     $formWall.reset();
   });
+
+  $btnSingOff.addEventListener('click', () => {
+    surfing('/');
+  });
+
   return $sectionW;
 };

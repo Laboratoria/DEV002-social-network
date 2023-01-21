@@ -101,13 +101,15 @@ img {
     border-radius: 25px;
     border: none;
     cursor: pointer;
+    text-indent: 10%;
 }
 .passwordUser{
     width: 85%;
     height: 4vh;
     border-radius: 25px;
     border: none;
-    cursor: pointer;    
+    cursor: pointer;  
+    text-indent: 10%;  
 }
 ::placeholder{
     text-align: center;
@@ -231,6 +233,7 @@ img {
     border-radius: 25px;
     border: none;
     cursor: pointer;
+    text-indent: 10%;
 }
 .formRegister{
     display: flex;
