@@ -13,24 +13,31 @@ export const timeLine = () => {
 <section class="seccion-publicar">
     <div class="contenedor-publicaciones">
         <picture>  <img class="user-logo-publicaciones" src="./images/user.png" alt=""> </picture>
-        <div> <input  id="imprimir" class="input-recomendaciones" type="text" placeholder="¿Cuáles son tus  recomendaciones de hoy?"> </div>
-    </div>
+        <form id="task-form"> 
+            <label for="description"> Description </label>
+            <textarea  id="task-description" rows="3" class="input-recomendaciones" type="text" placeholder="¿Cuáles son tus  recomendaciones de hoy?"> </textarea> 
+    
     <button class="btn-publicar" id="btn-publicar">Publicar</button>
+    </form>
+    </div>
 </section>
 <hr>
 <section class="seccion-publicar2">
-    <div class="contenedor-publicaciones">
-        <picture>  <img class="user-logo-publicaciones2" src="./images/user.png" alt="user-logo"> </picture>
-        <div>
-         
-        <img src="./images/editlogo2.png" class="edit-logo" id="edit-logo" alt="edit-logo">
-        <img src="./images/deletelogo2.png" class="delete-logo" id="delete-logo" alt="delete-logo">
-        <input class="input-publicacion" type="text"">   
+    <div class="contenedor-publicaciones" id="contenedor-publicaciones">
+     <picture>  <img class="user-logo-publicaciones2" src="./images/user.png" alt="user-logo"> </picture>
+       
+        <div> 
+            <img src="./images/editlogo2.png" class="edit-logo" id="edit-logo" alt="edit-logo">
+            <img src="./images/deletelogo2.png" class="delete-logo" id="delete-logo" alt="delete-logo">
+            <textarea id="post-publicado" class="input-publicacion" type="text"> </textarea>   
         </div>
-    <div class="contenedor-likes">
-        <img class="heart-logo" src="./images/heart.png" alt="heart">
-        <p> 3 </p>
-    </div>
+
+        <div class="contenedor-likes">
+            <img class="heart-logo" src="./images/heart.png" alt="heart">
+            <p> 3 </p>
+        </div>
+    </div> 
+    
     </section>
 
     <nav class="navbar">
