@@ -46,7 +46,7 @@ export const Feed = () => {
     FeedDiv.innerHTML = template
     const hamburger = FeedDiv.querySelector('#hamburgerDiv')
     const navMenu = FeedDiv.querySelector('#navMenu')
-    let stateEdit = false;
+    let stateEdit = false
     let id = ''
 
     hamburger.addEventListener('click', ()=>{
@@ -70,17 +70,23 @@ export const Feed = () => {
     })
     
     const taskForm = FeedDiv.querySelector('.task-form')
+    const posts= FeedDiv.querySelector('.posts-div-p')
     taskForm.addEventListener ('submit', (e) => {
        e.preventDefault();
-       if (stateEdit != false) {
-        const descriptio = taskForm["postsTextArea"]
-        saveTask(descriptio.value)
-       } else {
-        updatePosts(id, {description:descriptio.value});
-        stateEdit = false;
-        id = '';
-        console.log ("ayuda1500")
-    }
+       if (!stateEdit){
+        saveTask(posts.value)
+        console.log('Esto es publicar')
+       }else {
+        updatePosts(id,{description:posts.value})
+        stateEdit = false
+        id = ''
+        console.log('esto es editar')}
+      
+           
+            
+        
+       
+    
        
        taskForm.reset();
     })
@@ -95,7 +101,7 @@ export const Feed = () => {
         <div class="posts-div-btns" id="postsDivBtns">            
             <button class="paw-posts-div-btns"><img src="../Assets/pata-blanca.png"  alt="white_paw" class="paw-img" id="pawPostsDivBtns" ></button>
             <button class="edit-posts-div-btns" id="editPostsDivBtns" data-id="${postsContent.id}">Editar</button>
-            <button class="delete-posts-div-btns" id="deletePostsDivBtns" data-id="${postsContent.id}">Eliminar</button>
+            <button class="delete-posts-div-btns" id="deletePostsDivBtns" data-id="${postsContent.id}"></button>
             
         </div>
         <section class="posts" id="posts"><div>
@@ -104,8 +110,8 @@ export const Feed = () => {
             `
             console.log("bandera123015",postsContent.id)
         })
-    const btnEditDiv = FeedDiv.querySelectorAll(".edit-posts-div-btns");
-    const forTextArea = FeedDiv.querySelector("#postsTextArea");
+    const btnEditDiv = FeedDiv.querySelectorAll(".edit-posts-div-btns")
+    const forTextArea = FeedDiv.querySelector("#postsTextArea")
     btnEditDiv.forEach((btn) => {
         btn.addEventListener('click', async (e) => {
             try{
