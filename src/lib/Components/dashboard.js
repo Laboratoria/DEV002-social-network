@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts } from "../index.js";
+import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts, deletePost } from "../index.js";
 
 
 export const login = () => {
@@ -54,7 +54,7 @@ export const login = () => {
     getAllPosts().then((posts) => {
       divTimeLine.innerHTML = '';
       posts.forEach(post => {
-        const postObj = post.data();
+        const postData = post.data();
         let divPostEntry = document.createElement("div");
 
         let imgUser = document.createElement("img");
@@ -69,13 +69,16 @@ export const login = () => {
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
         imgUser.className = "iconUser";
-        userName.innerHTML = postObj.user;
+        userName.innerHTML = postData.user;
         userName.className = 'user-name-post';
-        userPostText.innerHTML = postObj.postText;
+        userPostText.innerHTML = postData.postText;
         editIcon.setAttribute('src','/images/editar.png'); 
         editIcon.className = 'edit-icon';
         deleteIcon.setAttribute('src','/images/delete.png');
         deleteIcon.className = 'delete-icon';
+        deleteIcon.setAttribute('data-id', post.id);//
+        // console.log(post.id);
+        deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
         likePost.className = 'primer-like';
         userPostText.className = 'textPost';
@@ -97,13 +100,25 @@ export const login = () => {
         document.querySelector('#modal-background-post').style.display = 'none';
         document.querySelector('#modal-content-post').style.display = 'none';
       });
+
     });
+  };
+//listener del onclick detelePost
+  const deletePostListener = (event) => {
+    const postId = event.target.dataset.id;
+    console.log('delete clicked', postId);
+
+    deletePost(postId)
+    .then((response) => {
+      console.log(response);
+      alert(' Comentario borrado');
+      refreshPosts();
+    })
+    .catch(error => {console.log(error);});
   };
 
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
-
-
 
   //Funcion cerrar sesion
   const btnLogout = divLogin.querySelector('#btn-sign-out');
@@ -114,9 +129,6 @@ export const login = () => {
   divLogin.append(
     btnLogout,
   );
-
-
-
 
   //Funcion abrir modal
   const btnModal = divLogin.querySelector('#btn-input-modal');
@@ -169,7 +181,7 @@ export const login = () => {
         });
     });
   });
-
+ 
   return divLogin;
 
 };

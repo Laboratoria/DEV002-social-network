@@ -15,7 +15,9 @@ import {
   getDocs,
   onSnapshot,
   query,
-  orderBy
+  orderBy,
+  deleteDoc,
+  doc
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -88,4 +90,11 @@ export const getAllPosts = async () => {
 export const onGetPost = (querySnapshot) => {
   const querypost = query(collection(db, 'post'));
   onSnapshot(querypost, querySnapshot);
+}
+//función para borrar post
+export const deletePost = (id) => {
+  console.log('si se elimino', deletePost);
+  return deleteDoc(doc(firestore,'post',id));
+  
+  // console.log('muestrame id',id);
 }
