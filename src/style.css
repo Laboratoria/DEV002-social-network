@@ -530,13 +530,8 @@ input::placeholder {
   top:12px */
 }
 
-.post-div {
-  justify-content: center;
-  align-items: center;
 
-}
-
-.container-buttons {
+ .container-buttons {
   position: absolute;
   bottom: 0;
   left: 0;

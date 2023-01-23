@@ -1,19 +1,15 @@
 // Import the functions of Firestore for posting
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
-
-//import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-//import { init } from "./lib/firebase/config.js";
 import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
-//import { crearPost} from "./lib/firebase/methodsFirestore.js";
+
 
 /*logout importar*/
 //const app = init();
 
 const auth = getAuth();
 
-
-  /*..................................AUTH CONTROLLER.................................*/
+/*..................................AUTH CONTROLLER.................................*/
 
 
 function validarCorreo(correo) {
@@ -137,7 +133,10 @@ if (googleButton) {
 };
 
 
+<<<<<<< HEAD
 
 
 
 
+=======
+>>>>>>> 353e7b8df48abf0b48272cd8d2ea9fdd7e9d5160
