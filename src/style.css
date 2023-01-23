@@ -1,10 +1,10 @@
-/* * {
+* {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-  } */
+  }
 
- /*  :root {
+  :root {
     --main-color: #03a678;
     --secondary-red: #f25c5c;
     --secondary-orange: #f28705;
@@ -14,17 +14,9 @@
     --neutral-font: #fcfdff;
     --tittles-font-family: 'Oleo Script', cursive;
     --secundary-font-family: 'Roboto', sans-serif;
-  } */
-
- #root {
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      width: 100px;
-      height: 100px;
-      background-color: var(--neutral-background);
   }
+
+
 
   .container {
     display: flex;
@@ -34,25 +26,5 @@
     position: relative;
     width: 300px;
     height: 600px;
-  }
-
-  .container-logo {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .img-logo{
-    position: absolute;
-    width: 70%;
-  }
-
-  .container-form{
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
-    width: 80%
+    background-color: var(--neutral-background);
   }
