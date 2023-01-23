@@ -1,6 +1,7 @@
+// import { async } from "regenerator-runtime";
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts, deletePost } from "../index.js";
+import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts, deletePost, getTask } from "../index.js";
 
 
 export const login = () => {
@@ -74,9 +75,11 @@ export const login = () => {
         userPostText.innerHTML = postData.postText;
         editIcon.setAttribute('src','/images/editar.png'); 
         editIcon.className = 'edit-icon';
+        editIcon.setAttribute('data-id', post.id);
+        editIcon.onclick = editPostListener;
         deleteIcon.setAttribute('src','/images/delete.png');
         deleteIcon.className = 'delete-icon';
-        deleteIcon.setAttribute('data-id', post.id);//
+        deleteIcon.setAttribute('data-id', post.id);//el data-id es algo que ya trae firebase
         // console.log(post.id);
         deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
@@ -103,11 +106,20 @@ export const login = () => {
 
     });
   };
-//listener del onclick detelePost
-  const deletePostListener = (event) => {
-    const postId = event.target.dataset.id;
-    console.log('delete clicked', postId);
+//listener de onclick editarPost
+  const editPostListener = async(event) => {
+    const doc = await getTask(event.target.dataset.id);
+    console.log('documento de un post',doc.data());
+    const task = doc.data();
+    divLogin.querySelector('#input-post').value= task.postText;
+    console.log('valordeTexto',task.postText);
+  };
 
+//listener del onclick detelePost
+  const deletePostListener = (event) => {//event por default
+    const postId = event.target.dataset.id;//sacamos del target el id
+    console.log('delete clicked', postId);
+ 
     deletePost(postId)
     .then((response) => {
       console.log(response);
