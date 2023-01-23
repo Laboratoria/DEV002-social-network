@@ -50,8 +50,14 @@ export const feed = () => {
     createContainerButtons.appendChild(createPostButton);
     createContainerButtons.appendChild(comentarioButton)
 
+
+    //FORMULARIO PARA POSTEAR
+
     const formulario = document.createElement('form');
     formulario.id = 'idForm';
+    formulario.className = 'formulario-post';
+    feedSection.appendChild(formulario);
+
 
     const publicarPostButton = document.createElement('button');
     publicarPostButton.className = 'post-btn';
@@ -59,13 +65,13 @@ export const feed = () => {
     publicarPostButton.id = 'idPostButton';
     publicarPostButton.textContent = 'Create post';
     formulario.appendChild(publicarPostButton);
-    feedSection.appendChild(formulario);
 
 
 
     const formularioPost = document.getElementById('idForm')
     if (formularioPost) {
-        formularioPost.addEventListener('submit', () => {
+        formularioPost.addEventListener('submit', (e) => {
+            e.preventDefault();
             console.log('click')
             let textPost = document.getElementById('idUserPost').value;
             console.log(textPost);
@@ -74,7 +80,7 @@ export const feed = () => {
 
         const textoUser = document.createElement('textarea')
         textoUser.className = 'textoUser';
-        textoUser.name = 'addpost'
+        textoUser.name = 'addpost';
         textoUser.id = 'idUserPost';
         textoUser.placeholder = 'what do you need?'
         formulario.appendChild(textoUser);
