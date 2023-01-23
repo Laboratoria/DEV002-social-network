@@ -9,8 +9,7 @@ import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/fi
 
 const auth = getAuth();
 
-
-  /*..................................AUTH CONTROLLER.................................*/
+/*..................................AUTH CONTROLLER.................................*/
 
 
 function validarCorreo(correo) {
@@ -132,32 +131,3 @@ if (googleButton) {
     signinForm.reset();
   });
 };
-
-
-
-  /*..................................FIRESTORE CONTROLLER.................................*/
-
-//MOSTRAR POSTS EXISTENTES
-  //console.log('postsRef',postsRef);
-
-//export const llamarColeccion = () => {
-
-  //  export const posts = [];
-  //  postsRef()
-  //  .then(postsCollection => {
-  //   console.log(postsCollection);
-  //   postsCollection.forEach((item) => { /*para traer los posts de mi colección */
-  //     //   // console.log(`${doc.id} => ${doc.data()}`);
-  //     posts.push({ id: item.id, data: item.data() });
-  //   });
-  //  })
-  //  .catch(error => console.log("fallo la promesa de firestore", error))
-  //  console.log(posts);
-
-
-  // }
-  //  console.log('posts', posts);
-
-  //  CREAR UN NUEVO POST
-
-  //crearPost("", "inserción 2do post", "holi de juevo");

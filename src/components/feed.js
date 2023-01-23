@@ -1,6 +1,4 @@
-//import { onNavigate } from '../js/routes.js'
-//import { postsRef } from "./lib/firebase/methodsFirestore.js";
-//import { posts } from "../main.js";
+
 import { postsRef } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 
@@ -21,10 +19,8 @@ export const feed = () => {
 
     const perfil = document.createElement('div')
     perfil.className = 'avatarUser';
-    // const username = document.getElementById('idUsername');
-    // username.id = 'idUsername';
-    // perfil.appendChild(username);
-    // perfil.type = 'file'
+
+
     const avatarImg = document.createElement('img');
     avatarImg.className = 'avatarImg';
     avatarImg.src = '/components/imagen/avatar.png';
@@ -41,8 +37,6 @@ export const feed = () => {
     createPostButton.id = 'idCreatePostButton'
     createPostButton.innerHTML = '<i class="fa-solid fa-circle-plus fa-2xl"></i>';
 
-    // createPostButton.addEventListener('click', () => openModalAddPost(feedSection));
-
     const perfilButton = document.createElement('button');
     perfilButton.id = 'idPerfilButton'
     perfilButton.innerHTML = '<i class="fa-regular fa-circle-user fa-2xl"></i>';
@@ -54,27 +48,58 @@ export const feed = () => {
 
     createContainerButtons.appendChild(perfilButton);
     createContainerButtons.appendChild(createPostButton);
-    createContainerButtons.appendChild(comentarioButton);
+    createContainerButtons.appendChild(comentarioButton)
+
+    const formulario = document.createElement('form');
+    formulario.id = 'idForm';
+
+    const publicarPostButton = document.createElement('button');
+    publicarPostButton.className = 'post-btn';
+    publicarPostButton.type = 'submit';
+    publicarPostButton.id = 'idPostButton';
+    publicarPostButton.textContent = 'Create post';
+    formulario.appendChild(publicarPostButton);
+    feedSection.appendChild(formulario);
+
+
+
+    const formularioPost = document.getElementById('idForm')
+    if (formularioPost) {
+        formularioPost.addEventListener('submit', () => {
+            console.log('click')
+            let textPost = document.getElementById('idUserPost').value;
+            console.log(textPost);
+        });
+    }
+
+        const textoUser = document.createElement('textarea')
+        textoUser.className = 'textoUser';
+        textoUser.name = 'addpost'
+        textoUser.id = 'idUserPost';
+        textoUser.placeholder = 'what do you need?'
+        formulario.appendChild(textoUser);
+    
+
+
+
 
 
     const contenedorPosts = document.createElement('div');
     contenedorPosts.className = 'contenedor-posts';
     feedSection.appendChild(contenedorPosts);
 
-    //console.log('postsRef', postsRef);
-
     postsRef()
-    .then(postsCollection => {
-     postsCollection.forEach((item) => { /*para traer los posts de mi colección */
-      
-        const posts = item.data();
-        console.log(posts);
+        .then(postsCollection => {
+            postsCollection.forEach((item) => { /*para traer los posts de mi colección */
 
-         const postCreado = document.createElement('div');
-         postCreado.className = 'post-div';
- 
- 
-         postCreado.innerHTML = `
+                const posts = item.data();
+                console.log(posts);
+
+                const postCreado = document.createElement('div');
+                postCreado.className = 'post-div';
+
+
+                postCreado.innerHTML = `
          <div class = "container-post" id = "ContainerPost">
              <div class = "parte-superior-post">
                  <button class ="boton-editar" id="botonEditar" ><i class="fa-solid fa-pencil fa-lg"></i> </button>
@@ -86,11 +111,11 @@ export const feed = () => {
              <h4 class = "fecha-post">${posts["fecha"]}</h4> 
          </div>  
          `;
-         contenedorPosts.append(postCreado);
+                contenedorPosts.append(postCreado);
 
-     });
-    })
-    .catch(error => console.log("fallo la promesa de firestore", error))
+            });
+        })
+        .catch(error => console.log("fallo la promesa de firestore", error))
 
     return feedSection;
 

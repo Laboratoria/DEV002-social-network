@@ -1,7 +1,6 @@
 // Import the functions you need from the SDKs you need
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
 
-
 const firebaseConfig = {
     apiKey: 'AIzaSyAQKOcN9jLUCxn2zXz-mkJKV-BaeFjcKvo',
     authDomain: 'redsocialnvj-47db7.firebaseapp.com',
@@ -18,9 +17,8 @@ import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gsta
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
-
-//---------------Obteneniendo post desde firestore---------------
-export const postsRef = async () => await getDocs(collection(db, 'posts'))
+// Obtener la data desde el firestore
+export const postsRef = async () => await getDocs(collection(db, 'posts')) 
 
 console.log('postsRef',postsRef()); 
 
