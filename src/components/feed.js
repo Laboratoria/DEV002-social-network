@@ -1,5 +1,6 @@
 //import { onNavigate } from '../js/routes.js'
-
+//import { postsRef } from "./lib/firebase/methodsFirestore.js";
+import { posts } from "../main.js";
 export const feed = () => {
 
     const feedSection = document.createElement('section');
@@ -75,7 +76,6 @@ export const feed = () => {
     // `
 
 
-
     // const publicarPostButton = document.createElement('button');
     // publicarPostButton.className = 'post-btn';
     // publicarPostButton.id = 'idPostButton';
@@ -83,30 +83,38 @@ export const feed = () => {
     // modalPost.appendChild(publicarPostButton);
 
 
+    const contenedorPosts = document.createElement('div');
+    contenedorPosts.className = 'contenedor-posts';
+    feedSection.appendChild(contenedorPosts);
 
-    // const postDiv = document.createElement('div');
-    // postDiv.className = 'post-div';
-    // postDiv.id = 'idPostDiv';
+   
 
-    // const postCreado = `
-    // <div class = "container-post" id = "ContainerPost">
-    // <div class = "parte-superior-post">
-    // <!--<div>${user.perfil}</div>-->
-    // <button class ="boton-editar" id="botonEditar">
-    // <button class ="boton-eliminar" id="botonEliminar">
-    // </div>
-    // <button class ="boton-like" id="botonLike">
-    // <h2 class = "titulo-post">${post.titulo}</h2> 
-    // <h3 class = "descripcion-post"> ${post.titulo}</h3> 
-    // <h4 class = "fecha-post">${post.fecha}</h4> 
-    // </div>  
-    // `
+    //console.log('posts', posts);
+    const postsitos=posts.forEach((post) => {
+        console.log(post.data["autor"]);
 
-    // postDiv.innerHTML = postCreado;
-    // feedSection.appendChild(postDiv);
+        const postCreado = document.createElement('div');
+        postCreado.className = 'post-div';
 
 
+        postCreado.innerHTML = `
+        <div class = "container-post" id = "ContainerPost">
+            <div class = "parte-superior-post">
+                <button type="button" class ="button-editar" id="botonEditar"><i class="fa-thin fa-pencil"></i></button>
+                <button type="button" class ="boton-eliminar" id="botonEliminar"><i class="fa-thin fa-trash-can"></i></button>
+            </div>
+            <button type="button" class ="boton-like" id="botonLike"><i class="fa-duotone fa-heart"></i></button>
+            <h2 class = "titulo-post">${post.data["titulo"]}</h2> 
+            <h3 class = "descripcion-post"> ${post.data["descripcion"]}</h3> 
+            <h4 class = "fecha-post">${post.fecha}</h4> 
+        </div>  
+        `;
 
+        //postCreado.innerHTML=postDiv;
+        return postCreado;
+
+    });
+    contenedorPosts.append(...postsitos);
 
 
     return feedSection;
@@ -114,7 +122,7 @@ export const feed = () => {
 }
 
 const openModalAddPost = (feedSection) => {
-    console.log('post');
+    //console.log('post');
     const containerAddPost = document.createElement('div');
     containerAddPost.className = 'container-add-post';
     feedSection.appendChild(containerAddPost);

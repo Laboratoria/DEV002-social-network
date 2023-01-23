@@ -5,6 +5,7 @@
   padding: 0;
   box-sizing: border-box;
 }
+
 .modal {
   display: none;
   background: url(img/fondo10.png);
@@ -187,7 +188,7 @@ h5 {
   background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
 }
 
-.tituloh2register-login{
+.tituloh2register-login {
   font-family: 'Fredoka One';
   width: 300px;
   height: 47px;
@@ -308,6 +309,7 @@ input::placeholder {
   left: 55px;
   top: 190px;
 }
+
 .p-tienes-cuenta-register {
   font-family: 'Century Gothic';
   font-style: normal;
@@ -319,6 +321,7 @@ input::placeholder {
   left: 72px;
   bottom: 60px;
 }
+
 /* Parrafo con enlace a sigin */
 
 .p-tienes-cuenta {
@@ -370,7 +373,7 @@ input::placeholder {
   /* position: absolute; */
   left: 55px;
   background-color: #f5efef;
-  border: 6px solid #f5efef ;
+  border: 6px solid #f5efef;
   border-top-left-radius: 3px;
   border-bottom-left-radius: 3px;
 }
@@ -384,7 +387,7 @@ input::placeholder {
   border: none;
   color: rgb(225, 220, 245);
   text-align: center;
-  border: 1px solid  rgb(0, 81, 255);
+  border: 1px solid rgb(0, 81, 255);
   background-color: rgb(0, 81, 255);
   cursor: pointer;
   justify-content: center;
@@ -394,7 +397,7 @@ input::placeholder {
   text-align: right;
   padding-right: 28px;
   padding-top: 10px;
-  text-shadow: 1px 0  1px  #ffffff ;
+  text-shadow: 1px 0 1px #ffffff;
 
 }
 
@@ -533,16 +536,18 @@ input::placeholder {
   height: 800px;
 }
 
-/* estilos SECTION FEED */
+/* .....................estilos SECTION FEED............... */
 
 .section-feed {
   width: 360px;
-  height: 100vh; /*es el 100% para cualquier dispositivo*/
+  height: 100vh;
+  /*es el 100% para cualquier dispositivo*/
   /* display: grid;
   grid-template-columns: 80px 200px 80px;
   grid-template-rows: repeat(3, 200px);
   gap: 5px; */
-  position: relative; /*para que el hijo posicionarse respecto al section-feed*/
+  position: relative;
+  /*para que el hijo posicionarse respecto al section-feed*/
   /* justify-content: center; */
   background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
 }
@@ -570,7 +575,7 @@ input::placeholder {
   left: 19px */
 }
 
-.avatarImg{
+.avatarImg {
   width: 65px;
   height: 65px;
 
@@ -579,19 +584,21 @@ input::placeholder {
   top:12px */
 }
 
-.post-div{
+.post-div {
   justify-content: center;
   align-items: center;
- 
+
 }
-.container-buttons{
+
+.container-buttons {
   position: absolute;
   bottom: 0;
   left: 0;
   width: 360px;
   background-color: #F7DAE5;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);/*las tres columnas tendrán la misma dimensión en cualquier dispositivo*/
+  grid-template-columns: repeat(3, 1fr);
+  /*las tres columnas tendrán la misma dimensión en cualquier dispositivo*/
 }
 
 .container-buttons button {
@@ -600,14 +607,15 @@ input::placeholder {
   background: transparent;
 }
 
-.feed-container-header{
+.feed-container-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   width: 100% !important;
   padding: 1rem;
 }
-.container-add-post{
+
+.container-add-post {
   position: absolute;
   top: 0;
   left: 0;
@@ -619,9 +627,31 @@ input::placeholder {
   background: rgba(0, 0, 0, 0.4);
 }
 
-.modal-add-post{
+.modal-add-post {
   width: 80%;
   height: 50vh;
-background: #334E6F;
-border-radius: 12px;
+  background: #334E6F;
+  border-radius: 12px;
+}
+
+.contenedor-posts {
+  width: 100%;
+  height: 82vh;
+  background-color: transparent;
+  border: 2px solid rgb(244, 130, 197);
+
+  display: flex;
+  /* or inline-flex */
+  flex-direction: column;
+  flex-direction: row;
+
+  justify-content: center;
+
+}
+
+.post-div {
+  width: 95%;
+  height: 25vh;
+  border: 1px solid rgb(67, 33, 53);
+  border-radius: 10px;
 }
