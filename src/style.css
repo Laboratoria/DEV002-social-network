@@ -257,7 +257,7 @@ header {
     height: 85px;
     margin: 20px 0px 20px 15px;
     border-radius: 10px;
-    
+
 }
 
 #btn-input-modal {
@@ -302,7 +302,7 @@ header {
 }
 
 #modal-content-post {
-    margin-left: 3%;
+    margin-left: 5%;
     width: 92%;
     background-color: #94B49F;
     border-radius: 20px;
@@ -311,6 +311,7 @@ header {
     height: auto;
     position: fixed;
     top: 100px;
+
 }
 
 .btn-post-inactive {
@@ -340,6 +341,7 @@ header {
     border-radius: 10px;
     flex-direction: column;
     align-items: center;
+    margin: 5%;
 
 }
 
@@ -358,14 +360,13 @@ header {
     font-size: 17px;
     width: 80%;
     height: auto;
-    margin: 5px 10px 10px 10px;
     border-radius: 10px;
-    left: 10px;
     font-weight: lighter;
     padding-left: 2px;
     position: relative;
     top: 10px;
     box-shadow: 1px 2px 4px rgb(155 154 154);
+    padding: 5%;
 }
 
 .user-name-post {
@@ -381,29 +382,33 @@ header {
     font-weight: bold;
 }
 
-.date-post{
+.date-post {
     position: relative;
     bottom: 50px;
     font-size: x-small;
 }
-.primer-like{
+
+.primer-like {
     position: relative;
     left: 110px;
     width: 30px;
     height: 30px;
     bottom: 10px;
 }
+
 @media only screen and (min-width:600px) and (max-width:1700px) {
-    header{
+    header {
         height: 100px;
     }
-    .logo-header{
+
+    .logo-header {
         width: 200px;
         height: 200px;
         bottom: 90px;
         left: 70px;
         margin: 0;
     }
+
     .img-logo {
         margin-top: 0;
         width: 35%;
@@ -519,7 +524,8 @@ header {
         left: 170px;
         top: 140px;
     }
-    .textPost{
+
+    .textPost {
         width: 53%;
         margin: 5px 10px 10px 10px;
     }
