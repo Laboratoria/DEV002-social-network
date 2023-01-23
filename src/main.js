@@ -12,8 +12,7 @@ import { postsRef } from "./lib/firebase/methodsFirestore.js";
 
 const auth = getAuth();
 
-
-  /*..................................AUTH CONTROLLER.................................*/
+/*..................................AUTH CONTROLLER.................................*/
 
 
 function validarCorreo(correo) {
@@ -138,13 +137,15 @@ if (googleButton) {
 
 
 
-  /*..................................FIRESTORE CONTROLLER.................................*/
+/*..................................FIRESTORE CONTROLLER.................................*/
 
 //MOSTRAR POSTS EXISTENTES
-  //console.log('postsRef',postsRef);
-  export let posts = [];
-   postsRef.forEach((item) => { /*para traer los posts de mi colección */
+//console.log('postsRef',postsRef);
+export let posts = [];
+postsRef.forEach((item) => { /*para traer los posts de mi colección */
   //   // console.log(`${doc.id} => ${doc.data()}`);
-   posts.push({ id: item.id, data: item.data() });
-  });
-   //console.log('posts', posts);
+  posts.push({ id: item.id, data: item.data() });
+});
+//console.log('posts', posts);
+
+

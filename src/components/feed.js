@@ -1,5 +1,6 @@
 //import { onNavigate } from '../js/routes.js'
-//import { postsRef } from "./lib/firebase/methodsFirestore.js";
+//import { postsRef } from ".
+
 import { posts } from "../main.js";
 export const feed = () => {
 
@@ -65,66 +66,57 @@ export const feed = () => {
     // </div>  
     // </div>
     // `
+  
+     
 
+   
+    const publicarPostButton = document.createElement('button');
+    publicarPostButton.className = 'post-btn';
+    publicarPostButton.id = 'idPostButton';
+    publicarPostButton.textContent = 'Create post';
+    feedSection.appendChild(publicarPostButton);
+   
 
-    // const publicarPostButton = document.createElement('button');
-    // publicarPostButton.className = 'post-btn';
-    // publicarPostButton.id = 'idPostButton';
-    // publicarPostButton.textContent = 'Help!';
-    // modalPost.appendChild(publicarPostButton);
+    const textoUser = document.createElement('textarea')
+    textoUser.className = 'textoUser';
+    textoUser.name = 'addpost'
+    textoUser.id = 'idUserPost';
+    textoUser.placeholder = 'what do you need?'
+    feedSection.appendChild(textoUser);
 
+ 
 
     const contenedorPosts = document.createElement('div');
     contenedorPosts.className = 'contenedor-posts';
     feedSection.appendChild(contenedorPosts);
 
-   
-
-    //console.log('posts', posts);
-    const postsitos=posts.forEach((post) => {
+    posts.forEach((post) => {
         console.log(post.data["autor"]);
 
-        const postCreado = document.createElement('div');
-        postCreado.className = 'post-div';
-
-
-        postCreado.innerHTML = `
+        const postDiv = document.createElement('div');
+        postDiv.className = 'post-div';
+        postDiv.innerHTML = `
         <div class = "container-post" id = "ContainerPost">
             <div class = "parte-superior-post">
-                <button type="button" class ="button-editar" id="botonEditar"><i class="fa-thin fa-pencil"></i></button>
-                <button type="button" class ="boton-eliminar" id="botonEliminar"><i class="fa-thin fa-trash-can"></i></button>
+                <button  class ="boton-editar" id="botonEditar"><i class="fa-solid fa-pen"></i></button>
+                <button  class ="boton-eliminar" id="botonEliminar"><i class="fa-solid fa-trash"></i></button>
             </div>
-            <button type="button" class ="boton-like" id="botonLike"><i class="fa-duotone fa-heart"></i></button>
+            <button class ="boton-like" id="botonLike"><i class="fa-solid fa-heart"></i> 25 likes</button>
             <h2 class = "titulo-post">${post.data["titulo"]}</h2> 
             <h3 class = "descripcion-post"> ${post.data["descripcion"]}</h3> 
-            <h4 class = "fecha-post">${post.fecha}</h4> 
+            <h4 class = "fecha-post">${post.data["fecha"]}</h4> 
         </div>  
         `;
 
-        //postCreado.innerHTML=postDiv;
-        return postCreado;
+        contenedorPosts.append(postDiv);
 
     });
-    contenedorPosts.append(...postsitos);
 
 
     return feedSection;
 
 }
 
-const openModalAddPost = (feedSection) => {
-    const containerAddPost = document.createElement('div');
-    containerAddPost.className = 'container-add-post';
-    feedSection.appendChild(containerAddPost);
-    const openModalAddPost = document.createElement('textarea');
-    openModalAddPost.className = 'modal-add-post';
-    openModalAddPost.id = 'modal-add-post';
-    openModalAddPost.placeholder = 'What do you need?'
-    containerAddPost.appendChild(openModalAddPost);
-    const buttonModal = document.createElement('button');
-    buttonModal.type= 'submit';
-    buttonModal.textContent = 'submit';
-    containerAddPost.appendChild(buttonModal)
-    
-}
+
+
 

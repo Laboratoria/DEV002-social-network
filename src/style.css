@@ -584,13 +584,8 @@ input::placeholder {
   top:12px */
 }
 
-.post-div {
-  justify-content: center;
-  align-items: center;
 
-}
-
-.container-buttons {
+ .container-buttons {
   position: absolute;
   bottom: 0;
   left: 0;
@@ -629,29 +624,112 @@ input::placeholder {
 
 .modal-add-post {
   width: 80%;
-  height: 50vh;
-  background: #334E6F;
-  border-radius: 12px;
-}
-
-.contenedor-posts {
-  width: 100%;
-  height: 82vh;
-  background-color: transparent;
-  border: 2px solid rgb(244, 130, 197);
-
-  display: flex;
-  /* or inline-flex */
-  flex-direction: column;
-  flex-direction: row;
-
-  justify-content: center;
-
-}
-
-.post-div {
-  width: 95%;
-  height: 25vh;
-  border: 1px solid rgb(67, 33, 53);
+  height: 15vh;
+  background: #ffffff;
   border-radius: 10px;
+  text-indent: 10px;
+
+} 
+/* ....................POST - FEED.......................*/
+.contenedor-posts {
+  display:block;
+  margin: 10px;
+  
+
+
+}
+.container-post{
+  width: 100%;
+  height: 20vh;
+  border: 1px solid #52525C;
+  border-radius: 10px;
+  background-color: #ffffff;
+  text-indent: 15px;
+  
+}
+
+.parte-superior-post{
+  width: 100%;
+  height: 4vh;
+  background-color: #C3E2E6;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+ 
+}
+.descripcion-post , .titulo-post{
+font-family: sans-serif;
+font-size: 15px;
+font-weight: 400;
+line-height: 18px;
+letter-spacing: 0em;
+text-align: left;
+}
+
+.textoUser{
+width: 78%;
+height: 8vh;
+background-color: #ffffff;
+border: 1px solid #52525C; 
+border-radius: 5px;
+text-indent: 10px;
+margin: 0 8px 0 12px;
+
+}
+.post-btn{
+  border-radius: 5px;
+  border: none;
+  position: absolute;
+  right: 12px;
+  top: 110px;
+  width: 50px;
+  height: 40px;
+  background-color: #3f5b9c;
+  border: 1px solid #294074;
+  color:#ffffff;
+  font-size: small;
+  cursor:pointer ;
+ 
+}
+.boton-editar {
+  border: transparent;
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  color: #201f1f;
+  position: absolute;
+  right: 50px;
+  margin-top: 4px;
+  display: flex;
+  align-items:flex-end;
+  cursor:pointer;
+}
+.boton-eliminar{
+  border: transparent;
+  background-color: transparent;
+  width: 18px;
+  height: 18px;
+  color:#201f1f;
+  position: absolute;
+  display: flex;
+  align-items: flex-end;
+  left: 320px;
+  margin-top: 4px;
+  cursor:pointer;
+}
+.boton-like{
+  border: transparent;
+  background-color: transparent;
+  width: 18px;
+  height: 18px; 
+  color: rgb(226, 142, 155);
+  position: absolute;
+  right: 40px;
+  margin-top: 10px;
+  cursor:pointer;
+  
+}
+img{
+  width: 35px;
+  height: 35px;
+
 }
