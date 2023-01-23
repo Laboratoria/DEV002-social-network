@@ -80,14 +80,8 @@ export const Feed = () => {
         updatePosts(id,{description:posts.value})
         stateEdit = false
         id = ''
-        console.log('esto es editar')}
-      
-           
-            
-        
-       
-    
-       
+        console.log('esto es editar')}    
+          
        taskForm.reset();
     })
     
@@ -101,7 +95,7 @@ export const Feed = () => {
         <div class="posts-div-btns" id="postsDivBtns">            
             <button class="paw-posts-div-btns"><img src="../Assets/pata-blanca.png"  alt="white_paw" class="paw-img" id="pawPostsDivBtns" ></button>
             <button class="edit-posts-div-btns" id="editPostsDivBtns" data-id="${postsContent.id}">Editar</button>
-            <button class="delete-posts-div-btns" id="deletePostsDivBtns" data-id="${postsContent.id}"></button>
+            <button class="delete-posts-div-btns"><img src="../Assets/basurero-blanco.png" alt="white_dump" id="deletePostsDivBtns" data-id="${postsContent.id}"></button>
             
         </div>
         <section class="posts" id="posts"><div>
