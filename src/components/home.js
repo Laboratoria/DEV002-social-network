@@ -17,8 +17,8 @@ export const home = () => {
     const inputPassword = document.createElement("input");
     const buttonLogin = document.createElement("button");
     const containerGoogle = document.createElement("div");
-    const buttonGoogle = document.createElement("button");
     const iconLogoGoogle = document.createElement("i");
+    const buttonGoogle = document.createElement("button");
     const containerRegister = document.createElement("div");
     const labelRegister = document.createElement("label");
     const hrefRegister = document.createElement("a");
@@ -32,6 +32,7 @@ export const home = () => {
     imgLogo.className = "img-logo";
     containerForm.className = "container-form";
     loginForm.className = "login-form";
+    labelMail.className = "label-mail";
     labelMail.textContent = "E-mail";
     inputMail.type = "text";
     inputMail.id = "i-input-login-mail";
@@ -47,13 +48,14 @@ export const home = () => {
     buttonLogin.textContent = "Log In";
     buttonLogin.className = "button-login";
     containerGoogle.className = "container-google";
-    buttonGoogle.textContent = "Sign Up with Google";
-    buttonGoogle.className = "button-google";
     iconLogoGoogle.id = "span-i"; 
     iconLogoGoogle.className = "fa-brands fa-google";
+    buttonGoogle.textContent = "Sign Up with Google";
+    buttonGoogle.className = "button-google";
     containerRegister.className = "container-register";
     labelRegister.textContent = "Don't have an account?";
     hrefRegister.textContent = "Sign Up";
+    hrefRegister.className = "href-register";
     
     //homeDiv.appendChild(loginForm);
     homeDiv.appendChild(container);
