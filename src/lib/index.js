@@ -18,7 +18,8 @@ import {
   query,
   orderBy,
   deleteDoc,
-  doc
+  doc,
+  getDoc
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -76,9 +77,6 @@ export const logOut = async (onNavigate) => {
 // funcion currentuser
 export const currentUserInfo = () => auth.currentUser;
 
-//comienzo firestore YA ESTA ARRIBA como firestore en vez de db
-// const db =getFirestore();
-
 //función publicar
 export const submitPost = (postTxt) => {
   const post = {
@@ -103,3 +101,8 @@ export const deletePost = (id) => {
   return deleteDoc(doc(firestore,'post',id));
   
 }
+
+
+//funcion para traer un post para editar
+
+export const getTask = id => getDoc(doc(firestore,'post',id));
