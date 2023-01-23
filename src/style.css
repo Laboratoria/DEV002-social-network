@@ -16,15 +16,35 @@
     --secundary-font-family: 'Roboto', sans-serif;
   }
 
-
-
   .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: relative;
-    width: 300px;
-    height: 600px;
+    display: grid;
+    grid-column: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    place-items: center;
+    grid-gap: 10px;
+    width: 400px;
+    height: 700px;
     background-color: var(--neutral-background);
+  }
+
+  .container-logo{
+    display: grid;
+    top: 100px;
+  }
+
+  .img-logo{
+    width: 170px;
+  }
+
+  .container-form{
+    display: grid;
+  }
+
+  .container-google{
+    display: grid;
+  }
+
+  .container-register{
+    display: grid;
+    
   }

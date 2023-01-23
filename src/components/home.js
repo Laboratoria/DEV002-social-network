@@ -7,7 +7,7 @@ export const home = () => {
     //const imgHeader = document.createElement("img");
     const homeDiv = document.createElement("div");
     const container = document.createElement("section")
-    const containerLogo = document.createElement("div");
+    const containerLogo = document.createElement("figure");
     const imgLogo = document.createElement("img");
     const containerForm = document.createElement("div");
     const loginForm = document.createElement("form");
@@ -28,7 +28,7 @@ export const home = () => {
     //containerHeader.className = "container-header";
     //imgHeader.className = "img-header";
     containerLogo.className = "container-logo";
-    imgLogo.src = "src/img/Logo VeganShip.png";
+    imgLogo.src = "../img/Logo VeganShip.png";
     imgLogo.className = "img-logo";
     containerForm.className = "container-form";
     loginForm.className = "login-form";
