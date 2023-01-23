@@ -1,11 +1,8 @@
 // Import the functions of Firestore for posting
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
-
-//import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-//import { init } from "./lib/firebase/config.js";
 import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
-import { postsRef } from "./lib/firebase/methodsFirestore.js";
+
 
 /*logout importar*/
 //const app = init();
@@ -134,18 +131,5 @@ if (googleButton) {
     signinForm.reset();
   });
 };
-
-
-
-/*..................................FIRESTORE CONTROLLER.................................*/
-
-//MOSTRAR POSTS EXISTENTES
-//console.log('postsRef',postsRef);
-export let posts = [];
-postsRef.forEach((item) => { /*para traer los posts de mi colección */
-  //   // console.log(`${doc.id} => ${doc.data()}`);
-  posts.push({ id: item.id, data: item.data() });
-});
-//console.log('posts', posts);
 
 

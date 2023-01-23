@@ -23,3 +23,4 @@ class Post {
   consultarPostxUsuario(emailUser) {
   }
 }
+    
