@@ -270,3 +270,28 @@ text-align: end;
 .li-navbar{
     padding: 1rem;
 }
+
+.contenedor-padre{
+    align-items: center;
+    text-align: center;
+}
+.div-post-publicado{
+    background-color: aliceblue;
+    color: black;
+    width: 70%;
+    height: 5rem;
+    margin: 0px auto;
+    margin-top: 2rem;
+    border-radius: 8px;
+}
+.btn-edit{
+    width: 1.5rem; 
+    position:absolute;
+    margin-top: 2rem;
+    
+}
+.btn-delete{
+    width: 1.5rem;            
+}
+
+
