@@ -14,12 +14,12 @@ window.addEventListener('DOMContentLoaded', async () =>{
             querySnapshot.forEach(doc => {
                 const task = doc.data()
                 html += ` 
-                <div> 
-                    <p>${task.description}</p>
+                <div class ="input-post"> 
+                    <p >${task.description}</p>
                     <button class='btn-delete' data-id="${doc.id}"> Delete </button>
                     <button class='btn-edit' data-id="${doc.id}"> Edit </button>
-
                 </div>
+                <hr>
                 `;
             }); 
             
