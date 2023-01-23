@@ -1,4 +1,4 @@
-# Proyecto Data-Lovers
+# Proyecto Social Network
 # **NEWME**
 
 ## Índice
