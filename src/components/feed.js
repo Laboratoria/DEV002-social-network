@@ -114,7 +114,7 @@ export const feed = () => {
         return postCreado;
 
     });
-    contenedorPosts.append(...postsitos);
+    contenedorPosts.append(postsitos);
 
 
     return feedSection;

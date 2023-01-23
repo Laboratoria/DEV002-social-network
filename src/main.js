@@ -8,7 +8,6 @@ import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/fi
 import { postsRef } from "./lib/firebase/methodsFirestore.js";
 
 import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-import { postsRef } from "./lib/firebase/methodsFirestore.js";
 
 /*logout importar*/
 //const app = init();
