@@ -37,12 +37,14 @@ export const register =() => {
     buttonGoogle.id= 'google';
     buttonCorreo.id= 'correo';
 
-    buttonGoogle.addEventListener('click',() => {
-        popupRegister();
+    buttonGoogle.addEventListener('click',async () => {
+        const prueba = await popupRegister();
+        console.log(prueba)
         onNavigate('/vistaGeneral')
     });
-    buttonCorreo.addEventListener('click',() => onNavigate('/'));
-    
+    buttonCorreo.addEventListener('click',() => {
+        onNavigate('/form')
+    });
 
     const hrefHome = document.createElement('href');
     hrefHome.textContent =  'Regresar al home';
