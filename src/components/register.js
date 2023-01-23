@@ -39,7 +39,7 @@ export const register =() => {
 
     buttonGoogle.addEventListener('click',() => {
         popupRegister();
-        onNavigate('/')
+        onNavigate('/vistaGeneral')
     });
     buttonCorreo.addEventListener('click',() => onNavigate('/'));
     
