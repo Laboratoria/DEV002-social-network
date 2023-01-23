@@ -1,6 +1,5 @@
 //import { onNavigate } from '../js/routes.js'
 //import { postsRef } from "./lib/firebase/methodsFirestore.js";
-//import { posts } from "../main.js";
 import { postsRef } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 

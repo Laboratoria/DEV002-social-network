@@ -6,8 +6,6 @@
   box-sizing: border-box;
 }
 
-
-
 .btnSubmit:hover {
   background: rgba(56, 52, 52, 0.5);
 }
@@ -19,9 +17,6 @@ input:hover {
 .btnGoogle:hover {
   background: rgb(41, 41, 248);
 }
-
-
-
 
 .message-error {
   font-size: 12px;
@@ -210,8 +205,6 @@ input::placeholder {
   /* left: 140px; */
 }
 
-
-
 .labelEmailLogin {
   top: 25px;
   left: 55px;
@@ -222,7 +215,6 @@ input::placeholder {
   line-height: 150%;
   color: #52525C;
   position: absolute;
-
 }
 
 .labelPasswordLogin {
@@ -236,7 +228,6 @@ input::placeholder {
   left: 55px;
   /* left: 141px; */
   top: 120px;
-
 }
 
 /* Estilos para mensaje de error */
