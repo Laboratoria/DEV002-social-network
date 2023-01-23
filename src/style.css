@@ -19,9 +19,10 @@ html {
     position: absolute;
     margin-top: 10%;
     align-items: center;
-    width: 150px;
-    height: 150px;
+    width: 200px;
+    height: 200px;
     left: 100px;
+    top:-30px;
 }
 
 #img-google {
@@ -51,8 +52,8 @@ html {
     position: absolute;
     flex-direction: column;
     align-items: center;
-    background-color: #94B49F;
-    top: 150px;
+    background-color: #2D747F;
+    top: 190px;
     height: 350px;
     width: 80%;
     left: 40px;
@@ -115,7 +116,7 @@ html {
 }
 
 footer {
-    background-color: #94B49F;
+    background-color: #2D747F;;
     position: absolute;
     width: 100%;
     height: 2 rem;
@@ -205,10 +206,10 @@ footer {
 
 /*Dashboard*/
 .logo-header {
-    width: 130px;
-    height: 130px;
+    width: 115px;
+    height: 115px;
     position: absolute;
-    top: -30px;
+    top: -5px;
 }
 
 #img-input {
@@ -234,7 +235,7 @@ footer {
 }
 
 header {
-    background-color: #C0E3CC;
+    background-color: #2D747F;
     height: 70px;
 }
 
@@ -251,7 +252,7 @@ header {
 }
 
 #container-btn-input {
-    background-color: #94B49F;
+    background-color: #2D747F;
     width: 90%;
     height: 85px;
     margin: 20px 0px 20px 15px;
@@ -260,7 +261,7 @@ header {
 }
 
 #btn-input-modal {
-    background-color: #ECB390;
+    background-color: #DDD3A6;
     height: 40px;
     width: 65%;
     align-items: center;
@@ -278,14 +279,14 @@ header {
 }
 
 #space-line {
-    background-color: #779080;
+    background-color: #5FA0AA;
     height: 25px;
     text-align: center;
     padding: 7px 7px 7px 7px;
 }
 
 #after-line {
-    background-color: #94B49F;
+    background-color: #2D747F;
     display: flex;
     flex-direction: column;
 }
@@ -332,7 +333,7 @@ header {
 }
 
 .timeLine-post {
-    background-color: #94B49F;
+    background-color: #5FA0AA;
     height: auto;
     display: flex;
     margin: 20px 0px 20px 15px;
@@ -357,7 +358,7 @@ header {
 .textPost {
     position: relative;
     display: grid;
-    background-color: #ECB390;
+    background-color: #DDD3A6;
     font-size: 17px;
     width: 80%;
     height: auto;
@@ -394,10 +395,24 @@ header {
 
 .primer-like {
     position: relative;
-    left: 110px;
-    width: 30px;
-    height: 30px;
-    bottom: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+   
+}
+.edit-icon{
+    position: relative;
+    left: 220px;
+    width: 25px;
+    height: 25px;
+    bottom: -40px;
+}
+.delete-icon{
+    position: relative;
+    left: 246px;
+    width: 20px;
+    height: 20px;
+    bottom: -20px;
 }
 .footInit{
     background-color: #94B49F;

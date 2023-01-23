@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, getAllPosts, } from "../index.js";
+import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts, deletePost } from "../index.js";
 
 
 export const login = () => {
@@ -10,8 +10,7 @@ export const login = () => {
   <html>
   <header>
       <img src='./images/logo.png' alt='logoReading' class='logo-header'>
-      <button type='button' id='btn-sign-out'>
-      <img class='sign-out-img' src='./images/cerrar-sesion.png'></button>
+      <input type='image' id='btn-sign-out' src='../../images/logout.png'></input>
       <div class='container-images'>
       </div>
   </header>
@@ -56,22 +55,31 @@ export const login = () => {
     getAllPosts().then((posts) => {
       divTimeLine.innerHTML = '';
       posts.forEach(post => {
-        const postObj = post.data();
+        const postData = post.data();
         let divPostEntry = document.createElement("div");
 
         let imgUser = document.createElement("img");
         let userName = document.createElement("h2");
         let userPostText = document.createElement("h2");
+        let editIcon = document.createElement('img');
         let dateTimePost = document.createElement("h1");
         let likePost = document.createElement('img');
-        let editIcon = document.createElement('img');
+        let deleteIcon = document.createElement('img');
+    
 
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
         imgUser.className = "iconUser";
-        userName.innerHTML = postObj.user;
+        userName.innerHTML = postData.user;
         userName.className = 'user-name-post';
-        userPostText.innerHTML = postObj.postText;
+        userPostText.innerHTML = postData.postText;
+        editIcon.setAttribute('src','/images/editar.png'); 
+        editIcon.className = 'edit-icon';
+        deleteIcon.setAttribute('src','/images/delete.png');
+        deleteIcon.className = 'delete-icon';
+        deleteIcon.setAttribute('data-id', post.id);//
+        // console.log(post.id);
+        deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
         likePost.className = 'primer-like';
         userPostText.className = 'textPost';
@@ -82,21 +90,37 @@ export const login = () => {
 
 
         divPostEntry.appendChild(userName);
-        divPostEntry.appendChild(userPostText);
-        divPostEntry.appendChild(dateTimePost);
         divPostEntry.appendChild(imgUser);
-        divPostEntry.appendChild(likePost);
+        divPostEntry.appendChild(userPostText);
+        userPostText.appendChild(dateTimePost);
+        userPostText.appendChild(editIcon);
+        userPostText.append(deleteIcon);
+        userPostText.appendChild(likePost);
 
         divTimeLine.appendChild(divPostEntry);
         document.querySelector('#btn-post').innerText = 'PUBLICAR';
         document.querySelector('#modal-background-post').style.display = 'none';
         document.querySelector('#modal-content-post').style.display = 'none';
       });
+
     });
   };
+//listener del onclick detelePost
+  const deletePostListener = (event) => {
+    const postId = event.target.dataset.id;
+    console.log('delete clicked', postId);
+
+    deletePost(postId)
+    .then((response) => {
+      console.log(response);
+      alert(' Comentario borrado');
+      refreshPosts();
+    })
+    .catch(error => {console.log(error);});
+  };
+
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
-  
 
   //Funcion cerrar sesion
   const btnLogout = divLogin.querySelector('#btn-sign-out');
@@ -159,10 +183,7 @@ export const login = () => {
         refreshPosts();
     });
   });
-
-  //Funcion eliminar post
-
-
+ 
   return divLogin;
 
 };
