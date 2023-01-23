@@ -1,16 +1,11 @@
 // Import the functions of Firestore for posting
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
-
-//import { getFirestore, collection, getDocs } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-//import { init } from "./lib/firebase/config.js";
 import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
-import { postsRef } from "./lib/firebase/methodsFirestore.js";
 
-import { getFirestore } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 /*logout importar*/
-//const app = init();
+
 
 const auth = getAuth();
 
@@ -144,9 +139,25 @@ if (googleButton) {
 
 //MOSTRAR POSTS EXISTENTES
   //console.log('postsRef',postsRef);
-  export let posts = [];
-   postsRef.forEach((item) => { /*para traer los posts de mi colección */
-  //   // console.log(`${doc.id} => ${doc.data()}`);
-   posts.push({ id: item.id, data: item.data() });
-  });
-   //console.log('posts', posts);
+
+//export const llamarColeccion = () => {
+
+  //  export const posts = [];
+  //  postsRef()
+  //  .then(postsCollection => {
+  //   console.log(postsCollection);
+  //   postsCollection.forEach((item) => { /*para traer los posts de mi colección */
+  //     //   // console.log(`${doc.id} => ${doc.data()}`);
+  //     posts.push({ id: item.id, data: item.data() });
+  //   });
+  //  })
+  //  .catch(error => console.log("fallo la promesa de firestore", error))
+  //  console.log(posts);
+
+
+  // }
+  //  console.log('posts', posts);
+
+  //  CREAR UN NUEVO POST
+
+  //crearPost("", "inserción 2do post", "holi de juevo");
