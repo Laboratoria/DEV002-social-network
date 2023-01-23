@@ -19,7 +19,7 @@ export const register = () => {
     <img src='images/btnGoogle.png' id='img-google'>
     </button>
     </div>
-    <footer> © 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;;
+    <footer class='footInit'> © 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;;
   divRegister.innerHTML = viewRegister;
   const buttonFinalRegister = document.createElement('button');
   const buttonHome = document.createElement('button');

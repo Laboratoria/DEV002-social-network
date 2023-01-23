@@ -19,9 +19,10 @@ html {
     position: absolute;
     margin-top: 10%;
     align-items: center;
-    width: 150px;
-    height: 150px;
-    left: 100px;
+    width: 200px;
+    height: 200px;
+    left: 65px;
+    top:-30px;
 }
 
 #img-google {
@@ -43,6 +44,7 @@ html {
 .root {
     display: flex;
     flex-wrap: wrap;
+    position: relative;
 }
 
 .input-login,
@@ -51,8 +53,8 @@ html {
     position: absolute;
     flex-direction: column;
     align-items: center;
-    background-color: #94B49F;
-    top: 150px;
+    background-color: #2D747F;
+    top: 190px;
     height: 350px;
     width: 80%;
     left: 40px;
@@ -76,7 +78,7 @@ html {
 #btnLogin {
     display: flexbox;
     position: absolute;
-    bottom: 48%;
+    bottom: 42%;
     background-color: #4AAA5F;
     cursor: pointer;
     height: 25px;
@@ -108,20 +110,14 @@ html {
     font-size: medium;
 }
 
-.div-login p {
-    font-size: 18px;
-    margin-top: 10%;
-    padding-top: 3rem;
-}
-
 footer {
-    background-color: #94B49F;
+    background-color: #2D747F;;
     position: absolute;
     width: 100%;
     height: 2 rem;
     text-align: center;
     margin-top: 10px;
-    font-size: small;
+    font-size: 12.5px;
 
 }
 
@@ -205,17 +201,17 @@ footer {
 
 /*Dashboard*/
 .logo-header {
-    width: 130px;
-    height: 130px;
+    width: 150px;
+    height: 150px;
     position: absolute;
-    top: -30px;
+    top: -20px;
 }
 
 #img-input {
     margin-top: 5px;
     width: 50px;
     height: 50px;
-    margin-left: 6px;
+    margin-left: 10px;
 }
 
 #img-modal-post {
@@ -230,29 +226,27 @@ footer {
     height: 25px;
     position: absolute;
     left: 260px;
-    top: 10px;
+    bottom: 200px;
+    cursor: pointer;
 }
 
 header {
-    background-color: #C0E3CC;
+    background-color: #2D747F;
     height: 70px;
 }
 
 #btn-sign-out {
-    font-size: smaller;
-    background-color: #DF7861;
-    border-radius: 25px;
-    width: 100px;
-    height: 20px;
-    display: flexbox;
+    background-color: transparent;
+    width: 30px;
+    height: 30px;
     position: absolute;
     top: 35px;
-    left: 200px;
-    justify-content: center;
+    left: 85%;
+    border: transparent;
 }
 
 #container-btn-input {
-    background-color: #94B49F;
+    background-color: #2D747F;
     width: 90%;
     height: 85px;
     margin: 20px 0px 20px 15px;
@@ -261,17 +255,17 @@ header {
 }
 
 #btn-input-modal {
-    background-color: #ECB390;
+    background-color: #DDD3A6;
     height: 40px;
     width: 65%;
     align-items: center;
     margin: 5px 10px 10px 10px;
-    position: absolute;
-    top: 100px;
+    position: relative;
+    bottom: 45px;
     box-shadow: 1px 2px 4px rgb(155 154 154);
     border-radius: 10px;
     display: flex;
-    left: 70px;
+    left: 80px;
 }
 
 #line {
@@ -279,30 +273,30 @@ header {
 }
 
 #space-line {
-    background-color: #779080;
+    background-color: #5FA0AA;
     height: 25px;
     text-align: center;
     padding: 7px 7px 7px 7px;
 }
 
 #after-line {
-    background-color: #94B49F;
+    background-color: #2D747F;
     display: flex;
     flex-direction: column;
 }
 
 #input-post {
     height: 100px;
-    width: 98%;
+    width: 90%;
     background-color: transparent;
     cursor: pointer;
     border-color: grey;
     border-radius: 10px;
     margin-left: 3px;
+    padding: 3%;
 }
 
 #modal-content-post {
-    margin-left: 5%;
     width: 92%;
     background-color: #94B49F;
     border-radius: 20px;
@@ -326,22 +320,22 @@ header {
     width: 100%;
     position: fixed;
     z-index: 4;
-    background-color: rgba(63, 63, 63, 0.664);
+    background-color: rgba(133, 133, 133, 0.664);
     display: none;
     align-items: center;
     justify-content: center;
 }
 
 .timeLine-post {
-    background-color: #94B49F;
+    background-color: #5FA0AA;
     height: auto;
-    display: flex;
-    margin: 20px 0px 20px 15px;
-    width: 90%;
+    width: 80%;
     border-radius: 10px;
-    flex-direction: column;
-    align-items: center;
-    margin: 5%;
+    margin-top: 30px;
+    left: 30px;
+    position: relative;
+    box-shadow: 1px 2px 4px rgb(155 154 154);
+    padding: 3%;
 
 }
 
@@ -349,32 +343,26 @@ header {
     position: absolute;
     width: 40px;
     height: 40px;
-    right: 250px;
-    margin-top: 5px;
 }
 
 .textPost {
     position: relative;
     display: grid;
-    background-color: #ECB390;
+    background-color: #DDD3A6;
     font-size: 17px;
     width: 80%;
     height: auto;
     border-radius: 10px;
     font-weight: lighter;
-    padding-left: 2px;
-    position: relative;
-    top: 10px;
-    box-shadow: 1px 2px 4px rgb(155 154 154);
     padding: 5%;
+    left: 20px;
 }
 
 .user-name-post {
-    margin-top: 10px;
     display: grid;
     font-size: medium;
     justify-content: center;
-    padding: 7px;
+    padding: 5px;
 }
 
 #modal-content-post p {
@@ -383,165 +371,107 @@ header {
 }
 
 .date-post {
+    color: rgb(59, 59, 59);
     position: relative;
-    bottom: 50px;
-    font-size: x-small;
+    font-size: 13px;
+    letter-spacing: 1px;
+    
 }
 
 .primer-like {
     position: relative;
-    left: 110px;
-    width: 30px;
-    height: 30px;
-    bottom: 10px;
+    left: 10px;
+    width: 25px;
+    height: 25px;
+   
+}
+.icon-edit{
+    position: relative;
+    left: 170px;
+    width: 20px;
+    height: 25px;
+    top: 40px;
+}
+.delete-icon{
+    position: relative;
+    left: 190px;
+    width: 20px;
+    height: 20px;
+    top: 20px;
+}
+.footInit{
+    background-color: #94B49F;
+    position: absolute;
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 12.5px;
+    bottom: 0;
+}
+#container-post{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+}
+.sign-out-img{
+    width: 25px;
+    height: 25px;
+}
+@media only screen and (min-width: 600px){
+    .timeLine-post{
+        left: 8%;
+    }
 }
 
-@media only screen and (min-width:600px) and (max-width:1700px) {
-    header {
-        height: 100px;
-    }
-
-    .logo-header {
-        width: 200px;
-        height: 200px;
-        bottom: 90px;
-        left: 70px;
-        margin: 0;
-    }
-
-    .img-logo {
-        margin-top: 0;
-        width: 35%;
-        height: 50%;
-        left: 40%;
-        bottom: 450px;
-    }
-
-    .input-login,
-    .input-register {
-        top: 180px;
-        left: 400px;
-        width: 50%;
-        height: 65%;
-    }
-
-    #email,
-    #password,
-    #name-register,
-    #email-register,
-    #password-register {
-        position: relative;
-        width: 350px;
-        margin: 10px;
-        top: 20px;
-        height: 45px;
-        font-size: large;
-    }
-
-    .div-login p {
-        font-size: 25px;
-        padding-top: 4rem;
-    }
-
-    .input-login p {
-        font-size: 35px;
-        margin-top: 15px;
-    }
-
-    .input-register p {
-        font-size: 35px;
-        margin-top: 15px;
-    }
-
-    #btnLogin {
-        margin: 0;
-        left: 43%;
-        bottom: 37%;
-        height: 40px;
-        width: 250px;
-        font-size: larger;
-    }
-
-    .btn-google {
-        left: 46%;
-        top: 51%;
-    }
-
-    #btnRegister {
-        margin: 0;
-        right: 40.5%;
-        top: 82%;
-        height: 40px;
-        width: 250px;
-        font-size: larger;
-    }
-
-    #btnFinal {
-        margin: 0;
-        left: 43%;
-        top: 65%;
-        height: 40px;
-        width: 250px;
-        font-size: larger;
-    }
-
-    #btnReturn {
-        margin: 0;
-        left: 43%;
-        top: 82%;
-        height: 40px;
-        width: 250px;
-        font-size: larger;
-    }
-
-    #img-google {
-        width: 170px;
-
-    }
-
-    #errorMessageRegister {
-        left: 47%;
-        top: 34%;
-        font-size: 18px;
-    }
-
-    #btn-sign-out {
-        left: 90%;
-    }
-
-    #container-btn-input,
-    .timeLine-post {
-        margin: 20px 20px 20px 100px;
-        width: 60%;
-        box-shadow: 1px 2px 4px rgb(155 154 154);
-        align-items: center;
-        flex-direction: column;
-    }
-
-    #btn-input-modal {
-        width: 53%;
-        margin: 5px 10px 10px 10px;
-        left: 170px;
-        top: 140px;
-    }
-
-    .textPost {
-        width: 53%;
-        margin: 5px 10px 10px 10px;
-    }
-
-    .iconUser {
-        width: 50px;
-        height: 50px;
-        left: 120px;
-        margin-top: 10px;
-    }
-
-    .btn-exit {
-        width: 35px;
-        height: 35px;
-        top: 5px;
-        left: 95%;
-    }
+@media only screen and (min-width: 1000px){
+.iconUser{
+    width: 50px;
+    height: 50px;
+}
+.textPost{
+    left: 45px;
+}
+#btn-input-modal{
+    width: 80%;
+}
+.logo-header{
+    width: 250px;
+    height: 250px;
+    top: -50px;
+}
+header{
+    height: 110px;
+}
+.timeLine-post{
+    width: 60%;
+    left: 17.5%;
+}
+.user-name-post{
+    font-size: large;
+}
+#btn-sign-out{
+    left: 95%;
+    top: 65px;
+}
+.delete-icon{
+    left: 95%;
+}
+.icon-edit{
+    left: 90%;
+}
+#container-btn-input{
+    width: 60%;
+}
+footer{
+    font-size: 14px;
+}
+.btn-exit{
+left: 95%;
+bottom: 90%;
+}
+#modal-content-post{
+    width: 50%;
+}
 
 }

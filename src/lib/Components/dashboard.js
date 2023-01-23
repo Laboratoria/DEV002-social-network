@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts } from "../index.js";
+import { submitPost, logOut, getAllPosts, deletePost } from "../index.js";
 
 
 export const login = () => {
@@ -10,11 +10,13 @@ export const login = () => {
   <html>
   <header>
       <img src='./images/logo.png' alt='logoReading' class='logo-header'>
-      <button type='button' id='btn-sign-out'>Cerrar sesion</button>
+      <input type='image' id='btn-sign-out' src='../../images/logout.png'></input>
       <div class='container-images'>
       </div>
   </header>
-  <main>
+  <main id='container-post'>
+  <button type='button' id='btn-refresh'>
+      <img class='btn-refresh-img' src='./images/refresh.png'></button>
       <div id='container-btn-input'>
           <img id='img-input' src='images/user.png' alt='profile'>
           <button type='button' id='btn-input-modal'>Deja aqui la reseña de tu libro...</button>
@@ -38,7 +40,6 @@ export const login = () => {
               </div>
           </div>
           <div id='div-post'></div>
-          <div id='container-modal-delete'></div>
   </main>
   <footer>© 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>
   
@@ -54,47 +55,70 @@ export const login = () => {
     getAllPosts().then((posts) => {
       divTimeLine.innerHTML = '';
       posts.forEach(post => {
-        const postObj = post.data();
+        const postData = post.data();
         let divPostEntry = document.createElement("div");
 
         let imgUser = document.createElement("img");
         let userName = document.createElement("h2");
         let userPostText = document.createElement("h2");
+        let editIcon = document.createElement('img');
         let dateTimePost = document.createElement("h1");
         let likePost = document.createElement('img');
+        let deleteIcon = document.createElement('img');
+    
 
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
         imgUser.className = "iconUser";
-        userName.innerHTML = postObj.user;
-        userName.className = 'user-name-post'
-        userPostText.innerHTML = postObj.postText;
+        userName.innerHTML = postData.user;
+        userName.className = 'user-name-post';
+        userPostText.innerHTML = postData.postText;
+        editIcon.setAttribute('src','/images/editar.png'); 
+        editIcon.className = 'edit-icon';
+        deleteIcon.setAttribute('src','/images/delete.png');
+        deleteIcon.className = 'delete-icon';
+        deleteIcon.setAttribute('data-id', post.id);
+        deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
-        likePost.className = 'primer-like'
+        likePost.className = 'primer-like';
         userPostText.className = 'textPost';
         dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000).toLocaleString();
         dateTimePost.className = 'date-post'
-
-
+        editIcon.setAttribute('src', 'images/editar.png');
+        editIcon.className = 'icon-edit';
 
         divPostEntry.appendChild(userName);
+        userName.appendChild(imgUser);
         divPostEntry.appendChild(userPostText);
-        divPostEntry.appendChild(dateTimePost);
-        divPostEntry.appendChild(imgUser);
-        divPostEntry.appendChild(likePost);
+        userName.appendChild(dateTimePost);
+        userPostText.appendChild(editIcon);
+        userPostText.append(deleteIcon);
+        userPostText.appendChild(likePost);
 
         divTimeLine.appendChild(divPostEntry);
         document.querySelector('#btn-post').innerText = 'PUBLICAR';
         document.querySelector('#modal-background-post').style.display = 'none';
         document.querySelector('#modal-content-post').style.display = 'none';
       });
+
     });
+  };
+//listener del onclick detelePost
+  const deletePostListener = (event) => {
+    const postId = event.target.dataset.id;
+    console.log('delete clicked', postId);
+
+    deletePost(postId)
+    .then((response) => {
+      console.log(response);
+      alert(' Comentario borrado');
+      refreshPosts();
+    })
+    .catch(error => {console.log(error);});
   };
 
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
-
-
 
   //Funcion cerrar sesion
   const btnLogout = divLogin.querySelector('#btn-sign-out');
@@ -105,9 +129,6 @@ export const login = () => {
   divLogin.append(
     btnLogout,
   );
-
-
-
 
   //Funcion abrir modal
   const btnModal = divLogin.querySelector('#btn-input-modal');
@@ -125,6 +146,11 @@ export const login = () => {
       document.querySelector('#modal-content-post').style.display = 'none';
       document.body.style.overflow = 'visible';
     });
+    // Funcion refrescar pagina 
+    const btnRefresh = divLogin.querySelector('#btn-refresh');
+    btnRefresh.addEventListener('click', () => {
+      refreshPosts();
+    });
 
     //Funcion activacion boton publicar
     const inputPost = divLogin.querySelector('#input-post');
@@ -137,30 +163,25 @@ export const login = () => {
         document.querySelector('#btn-post').disabled = false; // boton publicar activo
       }
     });
-
+    //Funcion donde se crea el post
     const btnPost = divLogin.querySelector('#btn-post');
-    console.log(btnPost);
     btnPost.addEventListener('click', () => {
-      console.log('btn clicked');
       const postTxt = divLogin.querySelector('#input-post').value;
       submitPost(postTxt)
         .then((response) => {
-          console.log('Response: ', response);
           document.querySelector('#modal-background-post').style.display = 'none';
           document.querySelector('#modal-content-post').style.display = 'none';
           divLogin.querySelector('#input-post').value = '';
           //se vuelve a mandar llamar getDocs una vez que el nuevo post fue posteado correctamente
-          refreshPosts();
         })
         .catch((error) => {
-          console.error('Error: ', error);
         })
         .finally(() => {
-          console.log('Terminé');
         });
+        refreshPosts();
     });
   });
-
+ 
   return divLogin;
 
 };
