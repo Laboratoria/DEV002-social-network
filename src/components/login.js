@@ -1,5 +1,5 @@
 /* eslint-disable import/no-cycle */
-import { navigateRoutes } from '../main';
+import { navigateRoutes } from '../main.js';
 /* PAGINA DE INICIO DE SESION */
 export const login = () => {
   const div = document.createElement('div');

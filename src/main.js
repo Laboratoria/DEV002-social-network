@@ -23,7 +23,8 @@ export const navigateRoutes = (pathname) => {
     root.appendChild(routes[pathname]());
 };
 
-const component = routes[window.location.pathname] /*variable que contiene el pathname -nombre de la ruta-*/
+const component = routes[window.location.pathname]() /*variable que contiene el pathname -nombre de la ruta-*/
+console.log(component)
   root.appendChild(component); /*Me muestra routes y su contenido*/
 
 // //import { login } from "../src/components/Login.js";
