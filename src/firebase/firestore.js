@@ -14,10 +14,12 @@ window.addEventListener('DOMContentLoaded', async () =>{
             querySnapshot.forEach(doc => {
                 const task = doc.data()
                 html += ` 
-                <div class ="input-post"> 
-                    <p >${task.description}</p>
-                    <button class='btn-delete' data-id="${doc.id}"> Delete </button>
-                    <button class='btn-edit' data-id="${doc.id}"> Edit </button>
+                <div class = 'contenedor-padre'> 
+                    <textarea class = 'div-post-publicado'>${task.description}</textarea>
+                        <img src="./images/editlogo2.png" class='btn-edit' data-id="${doc.id}">
+                        <imggiteletelogo2.png" class='btn-delete' data-id="${doc.id}"> 
+                        
+                    
                 </div>
                 <hr>
                 `;
