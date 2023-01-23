@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts, deletePost } from "../index.js";
+import { submitPost, logOut, getAllPosts, deletePost } from "../index.js";
 
 
 export const login = () => {
@@ -14,7 +14,7 @@ export const login = () => {
       <div class='container-images'>
       </div>
   </header>
-  <main id='containe-post'>
+  <main id='container-post'>
   <button type='button' id='btn-refresh'>
       <img class='btn-refresh-img' src='./images/refresh.png'></button>
       <div id='container-btn-input'>
@@ -77,8 +77,7 @@ export const login = () => {
         editIcon.className = 'edit-icon';
         deleteIcon.setAttribute('src','/images/delete.png');
         deleteIcon.className = 'delete-icon';
-        deleteIcon.setAttribute('data-id', post.id);//
-        // console.log(post.id);
+        deleteIcon.setAttribute('data-id', post.id);
         deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
         likePost.className = 'primer-like';
@@ -88,11 +87,10 @@ export const login = () => {
         editIcon.setAttribute('src', 'images/editar.png');
         editIcon.className = 'icon-edit';
 
-
         divPostEntry.appendChild(userName);
-        divPostEntry.appendChild(imgUser);
+        userName.appendChild(imgUser);
         divPostEntry.appendChild(userPostText);
-        userPostText.appendChild(dateTimePost);
+        userName.appendChild(dateTimePost);
         userPostText.appendChild(editIcon);
         userPostText.append(deleteIcon);
         userPostText.appendChild(likePost);

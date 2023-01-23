@@ -13,7 +13,6 @@ export const home = () => {
           <input type='password' id='password' placeholder='Contraseña'required>
       <div id='errorLogin'></div>
         <div class='div-login'>
-        <p>Acceder con:</p>
         <button type='button' class='btn-google'>
         <img src='./images/btnGoogle.png' id='img-google'></button>
         </div>
