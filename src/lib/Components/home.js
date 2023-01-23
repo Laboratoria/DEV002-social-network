@@ -31,7 +31,6 @@ export const home = () => {
     buttonLogin.setAttribute('id', 'btnLogin')
 
     buttonRegister.addEventListener('click', () => onNavigate('/register'));
-    // buttonLogin.addEventListener('click', () => onNavigate('/dashboard'));
 
     divHome.appendChild(buttonRegister);
     divHome.appendChild(buttonLogin);

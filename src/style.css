@@ -11,18 +11,18 @@ body {
 html {
     height: 100%;
 }
-
-.img-logo {
+.div-home{
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: absolute;
+}
+
+.img-logo {
+    position: relative;
     margin-top: 10%;
-    align-items: center;
     width: 200px;
     height: 200px;
-    left: 65px;
-    top:-30px;
+    bottom:30px;
 }
 
 #img-google {
@@ -30,15 +30,13 @@ html {
 }
 
 .btn-google {
-    display: flexbox;
-    position: absolute;
-    align-content: center;
-    left: 107px;
+    display: flex;
+    position: relative;
     border-color: white;
-    margin-top: 10%;
     cursor: pointer;
     margin-bottom: 100px;
-    top: 350px
+    bottom: 210px;
+    left: 5px;
 }
 
 .root {
@@ -50,41 +48,43 @@ html {
 .input-login,
 .input-register {
     display: flex;
-    position: absolute;
+    position: relative;
     flex-direction: column;
     align-items: center;
     background-color: #2D747F;
-    top: 190px;
     height: 350px;
     width: 80%;
-    left: 40px;
+    bottom: 60px;
 
+}
+.container-div-register{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 #btnRegister {
     display: flexbox;
-    position: absolute;
+    position: relative;
     background-color: #31E6F1;
-    top: 70%;
     cursor: pointer;
     height: 25px;
     width: 150px;
     border-radius: 20px;
-    margin-left: 95px;
     font-size: medium;
+    bottom: 125px;
 
 }
 
 #btnLogin {
     display: flexbox;
-    position: absolute;
-    bottom: 42%;
+    position: relative;
+    bottom: 290px;
     background-color: #4AAA5F;
     cursor: pointer;
     height: 25px;
     width: 150px;
     border-radius: 20px;
-    left: 30%;
     font-size: medium;
 }
 
@@ -101,13 +101,15 @@ html {
 
 #email,
 #password {
-    margin-top: 10%;
+    margin-top: 5%;
     border-radius: 25px;
     border: solid 2px;
     width: 230px;
     height: 25px;
     text-align: center;
     font-size: medium;
+    position: relative;
+    outline: none;
 }
 
 footer {
@@ -141,16 +143,16 @@ footer {
 /*Registro*/
 #btnFinal {
     display: flexbox;
-    position: absolute;
+    position: relative;
     background-color: #31E6F1;
-    top: 50%;
+    top: 53%;
     cursor: pointer;
     height: 25px;
     width: 150px;
     border-radius: 20px;
     margin-left: 90px;
     font-size: medium;
-    left: 10px;
+    left: 0px;
 }
 
 #btnReturn {
@@ -162,7 +164,6 @@ footer {
     height: 25px;
     width: 150px;
     border-radius: 20px;
-    left: 30%;
     font-size: medium;
 
 }
@@ -423,6 +424,34 @@ header {
         left: 8%;
     }
 }
+@media only screen and (min-width: 1200px){
+    .input-login{
+        width: 60%;
+        height: 370px;
+    }
+    .input-register{
+        width: 60%;
+        height: 390px;
+    }
+    .btn-google{
+        margin-top: 10px;
+        bottom: 210px;
+    }
+    #btnLogin{
+        bottom: 300px;
+    }
+    #btnFinal{
+        bottom: 0;
+        top: 80%;
+
+    }
+    #btnReturn{
+        bottom: 0;
+        top: 62%;
+    
+    }
+
+}
 
 @media only screen and (min-width: 1000px){
 .iconUser{
@@ -472,6 +501,59 @@ bottom: 90%;
 }
 #modal-content-post{
     width: 50%;
+}
+.img-logo{
+    width: 300px;
+    height: 300px;
+    margin-top: 0;
+}
+#email, 
+#password{
+    margin-top: 3%;
+    width: 410px;
+    height: 45px;
+}
+#btnLogin{
+    height: 35px;
+    width: 250px;
+    font-size: 28px;
+}
+#btnRegister{
+    height: 35px;
+    width: 250px;
+    font-size: 28px;
+}
+.input-login,
+.input-register{
+    bottom: 77px;
+}
+.btn-google{
+    margin-bottom: 0;
+}
+.input-login p{
+    font-size: 28px;
+}
+#name-register,
+#email-register,
+#password-register{
+    margin-top: 2%;
+    width: 400px;
+    height: 40px;
+}
+#btnFinal{
+    margin-left: 0;
+    left: 37%;
+    top: 87%;
+    height: 35px;
+    width: 250px;
+    font-size: 28px;
+}
+#btnReturn{
+    bottom: 70%;
+    height: 35px;
+    width: 250px;
+    font-size: 28px;
+
 }
 
 }

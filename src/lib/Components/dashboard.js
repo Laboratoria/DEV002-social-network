@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, getAllPosts, deletePost } from "../index.js";
+import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo } from "../index.js";
 
 
 export const login = () => {
@@ -107,6 +107,7 @@ export const login = () => {
   const deletePostListener = (event) => {
     const postId = event.target.dataset.id;
     console.log('delete clicked', postId);
+    //  if(postDatas.uid === currentUserInfo().uid){
 
     deletePost(postId)
     .then((response) => {
@@ -116,6 +117,7 @@ export const login = () => {
     })
     .catch(error => {console.log(error);});
   };
+
 
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
@@ -148,9 +150,7 @@ export const login = () => {
     });
     // Funcion refrescar pagina 
     const btnRefresh = divLogin.querySelector('#btn-refresh');
-    btnRefresh.addEventListener('click', () => {
-      refreshPosts();
-    });
+    btnRefresh.addEventListener('click', () => location.reload());
 
     //Funcion activacion boton publicar
     const inputPost = divLogin.querySelector('#input-post');
