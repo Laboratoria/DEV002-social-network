@@ -1,6 +1,6 @@
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, onGetPost, currentUserInfo, getAllPosts } from "../index.js";
+import { submitPost, logOut, getAllPosts, } from "../index.js";
 
 
 export const login = () => {
@@ -10,11 +10,14 @@ export const login = () => {
   <html>
   <header>
       <img src='./images/logo.png' alt='logoReading' class='logo-header'>
-      <button type='button' id='btn-sign-out'>Cerrar sesion</button>
+      <button type='button' id='btn-sign-out'>
+      <img class='sign-out-img' src='./images/cerrar-sesion.png'></button>
       <div class='container-images'>
       </div>
   </header>
-  <main>
+  <main id='containe-post'>
+  <button type='button' id='btn-refresh'>
+      <img class='btn-refresh-img' src='./images/refresh.png'></button>
       <div id='container-btn-input'>
           <img id='img-input' src='images/user.png' alt='profile'>
           <button type='button' id='btn-input-modal'>Deja aqui la reseña de tu libro...</button>
@@ -38,7 +41,6 @@ export const login = () => {
               </div>
           </div>
           <div id='div-post'></div>
-          <div id='container-modal-delete'></div>
   </main>
   <footer>© 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>
   
@@ -62,21 +64,21 @@ export const login = () => {
         let userPostText = document.createElement("h2");
         let dateTimePost = document.createElement("h1");
         let likePost = document.createElement('img');
+        let editIcon = document.createElement('img');
 
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
         imgUser.className = "iconUser";
         userName.innerHTML = postObj.user;
-        userName.className = 'user-name-post'
+        userName.className = 'user-name-post';
         userPostText.innerHTML = postObj.postText;
         likePost.setAttribute('src', '/images/1erlike.png');
-        likePost.className = 'primer-like'
+        likePost.className = 'primer-like';
         userPostText.className = 'textPost';
         dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000).toLocaleString();
-        dateTimePost
-
         dateTimePost.className = 'date-post'
-
+        editIcon.setAttribute('src', 'images/editar.png');
+        editIcon.className = 'icon-edit';
 
 
         divPostEntry.appendChild(userName);
@@ -92,11 +94,9 @@ export const login = () => {
       });
     });
   };
-
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
-
-
+  
 
   //Funcion cerrar sesion
   const btnLogout = divLogin.querySelector('#btn-sign-out');
@@ -107,9 +107,6 @@ export const login = () => {
   divLogin.append(
     btnLogout,
   );
-
-
-
 
   //Funcion abrir modal
   const btnModal = divLogin.querySelector('#btn-input-modal');
@@ -127,6 +124,11 @@ export const login = () => {
       document.querySelector('#modal-content-post').style.display = 'none';
       document.body.style.overflow = 'visible';
     });
+    // Funcion refrescar pagina 
+    const btnRefresh = divLogin.querySelector('#btn-refresh');
+    btnRefresh.addEventListener('click', () => {
+      refreshPosts();
+    });
 
     //Funcion activacion boton publicar
     const inputPost = divLogin.querySelector('#input-post');
@@ -139,29 +141,27 @@ export const login = () => {
         document.querySelector('#btn-post').disabled = false; // boton publicar activo
       }
     });
-
+    //Funcion donde se crea el post
     const btnPost = divLogin.querySelector('#btn-post');
-    console.log(btnPost);
     btnPost.addEventListener('click', () => {
-      console.log('btn clicked');
       const postTxt = divLogin.querySelector('#input-post').value;
       submitPost(postTxt)
         .then((response) => {
-          console.log('Response: ', response);
           document.querySelector('#modal-background-post').style.display = 'none';
           document.querySelector('#modal-content-post').style.display = 'none';
           divLogin.querySelector('#input-post').value = '';
           //se vuelve a mandar llamar getDocs una vez que el nuevo post fue posteado correctamente
-          refreshPosts();
         })
         .catch((error) => {
-          console.error('Error: ', error);
         })
         .finally(() => {
-          console.log('Terminé');
         });
+        refreshPosts();
     });
   });
+
+  //Funcion eliminar post
+
 
   return divLogin;
 

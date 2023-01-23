@@ -1,10 +1,11 @@
 import { onNavigate } from "../../main.js";
-import { signIn, signInGoogle } from '../Index.js';
+import { authLogin, signIn, signInGoogle } from '../Index.js';
 
 export const home = () => {
     const divHome = document.createElement('div');
     divHome.setAttribute('class', 'div-home');
     const viewHome = `
+    <html>
         <img src='./images/logo.png' alt='logoReading' class='img-logo'>
         <div class='input-login'>
         <p>Inicia sesión</p>
@@ -17,7 +18,8 @@ export const home = () => {
         <img src='./images/btnGoogle.png' id='img-google'></button>
         </div>
         </div>
-        <footer> © 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;
+        <footer class='footInit'>© 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>
+        </html>`;
 
     divHome.innerHTML = viewHome;
 
@@ -57,6 +59,7 @@ export const home = () => {
             document.getElementById('errorLogin').innerHTML = 'Ups algo no está bien';
           }
     });
+    authLogin();
     });
 
     divHome.append(

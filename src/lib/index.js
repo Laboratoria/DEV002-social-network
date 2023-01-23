@@ -6,6 +6,7 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
+  onAuthStateChanged
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 // } from "firebase/auth";
 import {
@@ -15,7 +16,8 @@ import {
   getDocs,
   onSnapshot,
   query,
-  orderBy
+  orderBy,
+  deleteDoc
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -24,6 +26,15 @@ import { app } from './Firebase.js';
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
+
+export const authLogin = () => {
+  const userLogin = getAuth().onAuthStateChanged((user) => {
+    if (user){
+      onNavigate('/dashboard');
+    }
+  });
+  return userLogin;
+};
 
 // Inicia el autentificador con google
 export const provider = new GoogleAuthProvider();
@@ -89,3 +100,6 @@ export const onGetPost = (querySnapshot) => {
   const querypost = query(collection(db, 'post'));
   onSnapshot(querypost, querySnapshot);
 }
+
+//Funcion eliminar publicacion
+export const deleteComent = (id) => deleteDoc(doc(db, 'post', id));
