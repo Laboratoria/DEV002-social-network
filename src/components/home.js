@@ -3,33 +3,85 @@ import { auth, signInWithPass, viewer, provider, popUpGoogle } from "../Firebase
 
 export const home = () => {
     //Creamos elementos del Formulario
-    //const homeDiv = document.createElement("div");
-    const homeForm = document.createElement("form");
+    //const containerHeader = document.createElement("header");
+    //const imgHeader = document.createElement("img");
+    const homeDiv = document.createElement("div");
+    const container = document.createElement("section")
+    const containerLogo = document.createElement("div");
+    const imgLogo = document.createElement("img");
+    const containerForm = document.createElement("div");
+    const loginForm = document.createElement("form");
+    const labelMail = document.createElement("label");
     const inputMail = document.createElement("input");
+    const labelPassword = document.createElement("label");
     const inputPassword = document.createElement("input");
     const buttonLogin = document.createElement("button");
-
-    const signInDiv = document.createElement("div");
-    const hrefRegister = document.createElement("a");
+    const containerGoogle = document.createElement("div");
     const buttonGoogle = document.createElement("button");
+    const iconLogoGoogle = document.createElement("i");
+    const containerRegister = document.createElement("div");
+    const labelRegister = document.createElement("label");
+    const hrefRegister = document.createElement("a");
+    
+    homeDiv.className = "div-container";
+    container.className = "container";
+    //containerHeader.className = "container-header";
+    //imgHeader.className = "img-header";
+    containerLogo.className = "container-logo";
+    imgLogo.src = "src/img/Logo VeganShip.png";
+    imgLogo.className = "img-logo";
+    containerForm.className = "container-form";
+    loginForm.className = "login-form";
+    labelMail.textContent = "E-mail";
+    inputMail.type = "text";
+    inputMail.id = "i-input-login-mail";
+    inputMail.className = "input-login-mail";
+    inputMail.placeholder = "tucorreo@gmail.com";
+    inputMail.required = "true";
+    labelPassword.textContent = "Password";
+    inputPassword.type = "text";
+    inputPassword.id = "i-input-login-password";
+    inputPassword.className = "input-login-password";
+    inputPassword.placeholder = "xxxxxxxxxxxxxx";
+    inputPassword.required = "true";
+    buttonLogin.textContent = "Log In";
+    buttonLogin.className = "button-login";
+    containerGoogle.className = "container-google";
+    buttonGoogle.textContent = "Sign Up with Google";
+    buttonGoogle.className = "button-google";
+    iconLogoGoogle.id = "span-i"; 
+    iconLogoGoogle.className = "fa-brands fa-google";
+    containerRegister.className = "container-register";
+    labelRegister.textContent = "Don't have an account?";
+    hrefRegister.textContent = "Sign Up";
+    
+    //homeDiv.appendChild(loginForm);
+    homeDiv.appendChild(container);
+    container.appendChild(containerLogo);
+    containerLogo.appendChild(imgLogo);
+    container.appendChild(containerForm);
+    containerForm.appendChild(loginForm);
+    loginForm.appendChild(labelMail);
+    loginForm.appendChild(inputMail);
+    loginForm.appendChild(labelPassword);
+    loginForm.appendChild(inputPassword);
+    loginForm.appendChild(buttonLogin);
+    container.appendChild(containerGoogle);
+    containerGoogle.appendChild(buttonGoogle);
+    buttonGoogle.appendChild(iconLogoGoogle);
+    container.appendChild(containerRegister);
+    containerRegister.appendChild(labelRegister);
+    containerRegister.appendChild(hrefRegister);
 
-    buttonLogin.textContent = "INICIAR SESIÓN";
-    hrefRegister.textContent = "Crea una cuenta";
-    buttonGoogle.textContent = "Continuar con Google";
-
-    //homeDiv.appendChild(homeForm);
-    homeForm.appendChild(inputMail);
-    homeForm.appendChild(inputPassword);
-    homeForm.appendChild(buttonLogin);
-
-    //homeForm.appendChild(homeForm);
-    homeForm.appendChild(hrefRegister);
-    homeForm.appendChild(buttonGoogle);
+    //loginForm.appendChild(loginForm);
+    // loginForm.appendChild(hrefRegister);
+    // loginForm.appendChild(buttonGoogle);
 
     viewer();
 
     buttonLogin.addEventListener("click", () => {
-        homeForm.addEventListener("submit", async (e) => {
+        login
+Form.addEventListener("submit", async (e) => {
             e.preventDefault()
             const emailLogin = inputMail.value
             const passwordLogin = inputPassword.value
@@ -65,7 +117,7 @@ export const home = () => {
     });
 
 
-    return homeForm
+    return homeDiv;
 }
 
 
