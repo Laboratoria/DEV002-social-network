@@ -41,7 +41,7 @@ export const feed = () => {
     createPostButton.id = 'idCreatePostButton'
     createPostButton.innerHTML = '<i class="fa-solid fa-circle-plus fa-2xl"></i>';
 
-    createPostButton.addEventListener('click', () => openModalAddPost(feedSection));
+    // createPostButton.addEventListener('click', () => openModalAddPost(feedSection));
 
     const perfilButton = document.createElement('button');
     perfilButton.id = 'idPerfilButton'
