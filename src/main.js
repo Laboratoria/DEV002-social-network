@@ -2,6 +2,7 @@ import { home } from './components/home.js';
 import { register } from './components/register.js';
 import { login } from './components/login.js';
 import { vistaGeneral } from './components/vistaGeneral.js';
+import {form} from './components/form.js';
 
 const rootDiv = document.getElementById('root');
 
@@ -10,6 +11,7 @@ const routes = {
     '/register': register,
     '/login': login,
     '/vistaGeneral': vistaGeneral,
+    '/form': form,
 };
 export const onNavigate = (pathname) => {
     window.history.pushState(
