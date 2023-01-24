@@ -1,3 +1,14 @@
+/*Inicio de sesión*/
+
+.logo-inicio-sesion {
+    margin: 4%;
+}
+
+.logo {
+    width: 30rem;
+    height: 30rem;
+}
+
 .title {
     font-size: 3.3rem;
 }
@@ -6,30 +17,12 @@
     font-size: 3rem;
 }
 
-.logo {
-    width: 30rem;
-    height: 30rem;
-}
-
 .iniciar-sesion-google {
     margin-top: 2.5rem;
 }
 
-.logo-inicio-sesion {
-    margin: 4%;
-}
 
-.user-logo-publicaciones {
-    width: 6rem;
-    margin: 0.5rem;
-}
-
-.container {
-    display: grid;
-    grid-template-columns: 500px 450px;
-    padding: 1rem;
-    place-content: center;
-}
+/*Registro*/
 
 .containerRegister {
     display: grid;
@@ -49,6 +42,12 @@
 
 .fecha-nacimiento {
     width: 10rem;
+}
+
+/*Timeline-Muro*/
+
+.contenedor-nav {
+    justify-content: center;
 }
 
 .navbar {
@@ -96,10 +95,6 @@ a:visited {
     color: aliceblue;
 }
 
-.contenedor-nav {
-    justify-content: center;
-}
-
 .contenedor-publicaciones {
     text-align: end;
     justify-content: center;
@@ -118,8 +113,8 @@ a:visited {
 }
 .btn-publicar:hover {
 
-        background-color: #E6D8E9;
-        color: #35123C;
+    background-color: #E6D8E9;
+    color: #35123C;
 }
 
 .btn-publicar {
@@ -127,7 +122,6 @@ a:visited {
     width: 7rem;
     height: 3.5rem;
     font-size: 1.5rem;
-
 }
 
 .div-post-publicado {
@@ -165,4 +159,16 @@ a:visited {
     width: 25%;
     margin: auto;
     margin-top: 2rem;
+}
+
+.user-logo-publicaciones {
+    width: 6rem;
+    margin: 0.5rem;
+}
+
+.container {
+    display: grid;
+    grid-template-columns: 500px 450px;
+    padding: 1rem;
+    place-content: center;
 }

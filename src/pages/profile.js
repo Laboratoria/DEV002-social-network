@@ -50,10 +50,9 @@ export const profile = () => {
     </section>
     <section class="contenedor-about-me">
         <div class="input-about-me"> 
-            <textarea name="aboutMe" id="textArea" cols="30" rows="5" placeholder="¿Qué países has visitado? ¿Cuáles países recomiendas y por qué? ¿Qué países estás por visitar?"></textarea>
+            <textarea name="aboutMe" id="textArea" class="textArea" cols="30" rows="5" placeholder="¿Qué países has visitado? ¿Cuáles países recomiendas y por qué? ¿Qué países estás por visitar?"></textarea>
         </div>
     </section>
-    <hr>
     
   `;
   divProfile.innerHTML = viewProfile;

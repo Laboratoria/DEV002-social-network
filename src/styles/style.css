@@ -15,6 +15,14 @@ body {
     font-size: 1.7rem;
 }
 
+/*Login*/
+
+.title {
+    font-size: 2.5rem;
+    color: aliceblue;
+    margin: 1rem;
+}
+
 .logo-inicio-sesion {
     display: flex;
     justify-content: center;
@@ -32,9 +40,20 @@ body {
     margin-top: 4rem;
 }
 
+.inicia-sesion-h2 {
+    font-size: 2rem;
+    color: #FFF799;
+    margin: 1.5rem 0rem 3rem 0rem;
+}
+
 .logo-google {
     width: 25rem;
     cursor: pointer;
+}
+
+.or {
+    color: aliceblue;
+    font-size: 2rem;
 }
 
 input {
@@ -54,22 +73,6 @@ button {
     cursor: pointer;
 }
 
-.iniciar-sesion-google {
-    width: 25rem;
-}
-
-.title {
-    font-size: 2.5rem;
-    color: aliceblue;
-    margin: 1rem;
-}
-
-.inicia-sesion-h2 {
-    font-size: 2rem;
-    color: #FFF799;
-    margin: 1.5rem 0rem 3rem 0rem;
-}
-
 .ingresar {
     width: 12rem;
     height: 4rem;
@@ -77,22 +80,11 @@ button {
     margin: 2.5rem;
 }
 
-.or {
-    color: aliceblue;
-    font-size: 2rem;
-}
+/*Register*/
 
 .section-register {
     text-align: center;
     margin-top: 4rem;
-}
-
-.gender {
-    margin: 1rem;
-}
-
-.seleccionar-genero {
-    width: 1rem;
 }
 
 .container-paises {
@@ -112,154 +104,16 @@ button {
     width: 15rem;
 }
 
-li {
-    font-family: 'Raleway', sans-serif;
-    font-size: 2.5rem;
-    background-color: #35123C;
-    height: 6rem;
-    text-align:center;
-    list-style: none;
-    padding: 1.5rem;
-   
-}
-
-.logo-nav {
-    margin: -1rem;
-    width: 4rem;
-}
-
-.perfil-nav {
-    margin-left: 30%;
-}
+/*Timeline-Muro*/
 
 .contenedor-nav {
     background-color: #35123C;
     display: grid;
     grid-template-columns: 300px 60px;
 }
-
-.user-logo {
-    width: 9rem;
-}
-
-.foto-perfil {
-    text-align: center;
-    margin-top: 3rem;
-    font-size: 1.3rem;
-}
-
-.p-actualizar-foto {
-    padding: .5rem;
-}
-
-.about-me {
-    border-style:solid;
-    border-width: 1.5px;
-    border-radius: 10px;
-    width: 70%;
-    margin: auto;
-    margin-top: 2rem;
-
-}
-
-.datos-personales{
-    font-size: 1.7rem;
-    text-align: center;
-    padding: 1rem;
-}
-
-p {
-    padding: 1px;
-}
-
-.input-about-me{
-    text-align: center;
-    margin-top: 2rem;
-    font-family: 'Raleway', sans-serif;
-}
-
-#textArea {
-    border-radius: 10px;
-    font-family: 'Raleway', sans-serif;
-    padding: 1rem;
-    margin-bottom: 1.5rem;
-}
-
-.contenedor-publicaciones {
-    display: grid;
-    grid-template-columns: 85px 300px;
-    margin-top: 2rem;
-}
-.contenedor-publicaciones2 {
-    text-align: left;
-}
-
-.user-logo-publicaciones {
-    width: 5rem;
-    margin: 0.5rem;
-}
-
-.user-logo-publicaciones2 {
-    width: 5rem;
-    margin-top: 1rem;
-    margin-left: 1.5rem;
-}
-
-.input-recomendaciones {
-    height: 8rem;
-    width: 23rem;
-    font-size: 20px;
-    resize: none;
-    border-radius: 8px;
-    padding: 1rem;
-    font-family: 'Raleway', sans-serif;
-}
-
-.btn-publicar {
-    width: 7rem;
-    height: 3.5rem;
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
-}
-
-.seccion-publicar {
-    text-align: end;
-}
-
-.input-publicacion{
-    height: 5rem;
-    width: 24rem;
-    font-size: 14px;
-    margin-left: 1rem;
-    margin-top: 0;
-    color: #35123C;
-}
-
-.edit-logo{
-    width: 1rem;
-    margin-right: 1rem;
-    cursor: pointer;
-}
-
-.delete-logo{
-    width: 1rem;
-    cursor: pointer;
-}
-
-.heart-logo{
-    width: 25px;
-}
-
-.seccion-publicar2 {
-    text-align: end;
-}
-
-.contenedor-likes{
-    display: grid;
-    grid-template-columns: 30px 30px;
-    align-items: self-end;
-    margin-left: 15%;
-
+.logo-nav {
+    margin: -1rem;
+    width: 4rem;
 }
 
 .navbar {
@@ -280,8 +134,70 @@ p {
     width: 3rem;
 }
 
+li {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    background-color: #35123C;
+    height: 6rem;
+    text-align:center;
+    list-style: none;
+    padding: 1.5rem;
+}
+
 .li-navbar{
     padding: 1rem;
+}
+
+.perfil-nav {
+    margin-left: 30%;
+}
+
+/*Sección publicar 1*/
+
+.seccion-publicar {
+    text-align: end;
+}
+
+.contenedor-publicaciones {
+    display: grid;
+    grid-template-columns: 85px 300px;
+    margin-top: 2rem;
+}
+
+.task-form {
+    margin-right: 1rem;
+}
+
+.user-logo-publicaciones {
+    width: 5rem;
+    margin: 0.5rem;
+}
+
+.input-recomendaciones {
+    height: 8rem;
+    width: 23rem;
+    font-size: 20px;
+    resize: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.btn-publicar {
+    width: 7rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/*Sección publicar 2*/
+
+.seccion-publicar2 {
+    text-align: end;
+}
+
+.contenedor-publicaciones2 {
+    text-align: left;
 }
 
 .contenedor-padre{
@@ -315,6 +231,91 @@ p {
     cursor: pointer;           
 }
 
-.task-form {
-    margin-right: 1rem;
+.contenedor-likes{
+    display: grid;
+    grid-template-columns: 30px 30px;
+    align-items: self-end;
+    margin-left: 15%;
 }
+
+.heart-logo{
+    width: 25px;
+}
+
+p {
+    padding: 1px;
+}
+
+/* .user-logo-publicaciones2 {
+    width: 5rem;
+    margin-top: 1rem;
+    margin-left: 1.5rem;
+} */
+
+/* .input-publicacion{
+    height: 5rem;
+    width: 24rem;
+    font-size: 14px;
+    margin-left: 1rem;
+    margin-top: 0;
+    color: #35123C;
+} */
+
+/* .edit-logo{
+    width: 1rem;
+    margin-right: 1rem;
+    cursor: pointer;
+}
+
+.delete-logo{
+    width: 1rem;
+    cursor: pointer;
+} */
+
+
+ /*Perfil*/
+
+ .foto-perfil {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.3rem;
+}
+
+.user-logo {
+    width: 9rem;
+}
+
+.p-actualizar-foto {
+    padding: .5rem;
+}
+
+.about-me {
+    border-style:solid;
+    border-width: 1.5px;
+    border-radius: 10px;
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+
+}
+
+.datos-personales{
+    font-size: 1.7rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.input-about-me{
+    text-align: center;
+    margin-top: 2rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.textArea {
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+}
+
+
