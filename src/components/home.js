@@ -34,7 +34,7 @@ export const home = () => {
     loginForm.className = "login-form";
     labelMail.className = "label-mail";
     labelMail.textContent = "E-mail";
-    inputMail.type = "text";
+    inputMail.type = "email";
     inputMail.id = "i-input-login-mail";
     inputMail.className = "input-login-mail";
     inputMail.placeholder = "tucorreo@gmail.com";

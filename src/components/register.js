@@ -4,6 +4,11 @@ import { auth, signUpWithPass, viewer } from "../Firebase/firebase.js";
 
 export const register = () => {
     //Creamos elementos de para el formulario de registro
+
+    const headerRegister = document.createElement("header");
+    const registerDiv = document.createElement("div");
+    const containerRegister = document.createElement("section")
+    const containerRegisterForm = document.createElement("section")
     const registerForm = document.createElement("form");
     const labelUserName = document.createElement("label");
     const inputUserName = document.createElement("input");
@@ -13,18 +18,23 @@ export const register = () => {
     const inputUserCountry = document.createElement("input");
     const labelUserMail = document.createElement("label");
     const inputUserMail = document.createElement("input");
-    inputUserMail.type = "email";
-    inputUserMail.placeholder = "E-mail";
     const labelUserPass = document.createElement("label");
     const inputUserPass = document.createElement("input");
-    inputUserPass.type = "password";
-    inputUserPass.placeholder = "Password";
     const labelUserCheckPass = document.createElement("label");
     const inputUserCheckPass = document.createElement("input");
     const selectIsVegan = document.createElement("select");
     const buttonRegister = document.createElement("button");
 
-    buttonRegister.textContent = "REGISTRARSE"
+    registerDiv.className = "register-div-container";
+    containerRegister.className = "container-register";
+    containerRegisterForm.className = "container-register-form";
+    registerForm.className = "register-form";
+    inputUserMail.type = "email";
+    inputUserMail.placeholder = "E-mail";
+    inputUserPass.type = "password";
+    inputUserPass.placeholder = "Password";
+    buttonRegister.textContent = "REGISTRARSE";
+    
 
     registerForm.appendChild(inputUserName);
     registerForm.appendChild(inputUserCity);
@@ -55,8 +65,6 @@ export const register = () => {
                     alert("algo anda mal");
                 }
             }
-
-            
 
             toNavigate("/registerOk");
         })
