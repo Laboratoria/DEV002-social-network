@@ -3,7 +3,7 @@ export const timeLine = () => {
   divTimeLine.setAttribute('class', 'container-div-timeLine');
   const viewTimeLine = `
     <header class="contenedor-nav">
-        <li class="perfil-nav"> Timeline </li>
+        <li class="perfil-nav"> Muro </li>
         <li>
             <img class="logo-nav" src="./images/logo.png" alt="">
         </li>
@@ -23,13 +23,13 @@ export const timeLine = () => {
 
     <nav class="navbar-desktop" id="navbar-desktop">
         <a href="/timeLine">
-            <li class="li-navbar"> Home </li>
+            <li class="li-navbar"> Muro </li>
         </a>
         <a href="/profile">
-            <li class="li-navbar"> Profile </li>
+            <li class="li-navbar"> Perfil </li>
         </a>
         <a href="/login">
-            <li class="li-navbar"> Log out </li>
+            <li class="li-navbar"> Cerrar sesión </li>
         </a>
     </nav>
 

@@ -22,6 +22,18 @@ export const profile = () => {
             <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
         </a>
     </nav>
+
+    <nav class="navbar-desktop" id="navbar-desktop">
+        <a href="/timeLine">
+            <li class="li-navbar"> Muro </li>
+        </a>
+        <a href="/profile">
+            <li class="li-navbar"> Perfil </li>
+        </a>
+        <a href="/login">
+            <li class="li-navbar"> Cerrar sesión </li>
+        </a>
+    </nav>
     
     <section class="foto-perfil">
         <img class="user-logo" src="./images/user.png" alt="">

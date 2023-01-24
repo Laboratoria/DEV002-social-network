@@ -149,3 +149,20 @@ a:visited {
     align-items: self-end;
     margin-left: 30%;
 }
+
+/*Perfil*/
+
+.datos-personales {
+    font-size: 1.7rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.about-me {
+    border-style: solid;
+    border-width: 1.5px;
+    border-radius: 10px;
+    width: 25%;
+    margin: auto;
+    margin-top: 2rem;
+}
