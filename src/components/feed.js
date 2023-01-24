@@ -1,5 +1,5 @@
 
-import { postsRef } from "../lib/firebase/methodsFirestore.js";
+import { postsRef, savePosts } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 
     const feedSection = document.createElement('section');
@@ -33,9 +33,9 @@ export const feed = () => {
     createContainerButtons.className = 'container-buttons';
     feedSection.appendChild(createContainerButtons);
 
-    const createPostButton = document.createElement('button');
-    createPostButton.id = 'idCreatePostButton'
-    createPostButton.innerHTML = '<i class="fa-solid fa-circle-plus fa-2xl"></i>';
+    const logoutButton = document.createElement('button');
+    logoutButton.id = 'idlogoutButton'
+    logoutButton.innerHTML = '<i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>';
 
     const perfilButton = document.createElement('button');
     perfilButton.id = 'idPerfilButton'
@@ -47,8 +47,8 @@ export const feed = () => {
 
 
     createContainerButtons.appendChild(perfilButton);
-    createContainerButtons.appendChild(createPostButton);
-    createContainerButtons.appendChild(comentarioButton)
+    createContainerButtons.appendChild(comentarioButton);
+    createContainerButtons.appendChild(logoutButton);
 
 
     //FORMULARIO PARA POSTEAR
@@ -65,7 +65,7 @@ export const feed = () => {
     publicarPostButton.className = 'post-btn';
     publicarPostButton.type = 'submit';
     publicarPostButton.id = 'idPostButton';
-    publicarPostButton.textContent = 'Create post';
+    publicarPostButton.textContent = 'Post';
     formulario.appendChild(publicarPostButton);
 
 
@@ -76,7 +76,8 @@ export const feed = () => {
         if (textPost === null || textPost === '' || textPost.length == 0){
            alert('escriba un mensaje');
         }
-        console.log(textPost);
+        formulario.reset();
+        alert('tu post ha sido publicado');
     });
 
 
@@ -94,6 +95,9 @@ export const feed = () => {
     const contenedorPosts = document.createElement('div');
     contenedorPosts.className = 'contenedor-posts';
     feedSection.appendChild(contenedorPosts);
+
+    
+    savePosts(textoUser.value).then().catch(error => console.log("fallo la promesa para postear", error));
 
     postsRef()
         .then(postsCollection => {
@@ -123,6 +127,10 @@ export const feed = () => {
             });
         })
         .catch(error => console.log("fallo la promesa de firestore", error))
+
+    //    let valorPostCreado = getElementById('idUserPost').value;
+
+
 
     return feedSection;
 

@@ -1,7 +1,7 @@
 // Import the functions of Firestore for posting
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
-import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
+import { login, register, loginWithGoogle, verificarSendingMail, logOut } from "./lib/firebase/methodsAuth.js";
 
 
 /*logout importar*/
@@ -115,19 +115,24 @@ if (signinForm) {
   });
 };
 
-// // LOGOUT
-// /*const logout = document.getElementById('salir');
-// logout.addEventListener('click', () => {
-//   logOut(auth)
-
-// });*/
-
-// GOOGLE LOGIN
+ //---------------- LOGOUT------------
+ const logout = document.getElementById('idlogoutButton');
+ if(logout){
+ logout.addEventListener('click', () => {
+  alert('¿deseas abandonar tu sesión?');
+   logOut(auth);
+   onNavigate('/');
+ });
+};
+// --------------- GOOGLE LOGIN-----------------
 const googleButton = document.getElementById('entrarGoogle')
 if (googleButton) {
   googleButton.addEventListener('click', (e) => {
     e.preventDefault();
     loginWithGoogle(auth);
     signinForm.reset();
+    //poner una condicion para enviar al feed luego de cerrarse el pop up de google
+    onNavigate('/feed');
+    console.log('Bienvenid@');
   });
 };
