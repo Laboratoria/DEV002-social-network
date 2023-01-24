@@ -54,8 +54,10 @@ export const feed = () => {
     //FORMULARIO PARA POSTEAR
 
     const formulario = document.createElement('form');
+    formulario.method = 'post';
     formulario.id = 'idForm';
     formulario.className = 'formulario-post';
+    console.log(formulario);
     feedSection.appendChild(formulario);
 
 
@@ -67,25 +69,24 @@ export const feed = () => {
     formulario.appendChild(publicarPostButton);
 
 
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log('click');
+        let textPost = document.getElementById('idUserPost').value;
+        if (textPost === null || textPost === ''){
+           console.log('escriba un mensaje');
+        }
+        console.log(textPost);
+    });
 
-    const formularioPost = document.getElementById('idForm')
-    if (formularioPost) {
-        formularioPost.addEventListener('submit', (e) => {
-            e.preventDefault();
-            console.log('click')
-            let textPost = document.getElementById('idUserPost').value;
-            console.log(textPost);
-        });
-    }
 
-        const textoUser = document.createElement('textarea')
-        textoUser.className = 'textoUser';
-        textoUser.name = 'addpost';
-        textoUser.id = 'idUserPost';
-        textoUser.placeholder = 'what do you need?'
-        formulario.appendChild(textoUser);
-    
+    const textoUser = document.createElement('textarea');
 
+    textoUser.className = 'textoUser';
+    textoUser.name = 'addpost';
+    textoUser.id = 'idUserPost';
+    textoUser.placeholder = 'what do you need?';
+    formulario.appendChild(textoUser);
 
 
 
