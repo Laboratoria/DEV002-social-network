@@ -83,7 +83,7 @@ export const register = () => {
      const buttonLogin = document.createElement('a');
      buttonLogin.className = 'signin-a';
     buttonLogin.textContent = 'Sign in';
-    buttonLogin.id = 'botonLoguear';
+    buttonLogin.id = 'botonLoguear'; 
 
 
 
