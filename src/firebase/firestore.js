@@ -17,11 +17,12 @@ window.addEventListener('DOMContentLoaded', async () =>{
                 <div class = 'contenedor-padre'> 
                     <textarea class = 'div-post-publicado'>${task.description}</textarea>
                         <img src="./images/editlogo2.png" class='btn-edit' data-id="${doc.id}">
-                        <imggiteletelogo2.png" class='btn-delete' data-id="${doc.id}"> 
-                        
-                    
+                        <img src="./images/deletelogo2.png" class='btn-delete' data-id="${doc.id}"> 
                 </div>
-                <hr>
+                <div class="contenedor-likes">
+                    <img class="heart-logo" src="./images/heart.png" alt="heart">
+                    <p> 3 </p>
+                 </div>
                 `;
             }); 
             
@@ -45,7 +46,7 @@ window.addEventListener('DOMContentLoaded', async () =>{
             editStatus = true;
             id= doc.id
 
-            taskForm['btn-publicar'].innerText = 'Update'
+            taskForm['btn-publicar'].innerText = 'Publicar'
             })
         })
     });

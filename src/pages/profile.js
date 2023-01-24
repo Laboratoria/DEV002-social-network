@@ -2,14 +2,26 @@ export const profile = () => {
   const divProfile = document.createElement('div');
   divProfile.setAttribute('class', 'container-div-profile');
   const viewProfile = `
-    <header>
-    <nav class="contenedor-nav"> 
+    <header class="contenedor-nav"> 
         <li class="perfil-nav"> Perfil </li> 
         <li> 
             <img class="logo-nav" src="./images/logo.png" alt="">
-        </li>
-    </nav>  
+        </li> 
     </header>
+    <hr>
+    <nav class="navbar">
+        <a href="/timeLine">
+            <li class="li-navbar"> <img class="navbar-img" src="./images/home.png" alt="Home"> </li>
+        </a>
+    
+        <a href="/profile">
+            <li class="li-navbar"> <img class="navbar-img" src="./images/profilelogo.png" alt="Profile"> </li>
+        </a>
+
+        <a href="/login">
+            <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
+        </a>
+    </nav>
     
     <section class="foto-perfil">
         <img class="user-logo" src="./images/user.png" alt="">
@@ -30,19 +42,7 @@ export const profile = () => {
         </div>
     </section>
     <hr>
-        <nav class="navbar">
-        <a href="/timeLine">
-           <li class="li-navbar"> <img class="navbar-img" src="./images/home.png" alt="Home"> </li>
-        </a>
-        
-        <a href="/profile">
-            <li class="li-navbar"> <img class="navbar-img" src="./images/profilelogo.png" alt="Profile"> </li>
-        </a>
-
-        <a href="/login">
-           <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
-        </a>
-    </nav>
+    
   `;
   divProfile.innerHTML = viewProfile;
   return divProfile;

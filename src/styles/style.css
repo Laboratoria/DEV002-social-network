@@ -69,12 +69,14 @@ button {
     color: #FFF799;
     margin: 1.5rem 0rem 3rem 0rem;
 }
+
 .ingresar {
     width: 12rem;
     height: 4rem;
     cursor: pointer;
     margin: 2.5rem;
 }
+
 .or {
     color: aliceblue;
     font-size: 2rem;
@@ -110,7 +112,6 @@ button {
     width: 15rem;
 }
 
-
 li {
     font-family: 'Raleway', sans-serif;
     font-size: 2.5rem;
@@ -124,7 +125,6 @@ li {
 
 .logo-nav {
     margin: -1rem;
-    margin-left: 30%;
     width: 4rem;
 }
 
@@ -135,7 +135,7 @@ li {
 .contenedor-nav {
     background-color: #35123C;
     display: grid;
-    grid-template-columns: 320px 90px;
+    grid-template-columns: 300px 60px;
 }
 
 .user-logo {
@@ -151,6 +151,7 @@ li {
 .p-actualizar-foto {
     padding: .5rem;
 }
+
 .about-me {
     border-style:solid;
     border-width: 1.5px;
@@ -160,6 +161,7 @@ li {
     margin-top: 2rem;
 
 }
+
 .datos-personales{
     font-size: 1.7rem;
     text-align: center;
@@ -169,10 +171,13 @@ li {
 p {
     padding: 1px;
 }
+
 .input-about-me{
     text-align: center;
     margin-top: 2rem;
+    font-family: 'Raleway', sans-serif;
 }
+
 #textArea {
     border-radius: 10px;
     font-family: 'Raleway', sans-serif;
@@ -191,9 +196,9 @@ p {
 
 .user-logo-publicaciones {
     width: 5rem;
-    margin-top: 2.5rem;
-    margin-left: 1.5rem;
+    margin: 0.5rem;
 }
+
 .user-logo-publicaciones2 {
     width: 5rem;
     margin-top: 1rem;
@@ -202,13 +207,17 @@ p {
 
 .input-recomendaciones {
     height: 8rem;
-    width: 24rem;
-    font-size: 14px;
-
+    width: 23rem;
+    font-size: 20px;
+    resize: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Raleway', sans-serif;
 }
+
 .btn-publicar {
     width: 7rem;
-    height: 4rem;
+    height: 3.5rem;
     font-size: 1.5rem;
     margin-bottom: 2rem;
 }
@@ -223,6 +232,7 @@ p {
     font-size: 14px;
     margin-left: 1rem;
     margin-top: 0;
+    color: #35123C;
 }
 
 .edit-logo{
@@ -241,26 +251,25 @@ p {
 }
 
 .seccion-publicar2 {
-text-align: end;
+    text-align: end;
 }
 
 .contenedor-likes{
     display: grid;
-    grid-template-columns: 25px 25px;
+    grid-template-columns: 30px 30px;
     align-items: self-end;
-    margin-left: 80%;
+    margin-left: 15%;
 
 }
 
 .navbar {
     display: grid;
-    grid-template-columns: 138px 138px 138px;
+    grid-template-columns: 127px 127px 127px;
     align-items: center;
-    position: fixed;
     top:92%;
     width:100%;
     background-color:#35123C;
-   
+    position: fixed;
 }
 
 .navbar-img {
@@ -274,7 +283,9 @@ text-align: end;
 .contenedor-padre{
     align-items: center;
     text-align: center;
+    margin-bottom: 1rem;
 }
+
 .div-post-publicado{
     background-color: aliceblue;
     color: black;
@@ -283,15 +294,23 @@ text-align: end;
     margin: 0px auto;
     margin-top: 2rem;
     border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.7rem;
 }
+
 .btn-edit{
     width: 1.5rem; 
     position:absolute;
     margin-top: 2rem;
-    
+    cursor: pointer;
 }
+
 .btn-delete{
-    width: 1.5rem;            
+    width: 1.5rem; 
+    cursor: pointer;           
 }
 
-
+.task-form {
+    margin-right: 1rem;
+}
