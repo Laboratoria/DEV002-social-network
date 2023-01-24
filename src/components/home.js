@@ -82,8 +82,7 @@ export const home = () => {
     viewer();
 
     buttonLogin.addEventListener("click", () => {
-        login
-Form.addEventListener("submit", async (e) => {
+        loginForm.addEventListener("submit", async (e) => {
             e.preventDefault()
             const emailLogin = inputMail.value
             const passwordLogin = inputPassword.value
