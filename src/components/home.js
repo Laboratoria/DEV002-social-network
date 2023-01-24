@@ -2,7 +2,7 @@
 import { navigateRoutes } from '../main.js';
 /* HOME DE INICIO DE SESION DE LA APP */
 export const home = () => {
-  const divHome = document.createElement('div');
+  const divHome = document.createElement('div'); /* div que contiene el bloque de home */
 
   const btnRegister = document.createElement('button'); /* boton de registro */
   const btnLogin = document.createElement('button'); /* inicia sesion - continue with google */
