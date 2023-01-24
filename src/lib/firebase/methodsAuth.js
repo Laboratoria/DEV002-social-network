@@ -56,24 +56,38 @@ export const login = (auth, email, password) => {
     }
 
 
-   /* export const logOut = (auth) => {
+    export const logOut = (auth) => {
         auth.signOut().then(() => {
             console.log('sign out');
         });
-    }*/
+    }
 
 
     export const loginWithGoogle = (auth) => {
+        return new Promise((resolve, reject) => {    //resolve para retornar el valor deseado cuando una función se ejecute y reject para cuando una función retorna un valor no deseado./
+
         const provider = new GoogleAuthProvider();
 
-        signInWithPopup(auth, provider)
-            .then(result => {
-                const user = result.user;
-                //   closeModalSI();
-                console.log('sign in Google');
-                //   signinForm.querySelector('.message-error').innerHTML = '';
-            })
-            .catch((error) => {
+       return signInWithPopup(auth, provider)
+        .then(({ user }) => resolve(user))
+        .catch(error => reject(error))
               
-             });
+        })
     }
+
+
+
+    // export const loginWithGoogle = (auth) => {
+    //     const provider = new GoogleAuthProvider();
+
+    //     signInWithPopup(auth, provider)
+    //         .then(result => {
+    //             const user = result.user;
+    //             //   closeModalSI();
+    //             console.log('sign in Google');
+    //             //   signinForm.querySelector('.message-error').innerHTML = '';
+    //         })
+    //         .catch((error) => {
+              
+    //          });
+    // }

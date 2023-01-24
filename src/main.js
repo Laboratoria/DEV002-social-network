@@ -1,10 +1,9 @@
 // Import the functions of Firestore for posting
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
-import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
+import { login, register, loginWithGoogle, verificarSendingMail, logOut } from "./lib/firebase/methodsAuth.js";
 
 
-/*logout importar*/
 //const app = init();
 
 const auth = getAuth();
@@ -115,21 +114,36 @@ if (signinForm) {
   });
 };
 
-// // LOGOUT
-// /*const logout = document.getElementById('salir');
-// logout.addEventListener('click', () => {
-//   logOut(auth)
+// LOGOUT
+const logout = document.getElementById('idlogoutButton');
+if (logout) {
+  logout.addEventListener('click', () => {
+    logOut(auth)
 
-// });*/
+  });
+}
 
 // GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
 if (googleButton) {
-  googleButton.addEventListener('click', (e) => {
+  googleButton.addEventListener('click', async (e) => {
     e.preventDefault();
-    loginWithGoogle(auth);
-    signinForm.reset();
+    try {
+      const {emailVerified, email}= await loginWithGoogle(auth);
+      signinForm.reset();
+      if (emailVerified) {
+        onNavigate('/feed');
+        console.log('Bienvenid@', email);
+      } else {
+
+        /*  auth.signOut();*/
+        console.log('Por favor realiza la verificación de tu cuenta');
+      }
+    }
+
+    catch (error) {
+    
+    };
   });
-};
 
-
+  };

@@ -14,7 +14,7 @@ const firebaseConfig = {
 
 export const app = initializeApp(firebaseConfig);
 
-import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
