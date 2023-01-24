@@ -18,10 +18,10 @@ export const register = () => {
   const password = document.createElement('input');
   const btnRegistrarme = document.createElement('input');
   const btnHome = document.createElement('button');
+  const root = document.getElementById('root');
 
   /* appen */
-
-  sectionRegister.appendChild(btnHome);
+  root.append(btnHome);
   sectionRegister.appendChild(divRegisterText);
   divRegisterText.appendChild(textSignIn);
   sectionRegister.appendChild(divRegisterForm);
@@ -39,7 +39,7 @@ export const register = () => {
   /* atribute */
   sectionRegister.setAttribute('class', 'sectionRegister');
   divRegisterText.setAttribute('class', 'divRegisterText');
-  textSignIn.textContent = 'Ingresa tus Datos';
+  textSignIn.textContent = 'Por favor, ingresa tus Datos';
 
   divRegisterForm.setAttribute('class', 'divRegisterForm');
   formRegister.setAttribute('class', 'formRegister');
@@ -49,6 +49,10 @@ export const register = () => {
   labelLastName.textContent = 'Apellido';
   labelEmail.textContent = 'Email';
   labelPassword.textContent = 'Password';
+  btnHome.textContent = 'Home';
+
+  btnHome.setAttribute('class', 'btnHome');
+  btnHome.setAttribute('type', 'text');
 
   name.setAttribute('class', 'name');
   name.setAttribute('type', 'text');
@@ -78,4 +82,3 @@ export const register = () => {
 
   return sectionRegister;
 };
-/* hola ginaaaaaaaaaaaaaaaaaaaasssssssssssssssssssssssss */

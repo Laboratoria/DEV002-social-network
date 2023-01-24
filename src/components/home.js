@@ -10,6 +10,10 @@ export const home = () => {
   btnRegister.textContent = 'Registrate';
   btnLogin.textContent = 'Inicia Sesión';
 
+  divHome.setAttribute('class', 'divHome');
+  btnLogin.setAttribute('class', 'btnLogin');
+  btnRegister.setAttribute('class', 'btnRegister');
+
   btnRegister.addEventListener('click', () => navigateRoutes('/Register')); /* evento click para ejecutar funcion navigate. -param:pathname- */
   btnLogin.addEventListener('click', () => navigateRoutes('/Login'));
 

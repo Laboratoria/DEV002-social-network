@@ -1,6 +1,130 @@
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+    background-color: white;
+}
+/* ************** HOME *************** */
+
+.divHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.btnLogin {
+    display: flex;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 10px;
+    width: 15%;
+}
+.btnLogin:hover {
+    background-color: #39c;
+    color: white;
+    border: none;
+    width: 30%;
+    cursor: pointer;
+}
+
+.btnRegister {
+    display: flex;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 15%;
+    padding: 10px 10px;
+}
+.btnRegister:hover {
+    background-color: #39c;
+    color: white;
+    border: none;
+    width: 30%;
+    cursor: pointer;
+}
+
+
+/************* REGISTER **********/
+/* boton a home */
+.btnHome {
+    justify-content: flex-start;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 15%;
+
+}
+
+/* contenedor */
+.sectionRegister {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10% 20% 10% 20%;
+    background-color: white;
+    border: 5px;
+    border-color: black;
+    border-radius: 10px;
+    
+}
+/* "POR FAVOR, INGRESA TUS DATOS */
+.divRegisterText {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    font-size: 50px;
+}
+/* FORMULARIO */
+
 .formRegister{
     display: flex;
     flex-direction: column;
+    justify-content: center;
     padding: 0 4%;
     gap: 2vh;
+    background-color: white;
+    padding: 10% 20% 10% 20%;
+}
+.name {
+    border-radius: 5px;
+    border: 3px solid;
+    border-color: #39c;
+    background-color: white;
+}
+.lastName {
+    border-radius: 5px;
+    border: 3px solid;
+    border-color: #39c;
+    background-color: white;
+}
+.email {
+    border-radius: 5px;
+    border: 3px solid;
+    border-color: #39c;
+    background-color: white;
+}
+.password {
+    border-radius: 5px;
+    border: 3px solid;
+    border-color: #39c;
+    background-color: white;
+}
+/* PROPIEDADES DE BOTON REGISTRARME */
+
+.btnRegistrarme {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    width: 30%;   
+}
+.btnRegistrarme:hover {
+    background-color: #39c;
+    color: white;
+    border: none;
+    width: 50%;
+    cursor: pointer;
 }
