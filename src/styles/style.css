@@ -272,6 +272,10 @@ p {
     position: fixed;
 }
 
+.navbar-desktop {
+    display: none;
+}
+
 .navbar-img {
     width: 3rem;
 }

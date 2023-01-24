@@ -21,6 +21,18 @@ export const timeLine = () => {
         </a>
     </nav>
 
+    <nav class="navbar-desktop" id="navbar-desktop">
+        <a href="/timeLine">
+            <li class="li-navbar"> Home </li>
+        </a>
+        <a href="/profile">
+            <li class="li-navbar"> Profile </li>
+        </a>
+        <a href="/login">
+            <li class="li-navbar"> Log out </li>
+        </a>
+    </nav>
+
     <section class="seccion-publicar">
         <div class="contenedor-publicaciones">
             <picture>  <img class="user-logo-publicaciones" src="./images/user.png" alt=""> </picture>
