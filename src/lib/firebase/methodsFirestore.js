@@ -15,6 +15,7 @@ export const app = initializeApp(firebaseConfig);
 
 
 import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+// import { async } from "regenerator-runtime";
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
@@ -23,6 +24,9 @@ export const postsRef = async () => await getDocs(collection(db, 'posts'))
 
 console.log('postsRef',postsRef()); 
 
+export const crearPost = async() => await addDoc(collection(db, 'posts'))
+
+
 //Add a new document in collection "posts"
 // export const crearPost = await setDoc(doc(db, "posts", "LA"), {
 //   autor: "Jhoa",
@@ -30,6 +34,7 @@ console.log('postsRef',postsRef());
 //   fecha: "22/01/2023",
 //   titulo: "3º post"
 // });
+
 
 
 // export const crearPost = (uid, titulo, descripcion) => {

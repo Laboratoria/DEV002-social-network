@@ -116,11 +116,11 @@ if (signinForm) {
 };
 
 // // LOGOUT
-// /*const logout = document.getElementById('salir');
+// const logout = document.getElementById('salir');
 // logout.addEventListener('click', () => {
-//   logOut(auth)
+//  logOut(auth)
 
-// });*/
+//  });
 
 // GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')
