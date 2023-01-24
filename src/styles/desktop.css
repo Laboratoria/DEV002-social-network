@@ -69,7 +69,6 @@
     color: aliceblue;
     font-size: .8rem;
     text-decoration: none;
-    margin-right: 2rem;
 }
 
 .li-navbar:hover{
@@ -95,21 +94,22 @@ a:visited {
     color: aliceblue;
 }
 
+.user-logo-publicaciones {
+    margin-right: 3rem; 
+    width: 6rem;
+}
+
 .contenedor-publicaciones {
     text-align: end;
     justify-content: center;
     display: grid;
-    grid-template-columns: 140px 350px;
+    grid-template-columns: 110px 375px;
     margin-top: 2rem;
-}
-
-.user-logo-publicaciones {
-    margin-right: 3rem; 
 }
 
 .input-recomendaciones {
     padding: 1rem;
-    width: 27rem;
+    width: 30rem;
 }
 .btn-publicar:hover {
 
@@ -118,15 +118,17 @@ a:visited {
 }
 
 .btn-publicar {
-    margin: 1rem 0rem 2rem 0rem;
+    margin: 1rem -1rem 2rem 0rem;
     width: 7rem;
     height: 3.5rem;
     font-size: 1.5rem;
 }
 
+/*Sección de posts publicados en timeline*/
+
 .div-post-publicado {
     resize: none;
-    width: 40rem;
+    width: 39rem;
 }
 
 .btn-edit {
@@ -159,11 +161,6 @@ a:visited {
     width: 25%;
     margin: auto;
     margin-top: 2rem;
-}
-
-.user-logo-publicaciones {
-    width: 6rem;
-    margin: 0.5rem;
 }
 
 .container {
