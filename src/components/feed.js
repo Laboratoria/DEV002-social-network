@@ -1,9 +1,4 @@
-<<<<<<< HEAD
 //import { onNavigate } from '../js/routes.js'
-//import { postsRef } from "./lib/firebase/methodsFirestore.js";
-=======
-
->>>>>>> 353e7b8df48abf0b48272cd8d2ea9fdd7e9d5160
 import { postsRef } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 
@@ -38,11 +33,11 @@ export const feed = () => {
     createContainerButtons.className = 'container-buttons';
     feedSection.appendChild(createContainerButtons);
 
-    const createPostButton = document.createElement('button');
-    createPostButton.id = 'idCreatePostButton'
-    createPostButton.innerHTML = '<i class="fa-solid fa-circle-plus fa-2xl"></i>';
+    // const createPostButton = document.createElement('button');
+    // createPostButton.id = 'idCreatePostButton'
+    // createPostButton.innerHTML = '<i class="fa-solid fa-circle-plus fa-2xl"></i>';
 
-    createPostButton.addEventListener('click', () => openModalAddPost(feedSection));
+    // createPostButton.addEventListener('click', () => openModalAddPost(feedSection));
 
 
     const perfilButton = document.createElement('button');
@@ -53,44 +48,48 @@ export const feed = () => {
     comentarioButton.id = 'idcomentarioButton'
     comentarioButton.innerHTML = '<i class="fa-regular fa-message fa-2xl"></i>';
 
+    const logoutButton = document.createElement('button');
+    logoutButton.id = 'idlogoutButton'
+    logoutButton.innerHTML = '<i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>';
 
     createContainerButtons.appendChild(perfilButton);
-    createContainerButtons.appendChild(createPostButton);
     createContainerButtons.appendChild(comentarioButton)
+    createContainerButtons.appendChild(logoutButton);
+
+
+//--------------CREANDO UN NUEVO POST-----------------------------
 
     const formulario = document.createElement('form');
     formulario.id = 'idForm';
+    feedSection.appendChild(formulario);
+
+    const textoUser = document.createElement('textarea');
+    textoUser.className = 'textoUser';
+   // textoUser.name = 'addpost';
+    textoUser.id = 'idUserPost';
+    textoUser.placeholder = 'what do you need?'
+    formulario.appendChild(textoUser);
 
     const publicarPostButton = document.createElement('button');
     publicarPostButton.className = 'post-btn';
     publicarPostButton.type = 'submit';
     publicarPostButton.id = 'idPostButton';
-    publicarPostButton.textContent = 'Create post';
+    publicarPostButton.textContent = 'Post';
     formulario.appendChild(publicarPostButton);
-    feedSection.appendChild(formulario);
 
+    //const formularioPost = document.getElementById('idForm');
+   
+    formulario.addEventListener('submit', (e) => {
+        e.preventDefault();
+        console.log('click');
+        let textPost = document.getElementById('idUserPost').value;
+        if (textPost === null || textPost === '' || textPost.length == 0){
+           alert('escriba un mensaje');
+        }
+        console.log(textPost);
+    });
 
-
-    const formularioPost = document.getElementById('idForm')
-    if (formularioPost) {
-        formularioPost.addEventListener('submit', () => {
-            console.log('click')
-            let textPost = document.getElementById('idUserPost').value;
-            console.log(textPost);
-        });
-    }
-
-        const textoUser = document.createElement('textarea')
-        textoUser.className = 'textoUser';
-        textoUser.name = 'addpost'
-        textoUser.id = 'idUserPost';
-        textoUser.placeholder = 'what do you need?'
-        formulario.appendChild(textoUser);
-    
-
-
-
-
+//----------------------MOSTRANDO POSTS EXISTENTES-----------------------------
 
     const contenedorPosts = document.createElement('div');
     contenedorPosts.className = 'contenedor-posts';
@@ -101,8 +100,8 @@ export const feed = () => {
             postsCollection.forEach((item) => { /*para traer los posts de mi colección */
 
                 const posts = item.data();
-                console.log(posts);
-
+                //console.log(posts);
+                //console.log(posts["fecha"]);
                 const postCreado = document.createElement('div');
                 postCreado.className = 'post-div';
 
@@ -114,9 +113,10 @@ export const feed = () => {
                  <button class ="boton-eliminar" id="botonEliminar"><i class="fa-solid fa-trash-can fa-lg"></i></button>
              </div>
              <button type="button" class ="boton-like" id="botonLike"><i class="fa-solid fa-heart fa-lg"></i></button>
-             <h2 class = "titulo-post">${posts["titulo"]}</h2> 
-             <h3 class = "descripcion-post"> ${posts["descripcion"]}</h3> 
-             <h4 class = "fecha-post">${posts["fecha"]}</h4> 
+             <br></br>
+             <!-- <h2 class = "titulo-post">${posts["titulo"]}</h2> -->
+             <h4 class = "descripcion-post"> ${posts["descripcion"]}</h4> 
+              <h4 class = "fecha-post">${posts["fecha"]}</h4> 
          </div>  
          `;
                 contenedorPosts.append(postCreado);

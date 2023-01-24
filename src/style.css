@@ -487,6 +487,7 @@ input::placeholder {
 .section-feed {
   width: 360px;
   height: 100vh;
+  overflow:scroll;
   /*es el 100% para cualquier dispositivo*/
   /* display: grid;
   grid-template-columns: 80px 200px 80px;
@@ -496,6 +497,8 @@ input::placeholder {
   /*para que el hijo posicionarse respecto al section-feed*/
   /* justify-content: center; */
   background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
+  
+
 }
 
 /* .section-feed > * {
@@ -533,9 +536,12 @@ input::placeholder {
 
  .container-buttons {
   position: absolute;
+  position: sticky;
   bottom: 0;
   left: 0;
+  top: 745px;
   width: 360px;
+  height: 59px;
   background-color: #F7DAE5;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -563,27 +569,30 @@ input::placeholder {
   background-color: transparent;
   border: none;
   display: flex;
-  /* or inline-flex */
   flex-direction: column;
-  /* justify-content: center; */
-  gap: 10px;
+  margin : 0 0 0 20px;
+  gap:20px;
 
 }
 
 .post-div {
-  width: 100%;
+  width: 90%;
   height: 25vh;
   border: 1px solid #52525C;
   border-radius: 10px;
   background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+  
+
+  
 }
 
 .parte-superior-post{
   background-color: #C3E2E6;
   height: 6vh;
-  border-top-left-radius: 10px;
-  border-top-right-radius: 10px;
-  border: 1px solid #52525C;
+  border-top-left-radius: 10px ;
+  border-top-right-radius: 10px ;
   border-bottom: none;
   display: flex;
   align-items: center;
@@ -594,6 +603,7 @@ input::placeholder {
   background-color: transparent;
   position: absolute;
   right: 8vh;
+  color: #222222;
  
 }
 
@@ -602,6 +612,7 @@ input::placeholder {
   background-color: transparent;
   position: absolute;
   right: 4vh;
+  color:#222222
 
 
 }
@@ -611,11 +622,59 @@ input::placeholder {
   color: #FA79AA;
   background-color: transparent;
   position: absolute;
-
-  right: 8vh;
+  margin-top: 100px;
+  right: 4vh;
+  font-size: 12px;
+  font-family: 'roboto, sans-serif';
 
 }
 
 .titulo-post{
-  font-family:century;
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color:#52525C;
+}
+
+.textoUser{
+  border:none;
+  resize: none;
+  width: 90%;
+  height: 50px;
+  margin: 0 5px 0 20px;
+  border: 5px double  #d6d6db;
+  border-radius: 3px;
+  text-indent: 5px;
+  margin-bottom: 10px;
+  margin-top: -40px;
+  
+}
+h2.titulo-post{
+  position: relative;
+  top: -35px;
+  margin: 0 0 0 20px;
+}
+h3.descripcion-post{
+  margin: 0 0 0 20px;
+  color:#222222;
+}
+h4.fecha-post {
+  position: relative;
+  top: 60px;
+  margin: 0 0 0 15px;
+
+  color: #888686;
+  font-size: 10px;
+}
+.post-btn {
+  position: relative;
+  background :#3b5998;
+  border-radius: 2px;
+  width: 50px;
+  height: 20px;
+  color:#d6d6db;
+  text-shadow: 1px 0 1px #ffffff;
+  border: none;
+  left: 275px;
+  top: 5px;
+
 }

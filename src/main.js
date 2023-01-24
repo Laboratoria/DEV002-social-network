@@ -133,10 +133,3 @@ if (googleButton) {
 };
 
 
-<<<<<<< HEAD
-
-
-
-
-=======
->>>>>>> 353e7b8df48abf0b48272cd8d2ea9fdd7e9d5160

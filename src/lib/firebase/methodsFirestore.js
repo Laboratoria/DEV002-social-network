@@ -10,16 +10,7 @@ const firebaseConfig = {
     appId: '1:161909447570:web:b126b68b577520ab947f4b',
   };
 
-<<<<<<< HEAD
-  // Initialize Firebase
-// console.log('app', app)
-// export const init = () =>{
-//   return app;
-// }
-=======
 
-export const app = initializeApp(firebaseConfig);
->>>>>>> 353e7b8df48abf0b48272cd8d2ea9fdd7e9d5160
 
 export const app = initializeApp(firebaseConfig);
 
@@ -27,14 +18,10 @@ import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gsta
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
-<<<<<<< HEAD
-export const postsRef = async () => await getDocs(collection(db, 'posts')) /*obtener la coleccion de firestore*/ 
-=======
 // Obtener la data desde el firestore
 export const postsRef = async () => await getDocs(collection(db, 'posts')) 
->>>>>>> 353e7b8df48abf0b48272cd8d2ea9fdd7e9d5160
 
-console.log('postsRef',postsRef()); 
+//console.log('postsRef',postsRef()); 
 
 //Add a new document in collection "posts"
 // export const crearPost = await setDoc(doc(db, "posts", "LA"), {
@@ -58,8 +45,4 @@ console.log('postsRef',postsRef());
 //     }).catch(error => {
 //       console.log(`Error de creación del post =>${error}`);
 //     })
-<<<<<<< HEAD
 // };
-=======
-// };
->>>>>>> 353e7b8df48abf0b48272cd8d2ea9fdd7e9d5160
