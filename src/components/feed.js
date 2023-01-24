@@ -73,8 +73,8 @@ export const feed = () => {
         e.preventDefault();
         console.log('click');
         let textPost = document.getElementById('idUserPost').value;
-        if (textPost === null || textPost === ''){
-           console.log('escriba un mensaje');
+        if (textPost === null || textPost === '' || textPost.length == 0){
+           alert('escriba un mensaje');
         }
         console.log(textPost);
     });
