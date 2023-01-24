@@ -76,8 +76,13 @@ export const feed = () => {
         if (textPost === null || textPost === '' || textPost.length == 0){
            alert('escriba un mensaje');
         }
+        else{
+            savePosts(textPost).then().catch(error => console.log("fallo la promesa para postear", error));
+            alert('tu post ha sido publicado');
+
+        }
+        
         formulario.reset();
-        alert('tu post ha sido publicado');
     });
 
 
@@ -96,9 +101,10 @@ export const feed = () => {
     contenedorPosts.className = 'contenedor-posts';
     feedSection.appendChild(contenedorPosts);
 
-    
-    savePosts(textoUser.value).then().catch(error => console.log("fallo la promesa para postear", error));
 
+    // savePosts(textoUser.value).then().catch(error => console.log("fallo la promesa para postear", error));
+
+    
     postsRef()
         .then(postsCollection => {
             postsCollection.forEach((item) => { /*para traer los posts de mi colección */

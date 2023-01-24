@@ -33,6 +33,7 @@ export const savePosts = async (descripcion) => await addDoc(collection(db, 'pos
 
 
 
+
 //------------------------------Editando post-----------------------------
 
 
