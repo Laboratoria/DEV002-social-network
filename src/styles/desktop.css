@@ -45,3 +45,81 @@
 .fecha-nacimiento {
     width: 10rem;
 }
+
+.navbar {
+    display: grid;
+    justify-content: right;
+    width:100%;
+    background-color:#35123C;
+    position: inherit;
+    display: none;
+}
+
+.navbar-desktop {
+    display: block;
+    justify-content: right;
+    width:100%;
+    background-color:#35123C;
+    position: inherit;
+    display: inline-flex;
+    color: aliceblue;
+    font-size: .8rem;
+    text-decoration: none;
+    margin-right: 2rem;
+}
+
+.li-navbar:hover{
+    transform: scale(.9);
+    transition: .2s;
+}
+
+.li-navbar{
+    padding: 1rem;
+    font-size: 1.8rem;
+    margin-right: 2rem;
+    height: auto;
+}
+
+a:link { 
+    text-decoration: none;
+    color: aliceblue;
+}
+
+a:visited {
+    text-decoration: none;
+    color: aliceblue;
+}
+
+.contenedor-nav {
+    justify-content: center;
+}
+
+.contenedor-publicaciones {
+    text-align: end;
+    justify-content: center;
+    display: grid;
+    grid-template-columns: 110px 300px;
+    margin-top: 2rem;
+}
+
+.user-logo-publicaciones {
+    margin-right: 3rem; 
+}
+
+.input-recomendaciones {
+    padding: 1rem;
+}
+
+.div-post-publicado {
+    resize: none;
+    width: 40rem;
+    text-align: center;
+}
+
+.btn-edit {
+    width: 1.2rem;
+}
+
+.btn-delete {
+    width: 1.2rem;
+}
