@@ -1,0 +1,37 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --main-color: #03a678;
+    --neutral-background: #201f1f;
+    --tittles-font-family: 'Oleo Script', cursive;
+    --secundary-font-family: 'Roboto', sans-serif;
+}
+
+.register-div {
+    background-color: var(--neutral-background);
+}
+
+.inputNameUser{
+    width: 70px;
+    height: 30px;
+    border-color: var(--main-color);
+}
+
+#selectVegan{
+    width: 270px;
+    height: 30px;
+    border-color: var(--main-color);
+}
+
+#selectVegan, option {
+    background-color: var(--main-color);
+}
+
+.button-Register {
+    background-color: var(--main-color);
+}
+
