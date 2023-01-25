@@ -10,19 +10,41 @@ const firebaseConfig = {
     appId: '1:161909447570:web:b126b68b577520ab947f4b',
   };
 
-
 export const app = initializeApp(firebaseConfig);
 
 
-import { getFirestore, collection, getDocs, doc, setDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
-// import { async } from "regenerator-runtime";
+import { getFirestore, collection, getDocs, addDoc } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
 // Initialize Cloud Firestore and get a reference to the service
 const db = getFirestore(app);
 // Obtener la data desde el firestore
 export const postsRef = async () => await getDocs(collection(db, 'posts')) 
 
-console.log('postsRef',postsRef()); 
+//console.log('postsRef',postsRef()); 
+//---------------Generando nuevos post de forma dinámica----------------
+
+
+//---------------Generando nuevos post de forma dinámica----------------
+
+//utilizando método addDoc de firestore
+
+export const savePosts = async (descripcion) => await addDoc(collection(db, 'posts'), {descripcion})
+
+
+
+
+
+
+
+//------------------------------Editando post-----------------------------
+
+
+//------------------Agregando interacciones, me gusta <3 --------------------
+// La idea es generar un array con los UserID para que sólo pueda haber uno por usuario 
+// (click en boton <3 sea un push con if(UserID no se encuentre en el array) else(si UserID está presente) se borre del array)
+
+
+
 
 export const savePost = async() => await addDoc(collection(db, 'posts', {descricion}))
 

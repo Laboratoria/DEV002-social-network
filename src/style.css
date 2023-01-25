@@ -6,8 +6,6 @@
   box-sizing: border-box;
 }
 
-
-
 .btnSubmit:hover {
   background: rgba(56, 52, 52, 0.5);
 }
@@ -19,9 +17,6 @@ input:hover {
 .btnGoogle:hover {
   background: rgb(41, 41, 248);
 }
-
-
-
 
 .message-error {
   font-size: 12px;
@@ -210,8 +205,6 @@ input::placeholder {
   /* left: 140px; */
 }
 
-
-
 .labelEmailLogin {
   top: 25px;
   left: 55px;
@@ -222,7 +215,6 @@ input::placeholder {
   line-height: 150%;
   color: #52525C;
   position: absolute;
-
 }
 
 .labelPasswordLogin {
@@ -236,7 +228,6 @@ input::placeholder {
   left: 55px;
   /* left: 141px; */
   top: 120px;
-
 }
 
 /* Estilos para mensaje de error */
@@ -498,10 +489,7 @@ input::placeholder {
   height: 100vh;
   overflow:scroll;
   /*es el 100% para cualquier dispositivo*/
-  /* display: grid;
-  grid-template-columns: 80px 200px 80px;
-  grid-template-rows: repeat(3, 200px);
-  gap: 5px; */
+  overflow:scroll;
   position: relative;
   /*para que el hijo posicionarse respecto al section-feed*/
   /* justify-content: center; */
@@ -510,12 +498,7 @@ input::placeholder {
 
 }
 
-/* .section-feed > * {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-} */
+
 .tituloh2-feed {
   font-family: 'Fredoka One';
   width: 300px;
@@ -546,6 +529,7 @@ input::placeholder {
  .container-buttons {
   position: absolute;
   position: sticky;
+  z-index: 1;
   bottom: 0;
   left: 0;
   top: 745px;
@@ -561,6 +545,18 @@ input::placeholder {
   padding: 1rem;
   border: none;
   background: transparent;
+}
+
+.perfil-button{
+  cursor: pointer !important;
+}
+
+.comentario-button{
+  cursor: pointer;
+}
+
+.logout-button{
+  cursor: pointer;
 }
 
 .feed-container-header {
@@ -593,8 +589,6 @@ input::placeholder {
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
   
-
-  
 }
 
 .parte-superior-post{
@@ -613,7 +607,7 @@ input::placeholder {
   position: absolute;
   right: 8vh;
   color: #222222;
- 
+  cursor: pointer;
 }
 
 .boton-eliminar{
@@ -621,8 +615,8 @@ input::placeholder {
   background-color: transparent;
   position: absolute;
   right: 4vh;
-  color:#222222
-
+  color:#222222;
+  cursor: pointer;
 
 }
 
@@ -635,6 +629,7 @@ input::placeholder {
   right: 4vh;
   font-size: 12px;
   font-family: 'roboto, sans-serif';
+  cursor: pointer;
 
 }
 
@@ -654,7 +649,7 @@ input::placeholder {
   border-radius: 3px;
   text-indent: 5px;
   margin-bottom: 10px;
-  margin-top: -65px;
+  margin-top: -40px;
   
 }
 h2.titulo-post{
@@ -684,7 +679,7 @@ h4.fecha-post {
   text-shadow: 1px 0 1px #ffffff;
   border: none;
   left: 275px;
-  top: 0px;
+  top: 5px;
+  cursor: pointer;
 
 }
- 

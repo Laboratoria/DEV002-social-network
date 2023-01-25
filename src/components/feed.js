@@ -1,5 +1,4 @@
-
-import { postsRef } from "../lib/firebase/methodsFirestore.js";
+import { postsRef, savePosts } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 
     const feedSection = document.createElement('section');
@@ -33,27 +32,38 @@ export const feed = () => {
     createContainerButtons.className = 'container-buttons';
     feedSection.appendChild(createContainerButtons);
 
-    const comentarioButton = document.createElement('button');
-    comentarioButton.id = 'idcomentarioButton'
-    comentarioButton.innerHTML ='<i class="fa-regular fa-message fa-2xl"></i>'; 
-
     const perfilButton = document.createElement('button');
-    perfilButton.id = 'idPerfilButton'
+    perfilButton.type = 'button';
+    perfilButton.id = 'idPerfilButton';
+    perfilButton.className = 'perfil-button';
     perfilButton.innerHTML = '<i class="fa-regular fa-circle-user fa-2xl"></i>';
 
+    const comentarioButton = document.createElement('button');
+    comentarioButton.type = 'button';
+    comentarioButton.id = 'idcomentarioButton';
+    comentarioButton.className = 'comentario-button';
+    comentarioButton.innerHTML = '<i class="fa-regular fa-message fa-2xl"></i>';
+
     const logoutButton = document.createElement('button');
-    logoutButton.id = 'idlogoutButton'
+    logoutButton.type = 'button';
+    logoutButton.id = 'idlogoutButton';
+    logoutButton.className = 'logout-button';
     logoutButton.innerHTML = '<i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>';
-    
-    logoutButton.addEventListener('click', () => Swal.fire("Log out of Dad's Power"));
-        
 
     createContainerButtons.appendChild(perfilButton);
     createContainerButtons.appendChild(comentarioButton);
     createContainerButtons.appendChild(logoutButton);
 
+
+    //FORMULARIO PARA POSTEAR
+
     const formulario = document.createElement('form');
+    formulario.method = 'post';
     formulario.id = 'idForm';
+    formulario.className = 'formulario-post';
+    console.log(formulario);
+    feedSection.appendChild(formulario);
+
 
     const publicarPostButton = document.createElement('button');
     publicarPostButton.className = 'post-btn';
@@ -61,9 +71,6 @@ export const feed = () => {
     publicarPostButton.id = 'idPostButton';
     publicarPostButton.textContent = 'Post';
     formulario.appendChild(publicarPostButton);
-    feedSection.appendChild(formulario);
-
-    /*Formulario post */
 
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
@@ -72,29 +79,43 @@ export const feed = () => {
         if (textPost === null || textPost === '' || textPost.length == 0){
            alert('escriba un mensaje');
         }
-        console.log(textPost);
+        else{
+            savePosts(textPost).then().catch(error => console.log("fallo la promesa para postear", error));
+            alert('tu post ha sido publicado');
+
+        }
+        
+        formulario.reset();
     });
 
 
-    const textoUser = document.createElement('textarea')
+    const textoUser = document.createElement('textarea');
+
     textoUser.className = 'textoUser';
-    textoUser.name = 'addpost'
+    textoUser.name = 'addpost';
     textoUser.id = 'idUserPost';
-    textoUser.placeholder = "What's up ?"
+    textoUser.placeholder = 'what do you need?';
     formulario.appendChild(textoUser);
 
+
+
+//----------------------MOSTRANDO POSTS EXISTENTES-----------------------------
 
     const contenedorPosts = document.createElement('div');
     contenedorPosts.className = 'contenedor-posts';
     feedSection.appendChild(contenedorPosts);
 
+
+    // savePosts(textoUser.value).then().catch(error => console.log("fallo la promesa para postear", error));
+
+    
     postsRef()
         .then(postsCollection => {
             postsCollection.forEach((item) => { /*para traer los posts de mi colección */
 
                 const posts = item.data();
-                console.log(posts);
-
+                //console.log(posts);
+                //console.log(posts["fecha"]);
                 const postCreado = document.createElement('div');
                 postCreado.className = 'post-div';
 
@@ -116,6 +137,10 @@ export const feed = () => {
             });
         })
         .catch(error => console.log("fallo la promesa de firestore", error))
+
+    //    let valorPostCreado = getElementById('idUserPost').value;
+
+
 
     return feedSection;
 
