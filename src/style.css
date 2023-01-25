@@ -122,15 +122,13 @@ body {
 }
 
 .userpassword,
-.username ,
-.button {
+.username {
     line-height: 24px;
     align-items: center;
     text-align: center;
     justify-content: center;
     position:relative;
     display: block;
-    border-radius: 40px;
     font-size: 18px;
     background: #658351;
     height: 30px;
@@ -143,10 +141,32 @@ body {
 
 }
 
+.button {
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    background: #AA8B56;
+    height: 30px;
+    width: 250px;
+    color: #ffffff;
+    border: 1px solid #AA8B56;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 20px;
+    left: 7px;
+
+}
+
 .hrefHome{
     margin-top: 20px;
     display: block;
     cursor: pointer;
+    font-size: 20px;
 }
 
   /* Dar color más tenue al placeholder de los input */
@@ -170,3 +190,78 @@ input::placeholder {
     font-size: 50px;
 }
 
+.bienvenidaForm{
+    display:contents;
+    width: 40px;
+    height: 40px;
+}
+
+.imageLogoForm{
+    position: absolute;
+    top: 13%;
+    left: 40.8%;
+    width: 350px;
+    height: 350px;
+}
+
+.nombreForm{
+    font-size: 60px;
+
+}
+
+.password,
+.email {
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    display: block;
+    font-size: 18px;
+    background: #658351;
+    height: 30px;
+    width: 250px;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 20px;
+    top: 300px;
+
+}
+
+.buttonForm{
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    background: #aa8b56;
+    height: 30px;
+    width: 250px;
+    color: #ffffff;
+    border: 1px solid #F0EBCE;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 20px;
+    top:350px;
+}
+
+.labelForm{
+    display: block;
+    top:300px;
+    left: 2px;
+    font-size: 20px;
+    position: relative;
+}
+
+.label{
+    display: block;
+    top:310px;
+    left: 2px;
+    font-size: 20px;
+    position: relative;
+}

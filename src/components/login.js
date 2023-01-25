@@ -17,7 +17,7 @@ export const login = () => {
 
     const registrateH1= document.createElement('h4');
     registrateH1.className= 'registrate';
-    registrateH1.textContent= 'LOGUIN';
+    registrateH1.textContent= 'LOGIN';
     sectionDiv.appendChild(registrateH1);
 
     const formSU = document.createElement('form');

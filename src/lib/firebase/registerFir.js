@@ -1,6 +1,6 @@
 //import { } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";//
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js";
-import {GoogleAuthProvider,getAuth,signInWithPopup,createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js'
+import {GoogleAuthProvider,getAuth,signInWithPopup,createUserWithEmailAndPassword} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import firebaseConfig from "./configFirebase.js";
 
 initializeApp(firebaseConfig);
@@ -11,7 +11,7 @@ export const popupRegister = async () =>{
 return await signInWithPopup(auth, provider)
 }
 
-export const verifiedEmail = () => {
-createUserWithEmailAndPassword(auth, email, password)
+export const verifiedEmail = async () => {
+return await createUserWithEmailAndPassword(auth, email, password)
 }
 
