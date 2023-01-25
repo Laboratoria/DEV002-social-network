@@ -19,7 +19,7 @@ import {
   deleteDoc,
   doc,
   getDoc,
-  updateDoc,
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -107,4 +107,8 @@ export const getTask = (id) => getDoc(doc(firestore,'post', id));
 export const onGetTasks = (funcion) => onSnapshot(collection(firestore, 'post'), funcion);
 export const updatePost = (id, newFields) => updateDoc(doc(db, 'post', id), newFields);
 
-export const like = (uid, nuevoLike) => updateDoc(doc(firestore, 'post',id));
+export const getTask = id => getDoc(doc(firestore,'post',id));
+
+//función updateTask
+
+export const updateTask = (id, newDocs) => updateDoc(doc(firestore,'post',id),newDocs);
