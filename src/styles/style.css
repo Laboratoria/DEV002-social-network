@@ -148,6 +148,10 @@ li {
     padding: 1rem;
 }
 
+.li-navbar-logout {
+    padding: 1rem;
+}
+
 .perfil-nav {
     margin-left: 30%;
 }

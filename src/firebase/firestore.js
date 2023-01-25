@@ -28,13 +28,16 @@ window.addEventListener('DOMContentLoaded', async () =>{
             }); 
             
         tasksContainer.innerHTML = html;
-        
+
     const btnsDelete = tasksContainer.querySelectorAll('.btn-delete')
-    btnsDelete.forEach(btn => {
+        btnsDelete.forEach(btn => {
         btn.addEventListener('click',({target: { dataset }}) => {
-            deleteTask(dataset.id)
-         })
+            if(confirm("¿Estás segura de que deseas eliminar esta tarea?")) {
+                deleteTask(dataset.id)
+        }
     })
+})
+
 
     const btnsEdit = tasksContainer.querySelectorAll('.btn-edit')
     btnsEdit.forEach((btn) => {
