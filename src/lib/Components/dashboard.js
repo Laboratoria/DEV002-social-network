@@ -1,4 +1,4 @@
-// import { async } from "regenerator-runtime";
+
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
 import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask } from "../index.js";
@@ -57,6 +57,7 @@ export const login = () => {
       divTimeLine.innerHTML = '';
       posts.forEach(post => {
         const postData = post.data();
+        const uid = currentUserInfo.uid;
         let divPostEntry = document.createElement("div");
 
         let imgUser = document.createElement("img");
@@ -74,14 +75,12 @@ export const login = () => {
         userName.innerHTML = postData.user;
         userName.className = 'user-name-post';
         userPostText.innerHTML = postData.postText;
-        editIcon.setAttribute('src','/images/editar.png'); 
-        editIcon.className = 'edit-icon';
         editIcon.setAttribute('data-id', post.id);
         editIcon.onclick = editPostListener;
         deleteIcon.setAttribute('src','/images/delete.png');
         deleteIcon.className = 'delete-icon';
         deleteIcon.setAttribute('data-id', post.id);//el data-id es algo que ya trae firebase
-        // console.log(post.id);
+  
         deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
         likePost.className = 'primer-like';
@@ -91,17 +90,25 @@ export const login = () => {
         editIcon.setAttribute('src', 'images/editar.png');
         editIcon.className = 'icon-edit';
 
-        divPostEntry.appendChild(userName);
-        userName.appendChild(imgUser);
-        divPostEntry.appendChild(userPostText);
-        userName.appendChild(dateTimePost);
-        userPostText.appendChild(editIcon);
-        userPostText.append(deleteIcon);
-        userPostText.appendChild(likePost);
+        if (postData.uid === currentUserInfo().uid){
+          divPostEntry.appendChild(userName);
+          userName.appendChild(imgUser);
+          divPostEntry.appendChild(userPostText);
+          userName.appendChild(dateTimePost);
+          userPostText.appendChild(editIcon);
+          userPostText.append(deleteIcon);
+          userPostText.appendChild(likePost);
+        }else{
+          divPostEntry.appendChild(userName);
+          userName.appendChild(imgUser);
+          divPostEntry.appendChild(userPostText);
+          userName.appendChild(dateTimePost);
+          userPostText.appendChild(likePost);
+        }
 
         divTimeLine.appendChild(divPostEntry);
         document.querySelector('#btn-post').innerText = 'PUBLICAR';
-        document.querySelector('#modal-background-post').style.display = 'none';
+        document.querySelector('#modal-background-post').style.display = 'flex';
         document.querySelector('#modal-content-post').style.display = 'none';
       });
 

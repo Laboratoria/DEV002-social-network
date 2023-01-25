@@ -14,12 +14,12 @@ import {
   collection,
   addDoc,
   getDocs,
-  onSnapshot,
   query,
   orderBy,
   deleteDoc,
   doc,
-  getDoc
+  getDoc,
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -82,11 +82,13 @@ export const submitPost = (postTxt) => {
   const post = {
     postText: postTxt,
     user: getAuth().currentUser.displayName,
+    uid: getAuth().currentUser.uid,
     createdDateTime: new Date(),
     likes: []
   }
   return addDoc(postCollection, post);
 };
+export const getComent = () => getDocs(collection(firestore, 'post'));
 
 //función para consultar todos los posts dispobibles en firestore
 export const getAllPosts = async () => {
@@ -97,12 +99,12 @@ export const getAllPosts = async () => {
 
 //función para borrar post
 export const deletePost = (id) => {
-  console.log('si se elimino', deletePost);
   return deleteDoc(doc(firestore,'post',id));
-  
-}
-
+};
 
 //funcion para traer un post para editar
+export const getTask = (id) => getDoc(doc(firestore,'post', id));
+export const onGetTasks = (funcion) => onSnapshot(collection(firestore, 'post'), funcion);
+export const updatePost = (id, newFields) => updateDoc(doc(db, 'post', id), newFields);
 
-export const getTask = id => getDoc(doc(firestore,'post',id));
+export const like = (uid, nuevoLike) => updateDoc(doc(firestore, 'post',id));
