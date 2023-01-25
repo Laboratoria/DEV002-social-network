@@ -63,13 +63,13 @@
 
 }
 
-label {
+.labels{
   color: var(--neutral-font);
   font-size: 15px;
   font-weight: bold;
 }
 
-input {
+.inputs{
   width: 270px;
   height: 30px;
   border-radius: 20px;
@@ -80,7 +80,7 @@ input {
   padding: 10px;
 }
 
-button {
+.buttons {
   width: 270px;
   height: 40px;
   border-radius: 30px;
@@ -167,18 +167,18 @@ button {
     margin-top: 40px;
   }
 
-  label {
+  .labels {
     font-size: 16px;
   }
 
-  input {
+  .inputs {
     width: 370px;
     height: 40px;
     border-radius: 30px;
     font-size: 17px;
   }
 
-  button {
+  .buttons {
     width: 370px;
     height: 45px;
     border-radius: 35px;
@@ -230,18 +230,18 @@ button {
     margin-top: 45px;
   }
 
-  label {
+  .labels {
     font-size: 18px;
   }
 
-  input {
+  .inputs {
     width: 470px;
     height: 45px;
     border-radius: 40px;
     font-size: 17px;
   }
 
-  button {
+  .buttons {
     width: 470px;
     height: 50px;
     border-radius: 45px;
