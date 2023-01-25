@@ -14,11 +14,12 @@ import {
   collection,
   addDoc,
   getDocs,
-  onSnapshot,
   query,
   orderBy,
   deleteDoc,
-  doc
+  doc,
+  getDoc,
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -76,19 +77,18 @@ export const logOut = async (onNavigate) => {
 // funcion currentuser
 export const currentUserInfo = () => auth.currentUser;
 
-//comienzo firestore YA ESTA ARRIBA como firestore en vez de db
-// const db =getFirestore();
-
 //función publicar
 export const submitPost = (postTxt) => {
   const post = {
     postText: postTxt,
     user: getAuth().currentUser.displayName,
+    uid: getAuth().currentUser.uid,
     createdDateTime: new Date(),
     likes: []
   }
   return addDoc(postCollection, post);
 };
+export const getComent = () => getDocs(collection(firestore, 'post'));
 
 //función para consultar todos los posts dispobibles en firestore
 export const getAllPosts = async () => {
@@ -99,7 +99,16 @@ export const getAllPosts = async () => {
 
 //función para borrar post
 export const deletePost = (id) => {
-  console.log('si se elimino', deletePost);
   return deleteDoc(doc(firestore,'post',id));
-  
-}
+};
+
+//funcion para traer un post para editar
+export const getTask = (id) => getDoc(doc(firestore,'post', id));
+export const onGetTasks = (funcion) => onSnapshot(collection(firestore, 'post'), funcion);
+export const updatePost = (id, newFields) => updateDoc(doc(db, 'post', id), newFields);
+
+export const getTask = id => getDoc(doc(firestore,'post',id));
+
+//función updateTask
+
+export const updateTask = (id, newDocs) => updateDoc(doc(firestore,'post',id),newDocs);
