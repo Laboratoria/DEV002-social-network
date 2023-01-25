@@ -1,0 +1,123 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+}
+
+:root {
+    --secondary-red: #f25c5c;
+    --neutral-background: #201f1f;
+    --neutral-font: #fcfdff;
+    --tittles-font-family: 'Oleo Script', cursive;
+    --secundary-font-family: 'Roboto', sans-serif;
+    --bg-image: url("../img/25x25 patron.png");
+    --bg-image-opacity: .25;
+}
+
+.ok-section-container {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    align-content: center;
+    row-gap: 5px;
+    width: 100%;
+    height: 100vh;
+    font-family: var(--secundary-font-family);
+    min-height: 500px;
+    background-image: var(--bg-image);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    isolation: isolate;
+}
+
+.ok-section-container::after {
+    content: "";
+    z-index: -1;
+    inset: 0;
+    background: white;
+    opacity: .8;
+    position: absolute;
+}
+
+.ok-icon-container {
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+
+}
+
+.ok-img-logo {
+    width: 95px;
+    transform: rotate(45deg);
+}
+
+.ok-message-container {
+    grid-row-start: 2;
+    grid-row-end: 3;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    border: 1px solid;
+    border-radius: 30px;
+    border-color: var(--neutral-background);
+    font-family: var(--secundary-font-family);
+    background-color: var(--neutral-font);
+    width: 295px;
+    height: 130px;
+}
+
+.ok-p-hello {
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ok-p-message {
+    font-size: 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ok-img-container {
+    grid-row-start: 3;
+    grid-row-end: 4;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ok-img-lettuce {
+    width: 120px;
+}
+
+.ok-container-continue {
+    grid-row-start: 4;
+    grid-row-end: 5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ok-button-continue {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    background-color: var(--secondary-red);
+    margin-bottom: 70px;
+}

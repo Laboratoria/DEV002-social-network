@@ -33,12 +33,13 @@
   grid-row-end: 3;
   display: flex;
   flex-direction: column;
-  align-self: flex-start;
-  margin-bottom: 40px;
+  justify-items: center;
+  align-self: flex-end;
+  margin-bottom: 5px;
 }
 
 .img-logo {
-  width: 200px;
+  width: 230px;
 }
 
 .container-form {
@@ -46,17 +47,20 @@
   grid-row-end: 5;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  justify-items: center;
+  align-self: flex-start;
+  justify-content: center;
+  align-items: center;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
+  justify-content: center;
   align-self: flex-start;
   gap: 5px;
   margin-top: 15px;
+  align-items: center;
+
 }
 
 label {
