@@ -39,7 +39,7 @@ export const register = () => {
   /* atribute */
   sectionRegister.setAttribute('class', 'sectionRegister');
   divRegisterText.setAttribute('class', 'divRegisterText');
-  textSignIn.textContent = 'Por favor, ingresa tus Datos';
+  textSignIn.textContent = 'Por favor, ingresa tus datos';
 
   divRegisterForm.setAttribute('class', 'divRegisterForm');
   formRegister.setAttribute('class', 'formRegister');
@@ -49,25 +49,31 @@ export const register = () => {
   labelLastName.textContent = 'Apellido';
   labelEmail.textContent = 'Email';
   labelPassword.textContent = 'Password';
-  btnHome.textContent = 'Home';
+  btnHome.textContent = '';
 
   btnHome.setAttribute('class', 'btnHome');
   btnHome.setAttribute('type', 'text');
 
-  name.setAttribute('class', 'name');
+  name.setAttribute('class', 'input');
   name.setAttribute('type', 'text');
 
-  lastName.setAttribute('class', 'lastName');
+  lastName.setAttribute('class', 'input');
   lastName.setAttribute('type', 'text');
 
-  email.setAttribute('class', 'email');
+  email.setAttribute('class', 'input');
   email.setAttribute('type', 'email');
 
-  password.setAttribute('class', 'password');
+  password.setAttribute('class', 'input');
   password.setAttribute('type', 'password');
 
   btnRegistrarme.setAttribute('class', 'btnRegistrarme');
   btnRegistrarme.setAttribute('type', 'submit');
+
+  textSignIn.setAttribute('class', 'p');
+  labelName.setAttribute('class', 'textForm');
+  labelLastName.setAttribute('class', 'textForm');
+  labelEmail.setAttribute('class', 'textForm');
+  labelPassword.setAttribute('class', 'textForm');
 
   /* function */
 
