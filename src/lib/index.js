@@ -19,7 +19,8 @@ import {
   orderBy,
   deleteDoc,
   doc,
-  getDoc
+  getDoc,
+  updateDoc
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -106,3 +107,7 @@ export const deletePost = (id) => {
 //funcion para traer un post para editar
 
 export const getTask = id => getDoc(doc(firestore,'post',id));
+
+//función updateTask
+
+export const updateTask = (id, newDocs) => updateDoc(doc(firestore,'post',id),newDocs);
