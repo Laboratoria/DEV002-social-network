@@ -1,7 +1,7 @@
 // import { async } from "regenerator-runtime";
 import { onNavigate } from "../../main.js";
 import { app } from "../Firebase.js";
-import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask } from "../index.js";
+import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask,updateTask } from "../index.js";
 
 
 export const login = () => {
@@ -110,10 +110,26 @@ export const login = () => {
 //listener de onclick editarPost
   const editPostListener = async(event) => {
     const doc = await getTask(event.target.dataset.id);
-    console.log('documento de un post',doc.data());
     const task = doc.data();
-    divLogin.querySelector('#input-post').value= task.postText;
-    console.log('valordeTexto',task.postText);
+    let editStatus = false;
+    let newPost = task.postText;
+    divLogin.querySelector('#input-post').value= newPost
+    getTask(newPost)
+    .then((response) => {
+    console.log(response);
+    document.querySelector('#modal-background-post').style.display = 'flex';
+    document.querySelector('#modal-content-post').style.display = 'block';
+    document.body.style.overflow = 'hidden';
+    document.querySelector('#input-post').focus();
+    document.querySelector('#btn-post').disabled = false; // boton publicar activo
+    editStatus = true;
+    })
+    if (editStatus===true) {
+      updateTask(doc,{newPost});
+      console.log('updating',updateTask);
+    }
+    
+
   };
 
 //listener del onclick detelePost
