@@ -16,7 +16,7 @@ export const home = () => {
    buttonRegister.textContent = 'Sign up';
    buttonRegister.id = 'botonRegistrar';
      
-   buttonRegister.addEventListener('click', () => onNavigate('/register'));
+   buttonRegister.addEventListener('click', () => onNavigate('/registro'));
    
    const buttonLogin = document.createElement('li');
    buttonLogin.className = 'navLink';
