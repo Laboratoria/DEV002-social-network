@@ -1,4 +1,3 @@
-//import { onNavigate } from '../js/routes.js'
 import { postsRef, savePosts } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 
@@ -33,12 +32,9 @@ export const feed = () => {
     createContainerButtons.className = 'container-buttons';
     feedSection.appendChild(createContainerButtons);
 
-    // const createPostButton = document.createElement('button');
-    // createPostButton.id = 'idCreatePostButton'
-    // createPostButton.innerHTML = '<i class="fa-solid fa-circle-plus fa-2xl"></i>';
-
-    // createPostButton.addEventListener('click', () => openModalAddPost(feedSection));
-
+    const logoutButton = document.createElement('button');
+    logoutButton.id = 'idlogoutButton'
+    logoutButton.innerHTML = '<i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>';
 
     const perfilButton = document.createElement('button');
     perfilButton.type = 'button';
@@ -59,17 +55,19 @@ export const feed = () => {
     logoutButton.innerHTML = '<i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>';
 
     createContainerButtons.appendChild(perfilButton);
-    createContainerButtons.appendChild(comentarioButton)
+    createContainerButtons.appendChild(comentarioButton);
     createContainerButtons.appendChild(logoutButton);
 
 
-//--------------CREANDO UN NUEVO POST-----------------------------
+    //FORMULARIO PARA POSTEAR
 
     const formulario = document.createElement('form');
     formulario.method = 'post';
     formulario.id = 'idForm';
     formulario.className = 'formulario-post';
+    console.log(formulario);
     feedSection.appendChild(formulario);
+
 
     const publicarPostButton = document.createElement('button');
     publicarPostButton.className = 'post-btn';
@@ -83,7 +81,7 @@ export const feed = () => {
         e.preventDefault();
         console.log('click');
         let textPost = document.getElementById('idUserPost').value;
-        if (textPost === ''){
+        if (textPost === null || textPost === '' || textPost.length == 0){
            alert('escriba un mensaje');
         }
         else{
@@ -95,11 +93,13 @@ export const feed = () => {
         formulario.reset();
     });
 
+
     const textoUser = document.createElement('textarea');
+
     textoUser.className = 'textoUser';
-   // textoUser.name = 'addpost';
+    textoUser.name = 'addpost';
     textoUser.id = 'idUserPost';
-    textoUser.placeholder = 'what do you need?'
+    textoUser.placeholder = 'what do you need?';
     formulario.appendChild(textoUser);
 
 
@@ -110,6 +110,10 @@ export const feed = () => {
     contenedorPosts.className = 'contenedor-posts';
     feedSection.appendChild(contenedorPosts);
 
+
+    // savePosts(textoUser.value).then().catch(error => console.log("fallo la promesa para postear", error));
+
+    
     postsRef()
         .then(postsCollection => {
             postsCollection.forEach((item) => { /*para traer los posts de mi colección */
@@ -139,6 +143,10 @@ export const feed = () => {
             });
         })
         .catch(error => console.log("fallo la promesa de firestore", error))
+
+    //    let valorPostCreado = getElementById('idUserPost').value;
+
+
 
     return feedSection;
 

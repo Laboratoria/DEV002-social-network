@@ -56,7 +56,9 @@ export const login = (auth, email, password) => {
     }
 
 
-    export const logOut = (auth) => {
+    
+
+   export const logOut = (auth) => {
         auth.signOut().then(() => {
             console.log('sign out');
         });

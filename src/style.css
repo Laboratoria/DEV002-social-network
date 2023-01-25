@@ -486,13 +486,9 @@ input::placeholder {
 
 .section-feed {
   width: 360px;
-  height: 100vh;
-  overflow:scroll;
+  height: 100vh;  
   /*es el 100% para cualquier dispositivo*/
-  /* display: grid;
-  grid-template-columns: 80px 200px 80px;
-  grid-template-rows: repeat(3, 200px);
-  gap: 5px; */
+  overflow:scroll;
   position: relative;
   /*para que el hijo posicionarse respecto al section-feed*/
   /* justify-content: center; */
@@ -501,12 +497,7 @@ input::placeholder {
 
 }
 
-/* .section-feed > * {
-  text-align: center;
-  justify-content: center;
-  align-items: center;
-  display: flex;
-} */
+
 .tituloh2-feed {
   font-family: 'Fredoka One';
   width: 300px;
@@ -537,6 +528,7 @@ input::placeholder {
  .container-buttons {
   position: absolute;
   position: sticky;
+  z-index: 1;
   bottom: 0;
   left: 0;
   top: 745px;
@@ -582,8 +574,9 @@ input::placeholder {
   border: none;
   display: flex;
   flex-direction: column;
+  /* justify-content: center; */
   margin : 0 0 0 20px;
-  gap:20px;
+  gap: 20px;
 
 }
 
@@ -595,9 +588,6 @@ input::placeholder {
   background-color: #ffffff;
   font-family: 'Roboto', sans-serif;
   font-size: 10px;
-  
-
-  
 }
 
 .parte-superior-post{
