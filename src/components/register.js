@@ -1,6 +1,5 @@
 import { toNavigate } from "../main.js";
-import { app } from "../Firebase/firebaseConfig.js"
-import { auth, signUpWithPass, viewer } from "../Firebase/firebase.js";
+import { auth, signUpWithPass } from "../Firebase/firebase.js";
 
 export const register = () => {
     //Creamos elementos de para el formulario de registro
@@ -8,7 +7,8 @@ export const register = () => {
 
     const registerDiv = document.createElement("div");
     const containerRegister = document.createElement("section")
-    const containerRegisterForm = document.createElement("section")
+    const containerRegisterTitle = document.createElement("div")
+    const containerRegisterForm = document.createElement("div")
     const registerForm = document.createElement("form"); //formulario
 
     //Nombre
@@ -111,8 +111,10 @@ export const register = () => {
     buttonRegister.className = "button-Register";
     buttonRegister.textContent = "REGISTRARSE";
 
-    registerDiv.appendChild(registerForm);
+    registerDiv.appendChild(containerRegister);
+    containerRegister.appendChild(containerRegisterTitle);
     containerRegister.appendChild(containerRegisterForm);
+    containerRegisterForm.appendChild(registerForm);
 
 
     registerForm.appendChild(inputUserName);
@@ -149,5 +151,5 @@ export const register = () => {
             toNavigate("/registerOk");
         })
     })
-    return registerForm;
+    return registerDiv;
 }
