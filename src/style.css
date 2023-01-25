@@ -554,6 +554,18 @@ input::placeholder {
   background: transparent;
 }
 
+.perfil-button{
+  cursor: pointer !important;
+}
+
+.comentario-button{
+  cursor: pointer;
+}
+
+.logout-button{
+  cursor: pointer;
+}
+
 .feed-container-header {
   display: flex;
   align-items: center;
@@ -604,7 +616,8 @@ input::placeholder {
   position: absolute;
   right: 8vh;
   color: #222222;
- 
+  cursor: pointer;
+
 }
 
 .boton-eliminar{
@@ -612,7 +625,8 @@ input::placeholder {
   background-color: transparent;
   position: absolute;
   right: 4vh;
-  color:#222222
+  color:#222222;
+  cursor: pointer;
 
 
 }
@@ -626,6 +640,7 @@ input::placeholder {
   right: 4vh;
   font-size: 12px;
   font-family: 'roboto, sans-serif';
+  cursor: pointer;
 
 }
 
@@ -653,7 +668,7 @@ h2.titulo-post{
   top: -35px;
   margin: 0 0 0 20px;
 }
-h3.descripcion-post{
+h4.descripcion-post{
   margin: 0 0 0 20px;
   color:#222222;
 }
@@ -676,5 +691,6 @@ h4.fecha-post {
   border: none;
   left: 275px;
   top: 5px;
+  cursor: pointer;
 
 }

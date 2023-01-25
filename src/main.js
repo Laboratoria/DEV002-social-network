@@ -115,10 +115,11 @@ if (signinForm) {
 };
 
 // LOGOUT
-const logout = document.getElementById('idlogoutButton');
-if (logout) {
-  logout.addEventListener('click', () => {
-    logOut(auth)
+const logoutButton = document.getElementById('idlogoutButton');
+if (logoutButton) {
+  logoutButton.addEventListener('click', () => {
+    logOut(auth);
+    onNavigate('/');
 
   });
 }

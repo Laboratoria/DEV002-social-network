@@ -1,5 +1,5 @@
 //import { onNavigate } from '../js/routes.js'
-import { postsRef } from "../lib/firebase/methodsFirestore.js";
+import { postsRef, savePosts } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 
     const feedSection = document.createElement('section');
@@ -41,15 +41,21 @@ export const feed = () => {
 
 
     const perfilButton = document.createElement('button');
-    perfilButton.id = 'idPerfilButton'
+    perfilButton.type = 'button';
+    perfilButton.id = 'idPerfilButton';
+    perfilButton.className = 'perfil-button';
     perfilButton.innerHTML = '<i class="fa-regular fa-circle-user fa-2xl"></i>';
 
     const comentarioButton = document.createElement('button');
-    comentarioButton.id = 'idcomentarioButton'
+    comentarioButton.type = 'button';
+    comentarioButton.id = 'idcomentarioButton';
+    comentarioButton.className = 'comentario-button';
     comentarioButton.innerHTML = '<i class="fa-regular fa-message fa-2xl"></i>';
 
     const logoutButton = document.createElement('button');
-    logoutButton.id = 'idlogoutButton'
+    logoutButton.type = 'button';
+    logoutButton.id = 'idlogoutButton';
+    logoutButton.className = 'logout-button';
     logoutButton.innerHTML = '<i class="fa-solid fa-arrow-right-from-bracket fa-2xl"></i>';
 
     createContainerButtons.appendChild(perfilButton);
@@ -60,15 +66,10 @@ export const feed = () => {
 //--------------CREANDO UN NUEVO POST-----------------------------
 
     const formulario = document.createElement('form');
+    formulario.method = 'post';
     formulario.id = 'idForm';
+    formulario.className = 'formulario-post';
     feedSection.appendChild(formulario);
-
-    const textoUser = document.createElement('textarea');
-    textoUser.className = 'textoUser';
-   // textoUser.name = 'addpost';
-    textoUser.id = 'idUserPost';
-    textoUser.placeholder = 'what do you need?'
-    formulario.appendChild(textoUser);
 
     const publicarPostButton = document.createElement('button');
     publicarPostButton.className = 'post-btn';
@@ -77,17 +78,31 @@ export const feed = () => {
     publicarPostButton.textContent = 'Post';
     formulario.appendChild(publicarPostButton);
 
-    //const formularioPost = document.getElementById('idForm');
-   
+
     formulario.addEventListener('submit', (e) => {
         e.preventDefault();
         console.log('click');
         let textPost = document.getElementById('idUserPost').value;
-        if (textPost === null || textPost === '' || textPost.length == 0){
+        if (textPost === ''){
            alert('escriba un mensaje');
         }
-        console.log(textPost);
+        else{
+            savePosts(textPost).then().catch(error => console.log("fallo la promesa para postear", error));
+            alert('tu post ha sido publicado');
+
+        }
+        
+        formulario.reset();
     });
+
+    const textoUser = document.createElement('textarea');
+    textoUser.className = 'textoUser';
+   // textoUser.name = 'addpost';
+    textoUser.id = 'idUserPost';
+    textoUser.placeholder = 'what do you need?'
+    formulario.appendChild(textoUser);
+
+
 
 //----------------------MOSTRANDO POSTS EXISTENTES-----------------------------
 

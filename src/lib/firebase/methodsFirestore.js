@@ -22,6 +22,14 @@ const db = getFirestore(app);
 export const postsRef = async () => await getDocs(collection(db, 'posts')) 
 
 //console.log('postsRef',postsRef()); 
+//---------------Generando nuevos post de forma dinámica----------------
+
+//utilizando método addDoc de firestore
+
+export const savePosts = async (descripcion) => await addDoc(collection(db, 'posts'), {descripcion})
+
+
+
 
 //Add a new document in collection "posts"
 // export const crearPost = await setDoc(doc(db, "posts", "LA"), {
