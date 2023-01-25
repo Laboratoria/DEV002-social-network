@@ -654,7 +654,7 @@ input::placeholder {
   border-radius: 3px;
   text-indent: 5px;
   margin-bottom: 10px;
-  margin-top: -40px;
+  margin-top: -65px;
   
 }
 h2.titulo-post{
@@ -684,7 +684,7 @@ h4.fecha-post {
   text-shadow: 1px 0 1px #ffffff;
   border: none;
   left: 275px;
-  top: 5px;
+  top: 0px;
 
 }
  

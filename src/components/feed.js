@@ -23,7 +23,7 @@ export const feed = () => {
 
     const avatarImg = document.createElement('img');
     avatarImg.className = 'avatarImg';
-    avatarImg.src = '/components/imagen/avatar.png';
+    avatarImg.src = '/components/imagen/avatar3.png';
     perfil.appendChild(avatarImg);
 
     containerHeader.appendChild(perfil);

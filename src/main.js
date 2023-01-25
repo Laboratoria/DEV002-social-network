@@ -1,7 +1,7 @@
 // Import the functions of Firestore for posting
 import { getAuth } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
 import { onNavigate } from "./js/routes.js";
-import { login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
+import { logOut, login, register, loginWithGoogle, verificarSendingMail } from "./lib/firebase/methodsAuth.js";
 
 
 /*logout importar*/
@@ -116,11 +116,11 @@ if (signinForm) {
 };
 
 // // LOGOUT
-// const logout = document.getElementById('salir');
-// logout.addEventListener('click', () => {
-//  logOut(auth)
+const logout = document.getElementById('idlogoutButton');
+logout.addEventListener('click', () => 
+{ logOut(auth)
 
-//  });
+});
 
 // GOOGLE LOGIN
 const googleButton = document.getElementById('entrarGoogle')

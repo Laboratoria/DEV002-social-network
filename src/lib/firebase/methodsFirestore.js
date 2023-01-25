@@ -24,7 +24,7 @@ export const postsRef = async () => await getDocs(collection(db, 'posts'))
 
 console.log('postsRef',postsRef()); 
 
-export const crearPost = async() => await addDoc(collection(db, 'posts'))
+export const savePost = async() => await addDoc(collection(db, 'posts', {descricion}))
 
 
 //Add a new document in collection "posts"
