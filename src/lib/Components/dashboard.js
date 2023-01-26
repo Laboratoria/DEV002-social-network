@@ -37,14 +37,22 @@ export const login = () => {
                       </div>
                       <textarea type='text' id='input-post' placeholder='Deja aquí la reseña de tu libro'> </textarea>
                       <button disabled type='button' id='btn-post' class='btn-post-inactive'>PUBLICAR</button>
+                      
                   </div>
               </div>
-          </div>
+          
           <div id='div-post'></div>
+
+          <div id='container-modal-edit'></div>
+          <button type='button' id='btn-post-edit' class='btn-post-edit'>Editar</button>
+          </div>
   </main>
   <footer>© 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>
   
   </html>`;
+
+  let editStatus = false;
+  let id ='';
 
   divLogin.innerHTML = viewLogin;
 
@@ -67,7 +75,7 @@ export const login = () => {
         let dateTimePost = document.createElement("h1");
         let likePost = document.createElement('img');
         let deleteIcon = document.createElement('img');
-    
+
 
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
@@ -80,7 +88,7 @@ export const login = () => {
         deleteIcon.setAttribute('src', '/images/delete.png');
         deleteIcon.className = 'delete-icon';
         deleteIcon.setAttribute('data-id', post.id);
-  
+
         deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
         likePost.className = 'primer-like';
@@ -117,21 +125,19 @@ export const login = () => {
   //listener de onclick editarPost
   const editPostListener = async (event) => {
     const docToEdit = await getTask(event.target.dataset.id);
-    console.log(docToEdit);
     const docData = docToEdit.data();
     showModal();
     const btnExit = divLogin.querySelector('.btn-exit');
     btnExit.addEventListener('click', () => closeModal());
     divLogin.querySelector('#input-post').value = docData.postText;
-    document.querySelector('#btn-post').disabled = false;
 
     const btnUpdatePost = divLogin.querySelector('#btn-post');
     btnUpdatePost.addEventListener('click', () => {
       docData.postText = divLogin.querySelector('#input-post').value;
-      console.log('updated doc to send to index', docData);
       updateTask(docToEdit.id, docData).then((response) => {
         closeModal();
         refreshPosts();
+
       });
     });
   };
@@ -139,13 +145,13 @@ export const login = () => {
   //listener del onclick detelePost
   const deletePostListener = (event) => {//event por default
     const postId = event.target.dataset.id;//sacamos del target el id
-      let opcion = confirm('Desea eliminar el comentario?');
-      if(opcion === false){}
-      else {
-        deletePost(postId);
-      };
-      refreshPosts();
+    let opcion = confirm('Desea eliminar el comentario?');
+    if (opcion === false) { }
+    else {
+      deletePost(postId);
     };
+    refreshPosts();
+  };
 
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
@@ -159,63 +165,54 @@ export const login = () => {
   divLogin.append(
     btnLogout,
   );
-
+//Funcion abrir Modal
   const showModal = () => {
     document.querySelector('#modal-background-post').style.display = 'flex';
     document.querySelector('#modal-content-post').style.display = 'block';
+    document.querySelector('#btn-post-edit').style.display = '';
     document.body.style.overflow = 'hidden';
   };
-
+//FUncion cerrar modal
   const closeModal = () => {
     document.querySelector('#modal-background-post').style.display = 'none';
     document.querySelector('#modal-content-post').style.display = 'none';
     document.body.style.overflow = 'visible';
     divLogin.querySelector('#input-post').value = '';
-
   };
 
   //Funcion abrir modal
   const btnCreatePost = divLogin.querySelector('#btn-input-modal');
   btnCreatePost.addEventListener('click', () => {
-
     showModal();
-
     document.querySelector('#input-post').focus();
 
-    //Funcion cerrar modal
-    const btnExit = divLogin.querySelector('.btn-exit');
-    btnExit.addEventListener('click', () => closeModal());
-    // Funcion refrescar pagina 
-    const btnRefresh = divLogin.querySelector('#btn-refresh');
-    btnRefresh.addEventListener('click', () => location.reload());
+  //Funcion cerrar modal
+  const btnExit = divLogin.querySelector('.btn-exit');
+  btnExit.addEventListener('click', () => closeModal());
+    
+  // Funcion refrescar pagina 
+  const btnRefresh = divLogin.querySelector('#btn-refresh');
+  btnRefresh.addEventListener('click', () => location.reload());
 
-    //Funcion activacion boton publicar
-    const inputPost = divLogin.querySelector('#input-post');
-    inputPost.addEventListener('keyup', () => {
-      const valueInput = inputPost.value.trim();
-      // trim() metodo que no permite activar boton con espacio
-      if (valueInput === '') {
-        document.querySelector('#btn-post').disabled = true; // boton publicar inactivo
-      } else {
-        document.querySelector('#btn-post').disabled = false; // boton publicar activo
-      }
+  //Funcion activacion boton publicar
+  const inputPost = divLogin.querySelector('#input-post');
+  inputPost.addEventListener('keyup', () => {
+    const valueInput = inputPost.value.trim();
+    // trim() metodo que no permite activar boton con espacio
+    if (valueInput === '') {
+      document.querySelector('#btn-post').disabled = true; // boton publicar inactivo
+    } else {
+      document.querySelector('#btn-post').disabled = false; // boton publicar activo
+    }
     });
-    //Funcion donde se crea el post
-    const btnPost = divLogin.querySelector('#btn-post');
-    btnPost.addEventListener('click', () => {
-      const postTxt = divLogin.querySelector('#input-post').value;
-      submitPost(postTxt)
-        .then((response) => {
-          document.querySelector('#modal-background-post').style.display = 'none';
-          document.querySelector('#modal-content-post').style.display = 'none';
-          divLogin.querySelector('#input-post').value = '';
+  //Funcion donde se crea el post
+  const btnPost = divLogin.querySelector('#btn-post');
+  btnPost.addEventListener('click', () => {
+    const postTxt = divLogin.querySelector('#input-post').value;
+    submitPost(postTxt)
           //se vuelve a mandar llamar getDocs una vez que el nuevo post fue posteado correctamente
-        })
-        .catch((error) => {
-        })
-        .finally(() => {
-        });
-      refreshPosts();
+    refreshPosts();
+    console.log('se crea el post', submitPost)
     });
   });
 

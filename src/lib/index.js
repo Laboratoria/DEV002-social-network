@@ -88,7 +88,6 @@ export const submitPost = (postTxt) => {
   }
   return addDoc(postCollection, post);
 };
-export const getComent = () => getDocs(collection(firestore, 'post'));
 
 //función para consultar todos los posts dispobibles en firestore
 export const getAllPosts = async () => {
@@ -104,12 +103,9 @@ export const deletePost = (id) => {
 
 //funcion para traer un post para editar
 export const getTask = (id) => getDoc(doc(firestore,'post', id));
-// export const onGetTasks = (funcion) => onSnapshot(collection(firestore, 'post'), funcion);
-// export const updatePost = (id, newFields) => updateDoc(doc(db, 'post', id), newFields);
 
 
 //función updateTask
-
 export const updateTask = (id, docData) => updateDoc(doc(firestore,'post', id), {
   postText: docData.postText
 });
