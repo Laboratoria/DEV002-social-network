@@ -77,10 +77,10 @@ export const login = () => {
         userPostText.innerHTML = postData.postText;
         editIcon.setAttribute('data-id', post.id);
         editIcon.onclick = editPostListener;
-        deleteIcon.setAttribute('src','/images/delete.png');
+        deleteIcon.setAttribute('src', '/images/delete.png');
         deleteIcon.className = 'delete-icon';
-        deleteIcon.setAttribute('data-id', post.id);//el data-id es algo que ya trae firebase
-
+        deleteIcon.setAttribute('data-id', post.id);
+  
         deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
         likePost.className = 'primer-like';
@@ -90,7 +90,7 @@ export const login = () => {
         editIcon.setAttribute('src', 'images/editar.png');
         editIcon.className = 'icon-edit';
 
-        if (postData.uid === currentUserInfo().uid){
+        if (postData.uid === currentUserInfo().uid) {
           divPostEntry.appendChild(userName);
           userName.appendChild(imgUser);
           divPostEntry.appendChild(userPostText);
@@ -98,7 +98,7 @@ export const login = () => {
           userPostText.appendChild(editIcon);
           userPostText.append(deleteIcon);
           userPostText.appendChild(likePost);
-        }else{
+        } else {
           divPostEntry.appendChild(userName);
           userName.appendChild(imgUser);
           divPostEntry.appendChild(userPostText);
@@ -108,37 +108,35 @@ export const login = () => {
 
         divTimeLine.appendChild(divPostEntry);
         document.querySelector('#btn-post').innerText = 'PUBLICAR';
-        document.querySelector('#modal-background-post').style.display = 'flex';
-        document.querySelector('#modal-content-post').style.display = 'none';
+        closeModal();
       });
 
     });
   };
-//listener de onclick editarPost
-const editPostListener = async(event) => {
-  const doc = await getTask(event.target.dataset.id);
-  const task = doc.data();
-  let editStatus = false;
-  let newPost = task.postText;
-  divLogin.querySelector('#input-post').value= newPost
-  getTask(newPost)
-  .then((response) => {
-  console.log(response);
-  document.querySelector('#modal-background-post').style.display = 'flex';
-  document.querySelector('#modal-content-post').style.display = 'block';
-  document.body.style.overflow = 'hidden';
-  document.querySelector('#input-post').focus();
-  document.querySelector('#btn-post').disabled = false; // boton publicar activo
-  editStatus = true;
-  })
-  if (editStatus===true) {
-    updateTask(doc,{newPost});
-    console.log('updating',updateTask);
-  }; 
-};
-  
 
-//listener del onclick detelePost
+  //listener de onclick editarPost
+  const editPostListener = async (event) => {
+    const docToEdit = await getTask(event.target.dataset.id);
+    console.log(docToEdit);
+    const docData = docToEdit.data();
+    showModal();
+    const btnExit = divLogin.querySelector('.btn-exit');
+    btnExit.addEventListener('click', () => closeModal());
+    divLogin.querySelector('#input-post').value = docData.postText;
+    document.querySelector('#btn-post').disabled = false;
+
+    const btnUpdatePost = divLogin.querySelector('#btn-post');
+    btnUpdatePost.addEventListener('click', () => {
+      docData.postText = divLogin.querySelector('#input-post').value;
+      console.log('updated doc to send to index', docData);
+      updateTask(docToEdit.id, docData).then((response) => {
+        closeModal();
+        refreshPosts();
+      });
+    });
+  };
+
+  //listener del onclick detelePost
   const deletePostListener = (event) => {//event por default
     const postId = event.target.dataset.id;//sacamos del target el id
       let opcion = confirm('Desea eliminar el comentario?');
@@ -162,22 +160,31 @@ const editPostListener = async(event) => {
     btnLogout,
   );
 
-  //Funcion abrir modal
-  const btnModal = divLogin.querySelector('#btn-input-modal');
-  btnModal.addEventListener('click', () => {
+  const showModal = () => {
     document.querySelector('#modal-background-post').style.display = 'flex';
     document.querySelector('#modal-content-post').style.display = 'block';
     document.body.style.overflow = 'hidden';
+  };
+
+  const closeModal = () => {
+    document.querySelector('#modal-background-post').style.display = 'none';
+    document.querySelector('#modal-content-post').style.display = 'none';
+    document.body.style.overflow = 'visible';
+    divLogin.querySelector('#input-post').value = '';
+
+  };
+
+  //Funcion abrir modal
+  const btnCreatePost = divLogin.querySelector('#btn-input-modal');
+  btnCreatePost.addEventListener('click', () => {
+
+    showModal();
+
     document.querySelector('#input-post').focus();
 
     //Funcion cerrar modal
     const btnExit = divLogin.querySelector('.btn-exit');
-    btnExit.addEventListener('click', () => {
-      document.querySelector('#btn-post').innerText = 'PUBLICAR';
-      document.querySelector('#modal-background-post').style.display = 'none';
-      document.querySelector('#modal-content-post').style.display = 'none';
-      document.body.style.overflow = 'visible';
-    });
+    btnExit.addEventListener('click', () => closeModal());
     // Funcion refrescar pagina 
     const btnRefresh = divLogin.querySelector('#btn-refresh');
     btnRefresh.addEventListener('click', () => location.reload());
@@ -208,10 +215,10 @@ const editPostListener = async(event) => {
         })
         .finally(() => {
         });
-        refreshPosts();
+      refreshPosts();
     });
   });
- 
+
   return divLogin;
 
 };
