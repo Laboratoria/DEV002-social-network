@@ -7,7 +7,7 @@ export const home = () => {
     //const imgHeader = document.createElement("img");
     const homeDiv = document.createElement("div");
     const container = document.createElement("section")
-    const containerLogo = document.createElement("figure");
+    const containerHeader = document.createElement("header")
     const imgLogo = document.createElement("img");
     const containerForm = document.createElement("div");
     const loginForm = document.createElement("form");
@@ -25,9 +25,8 @@ export const home = () => {
     
     homeDiv.className = "div-container";
     container.className = "container";
-    //containerHeader.className = "container-header";
+    containerHeader.className = "container-header";
     //imgHeader.className = "img-header";
-    containerLogo.className = "container-logo";
     imgLogo.src = "../img/Logo VeganShip.png";
     imgLogo.className = "img-logo";
     containerForm.className = "container-form";
@@ -45,6 +44,7 @@ export const home = () => {
     inputPassword.id = "i-input-login-password";
     inputPassword.className = "input-login-password inputs";
     inputPassword.placeholder = "xxxxxxxxxxxxxx";
+    inputPassword.type = "password";
     inputPassword.required = "true";
     buttonLogin.textContent = "Iniciar sesión";
     buttonLogin.className = "button-login buttons";
@@ -54,14 +54,15 @@ export const home = () => {
     buttonGoogle.textContent = "Continuar con Google";
     buttonGoogle.className = "button-google buttons";
     containerRegister.className = "container-register";
+    labelRegister.className = "label-reg labels";
     labelRegister.textContent = "¿No tienes una cuenta?";
     hrefRegister.textContent = "Regístrate";
     hrefRegister.className = "href-register";
     
     //homeDiv.appendChild(loginForm);
     homeDiv.appendChild(container);
-    container.appendChild(containerLogo);
-    containerLogo.appendChild(imgLogo);
+    container.appendChild(containerHeader);
+    containerHeader.appendChild(imgLogo);
     container.appendChild(containerForm);
     containerForm.appendChild(loginForm);
     loginForm.appendChild(labelMail);

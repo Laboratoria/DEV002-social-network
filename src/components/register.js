@@ -161,6 +161,7 @@ export const register = () => {
             try {
                 const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
                 console.log(userCredentials)
+                toNavigate("/registerOk");
             } catch (error) {
                 if (error.code === "auth/invalid-email") {
                     alert("email inválido");
@@ -173,7 +174,7 @@ export const register = () => {
                 }
             }
 
-            toNavigate("/registerOk");
+            
         })
     })
     return registerDiv;
