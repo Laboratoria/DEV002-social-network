@@ -11,7 +11,7 @@ export const timeLine = () => {
 </nav>
 </header>
 <section class="seccion-publicar">
-    <div class="contenedor-publicaciones">
+    <div class="contenedor-publicaciones" id="contenedor-publicaciones">
         <picture>  <img class="user-logo-publicaciones" src="./images/user.png" alt=""> </picture>
         <form id="task-form"> 
             <label for="description"> Description </label>
