@@ -148,7 +148,7 @@
 .href-register:hover {
   cursor: pointer;
   transform: scale(1.1);
-}
+  }
 
 @media screen and (min-width: 390px) {
 
