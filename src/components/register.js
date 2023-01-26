@@ -6,9 +6,11 @@ export const register = () => {
 
 
     const registerDiv = document.createElement("div");
-    const containerRegister = document.createElement("section")
-    const containerRegisterTitle = document.createElement("div")
-    const containerRegisterForm = document.createElement("div")
+    const containerRegister = document.createElement("section");
+    const containerRegisterTitle = document.createElement("h1");
+    const containerLogoRegister = document.createElement("figure");
+    const imgLogoRegister = document.createElement("img");
+    const containerRegisterForm = document.createElement("div");
     const registerForm = document.createElement("form"); //formulario
 
     //Nombre
@@ -33,9 +35,11 @@ export const register = () => {
     const labelUserCheckPass = document.createElement("label");
     const inputUserCheckPass = document.createElement("input");
 
+
     //Selector
     const selectIsVegan = document.createElement("select");
     selectIsVegan.id = "selectVegan";
+    const labelSelectVegan = document.createElement("label");
     const selectOption = document.createElement("option");
     const optionOne = document.createElement("option");
     const optionTwo = document.createElement("option");
@@ -51,20 +55,20 @@ export const register = () => {
     optionFour.setAttribute("value", "4");
     optionFive.setAttribute("value", "5");
 
-    selectOption.innerHTML = "Seleccionar opción";
+    selectOption.innerHTML = "Elige una opción";
     optionOne.innerHTML = "Sí, soy vegano";
     optionTwo.innerHTML = "Soy vegetarian@";
     optionThree.innerHTML = "No, pero lo intento";
     optionFour.innerHTML = "No, pero alguien cercano sí";
     optionFive.innerHTML = "Me interesa saber más";
-    
+
     /*selectOption.setAttribute("label", "Seleccionar opción");
     optionOne.setAttribute("label", "Sí, soy vegano");
     optionTwo.setAttribute("label", "Soy vegetarian@");
     optionThree.setAttribute("label", "No, pero lo intento");
     optionFour.setAttribute("label", "No, pero alguien cercano sí");
     optionFive.setAttribute("label", "Me interesa saber más");*/
-    
+
     selectIsVegan.appendChild(selectOption);
     selectIsVegan.appendChild(optionOne);
     selectIsVegan.appendChild(optionTwo);
@@ -73,56 +77,77 @@ export const register = () => {
     selectIsVegan.appendChild(optionFive);
 
     const buttonRegister = document.createElement("button");
-    
+
 
     //Clases y Placeholder
     registerDiv.className = "register-div";
+    containerRegisterTitle.textContent = "Regístrate";
+    containerLogoRegister.className = "container-logo-register";
+    imgLogoRegister.src = "../img/sandia-logo.png";
+    imgLogoRegister.className = "img-logo-register";
     containerRegister.className = "container-register";
     containerRegisterForm.className = "container-register-form";
     registerForm.className = "register-form";
 
     labelUserName.className = "userName";
+    labelUserName.textContent = "Nombre de Usuario";
     inputUserName.className = "input-Name-User";
-    inputUserName.placeholder = "Nombre";
+    inputUserName.placeholder = "Juanita";
 
     labelUserCity.className = "userCity";
+    labelUserCity.textContent = "Ciudad, País";
     inputUserCity.className = "input-City-User"
-    inputUserCity.placeholder = "Ciudad";
+    inputUserCity.placeholder = "Lima, Perú";
 
-    labelUserCountry.className = "userCountry";
-    inputUserCountry.className = "input-Country-User";
-    inputUserCountry.placeholder = "País";
+    //labelUserCountry.className = "userCountry";
+    //inputUserCountry.className = "input-Country-User";
+    //inputUserCountry.placeholder = "País";
 
     labelUserMail.className = "userMail";
+    labelUserMail.textContent = "Correo electrónico";
     inputUserMail.type = "email";
     inputUserMail.className = "input-Mail-User";
-    inputUserMail.placeholder = "E-mail";
+    inputUserMail.placeholder = "example@gmail.com";
 
     labelUserPass.className = "userPassword"
+    labelUserPass.textContent = "Contraseña";
     inputUserPass.type = "password";
     inputUserPass.className = "input-Pass-User"
-    inputUserPass.placeholder = "Contraseña";
+    inputUserPass.placeholder = "xxxxxxxxxx";
 
     labelUserCheckPass.className = "userCheckPass";
+    labelUserCheckPass.textContent = "Verificar contraseña";
     inputUserCheckPass.type = "password";
     inputUserCheckPass.className = "input-Check-Pass"
-    inputUserCheckPass.placeholder = "Repita contraseña";
+    inputUserCheckPass.placeholder = "xxxxxxxxxx";
 
+    labelSelectVegan.className = "label-user-select";
+    labelSelectVegan.textContent = "¿Eres vegano?";
+    
     buttonRegister.className = "button-Register";
-    buttonRegister.textContent = "REGISTRARSE";
+    buttonRegister.textContent = "Crear cuenta";
 
     registerDiv.appendChild(containerRegister);
+    containerRegister.appendChild(containerLogoRegister);
+    containerLogoRegister.appendChild(imgLogoRegister);
     containerRegister.appendChild(containerRegisterTitle);
     containerRegister.appendChild(containerRegisterForm);
     containerRegisterForm.appendChild(registerForm);
 
 
+    
+    registerForm.appendChild(labelUserName);
     registerForm.appendChild(inputUserName);
+    registerForm.appendChild(labelUserCity);
     registerForm.appendChild(inputUserCity);
-    registerForm.appendChild(inputUserCountry);
+    //registerForm.appendChild(inputUserCountry);
+    registerForm.appendChild(labelUserMail);
     registerForm.appendChild(inputUserMail);
+    registerForm.appendChild(labelUserPass);
     registerForm.appendChild(inputUserPass);
+    registerForm.appendChild(labelUserCheckPass);
     registerForm.appendChild(inputUserCheckPass);
+    registerForm.appendChild(labelSelectVegan);
     registerForm.appendChild(selectIsVegan);
     registerForm.appendChild(buttonRegister);
 
