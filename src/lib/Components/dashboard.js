@@ -47,11 +47,17 @@ export const login = () => {
 
   divLogin.innerHTML = viewLogin;
 
-  //Funcion postear
   const divTimeLine = divLogin.querySelector('#timeline-posts');
-
-
   const inputPostText = divLogin.querySelector('#input-post');
+  const btnPost = divLogin.querySelector('#btn-post');
+  const btnLogout = divLogin.querySelector('#btn-sign-out');
+  const btnCreatePost = divLogin.querySelector('#btn-input-modal');
+  const btnExit = divLogin.querySelector('.btn-exit');
+  const btnRefresh = divLogin.querySelector('#btn-refresh');
+  const divModalBackground = divLogin.querySelector('#modal-background-post');
+  const divModalContent = divLogin.querySelector('#modal-content-post');
+  
+  
 
   //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
   const refreshPosts = () => {
@@ -79,7 +85,7 @@ export const login = () => {
         userName.className = 'user-name-post';
         userPostText.innerHTML = postData.postText;
         editIcon.setAttribute('data-id', post.id);
-        editIcon.onclick = editPostListener;
+        editIcon.onclick = editPost;
         deleteIcon.setAttribute('src', '/images/delete.png');
         deleteIcon.className = 'delete-icon';
         deleteIcon.setAttribute('data-id', post.id);
@@ -109,7 +115,7 @@ export const login = () => {
         }
 
         divTimeLine.appendChild(divPostEntry);
-        document.querySelector('#btn-post').innerText = 'PUBLICAR';
+        btnPost.innerText = 'PUBLICAR';
         closeModal();
       });
 
@@ -117,18 +123,16 @@ export const login = () => {
   };
 
   // onclick editarPost
-  const editPostListener = async (event) => {
+  const editPost = async (event) => {
     const docToEdit = await getTask(event.target.dataset.id);
     const docData = docToEdit.data();
     showModal();
-    const btnExit = divLogin.querySelector('.btn-exit');
-    btnExit.addEventListener('click', () => closeModal());
+    console.log(docData);
     inputPostText.value = docData.postText;
-    document.querySelector('#btn-post').disabled = false;
+    btnPost.disabled = false;
     btnPost.doc = docToEdit;
   };
 
-  const btnPost = divLogin.querySelector('#btn-post');
   btnPost.addEventListener('click', (event) => {
     const doc = event.currentTarget.doc;
 
@@ -156,37 +160,36 @@ export const login = () => {
   //listener del onclick detelePost
   const deletePostListener = (event) => {//event por default
     const postId = event.target.dataset.id;//sacamos del target el id
-      let opcion = confirm('Desea eliminar el comentario?');
-      if(opcion === false){}
-      else {
-        deletePost(postId);
-      };
-      refreshPosts();
+    let opcion = confirm('Desea eliminar el comentario?');
+    if (opcion === false) { }
+    else {
+      deletePost(postId);
     };
+    refreshPosts();
+  };
 
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
 
-  //Funcion cerrar sesion
-  const btnLogout = divLogin.querySelector('#btn-sign-out');
+  
+  
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
   });
 
-  //Listener abrir modal
-  const btnCreatePost = divLogin.querySelector('#btn-input-modal');
+  
   
   btnCreatePost.addEventListener('click', () => {
     showModal();
-    document.querySelector('#input-post').focus();
+    inputPostText.focus();
   });
 
   // Listener cerrar modal
-  const btnExit = divLogin.querySelector('.btn-exit');
+  
   btnExit.addEventListener('click', () => closeModal());
 
   // Funcion refrescar pagina 
-  const btnRefresh = divLogin.querySelector('#btn-refresh');
+  
   btnRefresh.addEventListener('click', () => location.reload());
 
   //Funcion activacion boton publicar
@@ -194,22 +197,22 @@ export const login = () => {
     const valueInput = inputPostText.value.trim();
     // trim() metodo que no permite activar boton con espacio
     if (valueInput === '') {
-      document.querySelector('#btn-post').disabled = true; // boton publicar inactivo
+      btnPost.disabled = true; // boton publicar inactivo
     } else {
-      document.querySelector('#btn-post').disabled = false; // boton publicar activo
+      btnPost.disabled = false; // boton publicar activo
     }
   });
 
   // apertura visual del modal
   const showModal = () => {
-    document.querySelector('#modal-background-post').style.display = 'flex';
-    document.querySelector('#modal-content-post').style.display = 'block';
+    divModalBackground.style.display = 'flex';
+    divModalContent.style.display = 'block';
     document.body.style.overflow = 'hidden';
   };
   // ocultar visual el  modal
   const closeModal = () => {
-    document.querySelector('#modal-background-post').style.display = 'none';
-    document.querySelector('#modal-content-post').style.display = 'none';
+    divModalBackground.style.display = 'none';
+    divModalContent.style.display = 'none';
     document.body.style.overflow = 'visible';
     inputPostText.value = '';
 

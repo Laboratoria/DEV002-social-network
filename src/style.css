@@ -66,7 +66,7 @@ html {
 #btnRegister {
     display: flexbox;
     position: relative;
-    background-color: #31E6F1;
+    background-color: #9cd2dc;
     cursor: pointer;
     height: 25px;
     width: 150px;
@@ -79,8 +79,8 @@ html {
 #btnLogin {
     display: flexbox;
     position: relative;
-    bottom: 290px;
-    background-color: #4AAA5F;
+    bottom: 420px;
+    background-color:  #ceb853;
     cursor: pointer;
     height: 25px;
     width: 150px;
@@ -134,9 +134,9 @@ footer {
 #errorLogin {
     display: flexbox;
     position: absolute;
-    top: 35px;
-    color: red;
-    left: 65px;
+    top:190px;
+    color: #602311;
+    left: 85px;
     font-weight: bold;
 }
 
@@ -145,7 +145,7 @@ footer {
     display: flexbox;
     position: relative;
     background-color: #31E6F1;
-    top: 53%;
+    top: 25%;
     cursor: pointer;
     height: 25px;
     width: 150px;
@@ -281,7 +281,7 @@ header {
 }
 
 #after-line {
-    background-color: #2D747F;
+    background-color: #9cd2dc;
     display: flex;
     flex-direction: column;
 }
@@ -289,7 +289,7 @@ header {
 #input-post {
     height: 100px;
     width: 90%;
-    background-color: transparent;
+    background-color: white;
     cursor: pointer;
     border-color: grey;
     border-radius: 10px;
