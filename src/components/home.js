@@ -44,6 +44,7 @@ export const home = () => {
     inputPassword.id = "i-input-login-password";
     inputPassword.className = "input-login-password inputs";
     inputPassword.placeholder = "xxxxxxxxxxxxxx";
+    inputPassword.type = "password";
     inputPassword.required = "true";
     buttonLogin.textContent = "Iniciar sesión";
     buttonLogin.className = "button-login buttons";
