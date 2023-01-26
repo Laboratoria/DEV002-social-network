@@ -1,0 +1,23 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    border: 1px solid red;
+  }
+  
+  :root {
+    --main-color: #03a678;
+    --secondary-red: #f25c5c;
+    --secondary-orange: #f28705;
+    --complementary-pink: #f26db6;
+    --complementary-green: #84bf04;
+    --neutral-background: #201f1f;
+    --neutral-font: #fcfdff;
+    --tittles-font-family: 'Oleo Script', cursive;
+    --secundary-font-family: 'Roboto', sans-serif;
+  }
+
+  .feedDiv {
+    display: flex;
+    flex-direction: column;
+  }
