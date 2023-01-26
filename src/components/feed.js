@@ -10,13 +10,16 @@ export const feed = () => {
     
     const imgHeader = document.createElement("img");
     imgHeader.src = "../img/Logo VeganShip.png"
+    imgHeader.classList = "imgHeader"
     
     const inputSearchHeader = document.createElement("input");
     inputSearchHeader.placeholder = "tu búsqueda"
 
     const buttonSignOut = document.createElement("button");
+    buttonSignOut.textContent = "Cerrar Sesión";
 
     const newPostContainer = document.createElement("section");
+    newPostContainer.classList = "newPostContainer";
     const newPostLocation = document.createElement("input");
     newPostLocation.placeholder = "ubicación"
 
@@ -24,20 +27,33 @@ export const feed = () => {
     newPostTag.placeholder = "etiquetas"
 
     const newPostContent = document.createElement("textarea");
+    newPostContent.classList = "newPostContent"
     const newPostButton = document.createElement("button");
     const postFeed = document.createElement("section");
     const post = document.createElement("article");
     const postHeader = document.createElement("div");
+    postHeader.classList = "postHeader"
     const imgProfilePost = document.createElement("img");
-    const postUserName = document.createElement("h2");
+    imgProfilePost.src = "../img/sandia-logo.png";
+    imgProfilePost.classList = "imgProfilePost";
+
+    const postUserName = document.createElement("h3");
+    postUserName.textContent = "Vaquita Vegana";
     const postLocation = document.createElement("h4");
+    postLocation.textContent = "Villa Dulce"
     //botón para hacer drop down menu con a href
     const moreOptions = document.createElement("button");
+    moreOptions.textContent = "más"
     const postContentContainer = document.createElement("div");
+    postContentContainer.classList = "postContentContainer"
     const postTag = document.createElement("a");
-    const postContent = document.createElement("textarea")
-    const likeButton = document.createElement("button")
+    postTag.textContent = "#recetas";
+    const postContent = document.createElement("p");
+    postContent.textContent = "receta de dobladitas";
+    const likeButton = document.createElement("button");
+    likeButton.textContent = "like";
 
+    feedDiv.appendChild(header);
     header.appendChild(imgHeader);
     header.appendChild(inputSearchHeader);
     header.appendChild(buttonSignOut);
@@ -59,7 +75,7 @@ export const feed = () => {
     postContentContainer.appendChild(likeButton);
     
 
-    buttonSignOut.textContent = "Cerrar Sesión";
+    
 
     buttonSignOut.addEventListener("click", () => toNavigate("/"));
     buttonSignOut.addEventListener("click", async (e) => {
@@ -71,7 +87,6 @@ export const feed = () => {
             }
             toNavigate("/");
         })
-        feedDiv.appendChild(buttonSignOut);
 
         return feedDiv;
     }

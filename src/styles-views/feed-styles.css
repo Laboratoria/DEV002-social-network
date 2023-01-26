@@ -2,7 +2,6 @@
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    border: 1px solid red;
   }
   
   :root {
@@ -20,4 +19,36 @@
   .feedDiv {
     display: flex;
     flex-direction: column;
+    border: 1px solid red;
+    gap: 30px;
   }
+
+  .newPostContainer {
+    border: 1px solid red;
+    gap: 30px;
+  }
+  
+  .newPostContent{
+    width: 300px;
+    height: 100px;
+  }
+
+  .postHeader {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid green;
+  }
+
+  .imgHeader {
+    width: 230px;
+  }
+
+  .imgProfilePost {
+    width: 40px;
+  }
+
+  .postContentContainer{
+    border: 1px solid blue;
+  }
+
+  
