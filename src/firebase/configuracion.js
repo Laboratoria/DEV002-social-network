@@ -1,7 +1,7 @@
 // Importa la biblioteca de Firebase
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
-import {createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // const auth = getAuth();
 
@@ -69,3 +69,22 @@ export const authGoogle = async () => {
     // console.log(error);
   }
 };
+
+export const onAuth = (auth, user) => onAuthStateChanged(auth, user);
+export const signOutFirebase = (auth) => signOut(auth);
+
+onAuthStateChanged(auth, (user) => {
+  if (user) {
+    console.log('user is signed in')
+    // User is signed in, see docs for a list of available properties
+    // https://firebase.google.com/docs/reference/js/firebase.User
+    const uid = user.uid;
+    // ...
+  } else if (signOut){
+    console.log('user is signed out')
+    // User is signed out
+    // ...
+  }
+});
+
+
