@@ -15,25 +15,28 @@ window.addEventListener('DOMContentLoaded', async () =>{
                 const task = doc.data()
                 html += ` 
                 <div class = 'contenedor-padre'> 
-                    <textarea class = 'div-post-publicado'>${task.description}</textarea>
+                    <textarea class ='div-post-publicado'>${task.description}</textarea>
                         <img src="./images/editlogo2.png" class='btn-edit' data-id="${doc.id}">
                         <img src="./images/deletelogo2.png" class='btn-delete' data-id="${doc.id}"> 
+                    <div class="contenedor-likes">
+                        <img class="heart-logo" src="./images/heart.png" alt="heart">
+                        <p> 3 </p>
+                    </div>
                 </div>
-                <div class="contenedor-likes">
-                    <img class="heart-logo" src="./images/heart.png" alt="heart">
-                    <p> 3 </p>
-                 </div>
                 `;
-            }); 
+        }); 
             
         tasksContainer.innerHTML = html;
-        
+
     const btnsDelete = tasksContainer.querySelectorAll('.btn-delete')
     btnsDelete.forEach(btn => {
         btn.addEventListener('click',({target: { dataset }}) => {
-            deleteTask(dataset.id)
-         })
+            if(confirm("¿Estás segura de que deseas eliminar esta publicación?")) {
+                deleteTask(dataset.id)
+        }
     })
+})
+
 
     const btnsEdit = tasksContainer.querySelectorAll('.btn-edit')
     btnsEdit.forEach((btn) => {
@@ -56,10 +59,13 @@ taskForm.addEventListener('submit', (e)=>{
     e.preventDefault()
 
    const description = taskForm['task-description'];
-    
-   if(!editStatus) {
+
+   if (description.value.trim() === '') {
+    alert('No se pueden publicar campos vacíos :(');
+    } else {
+    if (!editStatus) {
         saveTask(description.value);
-    }else {
+    } else {
         updateTask(id, {
             description: description.value,
         });
@@ -67,5 +73,6 @@ taskForm.addEventListener('submit', (e)=>{
         editStatus = false;
     }
 
-   taskForm.reset();
-})
+    taskForm.reset();
+}
+});

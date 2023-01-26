@@ -17,19 +17,19 @@ export const timeLine = () => {
             <li class="li-navbar"> <img class="navbar-img" src="./images/profilelogo.png" alt="Profile"> </li>
         </a>
         <a href="/login">
-           <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
+           <li class="li-navbar-logout"> <img id="log-out" class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
         </a>
     </nav>
 
     <nav class="navbar-desktop" id="navbar-desktop">
         <a href="/timeLine">
-            <li class="li-navbar"> Home </li>
+            <li class="li-navbar"> Timeline </li>
         </a>
         <a href="/profile">
-            <li class="li-navbar"> Profile </li>
+            <li class="li-navbar"> Perfil </li>
         </a>
         <a href="/login">
-            <li class="li-navbar"> Log out </li>
+            <li class="li-navbar-logout"> Cerrar sesión </li>
         </a>
     </nav>
 

@@ -19,7 +19,19 @@ export const profile = () => {
         </a>
 
         <a href="/login">
-            <li class="li-navbar"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
+            <li class="li-navbar-logout"> <img class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
+        </a>
+    </nav>
+
+    <nav class="navbar-desktop" id="navbar-desktop">
+        <a href="/timeLine">
+            <li class="li-navbar"> Timeline </li>
+        </a>
+        <a href="/profile">
+            <li class="li-navbar"> Perfil </li>
+        </a>
+        <a href="/login">
+            <li class="li-navbar-logout"> Cerrar sesión </li>
         </a>
     </nav>
     
@@ -38,11 +50,10 @@ export const profile = () => {
     </section>
     <section class="contenedor-about-me">
         <div class="input-about-me"> 
-            <textarea name="aboutMe" id="textArea" cols="30" rows="5" placeholder="¿Qué países has visitado? ¿Cuáles países recomiendas y por qué? ¿Qué países estás por visitar?"></textarea>
+            <textarea name="aboutMe" id="textArea" class="textArea" cols="30" rows="5" placeholder="¿Qué países has visitado? ¿Cuáles países recomiendas y por qué? ¿Qué países estás por visitar?"></textarea>
         </div>
     </section>
-    <hr>
-    
+ 
   `;
   divProfile.innerHTML = viewProfile;
   return divProfile;
