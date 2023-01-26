@@ -22,7 +22,7 @@ export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 
 export const saveTask = (description) => 
-    addDoc(collection(db, 'tasks'),{description});
+    addDoc(collection(db, 'tasks'),{description, likes:[]});
 export const getTasks =() => getDocs(collection(db, 'tasks'))
 export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback);
 export const deleteTask = id => deleteDoc(doc(db, 'tasks', id));

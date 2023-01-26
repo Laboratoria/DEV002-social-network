@@ -19,7 +19,7 @@ window.addEventListener('DOMContentLoaded', async () =>{
                         <img src="./images/editlogo2.png" class='btn-edit' data-id="${doc.id}">
                         <img src="./images/deletelogo2.png" class='btn-delete' data-id="${doc.id}"> 
                     <div class="contenedor-likes">
-                        <img class="heart-logo" src="./images/heart.png" alt="heart">
+                        <img class="like-logo" data-id="${doc.id}" src="./images/heart.png" alt="heart">
                         <p> 3 </p>
                     </div>
                 </div>
@@ -36,6 +36,17 @@ window.addEventListener('DOMContentLoaded', async () =>{
         }
     })
 })
+
+    const botonLike = tasksContainer.querySelectorAll('.like-logo')
+    botonLike.forEach(btn => {
+        btn.addEventListener('click', ({target: { dataset }}) => {
+        updateTask(dataset.id, {
+            likes:[],
+        });
+
+        
+        })
+    })
 
 
     const btnsEdit = tasksContainer.querySelectorAll('.btn-edit')
