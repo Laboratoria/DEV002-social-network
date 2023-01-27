@@ -14,7 +14,7 @@ const firebaseConfig = {
   storageBucket: 'usuarias-journey-mates.appspot.com',
   messagingSenderId: '15257223280',
   appId: '1:15257223280:web:eecc0cb646124a2f42b4b5',
-  measurementId: 'G-4W8ETMYH7S',
+  measurementId: 'G-4W8ETMYH7S', 
 };
 // Inicializa la aplicación de Firebase
 export const app = initializeApp(firebaseConfig);
@@ -23,8 +23,9 @@ export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 export const user = () => auth.currentUser;
 
-export const saveTask = (description) => 
-    addDoc(collection(db, 'tasks'),{description, likes:[]});
+export const saveTask = (description, uid) => 
+    addDoc(collection(db, 'tasks'),{
+      description, likes:[]});
 export const getTasks =() => getDocs(collection(db, 'tasks'))
 export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback);
 export const deleteTask = id => deleteDoc(doc(db, 'tasks', id));
