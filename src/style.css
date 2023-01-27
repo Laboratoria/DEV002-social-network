@@ -1,10 +1,16 @@
-/*vista de bienvenido*/
+/*vista de home*/
 body {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: #F8FAE4;
     margin-top: -40px;
+}
+
+.sectionDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .nombreAplicacion {
@@ -16,9 +22,10 @@ body {
 }
 
 .imageLogo {
+    display: flex;
+    align-items: center;
     position: absolute;
     top: 25%;
-    left: 40.8%;
     width: 350px;
     height: 350px;
 }
@@ -63,10 +70,12 @@ body {
 }
 
 #google {
+    display: inline-flex;
     border-radius: 40px;
     font-size: 18px;
+    align-items: center;
+    justify-content: space-around;
     background: #ffffff;
-    text-transform: uppercase;
     height: 40px;
     width: 50%;
     color: #000000;
@@ -78,22 +87,22 @@ body {
 .iconGoogle{
     height: 22px;
     width: 22px;
-    position: absolute;
-    left: 42%;
+    margin-left: 2%;
 }
 
 .iconCorreo{
     height: 25px;
     width: 25px;
-    position: absolute;
-    left: 42%;
+    margin-left: 2%;
 }
 
 #correo {
+    display: inline-flex;
     border-radius: 40px;
     font-size: 18px;
+    align-items: center;
+    justify-content: space-around;
     background: #1BA87E;
-    text-transform: uppercase;
     height: 40px;
     width: 50%;
     color: #ffffff;
@@ -118,7 +127,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top:  1px;
+    margin-top: 420px;
 }
 
 .userpassword,
