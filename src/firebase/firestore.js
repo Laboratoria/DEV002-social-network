@@ -1,9 +1,10 @@
 //import { async } from 'regenerator-runtime';
+import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user, auth } from './configuracion.js'
 
-import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user } from './configuracion.js'
-
-const tasksContainer = document.getElementById('contenedor-publicaciones2');
+const tasksContainer = document.getElementById('contenedor-publicaciones');
 const taskForm = document.getElementById('task-form');
+const nombre = document.getElementById('name-usuaria');
+
 
 let editStatus = false;
 let id = '';
@@ -13,6 +14,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         let html = ''
 
         querySnapshot.forEach(doc => {
+
             const task = doc.data()
             const likes = task.likes;
             const likesNumber = likes.length;
@@ -21,24 +23,35 @@ window.addEventListener('DOMContentLoaded', async () => {
             let likeSrc = '';
             const likeImg = () => {
                 if (currentLike === -1) {
-                    likeSrc = 'images/dislike-logo.png';
+                    likeSrc = 'images/like-logo.png';
                 } else {
                     likeSrc = './images/heart.png';
                 }
             };
             likeImg();
 
+
             html += ` 
                 <div class = 'contenedor-padre'> 
-                    <textarea class ='div-post-publicado'>${task.description}</textarea>
+                <p class="name-post"> ${task.name} </p>
+                    <textarea class ='div-post-publicado'>${task.description}</textarea>`
+                    if(task.uid === auth.currentUser.uid){
+                        html += `
                         <img src="./images/editlogo2.png" class='btn-edit' data-id="${doc.id}">
                         <img src="./images/deletelogo2.png" class='btn-delete' data-id="${doc.id}"> 
                     <div class="contenedor-likes">
                         <img class="like-logo" data-id="${doc.id}" src='${likeSrc}' alt="heart">
                         <p class="contadorLikes" data-id="${doc.id}"> ${likesNumber}</p>
                     </div>
-                </div>
-                `;
+                `
+                } else { ` 
+                     <div class="contenedor-likes">
+                        <img class="like-logo" data-id="${doc.id}" src='${likeSrc}' alt="heart">
+                        <p class="contadorLikes" data-id="${doc.id}"> ${likesNumber}</p>
+                    </div>
+                    </div>
+                    `
+                };
         });
 
         tasksContainer.innerHTML = html;
@@ -89,6 +102,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                 const task = doc.data()
 
                 taskForm['task-description'].value = task.description
+                
                 editStatus = true;
                 id = doc.id
 
