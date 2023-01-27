@@ -13,7 +13,7 @@ export const form = () =>{
 
     const imageLogo = document.createElement('img');
     imageLogo.className = 'imageLogoForm';
-    imageLogo.src = "images/prueba-form.gif";
+    imageLogo.src = "images/gorritoterminado.png";
     formDiv.appendChild(imageLogo);
 
     const formGeneral = document.createElement('form');
@@ -26,24 +26,26 @@ export const form = () =>{
     formUser.appendChild(formGeneral);
 
     const inputFormUser = document.createElement('input');
-    const labelForm = document.createElement('label');
+    /*const labelForm = document.createElement('label');
     labelForm.textContent = 'Correo';
     labelForm.className= 'labelForm';
-    formGeneral.appendChild(labelForm);
+    formGeneral.appendChild(labelForm);*/
     inputFormUser.type ='email';
     inputFormUser.className = 'email';
-    inputFormUser.id = 'email';
+    /*inputFormUser.id = 'email';*/
+    inputFormUser.name = 'email';
     inputFormUser.placeholder = 'example@gmail.com';
     formGeneral.appendChild(inputFormUser);
 
     const inputFormPassword = document.createElement('input');
-    const label = document.createElement('label');
+    /*const label = document.createElement('label');
     label.textContent = 'Password';
     label.className= 'label';
-    formGeneral.appendChild(label);
+    formGeneral.appendChild(label);*/
     inputFormPassword.type ='password';
     inputFormPassword.className = 'password';
-    inputFormPassword.id = 'Password';
+    /*inputFormPassword.id = 'Password';*/
+    inputFormPassword.name = 'password';
     inputFormPassword.placeholder = '********';
     formGeneral.appendChild(inputFormPassword);
 
@@ -53,8 +55,11 @@ export const form = () =>{
     buttonForm.id = 'buttonForm';
     formGeneral.appendChild(buttonForm);
 
-    buttonForm.addEventListener('click',async () => {
-        const prueba = await verifiedEmail();
+    formGeneral.addEventListener('submit',async (event) => {
+        event.preventDefault()
+        const password= event.target["password"].value;
+        const email = event.target["email"].value;
+        const prueba = await verifiedEmail(email,password);
         console.log(prueba)
         onNavigate('/login')
     });

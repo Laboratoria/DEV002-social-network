@@ -56,6 +56,10 @@ export const login = () => {
     hrefHome.id = 'hrefHome';
     hrefHome.addEventListener('click',() => onNavigate('/'));
 
+    button.addEventListener('click',async () => {
+        onNavigate('/vistaGeneral')
+    });
+
     homeDiv.appendChild(hrefHome);
 
     return homeDiv;
