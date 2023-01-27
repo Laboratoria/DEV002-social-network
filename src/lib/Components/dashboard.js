@@ -15,8 +15,6 @@ export const login = () => {
       </div>
   </header>
   <main id='container-post'>
-  <button type='button' id='btn-refresh'>
-      <img class='btn-refresh-img' src='./images/refresh.png'></button>
       <div id='container-btn-input'>
           <img id='img-input' src='images/user.png' alt='profile'>
           <button type='button' id='btn-input-modal'>Deja aqui la reseña de tu libro...</button>
@@ -35,23 +33,14 @@ export const login = () => {
                       <div id='container-text'></div>
                       </div>
                       <textarea type='text' id='input-post' placeholder='Deja aquí la reseña de tu libro'> </textarea>
-                      <button disabled type='button' id='btn-post' class='btn-post-inactive'>PUBLICAR</button>
-                      
+                      <button disabled type='button' id='btn-post' class='btn-post-inactive'>PUBLICAR</button>  
                   </div>
               </div>
-          
           <div id='div-post'></div>
-
-          <div id='container-modal-edit'></div>
-          <button type='button' id='btn-post-edit' class='btn-post-edit'>Editar</button>
           </div>
   </main>
   <footer>© 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>
-  
   </html>`;
-
-  let editStatus = false;
-  let id ='';
 
   divLogin.innerHTML = viewLogin;
 
@@ -61,11 +50,8 @@ export const login = () => {
   const btnLogout = divLogin.querySelector('#btn-sign-out');
   const btnCreatePost = divLogin.querySelector('#btn-input-modal');
   const btnExit = divLogin.querySelector('.btn-exit');
-  const btnRefresh = divLogin.querySelector('#btn-refresh');
   const divModalBackground = divLogin.querySelector('#modal-background-post');
   const divModalContent = divLogin.querySelector('#modal-content-post');
-  
-  
 
   //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
   const refreshPosts = () => {
@@ -84,7 +70,6 @@ export const login = () => {
         let dateTimePost = document.createElement("h1");
         let likePost = document.createElement('img');
         let deleteIcon = document.createElement('img');
-
 
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
@@ -144,7 +129,7 @@ export const login = () => {
   btnPost.addEventListener('click', (event) => {
     const doc = event.currentTarget.doc;
 
-    if(doc) {
+    if (doc) {
       const docData = doc.data();
       // console.log('data-id from edit button is: ', docData);
       docData.postText = inputPostText.value;
@@ -154,8 +139,16 @@ export const login = () => {
         closeModal();
         refreshPosts();
       });
-    });
-  };
+    }
+    else {
+      submitPost(inputPostText.value).then((response) => {
+        console.log(response);
+        closeModal();
+        refreshPosts();
+        alert('Reseña creada', response);
+      });
+    };
+  });
 
   //listener del onclick detelePost
   const deletePostListener = (event) => {//event por default
@@ -171,26 +164,17 @@ export const login = () => {
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
 
-  
-  
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
   });
 
-  
-  
   btnCreatePost.addEventListener('click', () => {
     showModal();
     inputPostText.focus();
   });
 
   // Listener cerrar modal
-  
   btnExit.addEventListener('click', () => closeModal());
-
-  // Funcion refrescar pagina 
-  
-  btnRefresh.addEventListener('click', () => location.reload());
 
   //Funcion activacion boton publicar
   inputPostText.addEventListener('keyup', () => {

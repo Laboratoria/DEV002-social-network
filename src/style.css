@@ -11,7 +11,8 @@ body {
 html {
     height: 100%;
 }
-.div-home{
+
+.div-home {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -22,7 +23,7 @@ html {
     margin-top: 10%;
     width: 200px;
     height: 200px;
-    bottom:30px;
+    bottom: 30px;
 }
 
 #img-google {
@@ -57,7 +58,8 @@ html {
     bottom: 60px;
 
 }
-.container-div-register{
+
+.container-div-register {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -80,7 +82,7 @@ html {
     display: flexbox;
     position: relative;
     bottom: 420px;
-    background-color:  #ceb853;
+    background-color: #ceb853;
     cursor: pointer;
     height: 25px;
     width: 150px;
@@ -113,7 +115,8 @@ html {
 }
 
 footer {
-    background-color: #2D747F;;
+    background-color: #2D747F;
+    ;
     position: absolute;
     width: 100%;
     height: 2 rem;
@@ -135,7 +138,7 @@ footer {
 #errorLogin {
     display: flexbox;
     position: absolute;
-    top:190px;
+    top: 190px;
     color: #602311;
     left: 85px;
     font-weight: bold;
@@ -315,7 +318,7 @@ header {
     border-radius: 10px;
 }
 
-#modal-background-post{
+#modal-background-post {
     height: 100vh;
     width: 100%;
     position: fixed;
@@ -375,7 +378,7 @@ header {
     position: relative;
     font-size: 13px;
     letter-spacing: 1px;
-    
+
 }
 
 .primer-like {
@@ -383,23 +386,26 @@ header {
     left: 10px;
     width: 25px;
     height: 25px;
-   
+
 }
-.icon-edit{
+
+.icon-edit {
     position: relative;
     left: 170px;
     width: 20px;
     height: 25px;
     top: 40px;
 }
-.delete-icon{
+
+.delete-icon {
     position: relative;
     left: 220px;
     width: 20px;
     height: 20px;
     top: 20px;
 }
-.footInit{
+
+.footInit {
     background-color: #2D747F;
     position: absolute;
     width: 100%;
@@ -409,154 +415,187 @@ header {
     bottom: 0;
     font-weight: bold;
 }
-#container-post{
+
+#container-post {
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
 }
-.sign-out-img{
+
+.sign-out-img {
     width: 25px;
     height: 25px;
 }
-@media only screen and (min-width: 600px){
-    .timeLine-post{
+
+@media only screen and (min-width: 600px) {
+    .timeLine-post {
         left: 8%;
     }
 }
-@media only screen and (min-width: 1200px){
-    .input-login{
+
+@media only screen and (min-width: 1200px) {
+    .input-login {
         width: 60%;
         height: 370px;
     }
-    .input-register{
+
+    .input-register {
         width: 60%;
         height: 390px;
     }
-    .btn-google{
+
+    .btn-google {
         margin-top: 10px;
         bottom: 210px;
     }
-    #btnLogin{
+
+    #btnLogin {
         bottom: 300px;
     }
-    #btnFinal{
+
+    #btnFinal {
         bottom: 0;
         top: 80%;
 
     }
-    #btnReturn{
+
+    #btnReturn {
         bottom: 0;
         top: 62%;
-    
+
     }
 
 }
 
-@media only screen and (min-width: 1000px){
-.iconUser{
-    width: 50px;
-    height: 50px;
-}
-.textPost{
-    left: 45px;
-}
-#btn-input-modal{
-    width: 80%;
-}
-.logo-header{
-    width: 250px;
-    height: 250px;
-    top: -50px;
-}
-header{
-    height: 110px;
-}
-.timeLine-post{
-    width: 60%;
-    left: 17.5%;
-}
-.user-name-post{
-    font-size: large;
-}
-#btn-sign-out{
-    left: 95%;
-    top: 65px;
-}
-.delete-icon{
-    left: 95%;
-}
-.icon-edit{
-    left: 90%;
-}
-#container-btn-input{
-    width: 60%;
-}
-footer{
-    font-size: 14px;
-}
-.btn-exit{
-left: 95%;
-bottom: 90%;
-}
-#modal-content-post{
-    width: 50%;
-}
-.img-logo{
-    width: 300px;
-    height: 300px;
-    margin-top: 0;
-}
-#email, 
-#password{
-    margin-top: 3%;
-    width: 410px;
-    height: 45px;
-}
-#btnLogin{
-    height: 35px;
-    width: 250px;
-    font-size: 28px;
-}
-#btnRegister{
-    height: 35px;
-    width: 250px;
-    font-size: 28px;
-}
-.input-login,
-.input-register{
-    bottom: 77px;
-}
-.btn-google{
-    margin-bottom: 0;
-}
-.input-login p{
-    font-size: 28px;
-}
-#name-register,
-#email-register,
-#password-register{
-    margin-top: 2%;
-    width: 400px;
-    height: 40px;
-}
-#btnFinal{
-    margin-left: 0;
-    left: 37%;
-    top: 87%;
-    height: 35px;
-    width: 250px;
-    font-size: 28px;
-}
-#btnReturn{
-    bottom: 70%;
-    height: 35px;
-    width: 250px;
-    font-size: 28px;
+@media only screen and (min-width: 1000px) {
+    .iconUser {
+        width: 50px;
+        height: 50px;
+    }
 
-}
-#input-post {
-    left: 20px;
-}
+    .textPost {
+        left: 45px;
+    }
+
+    #btn-input-modal {
+        width: 80%;
+    }
+
+    .logo-header {
+        width: 250px;
+        height: 250px;
+        top: -50px;
+    }
+
+    header {
+        height: 110px;
+    }
+
+    .timeLine-post {
+        width: 60%;
+        left: 17.5%;
+    }
+
+    .user-name-post {
+        font-size: large;
+    }
+
+    #btn-sign-out {
+        left: 95%;
+        top: 65px;
+    }
+
+    .delete-icon {
+        left: 95%;
+    }
+
+    .icon-edit {
+        left: 90%;
+    }
+
+    #container-btn-input {
+        width: 60%;
+    }
+
+    footer {
+        font-size: 14px;
+    }
+
+    .btn-exit {
+        left: 95%;
+        bottom: 90%;
+    }
+
+    #modal-content-post {
+        width: 50%;
+    }
+
+    .img-logo {
+        width: 300px;
+        height: 300px;
+        margin-top: 0;
+    }
+
+    #email,
+    #password {
+        margin-top: 3%;
+        width: 410px;
+        height: 45px;
+    }
+
+    #btnLogin {
+        height: 35px;
+        width: 250px;
+        font-size: 28px;
+    }
+
+    #btnRegister {
+        height: 35px;
+        width: 250px;
+        font-size: 28px;
+    }
+
+    .input-login,
+    .input-register {
+        bottom: 77px;
+    }
+
+    .btn-google {
+        margin-bottom: 0;
+    }
+
+    .input-login p {
+        font-size: 28px;
+    }
+
+    #name-register,
+    #email-register,
+    #password-register {
+        margin-top: 2%;
+        width: 400px;
+        height: 40px;
+    }
+
+    #btnFinal {
+        margin-left: 0;
+        left: 37%;
+        top: 87%;
+        height: 35px;
+        width: 250px;
+        font-size: 28px;
+    }
+
+    #btnReturn {
+        bottom: 70%;
+        height: 35px;
+        width: 250px;
+        font-size: 28px;
+
+    }
+
+    #input-post {
+        left: 20px;
+    }
 
 }
