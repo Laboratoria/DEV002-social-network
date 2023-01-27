@@ -1,6 +1,5 @@
 
 import { onNavigate } from "../../main.js";
-import { app } from "../Firebase.js";
 import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask } from "../index.js";
 
 
@@ -48,8 +47,18 @@ export const login = () => {
 
   divLogin.innerHTML = viewLogin;
 
-  //Funcion postear
   const divTimeLine = divLogin.querySelector('#timeline-posts');
+  const inputPostText = divLogin.querySelector('#input-post');
+  const btnPost = divLogin.querySelector('#btn-post');
+  const btnLogout = divLogin.querySelector('#btn-sign-out');
+  const btnCreatePost = divLogin.querySelector('#btn-input-modal');
+  const btnExit = divLogin.querySelector('.btn-exit');
+  const btnRefresh = divLogin.querySelector('#btn-refresh');
+  const divModalBackground = divLogin.querySelector('#modal-background-post');
+  const divModalContent = divLogin.querySelector('#modal-content-post');
+  
+  
+
   //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
   const refreshPosts = () => {
 
@@ -76,11 +85,10 @@ export const login = () => {
         userName.className = 'user-name-post';
         userPostText.innerHTML = postData.postText;
         editIcon.setAttribute('data-id', post.id);
-        editIcon.onclick = editPostListener;
+        editIcon.onclick = editPost;
         deleteIcon.setAttribute('src', '/images/delete.png');
         deleteIcon.className = 'delete-icon';
         deleteIcon.setAttribute('data-id', post.id);
-  
         deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
         likePost.className = 'primer-like';
@@ -107,117 +115,112 @@ export const login = () => {
         }
 
         divTimeLine.appendChild(divPostEntry);
-        document.querySelector('#btn-post').innerText = 'PUBLICAR';
+        btnPost.innerText = 'PUBLICAR';
         closeModal();
       });
 
     });
   };
 
-  //listener de onclick editarPost
-  const editPostListener = async (event) => {
+  // onclick editarPost
+  const editPost = async (event) => {
     const docToEdit = await getTask(event.target.dataset.id);
-    console.log(docToEdit);
     const docData = docToEdit.data();
     showModal();
-    const btnExit = divLogin.querySelector('.btn-exit');
-    btnExit.addEventListener('click', () => closeModal());
-    divLogin.querySelector('#input-post').value = docData.postText;
-    document.querySelector('#btn-post').disabled = false;
+    console.log(docData);
+    inputPostText.value = docData.postText;
+    btnPost.disabled = false;
+    btnPost.doc = docToEdit;
+  };
 
-    const btnUpdatePost = divLogin.querySelector('#btn-post');
-    btnUpdatePost.addEventListener('click', () => {
-      docData.postText = divLogin.querySelector('#input-post').value;
+  btnPost.addEventListener('click', (event) => {
+    const doc = event.currentTarget.doc;
+
+    if(doc) {
+      const docData = doc.data();
+      // console.log('data-id from edit button is: ', docData);
+      docData.postText = inputPostText.value;
       console.log('updated doc to send to index', docData);
-      updateTask(docToEdit.id, docData).then((response) => {
+      updateTask(doc.id, docData).then((response) => {
+        btnPost.doc = null;
         closeModal();
         refreshPosts();
       });
-    });
-  };
+    }
+    else {
+      submitPost(inputPostText.value).then((response) => {
+        console.log(response);
+        closeModal();
+        refreshPosts();
+        alert('Libro creado', response);
+      });
+    }
+  });
 
   //listener del onclick detelePost
   const deletePostListener = (event) => {//event por default
     const postId = event.target.dataset.id;//sacamos del target el id
-      let opcion = confirm('Desea eliminar el comentario?');
-      if(opcion === false){}
-      else {
-        deletePost(postId);
-      };
-      refreshPosts();
+    let opcion = confirm('Desea eliminar el comentario?');
+    if (opcion === false) { }
+    else {
+      deletePost(postId);
     };
+    refreshPosts();
+  };
 
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
 
-  //Funcion cerrar sesion
-  const btnLogout = divLogin.querySelector('#btn-sign-out');
+  
+  
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
   });
 
+  
+  
+  btnCreatePost.addEventListener('click', () => {
+    showModal();
+    inputPostText.focus();
+  });
+
+  // Listener cerrar modal
+  
+  btnExit.addEventListener('click', () => closeModal());
+
+  // Funcion refrescar pagina 
+  
+  btnRefresh.addEventListener('click', () => location.reload());
+
+  //Funcion activacion boton publicar
+  inputPostText.addEventListener('keyup', () => {
+    const valueInput = inputPostText.value.trim();
+    // trim() metodo que no permite activar boton con espacio
+    if (valueInput === '') {
+      btnPost.disabled = true; // boton publicar inactivo
+    } else {
+      btnPost.disabled = false; // boton publicar activo
+    }
+  });
+
+  // apertura visual del modal
+  const showModal = () => {
+    divModalBackground.style.display = 'flex';
+    divModalContent.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  };
+  // ocultar visual el  modal
+  const closeModal = () => {
+    divModalBackground.style.display = 'none';
+    divModalContent.style.display = 'none';
+    document.body.style.overflow = 'visible';
+    inputPostText.value = '';
+
+  };
+
   divLogin.append(
     btnLogout,
   );
-
-  const showModal = () => {
-    document.querySelector('#modal-background-post').style.display = 'flex';
-    document.querySelector('#modal-content-post').style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  };
-
-  const closeModal = () => {
-    document.querySelector('#modal-background-post').style.display = 'none';
-    document.querySelector('#modal-content-post').style.display = 'none';
-    document.body.style.overflow = 'visible';
-    divLogin.querySelector('#input-post').value = '';
-
-  };
-
-  //Funcion abrir modal
-  const btnCreatePost = divLogin.querySelector('#btn-input-modal');
-  btnCreatePost.addEventListener('click', () => {
-
-    showModal();
-
-    document.querySelector('#input-post').focus();
-
-    //Funcion cerrar modal
-    const btnExit = divLogin.querySelector('.btn-exit');
-    btnExit.addEventListener('click', () => closeModal());
-    // Funcion refrescar pagina 
-    const btnRefresh = divLogin.querySelector('#btn-refresh');
-    btnRefresh.addEventListener('click', () => location.reload());
-
-    //Funcion activacion boton publicar
-    const inputPost = divLogin.querySelector('#input-post');
-    inputPost.addEventListener('keyup', () => {
-      const valueInput = inputPost.value.trim();
-      // trim() metodo que no permite activar boton con espacio
-      if (valueInput === '') {
-        document.querySelector('#btn-post').disabled = true; // boton publicar inactivo
-      } else {
-        document.querySelector('#btn-post').disabled = false; // boton publicar activo
-      }
-    });
-    //Funcion donde se crea el post
-    const btnPost = divLogin.querySelector('#btn-post');
-    btnPost.addEventListener('click', () => {
-      const postTxt = divLogin.querySelector('#input-post').value;
-      submitPost(postTxt)
-        .then((response) => {
-          document.querySelector('#modal-background-post').style.display = 'none';
-          document.querySelector('#modal-content-post').style.display = 'none';
-          divLogin.querySelector('#input-post').value = '';
-          //se vuelve a mandar llamar getDocs una vez que el nuevo post fue posteado correctamente
-        })
-        .catch((error) => {
-        })
-        .finally(() => {
-        });
-      refreshPosts();
-    });
-  });
 
   return divLogin;
 
