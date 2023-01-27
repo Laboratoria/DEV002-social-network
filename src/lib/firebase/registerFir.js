@@ -11,7 +11,7 @@ export const popupRegister = async () =>{
 return await signInWithPopup(auth, provider)
 }
 
-export const verifiedEmail = async () => {
-return await createUserWithEmailAndPassword(auth, email, password)
+export const verifiedEmail = (email , password) => {
+return createUserWithEmailAndPassword(auth, email, password)
 }
 

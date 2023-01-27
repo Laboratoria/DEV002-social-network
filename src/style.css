@@ -171,7 +171,7 @@ body {
 
   /* Dar color más tenue al placeholder de los input */
 input::placeholder {
-    color: hsl(210, 40%, 96%);
+    color: hwb(210 59% 39%);
 }
 
 /*vista general de la web*/
@@ -218,11 +218,11 @@ input::placeholder {
     position:relative;
     display: block;
     font-size: 18px;
-    background: #658351;
+    /*background: #658351;*/
     height: 30px;
     width: 250px;
-    color: #ffffff;
-    border: 1px solid #658351;
+    color: #658351;
+    border: 2px solid #658351;
     margin: 5px;
     padding: 5px;
     margin-top: 20px;
