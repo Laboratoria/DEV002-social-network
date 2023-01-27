@@ -16,7 +16,6 @@ export const login = () => {
   </header>
   <main id='container-post'>
   <button type='button' id='btn-refresh'>
-      <img class='btn-refresh-img' src='./images/refresh.png'></button>
       <div id='container-btn-input'>
           <img id='img-input' src='images/user.png' alt='profile'>
           <button type='button' id='btn-input-modal'>Deja aqui la reseña de tu libro...</button>
@@ -42,7 +41,6 @@ export const login = () => {
           <div id='div-post'></div>
   </main>
   <footer>© 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>
-  
   </html>`;
 
   divLogin.innerHTML = viewLogin;
@@ -53,12 +51,9 @@ export const login = () => {
   const btnLogout = divLogin.querySelector('#btn-sign-out');
   const btnCreatePost = divLogin.querySelector('#btn-input-modal');
   const btnExit = divLogin.querySelector('.btn-exit');
-  const btnRefresh = divLogin.querySelector('#btn-refresh');
   const divModalBackground = divLogin.querySelector('#modal-background-post');
   const divModalContent = divLogin.querySelector('#modal-content-post');
   
-  
-
   //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
   const refreshPosts = () => {
 
@@ -76,8 +71,7 @@ export const login = () => {
         let dateTimePost = document.createElement("h1");
         let likePost = document.createElement('img');
         let deleteIcon = document.createElement('img');
-    
-
+  
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
         imgUser.className = "iconUser";
@@ -171,13 +165,9 @@ export const login = () => {
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
 
-  
-  
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
   });
-
-  
   
   btnCreatePost.addEventListener('click', () => {
     showModal();
@@ -185,12 +175,7 @@ export const login = () => {
   });
 
   // Listener cerrar modal
-  
   btnExit.addEventListener('click', () => closeModal());
-
-  // Funcion refrescar pagina 
-  
-  btnRefresh.addEventListener('click', () => location.reload());
 
   //Funcion activacion boton publicar
   inputPostText.addEventListener('keyup', () => {
