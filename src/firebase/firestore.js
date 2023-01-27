@@ -33,7 +33,7 @@ window.addEventListener('DOMContentLoaded', async () => {
 
             html += ` 
                 <div class = 'contenedor-padre'> 
-                <p class="name-post"> ${task.name} </p>
+                    <p class="name-post"> ${task.name} </p>
                     <textarea class ='div-post-publicado'>${task.description}</textarea>`
                     if(task.uid === auth.currentUser.uid){
                         html += `
@@ -44,7 +44,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                         <p class="contadorLikes" data-id="${doc.id}"> ${likesNumber}</p>
                     </div>
                 `
-                } else { ` 
+                } else { html +=` 
                      <div class="contenedor-likes">
                         <img class="like-logo" data-id="${doc.id}" src='${likeSrc}' alt="heart">
                         <p class="contadorLikes" data-id="${doc.id}"> ${likesNumber}</p>
