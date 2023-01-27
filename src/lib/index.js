@@ -65,7 +65,7 @@ export const signInGoogle = async (onNavigate) => {
   }
 };
 
-// FUNCIÓN DE SIGNOUT - check
+// Función checkout- check
 export const logOut = async (onNavigate) => {
   try {
     await signOut(auth);  
@@ -104,8 +104,11 @@ export const deletePost = (id) => {
 //funcion para traer un post para editar
 export const getTask = (id) => getDoc(doc(firestore,'post', id));
 
-
 //función updateTask
-export const updateTask = (id, docData) => updateDoc(doc(firestore,'post', id), {
-  postText: docData.postText
-});
+
+export const updateTask = (id, docData) => {
+  console.log('document to update: ', id);
+  return updateDoc(doc(firestore, 'post', id), {
+    postText: docData.postText
+  })
+};
