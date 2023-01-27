@@ -47,6 +47,7 @@ export const Login = () => {
       const alertLogin = (valid) => {
         if (valid) {
           next('/timeLine');
+          location.reload();
         }
       };
       inicioDeSesionEmail(email, password, alertLogin);

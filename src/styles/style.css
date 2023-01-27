@@ -242,8 +242,9 @@ li {
     margin-left: 15%;
 }
 
-.heart-logo{
+.like-logo{
     width: 25px;
+    cursor: pointer;
 }
 
 p {
