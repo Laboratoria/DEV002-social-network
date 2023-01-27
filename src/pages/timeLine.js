@@ -37,6 +37,8 @@ export const timeLine = () => {
         <div class="contenedor-publicaciones">
             <picture>  <img class="user-logo-publicaciones" src="./images/user.png" alt=""> </picture>
                 <form id="task-form" class="task-form"> 
+                    <p class="nombreUsuaria" id="nombreUsuaria"> </p>
+                    <p class="pais-actual id="pais-actual"> </p>
                     <label for="description"> </label>
                     <textarea  id="task-description" rows="3" class="input-recomendaciones" type="text" placeholder="¿Cuáles son tus  recomendaciones de hoy?"></textarea> 
                     <button class="btn-publicar" id="btn-publicar">Publicar</button>
