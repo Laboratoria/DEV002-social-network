@@ -1,5 +1,5 @@
 //import { async } from 'regenerator-runtime';
-import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask} from './configuracion.js'
+import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user } from './configuracion.js'
 
 const tasksContainer = document.getElementById('contenedor-publicaciones');
 const taskForm = document.getElementById('task-form');
@@ -7,83 +7,124 @@ const taskForm = document.getElementById('task-form');
 let editStatus = false;
 let id = '';
 
-window.addEventListener('DOMContentLoaded', async () =>{
-        onGetTasks((querySnapshot) => {
+window.addEventListener('DOMContentLoaded', async () => {
+    onGetTasks((querySnapshot) => {
         let html = ''
 
-            querySnapshot.forEach(doc => {
-                const task = doc.data()
-                html += ` 
+        querySnapshot.forEach(doc => {
+            const task = doc.data()
+            const likes = task.likes;
+            const likesNumber = likes.length;
+            const userId = user().uid;
+            const currentLike = likes.indexOf(userId);
+            let likeSrc = '';
+            const likeImg = () => {
+                if (currentLike === -1) {
+                    likeSrc = 'images/dislike-logo.png';
+                } else {
+                    likeSrc = './images/heart.png';
+                }
+            };
+            likeImg();
+
+            html += ` 
                 <div class = 'contenedor-padre'> 
                     <textarea class ='div-post-publicado'>${task.description}</textarea>
                         <img src="./images/editlogo2.png" class='btn-edit' data-id="${doc.id}">
                         <img src="./images/deletelogo2.png" class='btn-delete' data-id="${doc.id}"> 
                     <div class="contenedor-likes">
-                        <img class="like-logo" data-id="${doc.id}" src="./images/heart.png" alt="heart">
-                        <p> 3 </p>
+                        <img class="like-logo" data-id="${doc.id}" src='${likeSrc}' alt="heart">
+                        <p class="contadorLikes" data-id="${doc.id}"> ${likesNumber}</p>
                     </div>
                 </div>
                 `;
-        }); 
-            
-        tasksContainer.innerHTML = html;
-
-    const btnsDelete = tasksContainer.querySelectorAll('.btn-delete')
-    btnsDelete.forEach(btn => {
-        btn.addEventListener('click',({target: { dataset }}) => {
-            if(confirm("¿Estás segura de que deseas eliminar esta publicación?")) {
-                deleteTask(dataset.id)
-        }
-    })
-})
-
-    const botonLike = tasksContainer.querySelectorAll('.like-logo')
-    botonLike.forEach(btn => {
-        btn.addEventListener('click', ({target: { dataset }}) => {
-        updateTask(dataset.id, {
-            likes:[],
         });
 
-        
+        tasksContainer.innerHTML = html;
+
+        const userId = user().uid;
+        const botonLike = tasksContainer.querySelectorAll('.like-logo')
+       
+        botonLike.forEach((btn) => {
+            btn.addEventListener('click', async (e) => {
+              const id = e.target.dataset.id;
+              const doc = await getTask(id);
+              const likes = doc.data().likes;
+              const currentLike = likes.indexOf(userId);
+              // let numero = likes.length;
+              console.log(likes);
+              if (currentLike === -1) {
+                // btn.src = 'imagenes/like.png';
+                tapLike(id, userId);
+                // console.log(btn)
+                // numero = numero + 1
+                // console.log(numero + " likes")
+                // contadorLike.innerHTML = numero + " me encanta"
+              } else {
+                // btn.src = 'imagenes/dislike.png';
+                dislike(id, userId);
+                // numero = numero - 1
+                // console.log(numero + " likes")
+                // contadorLike.innerHTML = numero + " me encanta"
+                // console.log(btn)
+              }
+            });
+          });
+
+        const btnsDelete = tasksContainer.querySelectorAll('.btn-delete')
+        btnsDelete.forEach(btn => {
+            btn.addEventListener('click', ({ target: { dataset } }) => {
+                if (confirm("¿Estás segura de que deseas eliminar esta publicación?")) {
+                    deleteTask(dataset.id)
+                }
+            })
         })
-    })
 
+        const btnsEdit = tasksContainer.querySelectorAll('.btn-edit')
+        btnsEdit.forEach((btn) => {
+            btn.addEventListener('click', async (e) => {
+                const doc = await getTask(e.target.dataset.id)
+                console.log(doc.data())
+                const task = doc.data()
 
-    const btnsEdit = tasksContainer.querySelectorAll('.btn-edit')
-    btnsEdit.forEach((btn) => {
-        btn.addEventListener('click', async (e) => {
-            const doc = await getTask(e.target.dataset.id)
-            console.log(doc.data())
-            const task = doc.data() 
+                taskForm['task-description'].value = task.description
+                editStatus = true;
+                id = doc.id
 
-            taskForm['task-description'].value = task.description
-            editStatus = true;
-            id= doc.id
-
-            taskForm['btn-publicar'].innerText = 'Publicar'
+                taskForm['btn-publicar'].innerText = 'Publicar'
             })
         })
     });
 });
 
-taskForm.addEventListener('submit', (e)=>{
+taskForm.addEventListener('submit', (e) => {
     e.preventDefault()
 
-   const description = taskForm['task-description'];
+    const description = taskForm['task-description'];
 
-   if (description.value.trim() === '') {
-    alert('No se pueden publicar campos vacíos :(');
+    if (description.value.trim() === '') {
+        alert('No se pueden publicar campos vacíos :(');
     } else {
-    if (!editStatus) {
-        saveTask(description.value);
-    } else {
-        updateTask(id, {
-            description: description.value,
-        });
+        if (!editStatus) {
+            saveTask(description.value);
+        } else {
+            updateTask(id, {
+                description: description.value,
+            });
 
-        editStatus = false;
+            editStatus = false;
+        }
+
+        taskForm.reset();
     }
-
-    taskForm.reset();
-}
 });
+
+// botonLike.forEach(btn => {
+//     btn.addEventListener('click', ({ target: { dataset } }) => {
+//         updateTask(dataset.id, {
+//             likes: [],
+//         });
+
+
+//     })
+// })

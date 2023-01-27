@@ -2,7 +2,8 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, onSnapshot } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
+import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, onSnapshot, arrayUnion,
+  arrayRemove, } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // const auth = getAuth();
 
 // Your web app's Firebase configuration
@@ -20,6 +21,7 @@ export const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
+export const user = () => auth.currentUser;
 
 export const saveTask = (description) => 
     addDoc(collection(db, 'tasks'),{description, likes:[]});
@@ -87,4 +89,39 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
+// -----LIKES----------------------
 
+export const tapLike = (id, newLike) => {
+  updateDoc(doc(db, 'tasks', id), {
+    likes:
+      arrayUnion(
+        newLike,
+      ),
+  });
+  // .then(() => console.log("+1 like"))
+  // .catch((error) => console.error("Error", error));
+};
+
+export const dislike = (id, oldLike) => {
+  updateDoc(doc(db, 'tasks', id), {
+    likes:
+      arrayRemove(
+        oldLike,
+      ),
+  });
+  // .then(() => console.log("-1 like"))
+  // .catch((error) => console.error("Error", error));
+};
+
+export {
+  collection,
+  addDoc,
+  getDocs,
+  deleteDoc,
+  doc,
+  getDoc,
+  updateDoc,
+  onSnapshot,
+  arrayUnion,
+  arrayRemove,
+};
