@@ -1,7 +1,8 @@
 //import { async } from 'regenerator-runtime';
+
 import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user } from './configuracion.js'
 
-const tasksContainer = document.getElementById('contenedor-publicaciones');
+const tasksContainer = document.getElementById('contenedor-publicaciones2');
 const taskForm = document.getElementById('task-form');
 
 let editStatus = false;
