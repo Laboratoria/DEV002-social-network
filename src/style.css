@@ -36,7 +36,7 @@ html {
     cursor: pointer;
     margin-bottom: 100px;
     bottom: 210px;
-    left: 5px;
+    left: 2px;
 }
 
 .root {
@@ -80,7 +80,7 @@ html {
     display: flexbox;
     position: relative;
     bottom: 290px;
-    background-color: #4AAA5F;
+    background-color: #ceb853;
     cursor: pointer;
     height: 25px;
     width: 150px;
@@ -120,6 +120,7 @@ footer {
     text-align: center;
     margin-top: 10px;
     font-size: 12.5px;
+    font-weight: bold;
 
 }
 
@@ -142,24 +143,21 @@ footer {
 
 /*Registro*/
 #btnFinal {
-    display: flexbox;
     position: relative;
-    background-color: #31E6F1;
-    top: 53%;
+    background-color: #9cd2dc;
     cursor: pointer;
     height: 25px;
     width: 150px;
     border-radius: 20px;
-    margin-left: 90px;
     font-size: medium;
-    left: 0px;
+    bottom: 380px;
 }
 
 #btnReturn {
     display: flexbox;
     position: absolute;
     top: 70%;
-    background-color: #4AAA5F;
+    background-color: #ceb853;
     cursor: pointer;
     height: 25px;
     width: 150px;
@@ -192,12 +190,12 @@ footer {
 #errorMessageRegister {
     display: flexbox;
     position: absolute;
-    top: 355px;
-    color: red;
+    top: 410px;
+    color: #602311;
     font-weight: bold;
     text-align: center;
     font-size: 15px;
-    left: 115px;
+    left: 105px;
 }
 
 /*Dashboard*/
@@ -289,7 +287,7 @@ header {
 #input-post {
     height: 100px;
     width: 90%;
-    background-color: transparent;
+    background-color: white;
     cursor: pointer;
     border-color: grey;
     border-radius: 10px;
@@ -401,13 +399,14 @@ header {
     top: 20px;
 }
 .footInit{
-    background-color: #94B49F;
+    background-color: #2D747F;
     position: absolute;
     width: 100%;
     text-align: center;
     margin-top: 10px;
     font-size: 12.5px;
     bottom: 0;
+    font-weight: bold;
 }
 #container-post{
     display: flex;
@@ -554,6 +553,9 @@ bottom: 90%;
     width: 250px;
     font-size: 28px;
 
+}
+#input-post {
+    left: 20px;
 }
 
 }
