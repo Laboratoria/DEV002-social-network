@@ -209,6 +209,15 @@ li {
     text-align: center;
     margin-bottom: 1rem;
 }
+.pais-post{
+    text-align: left;
+    margin-left: 30%;
+}
+
+.name-post{
+    text-align: left;
+    margin-left: 30%;
+}
 
 .div-post-publicado{
     background-color: aliceblue;
@@ -242,8 +251,9 @@ li {
     margin-left: 15%;
 }
 
-.heart-logo{
+.like-logo{
     width: 25px;
+    cursor: pointer;
 }
 
 p {
