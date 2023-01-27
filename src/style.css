@@ -281,7 +281,7 @@ header {
 }
 
 #after-line {
-    background-color: #2D747F;
+    background-color: #9cd2dc;
     display: flex;
     flex-direction: column;
 }
@@ -289,7 +289,7 @@ header {
 #input-post {
     height: 100px;
     width: 90%;
-    background-color: transparent;
+    background-color: white;
     cursor: pointer;
     border-color: grey;
     border-radius: 10px;
@@ -299,7 +299,7 @@ header {
 
 #modal-content-post {
     width: 92%;
-    background-color: #94B49F;
+    background-color: #dbefe2;
     border-radius: 20px;
     cursor: pointer;
     display: none;

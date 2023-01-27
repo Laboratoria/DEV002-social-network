@@ -107,7 +107,6 @@ export const getTask = (id) => getDoc(doc(firestore,'post', id));
 export const onGetTasks = (funcion) => onSnapshot(collection(firestore, 'post'), funcion);
 export const updatePost = (id, newFields) => updateDoc(doc(db, 'post', id), newFields);
 
-export const getTask = id => getDoc(doc(firestore,'post',id));
 
 //función updateTask
 
