@@ -41,30 +41,30 @@ export const home = () => {
     });
     const btnLogin = divHome.querySelector('#btnLogin')
     btnLogin.addEventListener('click', () => {
-    const email = document.querySelector ('#email').value;
-    const password = document.querySelector ('#password').value;
+        const email = document.querySelector('#email').value;
+        const password = document.querySelector('#password').value;
 
-    signIn (email, password)
-    .then(() => {    
-    onNavigate('/dashboard');
-    })
-    .catch((error) => {
-        if (error.code === 'auth/invalid-email'){
-            document.querySelector('#errorLogin').innerHTML = 'Correo no válido';
-        } else if (error.code === 'auth/user-not-found'){
-            document.querySelector('#errorLogin').innerHTML = 'Correo no registrado';
-        }else if (error.code) {
-            document.getElementById('errorLogin').innerHTML = 'Ups algo no está bien';
-          }
-    });
-    authLogin();
+        signIn(email, password)
+            .then(() => {
+                onNavigate('/dashboard');
+
+            })
+            .catch((error) => {
+                if (error.code === 'auth/invalid-email') {
+                    document.querySelector('#errorLogin').innerHTML = 'Correo no válido';
+                } else if (error.code === 'auth/user-not-found') {
+                    document.querySelector('#errorLogin').innerHTML = 'Correo no registrado';
+                } else if (error.code) {
+                    document.getElementById('errorLogin').innerHTML = 'Ups algo no está bien';
+                }
+            });
+        authLogin();
     });
 
     divHome.append(
-        btnGoogle, 
+        btnGoogle,
         btnLogin,
     );
-
 
     return divHome;
 };
