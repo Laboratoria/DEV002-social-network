@@ -5,6 +5,7 @@ export const vistaGeneral = () => {
 
     navFijo.className = 'navFijo';
     tituloFijo.className = 'nameFijo';
+    
     tituloFijo.textContent = "¿Que comemos hoy?";
 
     homeDiv.appendChild(navFijo);

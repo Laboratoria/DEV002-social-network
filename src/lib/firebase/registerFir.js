@@ -14,4 +14,3 @@ return await signInWithPopup(auth, provider)
 export const verifiedEmail = (email , password) => {
 return createUserWithEmailAndPassword(auth, email, password)
 }
-
