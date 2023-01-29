@@ -121,40 +121,39 @@ body {
     padding: 2px;
 }
 
-/*Loguin css */
+/*Login css */
+
+.login{
+    margin-top: 390px;
+    font-size: 40px;
+    color: #aa8b56;
+}
 
 .contenedorForm{
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 420px;
 }
 
 .userpassword,
 .username {
-    line-height: 24px;
-    align-items: center;
     text-align: center;
     justify-content: center;
     position:relative;
     display: block;
     font-size: 18px;
-    background: #658351;
+    background: #F8FAE4;
     height: 30px;
     width: 250px;
-    color: #ffffff;
-    border: 1px solid #658351;
+    border: 2px solid #658351;
+    border-radius: 40px;
     margin: 5px;
     padding: 5px;
-    margin-top: 20px;
-
+    margin-top: 15px;
 }
 
 .button {
-    line-height: 24px;
-    align-items: center;
     text-align: center;
-    justify-content: center;
     position:relative;
     display: block;
     border-radius: 40px;
@@ -163,12 +162,11 @@ body {
     height: 30px;
     width: 250px;
     color: #ffffff;
-    border: 1px solid #AA8B56;
+    border: 1.5px solid #658351;
     margin: 5px;
     padding: 5px;
     margin-top: 20px;
     left: 7px;
-
 }
 
 .hrefHome{
@@ -183,22 +181,7 @@ input::placeholder {
     color: hwb(210 59% 39%);
 }
 
-/*vista general de la web*/
-.navFijo{
-    background-color: #F9DE79;
-    width: 1800px;
-    height: 70px;
-    margin-top: 0%;
-    position: grid;
-}
-
-.nameFijo{
-    color: #658361;
-    justify-content: center;
-    /*align-items: center;*/
-    font-size: 50px;
-}
-
+ /* formulario de correo */
 .bienvenidaForm{
     display:contents;
     width: 40px;
@@ -206,16 +189,15 @@ input::placeholder {
 }
 
 .imageLogoForm{
+    display: flex;
     position: absolute;
-    top: 13%;
-    left: 40.8%;
-    width: 350px;
-    height: 350px;
+    width: 280px;
+    height: 280px;
 }
 
 .nombreForm{
-    font-size: 60px;
-
+    color: #aa8b56;
+    font-size: 50px;
 }
 
 .password,
@@ -227,22 +209,19 @@ input::placeholder {
     position:relative;
     display: block;
     font-size: 18px;
-    /*background: #658351;*/
     height: 30px;
     width: 250px;
     color: #658351;
     border: 2px solid #658351;
+    border-radius: 40px;
     margin: 5px;
     padding: 5px;
     margin-top: 20px;
-    top: 300px;
+    top: 350px;
 
 }
 
 .buttonForm{
-    line-height: 24px;
-    align-items: center;
-    text-align: center;
     justify-content: center;
     position:relative;
     display: block;
@@ -252,11 +231,12 @@ input::placeholder {
     height: 30px;
     width: 250px;
     color: #ffffff;
-    border: 1px solid #F0EBCE;
+    border: 1.5px solid #658351;
     margin: 5px;
     padding: 5px;
-    margin-top: 20px;
+    margin-top: 25px;
     top:350px;
+    left: 7px;
 }
 
 .labelForm{
@@ -273,4 +253,20 @@ input::placeholder {
     left: 2px;
     font-size: 20px;
     position: relative;
+}
+
+/*vista general de la web*/
+.navFijo{
+    background-color: #F9DE79;
+    width: 1800px;
+    height: 70px;
+    margin-top: 0%;
+    position: grid;
+}
+
+.nameFijo{
+    color: #658361;
+    justify-content: center;
+    /*align-items: center;*/
+    font-size: 50px;
 }

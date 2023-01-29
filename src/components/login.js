@@ -5,7 +5,7 @@ export const login = () => {
     const sectionDiv = document.createElement('section');
     const nombreApp= document.createElement('h3');
     const imageLogo = document.createElement('img');
-    const registrateH4= document.createElement('h4');
+    const registrateH4= document.createElement('h3');
     const formSU = document.createElement('form');
     const divUser = document.createElement('div');
     const inputUser = document.createElement('input');
@@ -33,9 +33,10 @@ export const login = () => {
     imageLogo.src = "images/logo-quecomemoshoy.png";
 
     nombreApp.textContent ="ENCUENTRA INSPIRACIÓN PARA TUS COMIDAS DIARIAS";
-    button.textContent = 'ENTRAR'
+    registrateH4.textContent = 'Login';
+    button.textContent = 'ENTRAR';
     hrefHome.textContent =  'Regresar al home';
-
+    
     inputUser.placeholder = 'USUARIO';
     inputPassword.placeholder = 'PASSWORD';
 
@@ -51,7 +52,7 @@ export const login = () => {
     homeDiv.appendChild(sectionDiv);
     sectionDiv.appendChild(nombreApp);
     sectionDiv.appendChild(imageLogo);
-    sectionDiv.appendChild(registrateH4);
+    homeDiv.appendChild(registrateH4);
     homeDiv.appendChild(divUser);
     divUser.appendChild(formSU);
     formSU.appendChild(inputUser);

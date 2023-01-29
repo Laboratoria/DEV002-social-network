@@ -4,57 +4,40 @@ import {onNavigate} from '../main.js';
 export const form = () =>{
     const formDiv = document.createElement('div');
     const sectionDiv = document.createElement('section');
-    sectionDiv.className= 'bienvenidaForm';
     const nombreForm= document.createElement('h4');
-    nombreForm.className='nombreForm';
-    nombreForm.textContent ="Registra tus datos aquí";
-    sectionDiv.appendChild(nombreForm);
-    formDiv.appendChild(sectionDiv);
-
     const imageLogo = document.createElement('img');
-    imageLogo.className = 'imageLogoForm';
-    imageLogo.src = "images/gorritoterminado.png";
-    formDiv.appendChild(imageLogo);
-
     const formGeneral = document.createElement('form');
-    formGeneral.className = 'form';
-    formGeneral.id = 'form';
-
     const formUser = document.createElement('div');
-    formUser.className = 'contenedorForm'
-    formDiv.appendChild(formUser);
-    formUser.appendChild(formGeneral);
-
     const inputFormUser = document.createElement('input');
-    /*const labelForm = document.createElement('label');
-    labelForm.textContent = 'Correo';
-    labelForm.className= 'labelForm';
-    formGeneral.appendChild(labelForm);*/
-    inputFormUser.type ='email';
-    inputFormUser.className = 'email';
-    /*inputFormUser.id = 'email';*/
-    inputFormUser.name = 'email';
-    inputFormUser.placeholder = 'example@gmail.com';
-    formGeneral.appendChild(inputFormUser);
-
     const inputFormPassword = document.createElement('input');
-    /*const label = document.createElement('label');
-    label.textContent = 'Password';
-    label.className= 'label';
-    formGeneral.appendChild(label);*/
-    inputFormPassword.type ='password';
-    inputFormPassword.className = 'password';
-    /*inputFormPassword.id = 'Password';*/
-    inputFormPassword.name = 'password';
-    inputFormPassword.placeholder = '********';
-    formGeneral.appendChild(inputFormPassword);
-
     const buttonForm = document.createElement('button');
-    buttonForm.textContent = 'REGISTRAR'
-    buttonForm.className = 'buttonForm';
-    buttonForm.id = 'buttonForm';
-    formGeneral.appendChild(buttonForm);
 
+    sectionDiv.className= 'bienvenidaForm';
+    nombreForm.className='nombreForm';
+    imageLogo.className = 'imageLogoForm';
+    formGeneral.className = 'formGeneral';
+    formUser.className = 'contenedorForm';
+    inputFormUser.className = 'email';
+    inputFormPassword.className = 'password';
+    buttonForm.className = 'buttonForm';
+
+    formGeneral.id = 'form';
+    buttonForm.id = 'buttonForm';
+
+    imageLogo.src = "images/gorritoterminado.png";
+    
+    nombreForm.textContent ="REGISTRA TUS DATOS AQUÍ";
+    buttonForm.textContent = 'REGISTRAR';
+
+    inputFormUser.placeholder = 'example@gmail.com';
+    inputFormPassword.placeholder = '********';
+
+    inputFormUser.name = 'email';
+    inputFormPassword.name = 'password';
+
+    inputFormUser.type ='email';
+    inputFormPassword.type ='password';
+    
     formGeneral.addEventListener('submit',async (event) => {
         event.preventDefault()
         const password= event.target["password"].value;
@@ -63,6 +46,15 @@ export const form = () =>{
         console.log(prueba)
         onNavigate('/login')
     });
+
+    formDiv.appendChild(sectionDiv);
+    sectionDiv.appendChild(nombreForm);
+    formGeneral.appendChild(imageLogo);
+    formDiv.appendChild(formUser);
+    formUser.appendChild(formGeneral);
+    formGeneral.appendChild(inputFormUser);
+    formGeneral.appendChild(inputFormPassword);
+    formGeneral.appendChild(buttonForm);
     
     return formDiv;
 }
