@@ -25,17 +25,30 @@ export const user = () => auth.currentUser;
 
 // export const saveTask = (description) => 
 //     addDoc(collection(db, 'tasks'),{ description, likes:[], name:""});
+// export const saveTask = (description) => 
+// addDoc(collection(db, 'tasks'),{ 
+//   description: description, 
+//   name:auth.currentUser.displayName,
+//   uid:auth.currentUser.uid,
+//   likes:[],
+//   createdDateTime: Timestamp.fromDate(new Date())
+// });
+
 export const saveTask = (description) => 
 addDoc(collection(db, 'tasks'),{ 
   description: description, 
   name:auth.currentUser.displayName,
   uid:auth.currentUser.uid,
   likes:[],
-  date: Timestamp.fromDate(new Date())
+  createdDateTime: Timestamp.fromDate(new Date())
 });
 
+
 export const getTasks =() => getDocs(collection(db, 'tasks', ))
-export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback);
+export const onGetTasks = (callback) => {
+  dateTask(callback);
+}
+// export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback);
 export const deleteTask = id => deleteDoc(doc(db, 'tasks', id));
 export const getTask = id => getDoc(doc(db, "tasks", id));
 export const updateTask =  (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
@@ -43,6 +56,7 @@ export const dateTask = (callback) => {
   const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));
   onSnapshot(q, callback);
 };
+
 
 
 // Create new users

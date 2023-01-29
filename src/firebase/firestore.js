@@ -31,13 +31,13 @@ window.addEventListener('DOMContentLoaded', async () => {
             };
             likeImg();
 
+//Este código tomará la fecha almacenada en createdDateTime, la convertirá a un objeto Date, y luego utilizará toLocaleString() para mostrarla en el formato deseado
                 
-           
-            
             html += ` 
                 <div class = 'contenedor-padre'> 
                     <p class="name-post"> ${task.name} </p>
-                    <p class="date">${task.date.toDate().toLocaleString()}</p>
+                    
+                    <p class="date">${task.createdDateTime.toDate().toLocaleString("es-ES", {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute:'2-digit'})}</p>
                     <textarea class ='div-post-publicado'>${task.description}</textarea>`
                     if(task.uid === auth.currentUser.uid){
                         html += `
