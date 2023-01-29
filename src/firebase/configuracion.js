@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp, onSnapshot, arrayUnion,
+import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp, onSnapshot, arrayUnion, orderBy, query,
   arrayRemove, } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // const auth = getAuth();
 
@@ -34,14 +34,16 @@ addDoc(collection(db, 'tasks'),{
   date: Timestamp.fromDate(new Date())
 });
 
-export const getTasks =() => getDocs(collection(db, 'tasks'))
+export const getTasks =() => getDocs(collection(db, 'tasks', ))
 export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback);
 export const deleteTask = id => deleteDoc(doc(db, 'tasks', id));
 export const getTask = id => getDoc(doc(db, "tasks", id));
 export const updateTask =  (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
+//export const q = query(db, orderBy('date'));
 
 
-// Crea una función para registrar usuarios
+// Create new users
+
 export function registerUser(email, password, callback) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
@@ -66,6 +68,8 @@ export function registerUser(email, password, callback) {
       callback(false);
     });
 }
+
+// Sign in with Google 
 
 export const authGoogle = async () => {
   try {
@@ -98,7 +102,7 @@ onAuthStateChanged(auth, (user) => {
   }
 });
 
-// -----LIKES----------------------
+// Like function
 
 export const tapLike = (id, newLike) => {
   updateDoc(doc(db, 'tasks', id), {
@@ -133,4 +137,5 @@ export {
   onSnapshot,
   arrayUnion,
   arrayRemove,
+
 };

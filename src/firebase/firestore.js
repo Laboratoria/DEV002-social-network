@@ -1,5 +1,5 @@
 //import { async } from 'regenerator-runtime';
-import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user, auth } from './configuracion.js'
+import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user, auth, } from './configuracion.js'
 
 const tasksContainer = document.getElementById('contenedor-publicaciones');
 const taskForm = document.getElementById('task-form');
@@ -15,7 +15,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
         querySnapshot.forEach(doc => {
 
-            const task = doc.data()
+            const task = doc.data();
+            const date = task.date;
             const likes = task.likes;
             const likesNumber = likes.length;
             const userId = user().uid;
@@ -34,6 +35,7 @@ window.addEventListener('DOMContentLoaded', async () => {
             html += ` 
                 <div class = 'contenedor-padre'> 
                     <p class="name-post"> ${task.name} </p>
+                    
                     <textarea class ='div-post-publicado'>${task.description}</textarea>`
                     if(task.uid === auth.currentUser.uid){
                         html += `
