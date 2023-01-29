@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import { createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
-import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp, onSnapshot, arrayUnion, orderBy, query,
+import { getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp, query, orderBy, onSnapshot, arrayUnion,
   arrayRemove, } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // const auth = getAuth();
 
@@ -39,7 +39,10 @@ export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), call
 export const deleteTask = id => deleteDoc(doc(db, 'tasks', id));
 export const getTask = id => getDoc(doc(db, "tasks", id));
 export const updateTask =  (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
-//export const q = query(db, orderBy('date'));
+export const dateTask = (callback) => {
+  const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));
+  onSnapshot(q, callback);
+};
 
 
 // Create new users
@@ -137,5 +140,5 @@ export {
   onSnapshot,
   arrayUnion,
   arrayRemove,
-
+  Timestamp
 };
