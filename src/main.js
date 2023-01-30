@@ -113,7 +113,7 @@ if (signinForm) {
 };
 
 // LOGOUT
-const logoutButton = document.getElementById('idlogoutButton');
+const logoutButton = document.getElementById('botonAceptar');
 if (logoutButton) {
   logoutButton.addEventListener('click', () => {
     logOut(auth);

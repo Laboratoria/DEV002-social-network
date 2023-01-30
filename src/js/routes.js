@@ -14,7 +14,7 @@ const routes = {
 
 export const onNavigate = (pathname) => { //se cambia la ruta
     window.history.pushState(
-        {},
+        {state:pathname},
         pathname,
         window.location.origin + pathname, // requiere 3 parámetros - 1 estado vacio - asignar título - asignar la ruta//
     );
@@ -26,11 +26,11 @@ export const onNavigate = (pathname) => { //se cambia la ruta
 };
 
 
-const componentes = routes[window.location.pathname];
+ const componentes = routes[window.location.pathname];
 
-window.onpopstate = () => {
-    rootDiv.appendChild(componentes());
-};
-rootDiv.appendChild(componentes());
+ window.onpopstate = () => {
+   rootDiv.appendChild(componentes());
+ };
+ rootDiv.appendChild(componentes());
 
 
