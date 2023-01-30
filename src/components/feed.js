@@ -1,4 +1,4 @@
-import { savePosts, getPost } from "../lib/firebase/methodsFirestore.js";
+import { savePosts, getPost, deletePost } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 
     const feedSection = document.createElement('section');
@@ -122,7 +122,6 @@ export const feed = () => {
             const postCreado = document.createElement('div');
             postCreado.className = 'post-div';
             postCreado.innerHTML = '';
-
             postCreado.innerHTML = `
          <div class = "container-post" id = "ContainerPost">
              <div class = "parte-superior-post" id= "parteSuperior">
@@ -133,8 +132,10 @@ export const feed = () => {
              <h2 class = "titulo-post">${posts["autor"]}</h2> 
              <h3 class = "descripcion-post"> ${posts["descripcion"]}</h3> 
              <h4 class = "fecha-post">${posts.date}</h4> 
-         </div>  
+         </div> 
+          
          `;
+        
             contenedorPosts.append(postCreado);
 
         });
@@ -148,21 +149,21 @@ export const feed = () => {
 
     modalLogOut.innerHTML = `
        <div class="modal-container" id="modalContainerLogout">
-           <h3>Log out of Dad's Power?</h3>
-           <button type="button" class ="aceptar-logout" id="botonAceptar"> Ok </button>
-           <button type="button" class ="close-modalLogout" id="botonCancelar"> Cancel </button>
+           <h3 class=" texto-delete">Log out of Dad's Power?</h3>
+           <button type="button" class ="boton-aceptar" id="botonAceptar"> Ok </button>
+           <button type="button" class ="boton-cancelar" id="botonCancelar"> Cancel </button>
 
        </div>
       `;
     feedSection.appendChild(modalLogOut);
 
     const closeModal = () => {
-        console.log('cerrando');
+        // console.log('cerrando');
         modalLogOut.style.display = 'none';
     }
 
     const openModal = () => {
-        console.log('hello');
+        // console.log('hello');
         modalLogOut.style.display = 'flex';
     }
 
@@ -181,9 +182,9 @@ export const feed = () => {
 
     modalDelete.innerHTML = `
     <div class="modal-container" id="modalContainerDelete">
-        <h3>Do you want to delete?</h3>
-        <button type="button" class ="aceptar-logout" id="botonAceptarEliminar"> Ok </button>
-        <button type="button" class ="close-modalLogout" id="botonCancelarEliminar"> Cancel </button>
+        <h3 class="texto-delete">Do you want to delete?</h3>
+        <button type="button" class ="boton-aceptar" id="Eliminar"> Ok </button>
+        <button type="button" class ="boton-cancelar" id="botonCancelarEliminar"> Cancel </button>
 
     </div>
     `;
@@ -198,21 +199,23 @@ export const feed = () => {
         console.log('hello');
         modalDelete.style.display = 'flex';
     }
-   
-  const openDelete = contenedorPosts.querySelector('#botonEliminar')
+    contenedorPosts.addEventListener('click', () => {
+       console.log('click')
+        openModalDelete();
+    });
+  const openDelete = modalDelete.querySelector('#botonEliminar')
   if(openDelete) { 
      openDelete.addEventListener('click', () => {openModalDelete()});
-     console.log('clickii')
+     
   }
  
   
-    const aceptarElimiar = modalDelete.querySelector('#botonAceptar');
-    if (aceptarElimiar){
-        aceptarElimiar.addEventListener('click', () => {
-            /*FUNCION ELIMINAR*/
-        });
+    const aceptarEliminar = modalDelete.querySelector('#Eliminar');
+    if (aceptarEliminar){
+        aceptarEliminar.addEventListener('click', () => { deletePost();
+        closeModalDelete()});
     }
-    const closeDelete = modalDelete.querySelector('#botonCancelar'); //no se puede usar getElementById porque aun no existe
+    const closeDelete = modalDelete.querySelector('#botonCancelarEliminar'); //no se puede usar getElementById porque aun no existe
     if (closeDelete) 
     { closeDelete.addEventListener('click', () => { closeModalDelete() });
     }
