@@ -22,7 +22,7 @@ Las historias de usuario las realizamos en función de los hallazgos de una inve
 
 Nuestras Historias de Usuario fueron 8:
 
-1. **HU Crear Cuenta:** Como viajera, quiero registrarme en JourneyMates para crear un perfil.
+1. ** HU | Crear Cuenta:** Como viajera, quiero registrarme en JourneyMates para crear un perfil.
 
 **Criterios de aceptación:** 
 
@@ -45,88 +45,174 @@ Nuestras Historias de Usuario fueron 8:
 
     *Se muestra un error si la contraseña no cumple con los requisitos (mínimo 8 caracteres y un número)
 
-  3. **HU Personajes filtrados:** Como seguidora de Harry Potter, quiero visualizar a los personajes  casas del Colegio Hogwarts de Magia y Hechicería  en función de la escuela a la que pertenecen para conocer a qué escuela asiste cada uno de ellos.
+  2. **HU | Login:** Yo como viajera quiero ingresar a mi cuenta de JourneyMates con mi usuario y contraseña/ con cuenta de google para tener acceso a mi perfil.  
 
 **Criterios de aceptación:** 
 
-    *La página es responsive (desktop & mobile).
+    *La página tiene que ser responsive.
 
-    *La página le permite a la usuaria acceder a la base de datos a través del escudo de cada escuela. Esta muestra a los personajes de cada una de las escuelas con nombre completo, escuela a la que pertenece y especie.
+    *La página permite ingresar a un perfil al momento de iniciar sesión con usuario y contraseña.
+    
+    *La página muestra un error si la contraseña y/o correo son incorrrectos.
+
+    *Fiel a prototipo.   
+
+**Definición de terminado:**
+
+    *Debe ser una SPA.
+
+    *El código pasa los tests necesarios.
+
+    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.
+
+    *Al presionar el botón de "iniciar sesión" te dirige a la página de Home.
+
+    *La página muestra error si el correo ya está registrado o si no es válido.
+
+
+3. **HU | Mostrar timeline/home:** Yo como viajera quiero ver la página de home para visualizar las publicaciones de mis amigas/os.
+
+**Criterios de aceptación:** 
+
+    *La página tiene que ser responsive.
+
+    *Se visualizan las publicaciones de los amigos y amigas del perfil en el que se está iniciando sesión.
+
+    *Se muestran las publicaciones de la más reciente a la más antigua.
 
     *Fiel a prototipo.
 
 **Definición de terminado:**
 
-    *La página se puede abrir con las mismas funcionalidades en celulares, tablets y pc.
+    *Debe ser una SPA.
 
-    **La página muestra con imágenes/logos las 4 escuelas del Colegio Hogwarts de Magia y Hechicería en un contenedor y al momento de dar click a cada escudo dirige a los personajes que pertenecen a esa escuela.
+    *El código pasa los tests necesarios.
 
-    *Pasa los tests necesarios.
-
-    *Visualmente es fiel a prototipo.
+    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.
 
 
-4. **HU Personajes ordenados alfabeticamente:** Como seguidora de Harry Potter, quiero visualizar a todos los personajes de las diferentes casas del Colegio Hogwarts de Magia y Hechicería ordenados alfabeticamente en orden ascendente (A-Z) para que la data sea más amigable de explorar.
+4. **HU | Mostrar perfil:** Yo como viajera quiero ver/acceder a mi perfil de Journey Mates para visualizar, publicar y editar mis posts.
 
 **Criterios de aceptación:** 
 
-    *La página es responsive (desktop & mobile).
+    *La página tiene que ser responsive.
 
-    *La página le permite a la usuaria ordenar de forma alfabetica (A-Z) los nombres de los personajes.
+    *Se visualiza la información de la usuaria.
+
+    *Se muestra mi foto de perfil.
+
+    *Se muestra la opción de editar perfil.
 
     *Fiel a prototipo.
 
 **Definición de terminado:**
 
-    *La página se puede abrir con las mismas funcionalidades en celulares, tablets y pc.
+    *Debe ser una SPA.
 
-    **La página muestra un ícono que que al darle click ordena automáticamente a todos los personajes alfabeticamente (A-Z).
+    *El código pasa los tests necesarios.
 
-    *Pasa los tests necesarios.
+    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.
 
-    *Visualmente es fiel a prototipo.
+    *Se muestra la sección de información y contiene foto de perfil e información de la persona (nombre, edad, país)
 
-
-5. **HU Porcentaje de mujeres y hombres:** Como seguidora de Harry Potter, quiero visualizar el porcentaje de mujeres y de hombres del total de los personajes de la saga de HP.
+5. **HU | Publicar:** Yo como viajera quiero publicar en mi perfil estados y/o fotos 
+para compartir en mi perfil lo que estoy haciendo.
 
 **Criterios de aceptación:** 
 
-    *La página es responsive (desktop & mobile).
+    *La página tiene que ser responsive.
 
-    *La página le permite a la usuaria obtener el porcentaje de mujeres y de hombres del total de personajes de la saga de Harry Potter.
+    *Existe un input para poder agregar mi estado y un botón para publicarlo.
+
+    *Se muestra mi foto de perfil.
+
+    *Se muestra la opción de "publicar".
 
     *Fiel a prototipo.
 
 **Definición de terminado:**
 
-    *La página se puede abrir con las mismas funcionalidades en celulares, tablets y pc.
+    *Debe ser una SPA.
 
-    **La página muestra un botón que que al darle click muestra el porcentaje de mujeres y de hombres de los personajes de la saga de Harry Potter. 
+    *El código pasa los tests necesarios.
 
-    *Pasa los tests necesarios.
+    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.
 
-    *Visualmente es fiel a prototipo.
+    *La página te permite scrollear para visualizar las publicaciones.
+
+
+6. **HU | Editar:**Yo como viajera quiero editar mis publicaciones para poder modificar errores o publicaciones en general..
+
+**Criterios de aceptación:** 
+
+    *La página tiene que ser responsive.
+
+    *Existe un botón para poder editar mis publicaciones.
+
+    *Se muestra el input de la publicación para poder editarlo.
+
+    *Se muestra la opción de "publicar".
+
+    *Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la información editada.
+
+    *Fiel a prototipo.
+
+**Definición de terminado:**
+
+    *Debe ser una SPA.
+
+    *El código pasa los tests necesarios.
+
+    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.
+
+    *Puedes editar cada una de tus publicaciones a través de un botón de editar.
+
+    *Tu estado se publica nuevamente y al recargar la página se muestra editado.
+
+    *Al guardar los cambios debe cambiar de vuelta a un texto normal pero con la información editada.
+
+7. **HU | Likear:** Yo como viajera quiero poder dar y quitar like a las publicaciones. 
+para interactuar con las publicaciones.
+
+**Criterios de aceptación:** 
+
+    *La página tiene que ser responsive.
+
+    *Existe un botón/logo que al momento de dar click, muestra un like y cambia de color.
+
+    *Se puede quitar el like de la publicación.
+
+    *Existe un conteo de likes.
+
+    *Fiel a prototipo.
+
+**Definición de terminado:**
+
+    *Debe ser una SPA.
+
+    *El código pasa los tests necesarios.
+
+    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.
+
+    *Cada publicación cuenta con un logo que al momento de darle click, se agrega un like al conteo.
+
 
 ## iii. Prototipos
 
 * Prototipo de baja fidelidad
 
-![img](./src/images/Prototipos/HU%20Casas%20.png)
-![img](./src/images/Prototipos/HU%20Personajes.png)
-![img](./src/images/Prototipos/HU%20Personajes%20Filtrados.png)
-![img](./src/images/Prototipos/HU%20Orden%20A-Z%20y%20HU%20Porcentajes.png)
+![img](./src/images/)
+
 
 * Prototipo de alta fidelidad
 
-![img](./src/images/tinified/Prototipo%20alta%20fidelidad%20mobile.png)
-![img](./src/images/tinified/Prototipo%20alta%20fidelidad%20desktop.png)
 
 ## iv. Proyectos desplegados
 
-💻 Laura: https://laugardc.github.io/DEV002-data-lovers/ 
-💻 Daniela: https://dvnielx.github.io/DEV002-data-lovers/ 
+💻 Carmen: 
+💻 Daniela:
+💻 Miriam:
+
 
 ## v. Listado de problemas que detectaste a través de tests de usabilidad
 
-    *Las lineas 6-9 en data.js no estan cubiertas en los test, ya que utilizamos el método Fetch para traer los datos, pues inicialemnte estábamos trabajando con la url de la API, sin embargo, el servidor dejó de funcionar y trajimos los datos desde la carpeta .json del repositorio. Conservamos comentada la url de la API por si en algun momento volvía a funcionar y poder hacer la llamada correspondiente para trabajar con dicho código. 
-    *Nos faltó crear los test para los errores.
