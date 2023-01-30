@@ -215,8 +215,12 @@ li {
 }
 
 .name-post{
-    text-align: left;
-    margin-left: 30%;
+    margin-top: 3rem;
+}
+
+.date{
+    font-size: 1.3rem;
+    color: #D1FFAD;
 }
 
 .div-post-publicado{
@@ -224,8 +228,7 @@ li {
     color: black;
     width: 70%;
     height: 5rem;
-    margin: 0px auto;
-    margin-top: 2rem;
+    margin: 2rem 1rem 0.5rem 1rem;
     border-radius: 8px;
     padding: 1rem;
     font-family: 'Raleway', sans-serif;
@@ -241,7 +244,8 @@ li {
 
 .btn-delete{
     width: 1.5rem; 
-    cursor: pointer;           
+    cursor: pointer; 
+    margin-bottom: 0.5rem;          
 }
 
 .contenedor-likes{
@@ -249,6 +253,7 @@ li {
     grid-template-columns: 30px 30px;
     align-items: self-end;
     margin-left: 15%;
+    margin-bottom: 3rem;
 }
 
 .like-logo{
