@@ -23,11 +23,6 @@ export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 export const user = () => auth.currentUser;
 
-export const saveTask = (description, uid) => 
-    addDoc(collection(db, 'tasks'),{
-      description, likes:[]});
-// export const saveTask = (description) => 
-//     addDoc(collection(db, 'tasks'),{ description, likes:[], name:""});
 export const saveTask = (description) => 
 addDoc(collection(db, 'tasks'),{ 
   description: description, 
