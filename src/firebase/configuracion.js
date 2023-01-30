@@ -35,7 +35,7 @@ export const user = () => auth.currentUser;
 // });
 
 export const saveTask = (description) => 
-addDoc(collection(db, 'tasks'),{ 
+addDoc(collection(db, 'tasks'),{
   description: description, 
   name:auth.currentUser.displayName,
   uid:auth.currentUser.uid,
@@ -43,8 +43,7 @@ addDoc(collection(db, 'tasks'),{
   createdDateTime: Timestamp.fromDate(new Date())
 });
 
-
-export const getTasks =() => getDocs(collection(db, 'tasks', ))
+export const getTasks =() => getDocs(collection(db, 'tasks' ))
 export const onGetTasks = (callback) => {
   dateTask(callback);
 }
@@ -57,13 +56,17 @@ export const dateTask = (callback) => {
   onSnapshot(q, callback);
 };
 
-
-
 // Create new users
 
 export function registerUser(email, password, callback) {
+  //let registerName = document.getElementById('name-usuaria');
   createUserWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
+     .then((userCredential) => {
+    //   updateProfile(auth.currentUser, {
+    //     displayName: registerName.value
+    //   })
+
+      
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
       const user = userCredential.user;
@@ -71,6 +74,7 @@ export function registerUser(email, password, callback) {
       console.log(user, userId);
       callback(true);
     })
+
     .catch((error) => {
       console.error(error.code);
       if (error.code === 'auth/email-already-in-use') {
@@ -83,8 +87,8 @@ export function registerUser(email, password, callback) {
         alert('Completa todos los campos');
       }
       callback(false);
-    });
-}
+    })};
+  
 
 // Sign in with Google 
 

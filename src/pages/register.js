@@ -2,6 +2,7 @@
 import { registerUser } from '../firebase/configuracion.js';
 import { next } from '../main.js';
 
+
 export const Register = () => {
   const divRegister = document.createElement('div');
   divRegister.setAttribute('class', 'container-div-register');
@@ -16,7 +17,7 @@ export const Register = () => {
 
   <h2 class="inicia-sesion-h2">Regístrate</h2>
 
-  <form> 
+  <form id="userForm"> 
   <input type="name" id="name-usuaria" class="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
   <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
   <input id="passwordRegister" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
