@@ -1,4 +1,4 @@
-import { postsRef, savePosts, getPost } from "../lib/firebase/methodsFirestore.js";
+import { savePosts, getPost } from "../lib/firebase/methodsFirestore.js";
 export const feed = () => {
 
     const feedSection = document.createElement('section');
@@ -55,13 +55,15 @@ export const feed = () => {
     createContainerButtons.appendChild(logoutButton);
 
 
-    //FORMULARIO PARA POSTEAR
+
+
+    //----------------------------------FORMULARIO PARA POSTEAR--------------------------------------------------------------------------
 
     const formulario = document.createElement('form');
     formulario.method = 'post';
     formulario.id = 'idForm';
     formulario.className = 'formulario-post';
-    console.log(formulario);
+    //console.log(formulario);
     feedSection.appendChild(formulario);
 
 
@@ -83,7 +85,7 @@ export const feed = () => {
         else {
             savePosts(textPost).then().catch(error => console.log("fallo la promesa para postear", error));
             alert('tu post ha sido publicado');
-
+            // unsub(textPost).then(result => console.log(result)).catch(error => console.log("fallo la promesa mostrar en tiempo real los posts existentes", error));
         }
 
         formulario.reset();
@@ -216,9 +218,9 @@ export const feed = () => {
     }
 
 
+
     return feedSection;
 
 }
-
 
 
