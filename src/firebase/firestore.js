@@ -1,5 +1,5 @@
 //import { async } from 'regenerator-runtime';
-import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user, auth } from './configuracion.js'
+import { saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user, auth, Timestamp,getDocs,dateTask } from './configuracion.js'
 
 const tasksContainer = document.getElementById('contenedor-publicaciones');
 const taskForm = document.getElementById('task-form');
@@ -16,6 +16,7 @@ window.addEventListener('DOMContentLoaded', async () => {
         querySnapshot.forEach(doc => {
 
             const task = doc.data()
+            //const fecha=Timestamp.fromDate(new Date())
             const likes = task.likes;
             const likesNumber = likes.length;
             const userId = user().uid;
@@ -30,10 +31,13 @@ window.addEventListener('DOMContentLoaded', async () => {
             };
             likeImg();
 
-
+//Este código tomará la fecha almacenada en createdDateTime, la convertirá a un objeto Date, y luego utilizará toLocaleString() para mostrarla en el formato deseado
+                
             html += ` 
                 <div class = 'contenedor-padre'> 
                     <p class="name-post"> ${task.name} </p>
+                    
+                    <p class="date">${task.createdDateTime.toDate().toLocaleString("es-ES", {year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute:'2-digit'})}</p>
                     <textarea class ='div-post-publicado'>${task.description}</textarea>`
                     if(task.uid === auth.currentUser.uid){
                         html += `
@@ -53,7 +57,7 @@ window.addEventListener('DOMContentLoaded', async () => {
                     `
                 };
         });
-
+ 
         tasksContainer.innerHTML = html;
 
         const userId = user().uid;
