@@ -92,6 +92,7 @@ export const home = () => {
             try {
                 const userCredentials = await signInWithPass(auth, emailLogin, passwordLogin)
                 console.log(userCredentials.user)
+                toNavigate("/feed");
             } catch (error) {
                 if (error.code === "auth/user-not-found"){
                     alert("usuario NO encontrado");
@@ -102,7 +103,7 @@ export const home = () => {
                 }
             }
 
-            toNavigate("/feed");
+            
         })
     })
 

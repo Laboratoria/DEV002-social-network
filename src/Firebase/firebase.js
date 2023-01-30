@@ -1,4 +1,4 @@
-import { app } from "../Firebase/firebaseConfig.js";
+import { app } from '../Firebase/firebaseConfig.js';
 import { getAuth, createUserWithEmailAndPassword, signOut, GoogleAuthProvider, onAuthStateChanged, updateProfile, signInWithPopup, signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 
 export const auth = getAuth(app);
