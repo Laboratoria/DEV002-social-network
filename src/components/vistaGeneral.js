@@ -47,7 +47,7 @@ export const vistaGeneral = () => {
     formMuro.addEventListener('submit', (e) =>{
         e.preventDefault()
 
-        const title = taskForm['task-title']
+        const title = task-Form['task-title']
         const description = taskForm['task-description']
 
         saveTask(title.value, description.value)

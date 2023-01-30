@@ -32,7 +32,7 @@ export const login = () => {
 
     imageLogo.src = "images/logo-quecomemoshoy.png";
 
-    nombreApp.textContent ="ENCUENTRA INSPIRACIÓN PARA TUS COMIDAS DIARIAS";
+    nombreApp.textContent ="INSPIRACIÓN PARA TUS COMIDAS";
     registrateH4.textContent = 'Login';
     button.textContent = 'ENTRAR';
     hrefHome.textContent =  'Regresar al home';

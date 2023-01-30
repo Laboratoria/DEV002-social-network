@@ -29,7 +29,7 @@ export const register =() => {
     iconGoogle.src = "images/google.png";
     iconCorreo.src = "images/gmail.png";
     
-    nombreApp.textContent ="ENCUENTRA INSPIRACIÓN PARA TUS COMIDAS DIARIAS";
+    nombreApp.textContent ="INSPIRACIÓN PARA TUS COMIDAS";
     registrateH1.textContent= 'Registrate';
     buttonGoogle.textContent = 'REGISTRATE CON GOOGLE';
     buttonCorreo.textContent = 'REGISTRATE CON EMAIL';
