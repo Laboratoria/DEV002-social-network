@@ -1,0 +1,763 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.btnSubmit:hover {
+  background: rgba(14, 13, 13, 0.5);
+}
+
+input:hover {
+  background: rgba(245, 236, 236, 0.5);
+}
+
+.btnGoogle:hover {
+  background: rgb(41, 41, 248);
+}
+
+.message-error {
+  font-size: 12px;
+  font-family: sans-serif;
+  margin-top: 30px;
+  color: whitesmoke;
+  text-align: justify;
+  background-color: rgb(214, 42, 42);
+  border-radius: 5px;
+  width: 100%;
+  padding: 0px 5px;
+}
+
+/* ESTILOS GENERALES */
+
+input {
+  backdrop-filter: blur(15px);
+  width: 240px;
+  height: 45px;
+  border: transparent;
+  margin: 25px 30px 0px 30px;
+  cursor: pointer;
+  justify-content: center;
+  background: rgba(255, 255, 255, 0.32);
+  border-radius: 8px;
+
+}
+
+.btnSubmit {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  margin: 25px 30px 0 30px;
+  width: 240px;
+  height: 45px;
+  background: rgba(41, 41, 43, 0.8);
+  border-radius: 6px;
+  /* Inside auto layout */
+  flex: none;
+  order: 0;
+  align-self: stretch;
+  flex-grow: 0;
+  color: rgba(255, 255, 255, 0.32);
+  font-size: 16px;
+  line-height: 25px;
+  letter-spacing: 2px;
+  border: none;
+  cursor: pointer;
+
+}
+
+/* Estilos para vista HOME*/
+
+h1 {
+  font-family: 'Fredoka One';
+  position: absolute;
+  width: 300px;
+  height: 47px;
+  left: 28px;
+  top: 115px;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  color: rgba(255, 242, 242, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+}
+
+h5 {
+  position: absolute;
+  width: 187px;
+  height: 18px;
+  left: 30px;
+  top: 75px;
+  font-family: 'ABeeZee';
+  font-size: 18px;
+  line-height: 24px;
+  color: #f5efef;
+}
+
+/* BARRA NAVEGACIÓN */
+
+.navBarHome {
+  height: 40px;
+  width: 360px;
+  top: 5px;
+  left: 170px;
+  position: absolute;
+  z-index: 1;
+
+}
+
+.ul-home {
+  height: 40px;
+  width: 360px;
+  right: 0px;
+  justify-content: right;
+
+}
+
+.navLink {
+  display: inline-block;
+  font-family: century Gothic;
+  color: #575454;
+  margin: 5px;
+  text-align: right;
+  cursor: pointer;
+  color: #f5efef;
+  padding: 0 7px;
+  font-size: 14px;
+}
+
+/* Estilos para Vista REGISTER */
+.sectionSignup-in {
+  width: 360px;
+  height: 800px;
+  justify-content: center;
+  background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
+}
+
+.tituloh2register-login {
+  font-family: 'Fredoka One';
+  width: 300px;
+  height: 47px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  color: rgba(255, 242, 242, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  position: absolute;
+  top: 100px;
+  left: 35px;
+}
+
+.contenedorForm {
+  background: rgba(255, 255, 255, 0.32);
+  box-shadow: 0px 3px 10px rgba(46, 46, 66, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 24px;
+  position: absolute;
+  width: 340px;
+  height: 460px;
+  left: 10px;
+  top: 190px;
+  border-radius: 30px;
+}
+
+.form {
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+
+.password,
+.email,
+.username {
+  line-height: 24px;
+  color: #000000;
+  align-items: center;
+  text-align: center;
+
+}
+
+/* Dar color más tenue al placeholder de los input */
+input::placeholder {
+  color: #8F9CA3;
+}
+
+/* Estilos para los títulos de los labels de cada input */
+.usuario {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 55px;
+  /* left: 140px; */
+}
+
+.labelEmailLogin {
+  top: 25px;
+  left: 55px;
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+}
+
+.labelPasswordLogin {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 55px;
+  /* left: 141px; */
+  top: 120px;
+}
+
+/* Estilos para mensaje de error */
+
+.message-error-email-login {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #d16b49;
+  position: absolute;
+  left: 55px;
+  top: 97px;
+}
+
+.message-error-password-login {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #d16b49;
+  position: absolute;
+  left: 55px;
+  top: 190px;
+}
+
+.p-tienes-cuenta-register {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 72px;
+  bottom: 60px;
+}
+
+/* Parrafo con enlace a sigin */
+
+.p-tienes-cuenta {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 75px;
+  bottom: 60px;
+}
+
+.enlace-signin {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 60px;
+  bottom: 60px;
+}
+
+.imgInicio {
+  width: 360px;
+  height: 800px;
+  z-index: 0;
+}
+
+.signin-a {
+  text-decoration: underline;
+  color: #294074;
+  text-align: center;
+  cursor: pointer;
+
+}
+
+.imgGoogle {
+  width: 34px;
+  height: 33.4px;
+  /*padding: 1%;*/
+  margin: -1.775rem .17rem 0rem 0rem;
+  padding: 0px;
+  display: flex;
+  align-items: baseline;
+  /* position: absolute; */
+  left: 55px;
+  background-color: #f5efef;
+  border: 6px solid #f5efef;
+  border-top-left-radius: 3px;
+  border-bottom-left-radius: 3px;
+}
+
+.btnGoogle {
+  /* background: transparent;*/
+  /*background: linear-gradient(294deg, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%); */
+  width: 219px;
+  height: 35px;
+  border-radius: 3px;
+  border: none;
+  color: rgb(225, 220, 245);
+  text-align: center;
+  border: 1px solid rgb(0, 81, 255);
+  background-color: rgb(0, 81, 255);
+  cursor: pointer;
+  justify-content: center;
+  margin: 25px 30px 0px 38px;
+  /* padding-left: 30px; */
+  font-size: 16px;
+  text-align: right;
+  padding-right: 28px;
+  padding-top: 10px;
+  text-shadow: 1px 0 1px #ffffff;
+
+}
+
+/*estilos del SignUp*/
+.contenedorForm {
+  background: rgba(255, 255, 255, 0.32);
+  box-shadow: 0px 3px 10px rgba(46, 46, 66, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 24px;
+  gap: 24px;
+  position: absolute;
+  width: 340px;
+  height: 460px;
+  left: 10px;
+  top: 190px;
+  border-radius: 30px;
+}
+
+.form {
+  display: contents;
+  justify-content: center;
+  align-items: center;
+}
+
+.password,
+.email,
+.username {
+  line-height: 24px;
+  color: #000000;
+  align-items: center;
+  text-align: center;
+
+}
+
+/* Dar color más tenue al placeholder de los input */
+input::placeholder {
+  color: #8F9CA3;
+}
+
+/* Estilos para los títulos de los labels de cada input */
+.usuario {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 55px;
+  /* left: 140px; */
+}
+
+.labelEmail {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  /* left: 152px; */
+  left: 55px;
+  top: 120px;
+}
+
+.labelPassword {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 55px;
+  /* left: 141px; */
+  top: 215px;
+
+}
+
+/* Estilos para mensaje de error */
+
+.message-error-email {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #d16b49;
+  position: absolute;
+  left: 55px;
+  top: 190px;
+}
+
+.message-error-password {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #d16b49;
+  position: absolute;
+  left: 55px;
+  top: 285px;
+}
+
+/* Parrafo con enlace a sigin */
+
+.p-tienes-cuenta {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 100px;
+  bottom: 60px;
+}
+
+.enlace-signin {
+  font-family: 'Century Gothic';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 150%;
+  color: #52525C;
+  position: absolute;
+  left: 60px;
+  bottom: 60px;
+}
+
+.imgInicio {
+  width: 360px;
+  height: 800px;
+}
+
+/* .....................estilos SECTION FEED............... */
+
+.section-feed {
+  width: 360px;
+  height: 100vh;
+  overflow: scroll;
+  /*es el 100% para cualquier dispositivo*/
+  overflow: scroll;
+  position: relative;
+  /*para que el hijo posicionarse respecto al section-feed*/
+  /* justify-content: center; */
+  background: linear-gradient(180deg, #334E6F 0%, #8F9CA3 100%);
+
+
+}
+
+
+.tituloh2-feed {
+  font-family: 'Fredoka One';
+  width: 300px;
+  height: 47px;
+  text-align: center;
+  font-style: normal;
+  font-weight: 400;
+  font-size: 35px;
+  line-height: 42px;
+  color: rgba(255, 242, 242, 0.25);
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin: 0;
+  /* position: absolute;
+  top: 25px;
+  left: 19px */
+}
+
+.avatarImg {
+  width: 65px;
+  height: 65px;
+
+  /* position: absolute;
+  right: 12px;
+  top:12px */
+}
+
+
+.container-buttons {
+  position: absolute;
+  position: sticky;
+  z-index: 1;
+  bottom: 0;
+  left: 0;
+  top: 745px;
+  width: 360px;
+  height: 59px;
+  background-color: #F7DAE5;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  /*las tres columnas tendrán la misma dimensión en cualquier dispositivo*/
+}
+
+.container-buttons button {
+  padding: 1rem;
+  border: none;
+  background: transparent;
+}
+
+.perfil-button {
+  cursor: pointer !important;
+}
+
+.comentario-button {
+  cursor: pointer;
+}
+
+.logout-button {
+  cursor: pointer;
+}
+
+.feed-container-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100% !important;
+  padding: 1rem;
+}
+
+
+.contenedor-posts {
+  width: 100%;
+  height: 800px;
+  background-color: transparent;
+  border: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0 0 0 20px;
+  gap: 20px;
+
+}
+
+.post-div {
+  width: 90%;
+  height: 25vh;
+  border: 1px solid #52525C;
+  border-radius: 10px;
+  background-color: #ffffff;
+  font-family: 'Roboto', sans-serif;
+  font-size: 10px;
+
+}
+
+.parte-superior-post {
+  background-color: #C3E2E6;
+  height: 6vh;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border-bottom: none;
+  display: flex;
+  align-items: center;
+}
+
+.boton-editar {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 8vh;
+  color: #222222;
+  cursor: pointer;
+}
+
+.boton-eliminar {
+  border: none;
+  background-color: transparent;
+  position: absolute;
+  right: 4vh;
+  color: #222222;
+  cursor: pointer;
+
+}
+
+.boton-like {
+  border: none;
+  color: #FA79AA;
+  background-color: transparent;
+  position: absolute;
+  margin-top: 110px;
+  right: 4vh;
+  font-size: 10px;
+  font-family: 'roboto, sans-serif';
+  cursor: pointer;
+
+}
+
+.titulo-post {
+  font-family: 'Roboto', sans-serif;
+  font-size: 15px;
+  color: #52525C;
+}
+
+.textoUser {
+  border: none;
+  resize: none;
+  width: 90%;
+  height: 50px;
+  margin: 0 5px 0 20px;
+  border: 5px double #d6d6db;
+  border-radius: 3px;
+  text-indent: 5px;
+  margin-bottom: 10px;
+  margin-top: -40px;
+
+}
+
+h2.titulo-post {
+  position: relative;
+  top: -35px;
+  margin: 0 0 0 20px;
+}
+
+h3.descripcion-post {
+  margin: 0 0 0 20px;
+  color: #222222;
+}
+
+h4.fecha-post {
+  position: relative;
+  top: 60px;
+  margin: 0 0 0 15px;
+
+  color: #888686;
+  font-size: 10px;
+}
+
+.post-btn {
+  position: relative;
+  background: #3b5998;
+  border-radius: 2px;
+  width: 50px;
+  height: 20px;
+  color: #d6d6db;
+  text-shadow: 1px 0 1px #ffffff;
+  border: none;
+  left: 275px;
+  top: 5px;
+  cursor: pointer;
+
+}
+
+/*modal logout*/
+
+.modal {
+  display: none;
+  background: rgba(0, 0, 0, 0.4);
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  position: fixed;
+  padding: 15px;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-container {
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  width: 261.13px;
+  height: 136px;
+  left: 49px;
+  top: 306px;
+  font-family: sans-serif;
+  
+  color: rgb(65, 65, 68);
+  padding: 25px;
+  border-radius: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid rgba(82, 82, 92, 0.5);
+  
+  
+}
+.boton-aceptar{
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-bottom-left-radius: 15px;
+  width: 130px;
+  height: 30px;
+  border:transparent;
+  position: relative;
+  top: 40px;
+  left:-65px;
+  color:rgba(201, 23, 23, 1);
+  border: solid 1px rgba(82, 82, 92, 0.5);
+  cursor: pointer;
+}
+.boton-cancelar{
+  background: rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  border-bottom-right-radius: 15px;
+  width: 130px;
+  height: 30px;
+  border: solid 1px rgba(82, 82, 92, 0.5);
+  position: relative;
+  top: 23px;
+  left: 65px;
+  color:rgba(82, 82, 92, 1);
+  cursor: pointer;
+  
+}
+.texto-delete{
+  font-style: normal;
+  font-weight: 400;
+  font-size: 18px;
+  line-height: 21px;
+  text-align: center;
+  margin-top: 35px;
+
+  
+}
