@@ -25,13 +25,13 @@ body {
     display: flex;
     align-items: center;
     position: absolute;
-    top: 25%;
-    width: 350px;
-    height: 350px;
+    top: 230px;
+    width: 300px;
+    height: 300px;
 }
 
 .welcomeh1 {
-    margin-top: 420px;
+    margin-top: 360px;
     color: #aa8b56;
     font-size: 40px;
 }
@@ -70,18 +70,19 @@ body {
 }
 
 #google {
-    display: inline-flex;
+    display: block;
     border-radius: 40px;
     font-size: 18px;
     align-items: center;
     justify-content: space-around;
     background: #ffffff;
     height: 40px;
-    width: 50%;
+    width: 350px;
     color: #000000;
     border: 1px solid #658351;
     margin: 5px;
     padding: 5px;
+    margin-left: 170px;
 }
 
 .iconGoogle{
@@ -97,18 +98,19 @@ body {
 }
 
 #correo {
-    display: inline-flex;
+    display: block;
     border-radius: 40px;
     font-size: 18px;
     align-items: center;
     justify-content: space-around;
     background: #1BA87E;
     height: 40px;
-    width: 50%;
+    width: 350px;
     color: #ffffff;
     border: 1px solid #658351;
     margin: 5px;
     padding: 5px;
+    margin-left: 170px;
 }
 
 #home{
@@ -133,6 +135,7 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
+    margin-top: -25px;
 }
 
 .userpassword,
@@ -239,7 +242,7 @@ input::placeholder {
     left: 7px;
 }
 
-.labelForm{
+/*.labelForm{
     display: block;
     top:300px;
     left: 2px;
@@ -253,9 +256,9 @@ input::placeholder {
     left: 2px;
     font-size: 20px;
     position: relative;
-}
+}*/
 
-/*vista general de la web*/
+/*muro de la web*/
 .navFijo{
     background-color: #F9DE79;
     width: 1800px;
@@ -269,4 +272,53 @@ input::placeholder {
     justify-content: center;
     /*align-items: center;*/
     font-size: 50px;
+}
+
+
+/*responsive*/
+@media (max-width: 592px) {
+    .nombreAplicacion{
+        font-size: 30px;
+    }
+
+    .imageLogo {
+        top: 210px;
+        width: 260px;
+        height: 260px;
+    }
+    
+    .welcomeh1{
+        margin-top: 300px;
+    }
+
+    .registrate{
+        margin-top: 300px;
+    }
+
+    .imageLogoForm{
+        top: 150px;
+    }
+
+    #google{
+        font-size: 13px;
+        margin-left: 10px;
+        
+    }
+
+    #correo{
+        font-size: 13px;
+        margin-left: 10px;  
+    }
+
+    .nombreForm{
+        font-size: 30px;
+        margin-top: 70px;
+    }
+
+    .login{
+        margin-top: 280px;
+    }
+
+    
+ 
 }

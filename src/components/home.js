@@ -16,10 +16,12 @@ export const home = () => {
 
     imageLogo.src = "images/logo-quecomemoshoy.png";
 
-    nombreApp.textContent="ENCUENTRA INSPIRACIÓN PARA TUS COMIDAS DIARIAS";
-    bienvenidaH1.textContent='Bienvenido';
+    
     buttonLogin.id= 'buttonLogin';
     buttonRegister.id= 'buttonRegister';
+
+    nombreApp.textContent="INSPIRACIÓN PARA TUS COMIDAS";
+    bienvenidaH1.textContent='Bienvenido';
     buttonRegister.textContent= 'Registrate';
     buttonLogin.textContent= 'Inicia sesion';
 
