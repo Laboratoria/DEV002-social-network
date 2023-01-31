@@ -141,7 +141,7 @@ para compartir en mi perfil lo que estoy haciendo.
     *La página te permite scrollear para visualizar las publicaciones.
 
 
-6. **HU | Editar:**Yo como viajera quiero editar mis publicaciones para poder modificar errores o publicaciones en general..
+6. **HU | Editar:** Yo como viajera quiero editar mis publicaciones para poder modificar errores o publicaciones en general..
 
 **Criterios de aceptación:** 
 
@@ -163,7 +163,7 @@ para compartir en mi perfil lo que estoy haciendo.
 
     *El código pasa los tests necesarios.
 
-    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.
+    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.![](https://github.com/dvnielx/DEV002-data-lovers/blob/main/src/images/Prototipos/HU%20Orden%20A-Z%20y%20HU%20Porcentajes.png)
 
     *Puedes editar cada una de tus publicaciones a través de un botón de editar.
 
@@ -209,10 +209,10 @@ para interactuar con las publicaciones.
 
 ## iv. Proyectos desplegados
 
-💻 Carmen: 
-💻 Daniela:
-💻 Miriam:
+* 💻 Carmen: 
+* 💻 Daniela:
+* 💻 Miriam:
 
 
-## v. Listado de problemas que detectaste a través de tests de usabilidad
+## v. Tests de usabilidad
 

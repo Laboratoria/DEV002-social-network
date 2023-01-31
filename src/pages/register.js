@@ -2,7 +2,6 @@
 import { registerUser } from '../firebase/configuracion.js';
 import { next } from '../main.js';
 
-
 export const Register = () => {
   const divRegister = document.createElement('div');
   divRegister.setAttribute('class', 'container-div-register');
@@ -85,23 +84,22 @@ export const Register = () => {
 
   divRegister.innerHTML = viewRegister;
 
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener('DOMContentLoaded', () => {
     const registerButton = document.getElementById('register-button');
     registerButton.addEventListener('click', (event) => {
-        event.preventDefault()
-        console.log("click register se ejecutó")
-        const email = document.getElementById('emailRegister').value;
-        const password = document.getElementById('passwordRegister').value;
+      event.preventDefault();
+      console.log('click register se ejecutó');
+      const email = document.getElementById('emailRegister').value;
+      const password = document.getElementById('passwordRegister').value;
 
-       const alertRegister = (valid) => {
-       if(valid){
-         next('/timeLine');
-       }
-       }
-       registerUser(email, password,alertRegister);
+      const alertRegister = (valid) => {
+        if (valid) {
+          next('/timeLine');
+        }
+      };
+      registerUser(email, password, alertRegister);
     });
   });
-
 
   return divRegister;
 };
