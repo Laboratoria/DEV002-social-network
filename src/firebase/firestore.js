@@ -1,11 +1,10 @@
 // import { async } from 'regenerator-runtime';
 import {
-  saveTask, getTasks, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user, auth, Timestamp, getDocs, dateTask,
+  saveTask, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user, auth,
 } from './configuracion.js';
 
 const tasksContainer = document.getElementById('contenedor-publicaciones');
 const taskForm = document.getElementById('task-form');
-const nombre = document.getElementById('name-usuaria');
 
 let editStatus = false;
 let id = '';
@@ -33,14 +32,14 @@ window.addEventListener('DOMContentLoaded', async () => {
 
       // Este código tomará la fecha almacenada en createdDateTime, la convertirá a un objeto Date, y luego utilizará toLocaleString() para mostrarla en el formato deseado
 
-      html += ` 
+      html += `
                 <div class = 'contenedor-padre'> 
-                    <p class="name-post"> ${task.name} </p>
-                    
-                    <p class="date">${task.createdDateTime.toDate().toLocaleString('es-ES', {
-    year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
-  })}</p>
+                  <p class="name-post"> ${task.name} </p>
+                  <p class="date">${task.createdDateTime.toDate().toLocaleString('es-ES', {
+        year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
+      })} </p>
                     <textarea class ='div-post-publicado'>${task.description}</textarea>`;
+
       if (task.uid === auth.currentUser.uid) {
         html += `
                         <img src="./images/editlogo2.png" class='btn-edit' data-id="${doc.id}">
@@ -140,12 +139,40 @@ taskForm.addEventListener('submit', (e) => {
     taskForm.reset();
   }
 });
+/// /////
 
-// botonLike.forEach(btn => {
-//     btn.addEventListener('click', ({ target: { dataset } }) => {
-//         updateTask(dataset.id, {
-//             likes: [],
-//         });
+//  html += `
+//  <div class = 'contenedor-padre'>`
+//  if(auth.currentUser.displayName === null) {
+//      ` <p class="name-post"> ${task.name} </p>`
+//  }else { html += `
+//   <p class="name-post"> ${task.name} </p>`
 
-//     })
-// })
+// }
+
+// let displayName = task.name;
+//     if (!task.name) {
+//     displayName = document.getElementById('name-usuaria').value;
+//     }
+
+// let name = '';
+//     if (task.name) {
+//     name = task.name;
+//     } else if (document.getElementById("name-usuaria").value) {
+//     name = document.getElementById("name-usuaria").value;
+//     }
+
+ //---------
+// let displayName = task.name;
+
+// html += `
+// <div class = 'contenedor-padre'> 
+// `;
+
+// if (task.name === null) {
+// displayName = document.getElementById('name-usuaria').value;
+// html += `
+//     <p class="name-post"> ${displayName} </p>`;
+// } else {
+// html += `
+//     <p class="name-post"> ${task.name} </p>

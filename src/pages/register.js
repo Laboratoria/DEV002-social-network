@@ -16,7 +16,7 @@ export const Register = () => {
 
   <h2 class="inicia-sesion-h2">Regístrate</h2>
 
-  <form> 
+  <form id="userForm"> 
   <input type="name" id="name-usuaria" class="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
   <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
   <input id="passwordRegister" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
@@ -92,12 +92,13 @@ export const Register = () => {
       const email = document.getElementById('emailRegister').value;
       const password = document.getElementById('passwordRegister').value;
 
-      const alertRegister = (valid) => {
-        if (valid) {
-          next('/timeLine');
-        }
-      };
-      registerUser(email, password, alertRegister);
+       const alertRegister = (valid) => {
+       if(valid){
+         next('/timeLine');
+         location.reload();
+       }
+       }
+       registerUser(email, password,alertRegister);
     });
   });
 
