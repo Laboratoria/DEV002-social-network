@@ -1,6 +1,6 @@
 // import { async } from 'regenerator-runtime';
 import {
-  saveTask, onGetTasks, deleteTask, getTask, updateTask, tapLike, dislike, user, auth,
+  saveTask, deleteTask, getTask, updateTask, tapLike, dislike, user, auth, dateTask,
 } from './configuracion.js';
 
 const tasksContainer = document.getElementById('contenedor-publicaciones');
@@ -10,7 +10,7 @@ let editStatus = false;
 let id = '';
 
 window.addEventListener('DOMContentLoaded', async () => {
-  onGetTasks((querySnapshot) => {
+  dateTask((querySnapshot) => {
     let html = '';
 
     querySnapshot.forEach((doc) => {
@@ -68,25 +68,21 @@ window.addEventListener('DOMContentLoaded', async () => {
     botonLike.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
         const id = e.target.dataset.id;
+        console.log('id', id)
         const doc = await getTask(id);
+        console.log('doc', doc)
         const likes = doc.data().likes;
         const currentLike = likes.indexOf(userId);
-        // let numero = likes.length;
+        
         console.log(likes);
         if (currentLike === -1) {
-          // btn.src = 'imagenes/like.png';
+         
           tapLike(id, userId);
-          // console.log(btn)
-          // numero = numero + 1
-          // console.log(numero + " likes")
-          // contadorLike.innerHTML = numero + " me encanta"
+         
         } else {
-          // btn.src = 'imagenes/dislike.png';
+        
           dislike(id, userId);
-          // numero = numero - 1
-          // console.log(numero + " likes")
-          // contadorLike.innerHTML = numero + " me encanta"
-          // console.log(btn)
+       
         }
       });
     });
@@ -139,6 +135,9 @@ taskForm.addEventListener('submit', (e) => {
     taskForm.reset();
   }
 });
+
+
+
 /// /////
 
 //  html += `
