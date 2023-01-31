@@ -38,7 +38,7 @@ export const user = () => auth.currentUser;
 //   createdDateTime: Timestamp.fromDate(new Date())
 // });
 
-export const saveTask = (description) => addDoc(collection(db, 'tasks'), {
+export const saveTask = (description,name) => addDoc(collection(db, 'tasks'), {
   description,
   name: auth.currentUser.displayName,
   uid: auth.currentUser.uid,
@@ -46,29 +46,37 @@ export const saveTask = (description) => addDoc(collection(db, 'tasks'), {
   createdDateTime: Timestamp.fromDate(new Date()),
 });
 
+export const saveUser = (name,uid,email,pais) => addDoc(collection(db, 'users'), {
+  name: name,
+  uid: uid,
+  email: email,
+  pais:pais,
+  createdDateTime: Timestamp.fromDate(new Date())
+});
+
 export const getTasks = () => getDocs(collection(db, 'tasks'));
-export const onGetTasks = (callback) => {
-  dateTask(callback);
-};
-// export const onGetTasks = (callback) => onSnapshot(collection(db, 'tasks'), callback);
+
 export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
-export const dateTask = (callback) => {
+export const dateTask = (querySnapshot) => {
   const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));
-  onSnapshot(q, callback);
+ 
+  onSnapshot(q, querySnapshot);
 };
 
 // Create new users
 
-export function registerUser(email, password, callback) {
+export function registerUser(email, password, name,pais, callback) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
       const user = userCredential.user;
       const userId = user.uid;
+      user.displayName = name
       console.log(user, userId);
+      saveUser(user.displayName,userId,email,pais)
       callback(true);
     })
     .catch((error) => {
