@@ -162,6 +162,7 @@ export const register = () => {
             try {
                 const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
                 const nameRegister = await profileName({displayName: nameForm})
+                console.log(nameForm);
                 console.log(nameRegister);
                 console.log(userCredentials)
                 toNavigate("/registerOk");
