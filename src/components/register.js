@@ -1,5 +1,5 @@
 import { toNavigate } from "../main.js";
-import { auth, signUpWithPass, profileName } from "../Firebase/firebase.js";
+import { auth, signUpWithPass, profileName, viewer } from "../Firebase/firebase.js";
 
 export const register = () => {
     //Creamos elementos de para el formulario de registro
@@ -123,7 +123,7 @@ export const register = () => {
 
     labelSelectVegan.className = "label-user-select";
     labelSelectVegan.textContent = "¿Eres vegano?";
-    
+
     buttonRegister.className = "button-Register";
     buttonRegister.textContent = "Crear cuenta";
 
@@ -135,7 +135,7 @@ export const register = () => {
     containerRegisterForm.appendChild(registerForm);
 
 
-    
+
     registerForm.appendChild(labelUserName);
     registerForm.appendChild(inputUserName);
     registerForm.appendChild(labelUserCity);
@@ -161,9 +161,11 @@ export const register = () => {
             console.log(emailForm, passwordForm)
             try {
                 const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
-                const nameRegister = await profileName({displayName: nameForm})
-                console.log(nameRegister);
-                console.log(userCredentials)
+                // const nameRegister = await profileName(nameForm);
+                // console.log(nameRegister);
+                console.log(userCredentials.user.uid);
+                // const userSave = viewer();
+                // console.log(userSave);
                 toNavigate("/registerOk");
             } catch (error) {
                 if (error.code === "auth/invalid-email") {
@@ -177,7 +179,7 @@ export const register = () => {
                 }
             }
 
-            
+
         })
     })
     return registerDiv;
