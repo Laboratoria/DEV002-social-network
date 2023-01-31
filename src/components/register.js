@@ -1,5 +1,5 @@
 import { toNavigate } from "../main.js";
-import { auth, signUpWithPass } from "../Firebase/firebase.js";
+import { auth, signUpWithPass, profileName } from "../Firebase/firebase.js";
 
 export const register = () => {
     //Creamos elementos de para el formulario de registro
@@ -155,11 +155,14 @@ export const register = () => {
     buttonRegister.addEventListener("click", () => {
         registerForm.addEventListener("submit", async (e) => {
             e.preventDefault() //cancela comportamiento por defecto de refrescar la pagina
+            const nameForm = inputUserName.value
             const emailForm = inputUserMail.value
             const passwordForm = inputUserPass.value
             console.log(emailForm, passwordForm)
             try {
                 const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
+                const nameRegister = await profileName({displayName: nameForm})
+                console.log(nameRegister);
                 console.log(userCredentials)
                 toNavigate("/registerOk");
             } catch (error) {
