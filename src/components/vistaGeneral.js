@@ -1,11 +1,11 @@
 import { onNavigate } from "../main.js";
-import { saveTask } from "../lib/firebase/muroFir.js";
+import { saveTask , getTasks } from "../lib/firebase/muroFir.js";
 
 export const vistaGeneral = () => {
     const homeDiv = document.createElement('div');
     const navFijo = document.createElement('nav');
     const tituloFijo = document.createElement('h2');
-    const formMuro = document.createElement('form');
+    const formMuro = document.createElement('form'); document.getElementById('task-form');
     const labelTitle = document.createElement('label');
     const inpuText = document.createElement('input');
     const labelDescrip = document.createElement('label');
@@ -47,10 +47,12 @@ export const vistaGeneral = () => {
     formMuro.addEventListener('submit', (e) =>{
         e.preventDefault()
 
-        const title = task-Form['task-title']
-        const description = taskForm['task-description']
+        const title = formMuro['inpuText']
+        const description = formMuro['task-description']
 
         saveTask(title.value, description.value)
+
+        formMuro.reset()
     })
 
     homeDiv.appendChild(navFijo);
