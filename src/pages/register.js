@@ -84,23 +84,22 @@ export const Register = () => {
 
   divRegister.innerHTML = viewRegister;
 
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener('DOMContentLoaded', () => {
     const registerButton = document.getElementById('register-button');
     registerButton.addEventListener('click', (event) => {
-        event.preventDefault()
-        console.log("click register se ejecutó")
-        const email = document.getElementById('emailRegister').value;
-        const password = document.getElementById('passwordRegister').value;
+      event.preventDefault();
+      console.log('click register se ejecutó');
+      const email = document.getElementById('emailRegister').value;
+      const password = document.getElementById('passwordRegister').value;
 
-       const alertRegister = (valid) => {
-       if(valid){
-         next('/timeLine');
-       }
-       }
-       registerUser(email, password,alertRegister);
+      const alertRegister = (valid) => {
+        if (valid) {
+          next('/timeLine');
+        }
+      };
+      registerUser(email, password, alertRegister);
     });
   });
-
 
   return divRegister;
 };
