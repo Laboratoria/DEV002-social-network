@@ -7,6 +7,10 @@ body {
     margin-top: -40px;
 }
 
+#root{
+    text-align:center;
+}
+
 .sectionDiv{
     display: flex;
     justify-content: center;

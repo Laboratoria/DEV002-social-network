@@ -5,7 +5,7 @@ export const vistaGeneral = () => {
     const homeDiv = document.createElement('div');
     const navFijo = document.createElement('nav');
     const tituloFijo = document.createElement('h2');
-    const formMuro = document.createElement('form'); document.getElementById('task-form');
+    const formMuro = document.createElement('form'); 
     const labelTitle = document.createElement('label');
     const inpuText = document.createElement('input');
     const labelDescrip = document.createElement('label');
@@ -28,6 +28,8 @@ export const vistaGeneral = () => {
     textArea.id = 'task-description';
     buttonGuardar.id = 'btn-task-save';
     divContainer.id = 'tasks-container';
+    
+    document.getElementById('task-form');
 
     inpuText.type = 'text';
 
