@@ -92,7 +92,7 @@ export const feed = () => {
         
     })
 
-    newPostButton.addEventListener("submit", async (e) => {
+    newPostButton.addEventListener("click", async (e) => {
         e.preventDefault()
         try{
             const postdescription = newPostContent.value;
