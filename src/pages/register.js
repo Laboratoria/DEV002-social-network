@@ -73,9 +73,6 @@ export const Register = () => {
     </select> 
   </div>
 
-
-    <label class="fecha-nacimiento" for='fecha-nacimiento'> Edad * </label> <br>
-    <input type="number" min="1" class="fecha-nacimiento" id="age" required> <br>
   <a href="/timeLine">
     <button class="ingresar" id="register-button"> Registrar </button>
     </a>
