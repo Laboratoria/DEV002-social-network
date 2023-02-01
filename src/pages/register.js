@@ -88,14 +88,16 @@ export const Register = () => {
       console.log('click register se ejecutó');
       const email = document.getElementById('emailRegister').value;
       const password = document.getElementById('passwordRegister').value;
+      const nombreUsuaria = document.getElementById('name-usuaria').value;
+      const pais =document.getElementById('paises').value;
 
        const alertRegister = (valid) => {
        if(valid){
          next('/timeLine');
-         location.reload();
+         //location.reload();
        }
        }
-       registerUser(email, password,alertRegister);
+       registerUser(email,password,nombreUsuaria,pais,alertRegister);
     });
   });
 
