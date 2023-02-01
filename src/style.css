@@ -429,6 +429,15 @@ header {
     height: 25px;
 }
 
+.contador-like {
+    background-color: #ceb853;
+    width: 25px;
+    height: 25px;
+    position: relative;
+    left: 45px;
+    bottom: 25px;
+}
+
 @media only screen and (min-width: 600px) {
     .timeLine-post {
         left: 8%;

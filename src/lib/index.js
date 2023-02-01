@@ -20,6 +20,8 @@ import {
   doc,
   getDoc,
   updateDoc,
+  arrayUnion,
+  arrayRemove
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -112,3 +114,33 @@ export const updateTask = (id, docData) => {
     postText: docData.postText
   })
 };
+
+// funcion like
+export const giveLike = (id) => {
+  return updateDoc(doc(firestore, 'post', id), {
+    likes: arrayUnion(getAuth().currentUser.uid)
+  });
+}
+// export const giveLike = (id, likes, likesCounter) => {
+//   return updateDoc(doc(firestore, 'post', id),
+//   {likes: arrayUnion(likes),
+//   });
+// };
+
+// export const dislike = (id, likes, likeData) => {
+//   return updateDoc(doc(firestore, 'post', id),
+//   {likes: arrayRemove(likes),
+//   });
+// };
+
+// export const giveLike = (id, nuevoLike) => {
+//   return updateDoc(doc(firestore, 'post', id),
+//   {likes: arrayUnion(nuevoLike),
+//   });
+// };
+
+// export const dislike = (id, viejoLike) => {
+//   return updateDoc(doc(firestore, 'post', id),
+//   {likes: arrayRemove(viejoLike)
+//   });
+// };

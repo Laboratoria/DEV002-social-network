@@ -1,6 +1,6 @@
 
 import { onNavigate } from "../../main.js";
-import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask } from "../index.js";
+import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask, giveLike } from "../index.js";
 
 
 export const login = () => {
@@ -61,7 +61,8 @@ export const login = () => {
       divTimeLine.innerHTML = '';
       posts.forEach(post => {
         const postData = post.data();
-        const uid = currentUserInfo.uid;
+        const uid = currentUserInfo().uid;
+        console.log(uid);
         let divPostEntry = document.createElement("div");
 
         let imgUser = document.createElement("img");
@@ -69,8 +70,8 @@ export const login = () => {
         let userPostText = document.createElement("h2");
         let editIcon = document.createElement('img');
         let dateTimePost = document.createElement("h1");
-        let likePost = document.createElement('img');
         let deleteIcon = document.createElement('img');
+        let likePost = document.createElement('img');
 
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
@@ -78,19 +79,35 @@ export const login = () => {
         userName.innerHTML = postData.user;
         userName.className = 'user-name-post';
         userPostText.innerHTML = postData.postText;
-        editIcon.setAttribute('data-id', post.id);
-        editIcon.onclick = editPost;
         deleteIcon.setAttribute('src', '/images/delete.png');
         deleteIcon.className = 'delete-icon';
         deleteIcon.setAttribute('data-id', post.id);
         deleteIcon.onclick = deletePostListener;
-        likePost.setAttribute('src', '/images/1erlike.png');
-        likePost.className = 'primer-like';
         userPostText.className = 'textPost';
         dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000).toLocaleString();
-        dateTimePost.className = 'date-post'
+        dateTimePost.className = 'date-post';
+        editIcon.setAttribute('data-id', post.id);
+        editIcon.onclick = editPost;
         editIcon.setAttribute('src', 'images/editar.png');
         editIcon.className = 'icon-edit';
+        console.log(uid);
+        postData.likes.map((like) => {
+          like === uid
+          console.log(like);
+          console.log(currentUserInfo);
+        });
+        console.log(postData.likes.find((like) => like === uid));
+        console.log(postData.likes.some((like) => like === uid));
+        if (!postData.likes.some((like) => like === uid)) {
+          likePost.setAttribute('src', '/images/1erlike.png');
+        }
+        else {
+          likePost.setAttribute('src', '/images/2dolike.png');
+        }
+        
+        likePost.className = 'primer-like';
+        likePost.onclick = likedPost;
+        likePost.setAttribute('data-id', post.id);
 
         if (postData.uid === currentUserInfo().uid) {
           divPostEntry.appendChild(userName);
@@ -115,6 +132,61 @@ export const login = () => {
 
     });
   };
+
+  //onclikc likedPost
+  const likedPost = (event) => {
+    console.log('me gusta', event.target.src);
+    
+    giveLike(event.target.dataset.id)
+    .then((response) => {
+      console.log(response);
+      event.target.src = '/images/2dolike.png';
+    })
+    .catch();
+  }
+
+  // const likedPost = async (event) =>{
+  //   const id = event.target.dataset.id
+  //   const likeData = await getTask(id);
+  //   const likesCounter = likeData.data().likes;
+  //   console.log('Funciona', likesCounter)
+  //   console.log ('Funcionando like', likeData.data())
+  //   console.log ('Probando Id', id)
+
+  //   if (likesCounter.length === 0){
+  //     giveLike(id, 'likes',likesCounter);
+  //     console.log('funcionando like', giveLike)
+  //   } else{
+  //     dislike(id, 'likes', likesCounter);
+  //     console.log('No likeado', dislike)
+  //   }
+  // };
+  
+
+  // segudno intento
+//   const likedPost = async (event) =>{
+//     const id = event.target.dataset.id
+//     const likeData = await getTask(id);
+//     const likesCounter = likeData.data().likes;
+//     const userId = currentUserInfo().uid;
+//     const currentLike = likesCounter.indexOf(userId);
+
+//     console.log('Funciona', likesCounter.length)
+//     console.log ('Funcionando like', likeData.data())
+//     console.log ('Probando Id', id)
+//     console.log ('leyendo usuario', userId)
+//     console.log('Leyendo info', currentLike)
+
+//     if (currentLike === -1){
+
+//       giveLike(id, userId);
+//       console.log('funcionando like', giveLike)
+//     // } else{
+//     //   dislike(id, userId);
+//     //   console.log('No likeado', dislike)
+//     // }
+//   };
+// };
 
   // onclick editarPost
   const editPost = async (event) => {
@@ -151,7 +223,7 @@ export const login = () => {
     };
   });
 
-  //listener del onclick detelePost
+  //onclick detelePost
   const deletePostListener = (event) => {//event por default
     const postId = event.target.dataset.id;//sacamos del target el id
     let opcion = confirm('Desea eliminar el comentario?');
