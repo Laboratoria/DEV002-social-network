@@ -387,6 +387,7 @@ header {
     left: 10px;
     width: 25px;
     height: 25px;
+    margin-top: 10px;
 
 }
 
@@ -430,12 +431,13 @@ header {
 }
 
 .like-number {
-    background-color: #ceb853;
     width: 25px;
     height: 25px;
     position: relative;
     left: 45px;
     bottom: 25px;
+    font-size: smaller;
+    margin-top: 7px;
 }
 
 @media only screen and (min-width: 600px) {

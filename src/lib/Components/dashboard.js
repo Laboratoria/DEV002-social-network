@@ -1,8 +1,5 @@
-
-import { onNavigate } from "../../main.js";
-import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask, giveLike, dislike } from "../index.js";
-
-
+import { onNavigate } from '../../main.js';
+import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask, giveLike, dislike } from '../index.js';
 export const login = () => {
   const divLogin = document.createElement('div');
   divLogin.setAttribute('id', 'div-login');
@@ -52,7 +49,60 @@ export const login = () => {
   const btnExit = divLogin.querySelector('.btn-exit');
   const divModalBackground = divLogin.querySelector('#modal-background-post');
   const divModalContent = divLogin.querySelector('#modal-content-post');
+  
+  // apertura visual del modal
+  const showModal = () => {
+    divModalBackground.style.display = 'flex';
+    divModalContent.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  };
+  // ocultar visual del modal
+  const closeModal = () => {
+    divModalBackground.style.display = 'none';
+    divModalContent.style.display = 'none';
+    document.body.style.overflow = 'visible';
+    inputPostText.value = '';
 
+  };
+  //onclick detelePost
+  const deletePostListener = (event) => {
+    const postId = event.target.dataset.id;
+    let opcion = confirm('Desea eliminar el comentario?');
+    if (opcion === false) { }
+    else {
+      deletePost(postId);
+    };
+    refreshPosts();
+  };
+
+  // onclick editarPost
+  const editPost = async (event) => {
+    const docToEdit = await getTask(event.target.dataset.id);
+    const docData = docToEdit.data();
+    showModal();
+    inputPostText.value = docData.postText;
+    btnPost.disabled = false;
+    btnPost.doc = docToEdit;
+  };
+   //onclikc likedPost
+   const likedPost = async (event) => {
+    const doc = await getTask(event.target.dataset.id); 
+    const docData = doc.data();
+
+    if (docData.likes.some(like => like === currentUserInfo().uid)) {
+      dislike(doc.id).then(response => { 
+        refreshPosts();
+      });
+    }
+    else {
+      giveLike(event.target.dataset.id)
+          .then((response) => {
+            refreshPosts();
+            
+          })
+          .catch();
+    }
+  };
   
   //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
   const refreshPosts = () => {
@@ -62,21 +112,20 @@ export const login = () => {
       posts.forEach(post => {
         const postData = post.data();
         const uid = currentUserInfo().uid;
-        console.log(uid);
-        let divPostEntry = document.createElement("div");
+        const divPostEntry = document.createElement('div');
 
-        let imgUser = document.createElement("img");
-        let userName = document.createElement("h2");
-        let userPostText = document.createElement("h2");
-        let editIcon = document.createElement('img');
-        let dateTimePost = document.createElement("h1");
-        let deleteIcon = document.createElement('img');
-        let likePost = document.createElement('img');
+        const imgUser = document.createElement('img');
+        const userName = document.createElement('h2');
+        const userPostText = document.createElement('h2');
+        const editIcon = document.createElement('img');
+        const dateTimePost = document.createElement('h1');
+        const deleteIcon = document.createElement('img');
+        const likePost = document.createElement('img');
         const likeNumber = document.createElement('h3');
 
-        divPostEntry.className = "timeLine-post";
+        divPostEntry.className = 'timeLine-post';
         imgUser.setAttribute('src', 'images/user.png');
-        imgUser.className = "iconUser";
+        imgUser.className = 'iconUser';
         userName.innerHTML = postData.user;
         userName.className = 'user-name-post';
         userPostText.innerHTML = postData.postText;
@@ -98,10 +147,10 @@ export const login = () => {
 
         if (postData.likes.some((like) => like === uid)) {
           likePost.setAttribute('src', '/images/2dolike.png');
-        }
+          }
         else {
           likePost.setAttribute('src', '/images/1erlike.png');
-        }
+         }
 
         likeNumber.innerHTML = postData.likes.length;
 
@@ -131,46 +180,13 @@ export const login = () => {
     });
   };
 
-  //onclikc likedPost
-  const likedPost = async (event) => {
-    const doc = await getTask(event.target.dataset.id); // traigo el documento, su id
-    const docData = doc.data();
-
-    if (docData.likes.some(like => like === currentUserInfo().uid)) {
-      dislike(doc.id).then(response => { 
-        refreshPosts();
-      });
-    }
-    else {
-      giveLike(event.target.dataset.id)
-          .then((response) => {
-            refreshPosts();
-            
-          })
-          .catch();
-    }
-  };
-   
-
-  // onclick editarPost
-  const editPost = async (event) => {
-    const docToEdit = await getTask(event.target.dataset.id);
-    const docData = docToEdit.data();
-    showModal();
-    console.log(docData);
-    inputPostText.value = docData.postText;
-    btnPost.disabled = false;
-    btnPost.doc = docToEdit;
-  };
-
+ 
   btnPost.addEventListener('click', (event) => {
     const doc = event.currentTarget.doc;
 
     if (doc) {
       const docData = doc.data();
-      // console.log('data-id from edit button is: ', docData);
       docData.postText = inputPostText.value;
-      console.log('updated doc to send to index', docData);
       updateTask(doc.id, docData).then((response) => {
         btnPost.doc = null;
         closeModal();
@@ -179,24 +195,12 @@ export const login = () => {
     }
     else {
       submitPost(inputPostText.value).then((response) => {
-        console.log(response);
         closeModal();
         refreshPosts();
         alert('Reseña creada', response);
       });
     };
   });
-
-  //onclick detelePost
-  const deletePostListener = (event) => {//event por default
-    const postId = event.target.dataset.id;//sacamos del target el id
-    let opcion = confirm('Desea eliminar el comentario?');
-    if (opcion === false) { }
-    else {
-      deletePost(postId);
-    };
-    refreshPosts();
-  };
 
   //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
@@ -219,28 +223,12 @@ export const login = () => {
   //Funcion activacion boton publicar
   inputPostText.addEventListener('keyup', () => {
     const valueInput = inputPostText.value.trim();
-    // trim() metodo que no permite activar boton con espacio
     if (valueInput === '') {
-      btnPost.disabled = true; // boton publicar inactivo
+      btnPost.disabled = true; 
     } else {
-      btnPost.disabled = false; // boton publicar activo
+      btnPost.disabled = false; 
     }
   });
-
-  // apertura visual del modal
-  const showModal = () => {
-    divModalBackground.style.display = 'flex';
-    divModalContent.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  };
-  // ocultar visual el  modal
-  const closeModal = () => {
-    divModalBackground.style.display = 'none';
-    divModalContent.style.display = 'none';
-    document.body.style.overflow = 'visible';
-    inputPostText.value = '';
-
-  };
 
   divLogin.append(
     btnLogout,
