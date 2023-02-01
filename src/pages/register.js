@@ -94,7 +94,7 @@ export const Register = () => {
        const alertRegister = (valid) => {
        if(valid){
          next('/timeLine');
-         //location.reload();
+         location.reload();
        }
        }
        registerUser(email,password,nombreUsuaria,pais,alertRegister);
