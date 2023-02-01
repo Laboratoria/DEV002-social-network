@@ -1,0 +1,190 @@
+/* ************** HOME *************** */
+
+* {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: large;
+    background-color: white;
+}
+
+.imgLogo {
+    justify-content: center;
+    background-image: url(./imagenes/we-study.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: white;
+    width: 200px;
+    height: 200px;
+    border: none;
+}
+
+.divHome {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* flex-direction: column;
+    flex-wrap: wrap; */
+    /* margin: 10% 10% 10% 10%; */
+}
+
+.containerBtn {
+    display: flex;
+    align-items: center;
+    margin: 30% 0% 30% 0%;
+}
+
+.btnLogin {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    color: black;
+    border-radius: 5px;
+    padding: 10px 10px;
+    width: 200px;
+    margin: 20% 0% 0% 0%;
+}
+
+.btnLoginGoogle {
+    display: flex;
+    justify-content: center;
+    background-image: url(./imagenes/Sign-google.png);
+    background-size: contain;
+    background-repeat: no-repeat;
+    /* margin: 10% 20% 1% 20%; */
+    /* background-position: center; */
+    border: none;
+    width: 200px;
+    height: 80px;
+    cursor: pointer;
+    /* background-color: black; */
+    /* color: white; */
+    /* border-radius: 5px; */
+    /* padding: 10px 10px; */
+}
+
+.containerBtn {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 3vh;
+    background-color: white;
+    /* margin: 25% 50% 25% 50%; */
+}
+
+.btnLogin:hover {
+    background-color: #39c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+.btnRegister {
+    display: flex;
+    justify-content: center;
+    background-color: black;
+    color: white;
+    border-radius: 5px;
+    padding: 10px 10px;
+}
+
+.btnRegister:hover {
+    background-color: #39c;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+/************* REGISTER **********/
+/* boton a home */
+.btnHome {
+    justify-content: flex-start;
+    /* background-color: black; */
+    background-image: url(./imagenes/flecha-birrete.jpg);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    color: white;
+    border: 0;
+    width: 180px;
+    height: 100px;
+    cursor: pointer;
+
+}
+
+/* contenedor */
+.sectionRegister {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10% 10% 10% 10%;
+    background-color: white;
+    border: 5px;
+    border-color: black;
+    border-radius: 10px;
+
+}
+
+/* "POR FAVOR, INGRESA TUS DATOS */
+.divRegisterText .p {
+    display: flex;
+    justify-content: center;
+    background-color: white;
+    font-size: 45px;
+}
+
+/* FORMULARIO */
+
+.formRegister {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 4%;
+    gap: 2vh;
+    background-color: white;
+    /* padding: 10% 20% 10% 20%; */
+}
+
+/* aca van todos los input del form */
+.input {
+    border-radius: 5px;
+    border: 3px solid;
+    border-color: #39c;
+    background-color: white;
+}
+
+/* PROPIEDADES DE BOTON REGISTRARME */
+
+.btnRegistrarme {
+    /* display: flex; */
+    justify-content: center;
+    align-items: center;
+    background-color: black;
+    color: white;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+}
+
+.btnRegistrarme:hover {
+    background-color: #39c;
+    color: white;
+    border: none;
+    width: 50%;
+    cursor: pointer;
+}
+
+.textForm {
+    font-size: 25px;
+}
