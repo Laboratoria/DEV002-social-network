@@ -1,6 +1,6 @@
 
 import { onNavigate } from "../../main.js";
-import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask, giveLike } from "../index.js";
+import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask, giveLike, dislike } from "../index.js";
 
 
 export const login = () => {
@@ -90,24 +90,16 @@ export const login = () => {
         editIcon.onclick = editPost;
         editIcon.setAttribute('src', 'images/editar.png');
         editIcon.className = 'icon-edit';
-        console.log(uid);
-        postData.likes.map((like) => {
-          like === uid
-          console.log(like);
-          console.log(currentUserInfo);
-        });
-        console.log(postData.likes.find((like) => like === uid));
-        console.log(postData.likes.some((like) => like === uid));
-        if (!postData.likes.some((like) => like === uid)) {
-          likePost.setAttribute('src', '/images/1erlike.png');
-        }
-        else {
-          likePost.setAttribute('src', '/images/2dolike.png');
-        }
-        
         likePost.className = 'primer-like';
         likePost.onclick = likedPost;
         likePost.setAttribute('data-id', post.id);
+
+        if (postData.likes.some((like) => like === uid)) {
+          likePost.setAttribute('src', '/images/2dolike.png');
+        }
+        else {
+          likePost.setAttribute('src', '/images/1erlike.png');
+        }
 
         if (postData.uid === currentUserInfo().uid) {
           divPostEntry.appendChild(userName);
@@ -134,59 +126,29 @@ export const login = () => {
   };
 
   //onclikc likedPost
-  const likedPost = (event) => {
-    console.log('me gusta', event.target.src);
-    
-    giveLike(event.target.dataset.id)
-    .then((response) => {
-      console.log(response);
-      event.target.src = '/images/2dolike.png';
-    })
-    .catch();
-  }
+  const likedPost = async (event) => {
+    const doc = await getTask(event.target.dataset.id); // traigo el documento, su id
+    const docData = doc.data();
 
-  // const likedPost = async (event) =>{
-  //   const id = event.target.dataset.id
-  //   const likeData = await getTask(id);
-  //   const likesCounter = likeData.data().likes;
-  //   console.log('Funciona', likesCounter)
-  //   console.log ('Funcionando like', likeData.data())
-  //   console.log ('Probando Id', id)
+    if (docData.likes.some(like => like === currentUserInfo().uid)) {
+      dislike(doc.id).then(response => { 
+        console.log(response); // al haber sido clickeado entonces voy a correr la funcion dislike
+        event.target.src = '/images/1erlike.png';
+      });
+    }
+    else {
+      giveLike(event.target.dataset.id)
+          .then((response) => {
+            // console.log(response);
+            event.target.src = '/images/2dolike.png';
+          })
+          .catch();
+    }
+  };
 
-  //   if (likesCounter.length === 0){
-  //     giveLike(id, 'likes',likesCounter);
-  //     console.log('funcionando like', giveLike)
-  //   } else{
-  //     dislike(id, 'likes', likesCounter);
-  //     console.log('No likeado', dislike)
-  //   }
-  // };
-  
 
-  // segudno intento
-//   const likedPost = async (event) =>{
-//     const id = event.target.dataset.id
-//     const likeData = await getTask(id);
-//     const likesCounter = likeData.data().likes;
-//     const userId = currentUserInfo().uid;
-//     const currentLike = likesCounter.indexOf(userId);
+ 
 
-//     console.log('Funciona', likesCounter.length)
-//     console.log ('Funcionando like', likeData.data())
-//     console.log ('Probando Id', id)
-//     console.log ('leyendo usuario', userId)
-//     console.log('Leyendo info', currentLike)
-
-//     if (currentLike === -1){
-
-//       giveLike(id, userId);
-//       console.log('funcionando like', giveLike)
-//     // } else{
-//     //   dislike(id, userId);
-//     //   console.log('No likeado', dislike)
-//     // }
-//   };
-// };
 
   // onclick editarPost
   const editPost = async (event) => {

@@ -121,26 +121,11 @@ export const giveLike = (id) => {
     likes: arrayUnion(getAuth().currentUser.uid)
   });
 }
-// export const giveLike = (id, likes, likesCounter) => {
-//   return updateDoc(doc(firestore, 'post', id),
-//   {likes: arrayUnion(likes),
-//   });
-// };
 
-// export const dislike = (id, likes, likeData) => {
-//   return updateDoc(doc(firestore, 'post', id),
-//   {likes: arrayRemove(likes),
-//   });
-// };
+//funcion dislike
+export const dislike = (id) => {
+  return updateDoc(doc(firestore,'post', id), {
+    likes: arrayRemove(getAuth().currentUser.uid)
+  });
+}
 
-// export const giveLike = (id, nuevoLike) => {
-//   return updateDoc(doc(firestore, 'post', id),
-//   {likes: arrayUnion(nuevoLike),
-//   });
-// };
-
-// export const dislike = (id, viejoLike) => {
-//   return updateDoc(doc(firestore, 'post', id),
-//   {likes: arrayRemove(viejoLike)
-//   });
-// };
