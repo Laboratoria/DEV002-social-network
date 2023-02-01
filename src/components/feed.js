@@ -1,11 +1,11 @@
 import { toNavigate } from "../main.js";
 import { register } from "../components/register.js"
 import { auth, logout, viewer } from "../Firebase/firebase.js";
-import { addPost, postCollection, userCollection } from "../Firebase/firestore.js";
-import { postPrint } from "./post.js";
+import { addPost, postCollection, userCollection, getPosts, collection, db, onSnapshot } from "../Firebase/firestore.js";
+//import { postPrint } from "./post.js";
 
 export const feed = () => {
- 
+
     //Creamos elementos del Feed
     const feedDiv = document.createElement("div");
     feedDiv.classList = "feedDiv"
@@ -29,35 +29,12 @@ export const feed = () => {
     const newPostTag = document.createElement("input");
     newPostTag.placeholder = "etiquetas"
 
-    const newPostContent = document.createElement("textarea");
-    newPostContent.classList = "newPostContent"
+    const newPostInput = document.createElement("textarea");
+    newPostInput.classList = "newPostContent"
     const newPostButton = document.createElement("button");
     newPostButton.textContent = "publicar";
     const postFeed = document.createElement("section");
     postFeed.className = "post-feed";
-    const post = document.createElement("article");
-    const postHeader = document.createElement("div");
-    postHeader.classList = "postHeader"
-    const imgProfilePost = document.createElement("img");
-    imgProfilePost.src = "../img/sandia-logo.png";
-    imgProfilePost.classList = "imgProfilePost";
-    
-    const postUserName = document.createElement("h3");
-    postUserName.textContent = "Vaquita Vegana";
-    const postLocation = document.createElement("h4");
-    postLocation.textContent = "Villa Dulce"
-    //botón para hacer drop down menu con a href
-    const moreOptions = document.createElement("button");
-    moreOptions.textContent = "más"
-    const postContentContainer = document.createElement("div");
-    postContentContainer.classList = "postContentContainer"
-    const postTag = document.createElement("a");
-    postTag.textContent = "#recetas";
-    const postContent = document.createElement("p");
-    postContent.textContent = "receta de dobladitas";
-    const likeButton = document.createElement("button");
-    likeButton.textContent = "like";
-
 
     feedDiv.appendChild(header);
     header.appendChild(imgHeader);
@@ -66,19 +43,27 @@ export const feed = () => {
     feedDiv.appendChild(newPostContainer);
     newPostContainer.appendChild(newPostLocation);
     newPostContainer.appendChild(newPostTag);
-    newPostContainer.appendChild(newPostContent);
+    newPostContainer.appendChild(newPostInput);
     newPostContainer.appendChild(newPostButton);
     feedDiv.appendChild(postFeed);
-    postFeed.appendChild(post);
-    post.appendChild(postHeader);
-    postHeader.appendChild(imgProfilePost);
-    postHeader.appendChild(postUserName);
-    postHeader.appendChild(postLocation);
-    postHeader.appendChild(moreOptions);
-    postFeed.appendChild(postContentContainer);
-    postContentContainer.appendChild(postTag);
-    postContentContainer.appendChild(postContent);
-    postContentContainer.appendChild(likeButton);
+
+    window.addEventListener('DOMContentLoaded', async () => {
+
+        const querySnapshot = await getPosts()
+         querySnapshot.forEach(doc => {
+            //const printedPost = postPrint(doc.data())
+            //console.log(doc.data(), postFeed)
+            const postDiv = document.createElement('div')
+            postDiv.innerHTML += `
+            <div class = post"> ${doc.data().post}</div>
+            `
+            postDiv.className = "postDiv"
+            //console.log("aber", printedPost)
+            postFeed.appendChild(postDiv)
+
+        });
+
+    })
 
 
     buttonSignOut.addEventListener("click", () => toNavigate("/"));
@@ -90,21 +75,23 @@ export const feed = () => {
         } catch (error) {
             console.log(error)
         }
-        
+
     })
 
     newPostButton.addEventListener("click", async (e) => {
         e.preventDefault()
-        try{
-            const postdescription = newPostContent.value;
-            await addPost(postdescription)
-            console.log(postdescription);
+        try {
+            const postContent = newPostInput.value;
+            const contenidoPost = await addPost(postContent)
+            console.log(postContent);
+            console.log(contenidoPost)
             newPostContainer.reset();
-        }catch (error) {
+
+        } catch (error) {
             console.log(error)
         }
     })
-    
+
 
     return feedDiv;
 }

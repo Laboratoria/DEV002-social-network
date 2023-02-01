@@ -10,16 +10,18 @@ export const signInWithPass = (auth, email, password) => signInWithEmailAndPassw
 export const profileName = (auth, userName) => updateProfile(auth.currentUser, ({displayName: userName, }))
 
 export const viewer = () => {
-  onAuthStateChanged(auth, (user) => {
+  const currentUser = onAuthStateChanged(auth, (user) => {
     if (user) {
       // currentUser.email = user.email;
       // currentUser.uid = user.uid;
       console.log("user logged in " + user.email)
     } else {
       console.log("user logged out ")
-    }
+    } 
   });
-};
+  console.log(currentUser)
+  return currentUser
+  };
 export const logout = (auth) => signOut(auth)
 export const popUpGoogle = (auth, provider) => signInWithPopup(auth, provider)
 
