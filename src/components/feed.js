@@ -34,8 +34,34 @@ export const feed = () => {
 	const newPostLocation = document.createElement("input");
 	newPostLocation.placeholder = "ubicación";
 
-	const newPostTag = document.createElement("input");
-	newPostTag.placeholder = "etiquetas";
+	const newPostContent = document.createElement("textarea");
+	newPostContent.classList = "newPostContent";
+	const newPostButton = document.createElement("button");
+	newPostButton.textContent = "publicar";
+	const postFeed = document.createElement("section");
+	postFeed.className = "post-feed";
+	const post = document.createElement("article");
+	const postHeader = document.createElement("div");
+	postHeader.classList = "postHeader";
+	const imgProfilePost = document.createElement("img");
+	imgProfilePost.src = "../img/sandia-logo.png";
+	imgProfilePost.classList = "imgProfilePost";
+
+	const postUserName = document.createElement("h3");
+	postUserName.textContent = "Vaquita Vegana";
+	const postLocation = document.createElement("h4");
+	postLocation.textContent = "Villa Dulce";
+	//botón para hacer drop down menu con a href
+	const moreOptions = document.createElement("button");
+	moreOptions.textContent = "más";
+	const postContentContainer = document.createElement("div");
+	postContentContainer.classList = "postContentContainer";
+	const postTag = document.createElement("a");
+	postTag.textContent = "#recetas";
+	const postContent = document.createElement("p");
+	postContent.textContent = "receta de dobladitas";
+	const likeButton = document.createElement("button");
+	likeButton.textContent = "like";
 
 	const newPostContent = document.createElement("textarea");
 	newPostContent.classList = "newPostContent";
