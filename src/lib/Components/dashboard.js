@@ -1,5 +1,16 @@
 import { onNavigate } from '../../main.js';
-import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask, giveLike, dislike } from '../index.js';
+import {
+  submitPost,
+  logOut,
+  getAllPosts,
+  deletePost,
+  currentUserInfo,
+  getTask,
+  updateTask,
+  giveLike,
+  dislike,
+} from '../index.js';
+
 export const login = () => {
   const divLogin = document.createElement('div');
   divLogin.setAttribute('id', 'div-login');
@@ -106,10 +117,9 @@ export const login = () => {
   
   //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
   const refreshPosts = () => {
-
     getAllPosts().then((posts) => {
       divTimeLine.innerHTML = '';
-      posts.forEach(post => {
+      posts.forEach((post => {
         const postData = post.data();
         const uid = currentUserInfo().uid;
         const divPostEntry = document.createElement('div');
@@ -124,7 +134,9 @@ export const login = () => {
         const likeNumber = document.createElement('h3');
 
         divPostEntry.className = 'timeLine-post';
+        divPostEntry.className = 'timeLine-post';
         imgUser.setAttribute('src', 'images/user.png');
+        imgUser.className = 'iconUser';
         imgUser.className = 'iconUser';
         userName.innerHTML = postData.user;
         userName.className = 'user-name-post';
@@ -163,6 +175,7 @@ export const login = () => {
           userPostText.append(deleteIcon);
           userPostText.appendChild(likePost);
           userPostText.appendChild(likeNumber);
+          userPostText.appendChild(likeNumber);
         } else {
           divPostEntry.appendChild(userName);
           userName.appendChild(imgUser);
@@ -170,13 +183,13 @@ export const login = () => {
           userName.appendChild(dateTimePost);
           userPostText.appendChild(likePost);
           userPostText.appendChild(likeNumber);
+          userPostText.appendChild(likeNumber);
         }
 
         divTimeLine.appendChild(divPostEntry);
         btnPost.innerText = 'PUBLICAR';
         closeModal();
-      });
-
+      }));
     });
   };
 
@@ -202,13 +215,16 @@ export const login = () => {
     };
   });
 
-  //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
+  // aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
+  // Funcion cerrar sesion
 
 
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
   });
+
+  // Funcion crear post
 
   
   btnCreatePost.addEventListener('click', () => {
@@ -233,7 +249,5 @@ export const login = () => {
   divLogin.append(
     btnLogout,
   );
-
   return divLogin;
-
 };
