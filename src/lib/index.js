@@ -6,8 +6,8 @@ import {
   signInWithPopup,
   signOut,
   updateProfile,
-  onAuthStateChanged
-} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js";
+  onAuthStateChanged,
+} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 // } from "firebase/auth";
 import {
   getFirestore,
@@ -20,18 +20,20 @@ import {
   doc,
   getDoc,
   updateDoc,
-} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
+  arrayRemove,
+  arrayUnion,
+} from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // } from "firebase/firestore";
 
-import { onNavigate } from "../main.js";
-import { app } from './Firebase.js';
+import { onNavigate } from '../main.js';
+import { app } from './firebase.js';
 
 // Initialize Firebase Authentication and get a reference to the service
 export const auth = getAuth(app);
 
 export const authLogin = () => {
   const userLogin = getAuth().onAuthStateChanged((user) => {
-    if (user){
+    if (user) {
       onNavigate('/dashboard');
     }
   });
@@ -43,7 +45,7 @@ export const provider = new GoogleAuthProvider();
 
 // Initialize Firebase Firestore and get a reference to the service
 export const firestore = getFirestore();
-export const postCollection = collection(firestore, "post");
+export const postCollection = collection(firestore, 'post');
 
 // CREAR USUARIO CON EMAIL
 export const createUser = (userMail, userPass, userName) => createUserWithEmailAndPassword(auth, userMail, userPass)
@@ -54,7 +56,7 @@ export const createUser = (userMail, userPass, userName) => createUserWithEmailA
   });
 
 // INGRESAR CON USUARIO EXISTENTE
-export const signIn = (email, password) =>  signInWithEmailAndPassword(auth, email, password);
+export const signIn = (email, password) => signInWithEmailAndPassword(auth, email, password);
 
 // INGRESAR CON GOOGLE - check
 export const signInGoogle = async (onNavigate) => {
@@ -77,38 +79,59 @@ export const logOut = async (onNavigate) => {
 // funcion currentuser
 export const currentUserInfo = () => auth.currentUser;
 
-//función publicar
+// función publicar
 export const submitPost = (postTxt) => {
   const post = {
     postText: postTxt,
     user: getAuth().currentUser.displayName,
     uid: getAuth().currentUser.uid,
     createdDateTime: new Date(),
-    likes: []
-  }
+    likes: [],
+  };
   return addDoc(postCollection, post);
 };
 
-//función para consultar todos los posts dispobibles en firestore
+// función para consultar todos los posts dispobibles en firestore
 export const getAllPosts = async () => {
   const querypost = query(postCollection, orderBy('createdDateTime', 'desc'));
   const querySnapshot = await getDocs(querypost);
   return querySnapshot;
 };
 
-//función para borrar post
+// función para borrar post
 export const deletePost = (id) => {
-  return deleteDoc(doc(firestore,'post',id));
+ deleteDoc(doc(firestore,'post', id));
 };
 
-//funcion para traer un post para editar
-export const getTask = (id) => getDoc(doc(firestore,'post', id));
+// funcion para traer un post para editar
+export const getTask = (id) => getDoc(doc(firestore, 'post', id));
 
-//función updateTask
+// función updateTask
 
 export const updateTask = (id, docData) => {
-  console.log('document to update: ', id);
   return updateDoc(doc(firestore, 'post', id), {
-    postText: docData.postText
-  })
+    postText: docData.postText,
+  });
+};
+
+export const giveLike = (id, nuevoLike) => {
+  updateDoc(doc(firestore, 'post', id), {
+    likes: arrayUnion(nuevoLike),
+  });
+};
+
+export const dislike = (id, viejoLike) => {
+  updateDoc(doc(firestore, 'post', id), {
+    likes: arrayRemove(viejoLike),
+  });
+};
+
+export {
+  getAuth,
+  GoogleAuthProvider,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+  signInWithPopup,
+  signOut,
+
 };

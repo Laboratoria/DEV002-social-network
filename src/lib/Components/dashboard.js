@@ -1,6 +1,15 @@
-import { onNavigate } from "../../main.js";
-import { submitPost, logOut, getAllPosts, deletePost, currentUserInfo, getTask, updateTask } from "../index.js";
-
+import { onNavigate } from '../../main.js';
+import {
+  submitPost,
+  logOut,
+  getAllPosts,
+  deletePost,
+  currentUserInfo,
+  getTask,
+  updateTask,
+  giveLike,
+  dislike,
+} from '../index.js';
 
 export const login = () => {
   const divLogin = document.createElement('div');
@@ -52,27 +61,26 @@ export const login = () => {
   const divModalBackground = divLogin.querySelector('#modal-background-post');
   const divModalContent = divLogin.querySelector('#modal-content-post');
 
-  //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
+  // funcion que llama getDocs de firestore y re pinta los html elements para mostrar
   const refreshPosts = () => {
-
     getAllPosts().then((posts) => {
       divTimeLine.innerHTML = '';
-      posts.forEach(post => {
+      posts.forEach((post => {
         const postData = post.data();
-        const uid = currentUserInfo.uid;
-        let divPostEntry = document.createElement("div");
+        const divPostEntry = document.createElement('div');
 
-        let imgUser = document.createElement("img");
-        let userName = document.createElement("h2");
-        let userPostText = document.createElement("h2");
-        let editIcon = document.createElement('img');
-        let dateTimePost = document.createElement("h1");
-        let likePost = document.createElement('img');
-        let deleteIcon = document.createElement('img');
+        const imgUser = document.createElement('img');
+        const userName = document.createElement('h2');
+        const userPostText = document.createElement('h2');
+        const editIcon = document.createElement('img');
+        const dateTimePost = document.createElement('h1');
+        const likePost = document.createElement('img');
+        const deleteIcon = document.createElement('img');
+        const likeNumber = document.createElement('span');
 
-        divPostEntry.className = "timeLine-post";
+        divPostEntry.className = 'timeLine-post';
         imgUser.setAttribute('src', 'images/user.png');
-        imgUser.className = "iconUser";
+        imgUser.className = 'iconUser';
         userName.innerHTML = postData.user;
         userName.className = 'user-name-post';
         userPostText.innerHTML = postData.postText;
@@ -83,10 +91,13 @@ export const login = () => {
         deleteIcon.setAttribute('data-id', post.id);
         deleteIcon.onclick = deletePostListener;
         likePost.setAttribute('src', '/images/1erlike.png');
+        likePost.setAttribute('data-id', post.id);
         likePost.className = 'primer-like';
+        likePost.onclick = likedPost;
+        likeNumber.className = 'contador-like';
         userPostText.className = 'textPost';
         dateTimePost.innerHTML = new Date(post.data().createdDateTime.seconds * 1000).toLocaleString();
-        dateTimePost.className = 'date-post'
+        dateTimePost.className = 'date-post';
         editIcon.setAttribute('src', 'images/editar.png');
         editIcon.className = 'icon-edit';
 
@@ -98,75 +109,85 @@ export const login = () => {
           userPostText.appendChild(editIcon);
           userPostText.append(deleteIcon);
           userPostText.appendChild(likePost);
+          userPostText.appendChild(likeNumber);
         } else {
           divPostEntry.appendChild(userName);
           userName.appendChild(imgUser);
           divPostEntry.appendChild(userPostText);
           userName.appendChild(dateTimePost);
           userPostText.appendChild(likePost);
+          userPostText.appendChild(likeNumber);
         }
 
         divTimeLine.appendChild(divPostEntry);
         btnPost.innerText = 'PUBLICAR';
         closeModal();
-      });
+      }));
+    });
+    // onclick editarPost
+    const editPost = async (event) => {
+      const docToEdit = await getTask(event.target.dataset.id);
+      const docData = docToEdit.data();
+      showModal();
+      inputPostText.value = docData.postText;
+      btnPost.disabled = false;
+      btnPost.doc = docToEdit;
+    };
 
+    btnPost.addEventListener('click', (event) => {
+      const doc = event.currentTarget.doc;
+
+      if (doc) {
+        const docData = doc.data();
+        docData.postText = inputPostText.value;
+        updateTask(doc.id, docData).then(() => {
+          btnPost.doc = null;
+          closeModal();
+          refreshPosts();
+        });
+      } else {
+        submitPost(inputPostText.value).then(() => {
+          closeModal();
+          refreshPosts();
+      });
+      };
     });
   };
 
-  // onclick editarPost
-  const editPost = async (event) => {
-    const docToEdit = await getTask(event.target.dataset.id);
-    const docData = docToEdit.data();
-    showModal();
-    console.log(docData);
-    inputPostText.value = docData.postText;
-    btnPost.disabled = false;
-    btnPost.doc = docToEdit;
+  // Funcion dar like
+  const likedPost = async (event) => {
+    const id = event.target.dataset.id;
+    const likeData = await getTask(id);
+    const likesCounter = likeData.data().likes;
+    const userId = currentUserInfo().uid;
+    const currentLike = likesCounter.indexOf(userId);
+
+    if (currentLike === -1) {
+      giveLike(id, userId) + 1;
+    } else {
+      dislike(id, userId) - 1;
+    }
   };
 
-  btnPost.addEventListener('click', (event) => {
-    const doc = event.currentTarget.doc;
-
-    if (doc) {
-      const docData = doc.data();
-      // console.log('data-id from edit button is: ', docData);
-      docData.postText = inputPostText.value;
-      console.log('updated doc to send to index', docData);
-      updateTask(doc.id, docData).then((response) => {
-        btnPost.doc = null;
-        closeModal();
-        refreshPosts();
-      });
-    }
-    else {
-      submitPost(inputPostText.value).then((response) => {
-        console.log(response);
-        closeModal();
-        refreshPosts();
-        alert('Reseña creada', response);
-      });
-    };
-  });
-
-  //listener del onclick detelePost
-  const deletePostListener = (event) => {//event por default
-    const postId = event.target.dataset.id;//sacamos del target el id
-    let opcion = confirm('Desea eliminar el comentario?');
-    if (opcion === false) { }
-    else {
+  // listener del onclick detelePost
+  const deletePostListener = (event) => { // event por default
+    const postId = event.target.dataset.id; // sacamos del target el id
+    const option = confirm('Desea eliminar el comentario?');
+    if (option === false) {
+    } else {
       deletePost(postId);
-    };
+    }
     refreshPosts();
   };
 
-  //aqui se manda llamar el getDocs al cargar la pagina en Dashboard
+  // aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
-
+  // Funcion cerrar sesion
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
   });
 
+  // Funcion crear post
   btnCreatePost.addEventListener('click', () => {
     showModal();
     inputPostText.focus();
@@ -175,7 +196,23 @@ export const login = () => {
   // Listener cerrar modal
   btnExit.addEventListener('click', () => closeModal());
 
-  //Funcion activacion boton publicar
+   // apertura visual del modal
+   const showModal = () => {
+    divModalBackground.style.display = 'flex';
+    divModalContent.style.display = 'block';
+    document.body.style.overflow = 'hidden';
+  };
+
+  // ocultar visual el  modal
+  const closeModal = () => {
+    divModalBackground.style.display = 'none';
+    divModalContent.style.display = 'none';
+    document.body.style.overflow = 'visible';
+    inputPostText.value = '';
+
+  };
+
+  // Funcion activacion boton publicar
   inputPostText.addEventListener('keyup', () => {
     const valueInput = inputPostText.value.trim();
     // trim() metodo que no permite activar boton con espacio
@@ -186,25 +223,8 @@ export const login = () => {
     }
   });
 
-  // apertura visual del modal
-  const showModal = () => {
-    divModalBackground.style.display = 'flex';
-    divModalContent.style.display = 'block';
-    document.body.style.overflow = 'hidden';
-  };
-  // ocultar visual el  modal
-  const closeModal = () => {
-    divModalBackground.style.display = 'none';
-    divModalContent.style.display = 'none';
-    document.body.style.overflow = 'visible';
-    inputPostText.value = '';
-
-  };
-
   divLogin.append(
     btnLogout,
   );
-
   return divLogin;
-
 };
