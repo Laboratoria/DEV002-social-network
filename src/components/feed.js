@@ -1,6 +1,6 @@
 import { toNavigate } from "../main.js";
 import { auth, logout } from "../Firebase/firebase.js";
-import { savePost, getPost } from "../Firebase/firestore.js";
+import { savePost, onGetPosts } from "../Firebase/firestore.js";
 
 export const feed = () => {
 	const feedDiv = document.createElement("div");
@@ -10,6 +10,7 @@ export const feed = () => {
 	const inputLocation = document.createElement("input");
 	const buttonPost = document.createElement("button");
 	const buttonSignOut = document.createElement("button");
+	const containerTimeLine = document.createElement("div");
 
 	feedDiv.className = "div-container-feed";
 	containerNewPost.className = "div-container-newpost";
@@ -18,11 +19,13 @@ export const feed = () => {
 	inputLocation.className = "input-post-location";
 	buttonPost.className = "button-post";
 	buttonSignOut.className = "button-signOut";
+	containerTimeLine.className = "div-container-timeline";
 
 	buttonPost.textContent = "Publicar";
 	buttonSignOut.textContent = "Cerrar Sesión";
 
 	feedDiv.appendChild(containerNewPost);
+	feedDiv.appendChild(containerTimeLine);
 	feedDiv.appendChild(buttonSignOut);
 	containerNewPost.appendChild(newPostForm);
 	newPostForm.appendChild(textAreaNewPost);
@@ -49,10 +52,19 @@ export const feed = () => {
 	});
 
 	window.addEventListener("DOMContentLoaded", async () => {
-		const querySnapshot = await getPost(); //Trae los datos que existen en ese momento.
-		let html = "";
-		querySnapshot.forEach((doc) => {
-			console.log(doc.data());
+		// const querySnapshot = await getPost(); //Trae los datos que existen en ese momento.
+		// onSnapshot(postCollection, (querySnapshot) => {
+		onGetPosts((querySnapshot) => {
+			let html = "";
+			querySnapshot.forEach((doc) => {
+				const post = doc.data();
+				html += `
+			<div>
+				<h3>${post.location} </h3>
+				<p>${post.postContent} </p>
+			</div>`;
+			});
+			containerTimeLine.innerHTML = html;
 		});
 	});
 	return feedDiv;
