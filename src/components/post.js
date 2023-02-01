@@ -1,4 +1,4 @@
-import { getDocContent, getPosts, onSnapshot, collection } from "../Firebase/firestore.js";
+/* import { getDocContent, getPosts, onSnapshot, collection } from "../Firebase/firestore.js";
 import { db } from "../Firebase/firebaseConfig.js";
 import { auth, viewer } from "../Firebase/firebase.js";
 import { feed } from "../components/feed.js";
@@ -26,4 +26,4 @@ db.collection('documents').get().then(snapshot => {
     snapshot.docs.forEach(doc => {
         postPrint(doc);
     });
-});
+}); */
