@@ -1,9 +1,11 @@
 import { toNavigate } from "../main.js";
 import { register } from "../components/register.js"
-import { auth, logout } from "../Firebase/firebase.js";
+import { auth, logout, viewer } from "../Firebase/firebase.js";
 import { addPost, postCollection, userCollection } from "../Firebase/firestore.js";
+//import { postPrint } from "./post.js";
 
 export const feed = () => {
+ 
     //Creamos elementos del Feed
     const feedDiv = document.createElement("div");
     feedDiv.classList = "feedDiv"
@@ -32,6 +34,7 @@ export const feed = () => {
     const newPostButton = document.createElement("button");
     newPostButton.textContent = "publicar";
     const postFeed = document.createElement("section");
+    postFeed.className = "post-feed";
     const post = document.createElement("article");
     const postHeader = document.createElement("div");
     postHeader.classList = "postHeader"
@@ -77,8 +80,7 @@ export const feed = () => {
     postContentContainer.appendChild(postContent);
     postContentContainer.appendChild(likeButton);
 
-
-
+    postPrint();
 
     buttonSignOut.addEventListener("click", () => toNavigate("/"));
     buttonSignOut.addEventListener("click", async (e) => {

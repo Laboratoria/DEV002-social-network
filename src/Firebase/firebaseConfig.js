@@ -22,3 +22,4 @@ export const app = initializeApp(firebaseConfig);
 
 //Initialize Firestore
 export const db = getFirestore(app);
+//db.settings({ timestampsInSnapshots: true });
