@@ -20,5 +20,5 @@ export const firebaseConfi = {
 export const app = initializeApp(firebaseConfi);
 
 //Initialize Firestore
-export const db = getFirestore(app);
+export const db = getFirestore();
 //db.settings({ timestampsInSnapshots: true });

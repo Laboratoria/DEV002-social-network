@@ -1,34 +1,28 @@
-import { app } from "../Firebase/firebaseConfig.js";
 import { db } from "../Firebase/firebaseConfig.js";
 import {
 	getFirestore,
-	getDoc,
+	addDoc,
 	getDocs,
-	doc,
-	setDoc,
+	onSnapshot,
 	collection,
 	deleteDoc,
 	updateDoc,
-	addDoc,
-	onSnapshot,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 
-export const userCollection = collection(db, "usuarios"); //Guardar el usuario que se está creando al momento de registarar.
-export const postCollection = collection(db, "posts");
+const userCollection = collection(db, "usuarios"); //Guardar el usuario que se está creando al momento de registarar.
+const postCollection = collection(db, "posts"); // colección de post en firestore
 
-export const getDocContent = (id) => getDoc(doc(db, "documents", id));
-export const getPosts = await getDocs(collection(db, "documents"));
-export const deletePost = (id) => deleteDoc(doc(db, "documents", id));
-export const instantTime = doc;
-export const editPost = (id, newPost) =>
-	updateDoc(doc(db, "documents", id), newPost);
-export const addPost = (post) =>
-	addDoc(collection(db, "documents"), {
-		post: post,
-		user: auth.currentUser.displayName,
-		uid: auth.currentUser.uid,
-		likes: 0,
-		likes: [],
+// export const getDocContent = (id) => getDoc(doc(db, "documents", id));
+// export const deletePost = (id) => deleteDoc(doc(db, "documents", id));
+// export const instantTime = doc;
+// export const editPost = (id, newPost) =>
+// 	updateDoc(doc(db, "documents", id), newPost);
+export const savePost = (post, location) =>
+	addDoc(postCollection, {
+		post,
+		location,
 	});
 
-export { collection, onSnapshot, doc, setDoc, getFirestore };
+export const getPost = () => getDocs(postCollection);
+
+export { collection, onSnapshot, getFirestore };
