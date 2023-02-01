@@ -26,6 +26,8 @@ export const signUpWithPass = async (auth, email, password, displayName) => {
 			console.log(error.message);
 		});
 };
+export const getDisplayName = (userNameFromRegister) =>
+	updateProfile(auth.currentUser, { displayName: userNameFromRegister });
 export const signInWithPass = (auth, email, password) =>
 	signInWithEmailAndPassword(auth, email, password);
 
@@ -37,6 +39,7 @@ export const viewer = () => {
 			currentUser.uid = user.uid;
 			currentUser.displayName = user.displayName;
 			currentUser.userName = user.userName;
+			currentUser.userCity = user.userCity;
 			console.log("user logged in " + user.email);
 		} else {
 			console.log("user logged out ");
@@ -45,3 +48,14 @@ export const viewer = () => {
 };
 export const logout = (auth) => signOut(auth);
 export const popUpGoogle = (auth, provider) => signInWithPopup(auth, provider);
+
+export {
+	getAuth,
+	createUserWithEmailAndPassword,
+	signOut,
+	GoogleAuthProvider,
+	onAuthStateChanged,
+	updateProfile,
+	signInWithPopup,
+	signInWithEmailAndPassword,
+};

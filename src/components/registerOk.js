@@ -1,11 +1,9 @@
 import { toNavigate } from "../main.js";
-import { auth, viewer } from "../Firebase/firebase.js";
+// import { auth, viewer } from "../Firebase/firebase.js";
 
 export const registerOk = () => {
-	viewer();
-	const user = auth.currentUser;
-	// The user object has basic properties such as display name, email, etc.
-	const displayName = user.displayName;
+	// const user = auth.currentUser;
+	// const displayName = user.displayName;
 	const registerOkDiv = document.createElement("div");
 	const containerOk = document.createElement("section");
 	// const containerOkBackground = document.createElement("div");
@@ -55,6 +53,5 @@ export const registerOk = () => {
 	buttonOkContinue.addEventListener("click", () => {
 		toNavigate("/feed");
 	});
-
 	return registerOkDiv;
 };

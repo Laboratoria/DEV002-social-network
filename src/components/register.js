@@ -1,5 +1,6 @@
 import { toNavigate } from "../main.js";
-import { auth, signUpWithPass } from "../Firebase/firebase.js";
+import { auth, signUpWithPass, viewer } from "../firebase/firebase.js";
+import { getFirestore } from "../src/firebase/firestore.js";
 
 export const register = () => {
 	//Creamos elementos de para el formulario de registro
@@ -135,39 +136,43 @@ export const register = () => {
 	registerForm.appendChild(buttonRegister);
 
 	buttonRegister.addEventListener("click", () => {
-		registerForm.addEventListener("submit", async (e) => {
+		registerForm.addEventListener("click", async (e) => {
 			e.preventDefault(); //cancela comportamiento por defecto de refrescar la pagina
-			const emailForm = inputUserMail.value;
-			const passwordForm = inputUserPass.value;
-			const nameForm = inputUserName.value;
-			const cityForm = inputUserCity.value;
+			try {
+				const emailForm = inputUserMail.value;
+				const passwordForm = inputUserPass.value;
+				const nameForm = inputUserName.value;
+				const cityForm = inputUserCity.value;
 
-			signUpWithPass(auth, emailForm, passwordForm, nameForm)
-				.then((userCredentials) => {
-					console.log(userCredentials.user.id);
-				})
-				.catch((error) => {
-					console.log(error.code);
-					console.log(error.message);
-				});
-			// const nameRegister = await profileName(nameForm);
-			// console.log(nameRegister);
-			// console.log(userCredentials.user.uid);
-			// const userSave = viewer();
-			// console.log(userSave);
+				const userCredentials = await signUpWithPass(
+					auth,
+					emailForm,
+					passwordForm,
+					nameForm
+				);
+				console.log(userCredentials);
+			} catch (error) {
+				if (error.code === "auth/invalid-email") {
+					alert("email inválido");
+				} else if (error.code === "auth/weak-password") {
+					alert("contraseña débil");
+				} else if (error.code === "auth/email-already-in-use") {
+					alert("email en uso");
+				} else if (error.code) {
+					alert("algo anda mal");
+				}
+			}
 			toNavigate("/registerOk");
-			// } catch (error) {
-			// 	if (error.code === "auth/invalid-email") {
-			// 		alert("email inválido");
-			// 	} else if (error.code === "auth/weak-password") {
-			// 		alert("contraseña débil");
-			// 	} else if (error.code === "auth/email-already-in-use") {
-			// 		alert("email en uso");
-			// 	} else if (error.code) {
-			// 		alert("algo anda mal");
-			// 	}
-			// }
 		});
 	});
 	return registerDiv;
 };
+// const docRef = doc(getFirestore(), "document", auth.currentUser.uid);
+// const usersDocs = await setDoc(docRef, "documents", {
+// 	email: auth.currentUser.email,
+// 	userName: auth.currentUser.displayName,
+// 	uid: auth.currentUser.uid,
+// 	location: cityForm.value,
+// 	isVegan: document.querySelector("#selectVegan").value,
+// });
+// console.log(usersDocs);

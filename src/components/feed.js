@@ -1,5 +1,4 @@
 import { toNavigate } from "../main.js";
-import { register } from "../components/register.js";
 import { auth, logout } from "../Firebase/firebase.js";
 import {
 	addPost,
@@ -10,8 +9,6 @@ import {
 export const feed = () => {
 	const user = auth.currentUser;
 	const displayName = user.displayName;
-	const email = user.email;
-	const photoURL = user.photoURL;
 	const uid = user.uid;
 
 	//Creamos elementos del Feed
@@ -26,48 +23,24 @@ export const feed = () => {
 	const inputSearchHeader = document.createElement("input");
 	inputSearchHeader.placeholder = "tu búsqueda";
 
+	const userProfileName = document.createElement("h3");
+	userProfileName.textContent = displayName;
+
 	const buttonSignOut = document.createElement("button");
-	buttonSignOut.textContent = "Cerrar Sesión";
+	buttonSignOut.textContent = "Salir";
 
 	const newPostContainer = document.createElement("form");
 	newPostContainer.classList = "newPostContainer";
 	const newPostLocation = document.createElement("input");
-	newPostLocation.placeholder = "ubicación";
+	newPostLocation.placeholder = "Lima, Perú";
 
 	const newPostContent = document.createElement("textarea");
 	newPostContent.classList = "newPostContent";
+	newPostContent.placeholder = "Escribe una publicación...";
 	const newPostButton = document.createElement("button");
-	newPostButton.textContent = "publicar";
-	const postFeed = document.createElement("section");
-	postFeed.className = "post-feed";
-	const post = document.createElement("article");
-	const postHeader = document.createElement("div");
-	postHeader.classList = "postHeader";
-	const imgProfilePost = document.createElement("img");
-	imgProfilePost.src = "../img/sandia-logo.png";
-	imgProfilePost.classList = "imgProfilePost";
+	newPostButton.textContent = "Publicar";
 
-	const postUserName = document.createElement("h3");
-	postUserName.textContent = "Vaquita Vegana";
-	const postLocation = document.createElement("h4");
-	postLocation.textContent = "Villa Dulce";
-	//botón para hacer drop down menu con a href
-	const moreOptions = document.createElement("button");
-	moreOptions.textContent = "más";
-	const postContentContainer = document.createElement("div");
-	postContentContainer.classList = "postContentContainer";
-	const postTag = document.createElement("a");
-	postTag.textContent = "#recetas";
-	const postContent = document.createElement("p");
-	postContent.textContent = "receta de dobladitas";
-	const likeButton = document.createElement("button");
-	likeButton.textContent = "like";
-
-	const newPostContent = document.createElement("textarea");
-	newPostContent.classList = "newPostContent";
-	const newPostButton = document.createElement("button");
-	newPostButton.textContent = "publicar";
-	const postFeed = document.createElement("section");
+	const postsFeed = document.createElement("section");
 	const post = document.createElement("article");
 	const postHeader = document.createElement("div");
 	postHeader.classList = "postHeader";
@@ -84,8 +57,8 @@ export const feed = () => {
 	moreOptions.textContent = "más";
 	const postContentContainer = document.createElement("div");
 	postContentContainer.classList = "postContentContainer";
-	const postTag = document.createElement("a");
-	postTag.textContent = "#recetas";
+	// const postTag = document.createElement("a");
+	// postTag.textContent = "#recetas";
 	const postContent = document.createElement("p");
 	postContent.textContent = "receta de dobladitas";
 	const likeButton = document.createElement("button");
@@ -97,18 +70,18 @@ export const feed = () => {
 	header.appendChild(buttonSignOut);
 	feedDiv.appendChild(newPostContainer);
 	newPostContainer.appendChild(newPostLocation);
-	newPostContainer.appendChild(newPostTag);
+	// newPostContainer.appendChild(newPostTag);
 	newPostContainer.appendChild(newPostContent);
 	newPostContainer.appendChild(newPostButton);
-	feedDiv.appendChild(postFeed);
-	postFeed.appendChild(post);
+	feedDiv.appendChild(postsFeed);
+	postsFeed.appendChild(post);
 	post.appendChild(postHeader);
 	postHeader.appendChild(imgProfilePost);
 	postHeader.appendChild(postUserName);
 	postHeader.appendChild(postLocation);
 	postHeader.appendChild(moreOptions);
-	postFeed.appendChild(postContentContainer);
-	postContentContainer.appendChild(postTag);
+	postsFeed.appendChild(postContentContainer);
+	// postContentContainer.appendChild(postTag);
 	postContentContainer.appendChild(postContent);
 	postContentContainer.appendChild(likeButton);
 
@@ -134,6 +107,5 @@ export const feed = () => {
 			console.log(error);
 		}
 	});
-
 	return feedDiv;
 };
