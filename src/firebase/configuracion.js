@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {
-  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut,
+  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut,updateProfile
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import {
   getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp, query, orderBy, onSnapshot, arrayUnion,
@@ -38,7 +38,7 @@ export const user = () => auth.currentUser;
 //   createdDateTime: Timestamp.fromDate(new Date())
 // });
 
-export const saveTask = (description,name) => addDoc(collection(db, 'tasks'), {
+export const saveTask = (description, name) => addDoc(collection(db, 'tasks'), {
   description,
   name: auth.currentUser.displayName,
   uid: auth.currentUser.uid,
@@ -46,11 +46,11 @@ export const saveTask = (description,name) => addDoc(collection(db, 'tasks'), {
   createdDateTime: Timestamp.fromDate(new Date()),
 });
 
-export const saveUser = (name,uid,email,pais) => addDoc(collection(db, 'users'), {
+export const saveUser = (name, uid, email, pais) => addDoc(collection(db, 'users'), {
   name: name,
   uid: uid,
   email: email,
-  pais:pais,
+  pais: pais,
   createdDateTime: Timestamp.fromDate(new Date())
 });
 
@@ -61,22 +61,27 @@ export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
 export const dateTask = (querySnapshot) => {
   const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));
- 
+
   onSnapshot(q, querySnapshot);
 };
 
 // Create new users
 
-export function registerUser(email, password, name,pais, callback) {
+export function registerUser(email, password, name, pais, callback) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      console.log(name)
+      updateProfile(auth.currentUser, {
+       displayName: name,
+        
+     })
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
       const user = userCredential.user;
       const userId = user.uid;
       user.displayName = name
       console.log(user, userId);
-      saveUser(user.displayName,userId,email,pais)
+      saveUser(user.displayName, userId, email, pais)
       callback(true);
     })
     .catch((error) => {
@@ -163,4 +168,6 @@ export {
   arrayUnion,
   arrayRemove,
   Timestamp,
+  updateProfile,
+  onAuthStateChanged
 };
