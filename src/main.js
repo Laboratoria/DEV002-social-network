@@ -1,10 +1,9 @@
 // Este es el punto de entrada de tu aplicacion
+
 import { home } from "./components/home.js";
 import { register } from "./components/register.js";
 import { feed } from "./components/feed.js";
 import { registerOk } from "./components/registerOk.js";
-
-//import { firebaseConfig } from './firebase/firebaseConfig.js';
 //import { onAuthStateChanged } from './Firebase/firebaseConfig.js';
 
 //console.log(onAuthStateChanged);

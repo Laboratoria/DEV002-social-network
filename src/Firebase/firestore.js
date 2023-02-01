@@ -1,5 +1,5 @@
-import { db } from "../src/firebase/firebaseConfig.js";
-import { auth, updateProfile } from "./firebase.js";
+import { app } from "../Firebase/firebaseConfig.js";
+import { db } from "../Firebase/firebaseConfig.js";
 import {
 	getFirestore,
 	getDoc,
@@ -17,7 +17,7 @@ export const userCollection = collection(db, "usuarios"); //Guardar el usuario q
 export const postCollection = collection(db, "posts");
 
 export const getDocContent = (id) => getDoc(doc(db, "documents", id));
-export const getPosts = await getDocs(postCollection);
+export const getPosts = await getDocs(collection(db, "documents"));
 export const deletePost = (id) => deleteDoc(doc(db, "documents", id));
 export const instantTime = doc;
 export const editPost = (id, newPost) =>

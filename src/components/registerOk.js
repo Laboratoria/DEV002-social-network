@@ -1,9 +1,10 @@
 import { toNavigate } from "../main.js";
-// import { auth, viewer } from "../Firebase/firebase.js";
+import { auth, viewer, signInWithPass } from "../Firebase/firebase.js";
+import { register } from "../components/register.js";
 
 export const registerOk = () => {
-	// const user = auth.currentUser;
-	// const displayName = user.displayName;
+	const user = auth.currentUser;
+	const displayName = user.displayName;
 	const registerOkDiv = document.createElement("div");
 	const containerOk = document.createElement("section");
 	// const containerOkBackground = document.createElement("div");
