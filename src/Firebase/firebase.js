@@ -7,12 +7,8 @@ export const provider = new GoogleAuthProvider();
 //Crear Usuario
 export const signUpWithPass = (auth, email, password) => createUserWithEmailAndPassword(auth, email, password)
 export const signInWithPass = (auth, email, password) => signInWithEmailAndPassword(auth, email, password)
-export const profileName = (userName) => updateProfile(auth.currentUser, {displayName: userName, })
-.then(() => {
-    console.log("hola" + auth.currentUser)
-  }).catch((error) => {
-    console.log(error)
-  });
+export const profileName = (auth, userName) => updateProfile(auth.currentUser, ({displayName: userName, }))
+
 export const viewer = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {

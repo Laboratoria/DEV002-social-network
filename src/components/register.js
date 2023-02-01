@@ -161,7 +161,7 @@ export const register = () => {
             console.log(emailForm, passwordForm)
             try {
                 const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
-                const nameRegister = await profileName({displayName: nameForm})
+                const nameRegister = await profileName(auth, ({displayName: nameForm}))
                 console.log(nameForm);
                 console.log(nameRegister);
                 console.log(userCredentials)
