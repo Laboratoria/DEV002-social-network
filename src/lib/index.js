@@ -19,7 +19,7 @@ import {
   deleteDoc,
   doc,
   getDoc,
-  updateDoc
+  updateDoc,
 } from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 // } from "firebase/firestore";
 
@@ -65,7 +65,7 @@ export const signInGoogle = async (onNavigate) => {
   }
 };
 
-// FUNCIÓN DE SIGNOUT - check
+// Función checkout- check
 export const logOut = async (onNavigate) => {
   try {
     await signOut(auth);  
@@ -88,7 +88,6 @@ export const submitPost = (postTxt) => {
   }
   return addDoc(postCollection, post);
 };
-export const getComent = () => getDocs(collection(firestore, 'post'));
 
 //función para consultar todos los posts dispobibles en firestore
 export const getAllPosts = async () => {
@@ -104,10 +103,12 @@ export const deletePost = (id) => {
 
 //funcion para traer un post para editar
 export const getTask = (id) => getDoc(doc(firestore,'post', id));
-export const onGetTasks = (funcion) => onSnapshot(collection(firestore, 'post'), funcion);
-export const updatePost = (id, newFields) => updateDoc(doc(db, 'post', id), newFields);
-
 
 //función updateTask
 
-export const updateTask = (id, newDocs) => updateDoc(doc(firestore,'post',id),newDocs);
+export const updateTask = (id, docData) => {
+  console.log('document to update: ', id);
+  return updateDoc(doc(firestore, 'post', id), {
+    postText: docData.postText
+  })
+};
