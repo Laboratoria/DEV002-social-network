@@ -16,7 +16,7 @@ export const Register = () => {
 
   <h2 class="inicia-sesion-h2">Regístrate</h2>
 
-  <form> 
+  <form id="userForm"> 
   <input type="name" id="name-usuaria" class="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
   <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
   <input id="passwordRegister" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
@@ -73,9 +73,6 @@ export const Register = () => {
     </select> 
   </div>
 
-
-    <label class="fecha-nacimiento" for='fecha-nacimiento'> Edad * </label> <br>
-    <input type="number" min="1" class="fecha-nacimiento" id="age" required> <br>
   <a href="/timeLine">
     <button class="ingresar" id="register-button"> Registrar </button>
     </a>
@@ -84,23 +81,25 @@ export const Register = () => {
 
   divRegister.innerHTML = viewRegister;
 
-  document.addEventListener("DOMContentLoaded", function() {
+  document.addEventListener('DOMContentLoaded', () => {
     const registerButton = document.getElementById('register-button');
     registerButton.addEventListener('click', (event) => {
-        event.preventDefault()
-        console.log("click register se ejecutó")
-        const email = document.getElementById('emailRegister').value;
-        const password = document.getElementById('passwordRegister').value;
+      event.preventDefault();
+      console.log('click register se ejecutó');
+      const email = document.getElementById('emailRegister').value;
+      const password = document.getElementById('passwordRegister').value;
+      const nombreUsuaria = document.getElementById('name-usuaria').value;
+      const pais =document.getElementById('paises').value;
 
        const alertRegister = (valid) => {
        if(valid){
          next('/timeLine');
+         //location.reload();
        }
        }
-       registerUser(email, password,alertRegister);
+       registerUser(email,password,nombreUsuaria,pais,alertRegister);
     });
   });
-
 
   return divRegister;
 };
