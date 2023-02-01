@@ -1,19 +1,18 @@
-import { login } from "./lib/Components/dashboard.js"
-import { register } from "./lib/Components/register.js"
-import { home } from "./lib/Components/home.js";
+import { login } from './lib/Components/dashboard.js';
+import { register } from './lib/Components/register.js';
+import { home } from './lib/Components/home.js';
 
 const rootDiv = document.getElementById('root');
 
 const routes = {
-    '/': home,
-    '/register': register,
-    '/dashboard': login,
-    
+  '/': home,
+  '/register': register,
+  '/dashboard': login,
 };
 
 export const onNavigate = (pathname) => {
-    window.history.pushState(
-        {},
+  window.history.pushState(
+    {},
         pathname,
         window.location.origin + pathname,
     );

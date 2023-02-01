@@ -1,6 +1,5 @@
-import { createUser, signInGoogle } from "../Index.js";
-import { onNavigate } from "../../main.js"
-import { app } from "../Firebase.js";
+import { createUser, signInGoogle } from '../index.js';
+import { onNavigate } from '../../main.js';
 
 export const register = () => {
   const divRegister = document.createElement('div');
@@ -19,22 +18,22 @@ export const register = () => {
     <img src='images/btnGoogle.png' id='img-google'>
     </button>
     </div>
-    <footer class='footInit'> © 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;;
+    <footer class='footInit'> © 2022 desarrollado por Sandra, Laura B. y Laura G.</footer>`;
   divRegister.innerHTML = viewRegister;
   const buttonFinalRegister = document.createElement('button');
   const buttonHome = document.createElement('button');
 
-  buttonFinalRegister.textContent = 'Crear cuenta'
-  buttonFinalRegister.setAttribute('id', 'btnFinal')
+  buttonFinalRegister.textContent = 'Crear cuenta';
+  buttonFinalRegister.setAttribute('id', 'btnFinal');
 
   buttonHome.textContent = 'Volver al inicio';
-  buttonHome.setAttribute('id', 'btnReturn')
+  buttonHome.setAttribute('id', 'btnReturn');
   buttonHome.addEventListener('click', () => onNavigate('/'));
 
   divRegister.appendChild(buttonHome);
   divRegister.appendChild(buttonFinalRegister);
 
-  const btnLoginGoogle = divRegister.querySelector('.btn-google')
+  const btnLoginGoogle = divRegister.querySelector('.btn-google');
   btnLoginGoogle.addEventListener('click', () => {
     signInGoogle(onNavigate);
   });
@@ -48,7 +47,7 @@ export const register = () => {
     createUser(userEmail, userPassword, userName)
       .then(() => {
         onNavigate('/dashboard');
-      }) 
+      })
       .catch((error) => {
         if (error.code === 'auth/email-already-in-use') {
           document.querySelector('#errorMessageRegister').innerHTML = 'Éste correo ya está registrado';
@@ -56,12 +55,12 @@ export const register = () => {
           document.querySelector('#errorMessageRegister').innerHTML = 'Correo inválido';
         } else if (error.code === 'auth/invalid-password') {
           document.querySelector('#errorMessageRegister').innerHTML = 'Tu clave tiene que tener un mínimo de seis dígitos';
-        } 
+        }
       });
-    });
+  });
 
   divRegister.append(
-    btnFinal
+    btnFinal,
   );
 
   return divRegister;
