@@ -72,6 +72,7 @@ export const login = () => {
         let dateTimePost = document.createElement("h1");
         let deleteIcon = document.createElement('img');
         let likePost = document.createElement('img');
+        const likeNumber = document.createElement('h3');
 
         divPostEntry.className = "timeLine-post";
         imgUser.setAttribute('src', 'images/user.png');
@@ -93,6 +94,7 @@ export const login = () => {
         likePost.className = 'primer-like';
         likePost.onclick = likedPost;
         likePost.setAttribute('data-id', post.id);
+        likeNumber.className = 'like-number';
 
         if (postData.likes.some((like) => like === uid)) {
           likePost.setAttribute('src', '/images/2dolike.png');
@@ -100,6 +102,8 @@ export const login = () => {
         else {
           likePost.setAttribute('src', '/images/1erlike.png');
         }
+
+        likeNumber.innerHTML = postData.likes.length;
 
         if (postData.uid === currentUserInfo().uid) {
           divPostEntry.appendChild(userName);
@@ -109,12 +113,14 @@ export const login = () => {
           userPostText.appendChild(editIcon);
           userPostText.append(deleteIcon);
           userPostText.appendChild(likePost);
+          userPostText.appendChild(likeNumber);
         } else {
           divPostEntry.appendChild(userName);
           userName.appendChild(imgUser);
           divPostEntry.appendChild(userPostText);
           userName.appendChild(dateTimePost);
           userPostText.appendChild(likePost);
+          userPostText.appendChild(likeNumber);
         }
 
         divTimeLine.appendChild(divPostEntry);
@@ -132,23 +138,19 @@ export const login = () => {
 
     if (docData.likes.some(like => like === currentUserInfo().uid)) {
       dislike(doc.id).then(response => { 
-        console.log(response); // al haber sido clickeado entonces voy a correr la funcion dislike
-        event.target.src = '/images/1erlike.png';
+        refreshPosts();
       });
     }
     else {
       giveLike(event.target.dataset.id)
           .then((response) => {
-            // console.log(response);
-            event.target.src = '/images/2dolike.png';
+            refreshPosts();
+            
           })
           .catch();
     }
   };
-
-
- 
-
+   
 
   // onclick editarPost
   const editPost = async (event) => {
