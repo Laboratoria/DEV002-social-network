@@ -2,7 +2,7 @@ import { toNavigate } from "../main.js";
 import { register } from "../components/register.js"
 import { auth, logout, viewer } from "../Firebase/firebase.js";
 import { addPost, postCollection, userCollection } from "../Firebase/firestore.js";
-//import { postPrint } from "./post.js";
+import { postPrint } from "./post.js";
 
 export const feed = () => {
  
@@ -80,7 +80,6 @@ export const feed = () => {
     postContentContainer.appendChild(postContent);
     postContentContainer.appendChild(likeButton);
 
-    postPrint();
 
     buttonSignOut.addEventListener("click", () => toNavigate("/"));
     buttonSignOut.addEventListener("click", async (e) => {

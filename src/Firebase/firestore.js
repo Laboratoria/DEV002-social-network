@@ -8,7 +8,7 @@ import { auth } from './firebase.js';
 export const userCollection = () => getDocs(collection(db, "usuarios"));
 export const postCollection = () => getDocs(collection(db, "posts"));
 export const getDocContent = (id) => getDoc(doc(db, "documents", id));
-export const getPosts = await getDocs(collection(db, "documents"));
+export const getPosts = () => console.log('post-list')
 export const deletePost = (id) => deleteDoc(doc(db, "documents", id));
 export const instantTime = (doc)
 export const editPost = (id, newPost) => updateDoc(doc(db, "documents", id), newPost);
