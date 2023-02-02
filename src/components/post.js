@@ -6,7 +6,7 @@ import { feed } from "../components/feed.js"; */
 
  export const postPrint = (doc) => {
     let docs = doc.data()
-   let postValue =  `
+    let postValue =  `
     <div class = "postContent">
     <div id = "userNamePost" class="userNamePost"> usuario ${docs.user} </div>
     <div id = "postContainer" class= "postContainer"> contenido del post ${docs.post} </div>
