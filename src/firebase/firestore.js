@@ -30,14 +30,12 @@ window.addEventListener('DOMContentLoaded', async () => {
       };
       likeImg();
 
-      // Este código tomará la fecha almacenada en createdDateTime, la convertirá a un objeto Date, y luego utilizará toLocaleString() para mostrarla en el formato deseado
-
       html += `
                 <div class = 'contenedor-padre'> 
                   <p class="name-post"> ${task.name} </p>
                   <p class="date">${task.createdDateTime.toDate().toLocaleString('es-ES', {
-        year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
-      })} </p>
+    year: 'numeric', month: '2-digit', day: '2-digit', hour: '2-digit', minute: '2-digit',
+  })} </p>
                     <textarea class ='div-post-publicado'>${task.description}</textarea>`;
 
       if (task.uid === auth.currentUser.uid) {
@@ -67,22 +65,18 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     botonLike.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
-        const id = e.target.dataset.id;
-        console.log('id', id)
-        const doc = await getTask(id);
-        console.log('doc', doc)
+        const id1 = e.target.dataset.id;
+        // console.log('id', id1);
+        const doc = await getTask(id1);
+        // console.log('doc', doc);
         const likes = doc.data().likes;
         const currentLike = likes.indexOf(userId);
-        
-        console.log(likes);
+
+        // console.log(likes);
         if (currentLike === -1) {
-         
-          tapLike(id, userId);
-         
+          tapLike(id1, userId);
         } else {
-        
-          dislike(id, userId);
-       
+          dislike(id1, userId);
         }
       });
     });
@@ -90,6 +84,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     const btnsDelete = tasksContainer.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
+        // eslint-disable-next-line no-restricted-globals, no-alert
         if (confirm('¿Estás segura de que deseas eliminar esta publicación?')) {
           deleteTask(dataset.id);
         }
@@ -100,7 +95,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
         const doc = await getTask(e.target.dataset.id);
-        console.log(doc.data());
+        // console.log(doc.data());
         const task = doc.data();
 
         taskForm['task-description'].value = task.description;
@@ -120,6 +115,7 @@ taskForm.addEventListener('submit', (e) => {
   const description = taskForm['task-description'];
 
   if (description.value.trim() === '') {
+    // eslint-disable-next-line no-alert
     alert('No se pueden publicar campos vacíos :(');
   } else {
     if (!editStatus) {
@@ -135,8 +131,6 @@ taskForm.addEventListener('submit', (e) => {
     taskForm.reset();
   }
 });
-
-
 
 /// /////
 
@@ -161,11 +155,11 @@ taskForm.addEventListener('submit', (e) => {
 //     name = document.getElementById("name-usuaria").value;
 //     }
 
- //---------
+//---------
 // let displayName = task.name;
 
 // html += `
-// <div class = 'contenedor-padre'> 
+// <div class = 'contenedor-padre'>
 // `;
 
 // if (task.name === null) {
