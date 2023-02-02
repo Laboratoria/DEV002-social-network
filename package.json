@@ -15,8 +15,10 @@
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run stylelint && npm run eslint:fix",
     "test": "jest --coverage",
-    "start": "serve -s src/"
+    "start": "serve -s src/",
+    "deploy": "-d src"
   },
+
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
