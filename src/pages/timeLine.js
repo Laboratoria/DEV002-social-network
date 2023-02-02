@@ -1,6 +1,7 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/no-cycle */
-import { next } from '../main.js';
+//import { next } from '../main.js';
+import { signOutFirebase, auth } from '../firebase/configuracion.js';
 
 export const timeLine = () => {
   const divTimeLine = document.createElement('div');
@@ -21,7 +22,7 @@ export const timeLine = () => {
             <li class="li-navbar"> <img class="navbar-img" src="./images/profilelogo.png" alt="Profile"> </li>
         </a>
         
-           <li class="li-navbar-logout"> <img id="log-out" class="navbar-img" src="./images/log-out.png" alt="log-out"> </li>
+           <button class="li-navbar-logout"> <img id="log-out" class="navbar-img" src="./images/log-out.png" alt="log-out"> </button>
         
     </nav>
 
@@ -33,7 +34,7 @@ export const timeLine = () => {
             <li class="li-navbar"> Perfil </li>
         </a>
         <a href="/login">
-            <li class="li-navbar-logout"> Cerrar sesión </li>
+            <li class="li-navbar-logout" id="li-navbar-logout"> Cerrar sesión </li>
         </a>
     </nav>
 
@@ -60,11 +61,14 @@ export const timeLine = () => {
   divTimeLine.innerHTML = viewTimeLine;
 
   document.addEventListener('DOMContentLoaded', () => {
-    document.querySelector('.li-navbar-logout').addEventListener('click', () => {
-      // console.log('botón cerrar sesión');
-      logOut(next);
+    document.querySelector('#li-navbar-logout').addEventListener('click', () => {
+      console.log('botón cerrar sesión');
+      signOutFirebase(auth);
+      console.log('cerró sesión');
     });
   });
+  
+
 
   return divTimeLine;
 };
