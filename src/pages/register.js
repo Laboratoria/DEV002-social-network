@@ -91,14 +91,13 @@ export const Register = () => {
       const password = document.getElementById('passwordRegister').value;
       const nombreUsuaria = document.getElementById('name-usuaria').value;
       const pais = document.getElementById('paises').value;
-
-       const alertRegister = (valid) => {
-       if(valid){
-         next('/timeLine');
-         location.reload();
-       }
-       }
-       registerUser(email,password,nombreUsuaria,pais,alertRegister);
+      const alertRegister = (valid) => {
+        if (valid) {
+          next('/timeLine');
+          location.reload();
+        }
+      };
+      registerUser(email, password, nombreUsuaria, pais, alertRegister);
     });
   });
 

@@ -84,7 +84,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     const btnsDelete = tasksContainer.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        // eslint-disable-next-line no-restricted-globals, no-alert
         if (confirm('¿Estás segura de que deseas eliminar esta publicación?')) {
           deleteTask(dataset.id);
         }
@@ -131,41 +130,3 @@ taskForm.addEventListener('submit', (e) => {
     taskForm.reset();
   }
 });
-
-/// /////
-
-//  html += `
-//  <div class = 'contenedor-padre'>`
-//  if(auth.currentUser.displayName === null) {
-//      ` <p class="name-post"> ${task.name} </p>`
-//  }else { html += `
-//   <p class="name-post"> ${task.name} </p>`
-
-// }
-
-// let displayName = task.name;
-//     if (!task.name) {
-//     displayName = document.getElementById('name-usuaria').value;
-//     }
-
-// let name = '';
-//     if (task.name) {
-//     name = task.name;
-//     } else if (document.getElementById("name-usuaria").value) {
-//     name = document.getElementById("name-usuaria").value;
-//     }
-
-//---------
-// let displayName = task.name;
-
-// html += `
-// <div class = 'contenedor-padre'>
-// `;
-
-// if (task.name === null) {
-// displayName = document.getElementById('name-usuaria').value;
-// html += `
-//     <p class="name-post"> ${displayName} </p>`;
-// } else {
-// html += `
-//     <p class="name-post"> ${task.name} </p>

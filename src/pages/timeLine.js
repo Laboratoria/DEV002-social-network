@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 /* eslint-disable import/no-cycle */
-//import { next } from '../main.js';
+// import { next } from '../main.js';
 import { signOutFirebase, auth } from '../firebase/configuracion.js';
 
 export const timeLine = () => {
@@ -67,8 +67,6 @@ export const timeLine = () => {
       console.log('cerró sesión');
     });
   });
-  
-
 
   return divTimeLine;
 };
