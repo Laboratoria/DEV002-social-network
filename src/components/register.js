@@ -1,10 +1,6 @@
 import { toNavigate } from "../main.js";
-import {
-	auth,
-	signUpWithPass,
-	profileName,
-	viewer,
-} from "../Firebase/firebase.js";
+import { auth, signUpWithPass, viewer } from "../Firebase/firebase.js";
+//import { getFirestore } from "../src/firebase/firestore.js";
 
 export const register = () => {
 	//Creamos elementos de para el formulario de registro
@@ -65,13 +61,6 @@ export const register = () => {
 	optionFour.innerHTML = "No, pero alguien cercano sí";
 	optionFive.innerHTML = "Me interesa saber más";
 
-	/*selectOption.setAttribute("label", "Seleccionar opción");
-    optionOne.setAttribute("label", "Sí, soy vegano");
-    optionTwo.setAttribute("label", "Soy vegetarian@");
-    optionThree.setAttribute("label", "No, pero lo intento");
-    optionFour.setAttribute("label", "No, pero alguien cercano sí");
-    optionFive.setAttribute("label", "Me interesa saber más");*/
-
 	selectIsVegan.appendChild(selectOption);
 	selectIsVegan.appendChild(optionOne);
 	selectIsVegan.appendChild(optionTwo);
@@ -100,10 +89,6 @@ export const register = () => {
 	labelUserCity.textContent = "Ciudad, País";
 	inputUserCity.className = "input-City-User";
 	inputUserCity.placeholder = "Lima, Perú";
-
-	//labelUserCountry.className = "userCountry";
-	//inputUserCountry.className = "input-Country-User";
-	//inputUserCountry.placeholder = "País";
 
 	labelUserMail.className = "userMail";
 	labelUserMail.textContent = "Correo electrónico";
@@ -140,7 +125,6 @@ export const register = () => {
 	registerForm.appendChild(inputUserName);
 	registerForm.appendChild(labelUserCity);
 	registerForm.appendChild(inputUserCity);
-	//registerForm.appendChild(inputUserCountry);
 	registerForm.appendChild(labelUserMail);
 	registerForm.appendChild(inputUserMail);
 	registerForm.appendChild(labelUserPass);
@@ -152,19 +136,21 @@ export const register = () => {
 	registerForm.appendChild(buttonRegister);
 
 	buttonRegister.addEventListener("click", () => {
-		registerForm.addEventListener("submit", async (e) => {
+		registerForm.addEventListener("click", async (e) => {
 			e.preventDefault(); //cancela comportamiento por defecto de refrescar la pagina
-			const nameForm = inputUserName.value;
-			const emailForm = inputUserMail.value;
-			const passwordForm = inputUserPass.value;
-			console.log(emailForm, passwordForm);
 			try {
-				const userCredentials = await signUpWithPass(auth, emailForm, passwordForm);
-				const nameRegister = await profileName(auth, { displayName: nameForm });
-				console.log(nameForm);
-				console.log(nameRegister);
+				const emailForm = inputUserMail.value;
+				const passwordForm = inputUserPass.value;
+				const nameForm = inputUserName.value;
+				const cityForm = inputUserCity.value;
+
+				const userCredentials = await signUpWithPass(
+					auth,
+					emailForm,
+					passwordForm,
+					nameForm
+				);
 				console.log(userCredentials);
-				toNavigate("/registerOk");
 			} catch (error) {
 				if (error.code === "auth/invalid-email") {
 					alert("email inválido");
@@ -176,7 +162,17 @@ export const register = () => {
 					alert("algo anda mal");
 				}
 			}
+			toNavigate("/registerOk");
 		});
 	});
 	return registerDiv;
 };
+// const docRef = doc(getFirestore(), "document", auth.currentUser.uid);
+// const usersDocs = await setDoc(docRef, "documents", {
+// 	email: auth.currentUser.email,
+// 	userName: auth.currentUser.displayName,
+// 	uid: auth.currentUser.uid,
+// 	location: cityForm.value,
+// 	isVegan: document.querySelector("#selectVegan").value,
+// });
+// console.log(usersDocs);
