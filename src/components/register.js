@@ -161,11 +161,18 @@ export const register = () => {
             console.log(emailForm, passwordForm)
             try {
                 const userCredentials = await signUpWithPass(auth, emailForm, passwordForm)
+<<<<<<< HEAD
                 // const nameRegister = await profileName(nameForm);
                 // console.log(nameRegister);
                 console.log(userCredentials.user.uid);
                 // const userSave = viewer();
                 // console.log(userSave);
+=======
+                const nameRegister = await profileName(auth, ({displayName: nameForm}))
+                console.log(nameForm);
+                console.log(nameRegister);
+                console.log(userCredentials)
+>>>>>>> 370c5bf6ddc0e4e7e940b225fdb7c64bee84117d
                 toNavigate("/registerOk");
             } catch (error) {
                 if (error.code === "auth/invalid-email") {

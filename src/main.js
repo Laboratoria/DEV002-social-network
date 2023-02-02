@@ -11,6 +11,7 @@ import { registerOk } from './components/registerOk.js';
 
 //console.log(onAuthStateChanged);
 
+
 const rootDiv = document.getElementById("root");
 const routes = {
     "/": home,
