@@ -65,7 +65,7 @@ export const login = () => {
   const refreshPosts = () => {
     getAllPosts().then((posts) => {
       divTimeLine.innerHTML = '';
-      posts.forEach((post => {
+      posts.forEach(((post) => {
         const postData = post.data();
         const divPostEntry = document.createElement('div');
 
@@ -149,8 +149,8 @@ export const login = () => {
         submitPost(inputPostText.value).then(() => {
           closeModal();
           refreshPosts();
-      });
-      };
+        });
+      }
     });
   };
 
@@ -196,8 +196,8 @@ export const login = () => {
   // Listener cerrar modal
   btnExit.addEventListener('click', () => closeModal());
 
-   // apertura visual del modal
-   const showModal = () => {
+  // apertura visual del modal
+  const showModal = () => {
     divModalBackground.style.display = 'flex';
     divModalContent.style.display = 'block';
     document.body.style.overflow = 'hidden';
@@ -209,7 +209,6 @@ export const login = () => {
     divModalContent.style.display = 'none';
     document.body.style.overflow = 'visible';
     inputPostText.value = '';
-
   };
 
   // Funcion activacion boton publicar

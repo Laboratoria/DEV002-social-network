@@ -70,7 +70,7 @@ export const signInGoogle = async (onNavigate) => {
 // Función checkout- check
 export const logOut = async (onNavigate) => {
   try {
-    await signOut(auth);  
+    await signOut(auth);
     onNavigate('/');
   } catch (error) {
   }
@@ -100,7 +100,7 @@ export const getAllPosts = async () => {
 
 // función para borrar post
 export const deletePost = (id) => {
- deleteDoc(doc(firestore,'post', id));
+  deleteDoc(doc(firestore, 'post', id));
 };
 
 // funcion para traer un post para editar
@@ -108,11 +108,9 @@ export const getTask = (id) => getDoc(doc(firestore, 'post', id));
 
 // función updateTask
 
-export const updateTask = (id, docData) => {
-  return updateDoc(doc(firestore, 'post', id), {
-    postText: docData.postText,
-  });
-};
+export const updateTask = (id, docData) => updateDoc(doc(firestore, 'post', id), {
+  postText: docData.postText,
+});
 
 export const giveLike = (id, nuevoLike) => {
   updateDoc(doc(firestore, 'post', id), {
