@@ -11,12 +11,13 @@
   "license": "MIT",
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
-    "eslint": "eslint --ext .js src/ test/",
+    "eslint:fix":"eslint --fix --ext. js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
-    "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
-    "start": "serve -s src/"
+    "start": "serve -s src/",
+    "deploy": "-d src"
   },
+
   "devDependencies": {
     "@babel/core": "^7.11.4",
     "@babel/preset-env": "^7.11.0",
@@ -26,7 +27,7 @@
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-jest": "^25.3.0",
     "htmlhint": "^1.0.0",
-    "jest": "^27.0.1",
+    "jest": "^27.5.1",
     "regenerator-runtime": "^0.13.1",
     "serve": "^14.1.2",
     "stylelint": "^14.1.0",
@@ -41,6 +42,6 @@
     "commit": "51e941edf1cc991930aefd7dd9c406a7c43741c1"
   },
   "dependencies": {
-    "firebase": "^9.16.0"
+    "firebase": "^9.15.0"
   }
 }

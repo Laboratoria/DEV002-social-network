@@ -70,7 +70,7 @@ export const signInGoogle = async (onNavigate) => {
 // Función checkout- check
 export const logOut = async (onNavigate) => {
   try {
-    await signOut(auth);  
+    await signOut(auth);
     onNavigate('/');
   } catch (error) {
   }
@@ -100,7 +100,7 @@ export const getAllPosts = async () => {
 
 // función para borrar post
 export const deletePost = (id) => {
- deleteDoc(doc(firestore,'post', id));
+  deleteDoc(doc(firestore, 'post', id));
 };
 
 // funcion para traer un post para editar
@@ -108,23 +108,23 @@ export const getTask = (id) => getDoc(doc(firestore, 'post', id));
 
 // función updateTask
 
-export const updateTask = (id, docData) => {
+export const updateTask = (id, docData) => updateDoc(doc(firestore, 'post', id), {
+  postText: docData.postText,
+});
+
+// funcion like
+export const giveLike = (id) => {
   return updateDoc(doc(firestore, 'post', id), {
-    postText: docData.postText,
+    likes: arrayUnion(getAuth().currentUser.uid)
   });
-};
+}
 
-export const giveLike = (id, nuevoLike) => {
-  updateDoc(doc(firestore, 'post', id), {
-    likes: arrayUnion(nuevoLike),
+//funcion dislike
+export const dislike = (id) => {
+  return updateDoc(doc(firestore,'post', id), {
+    likes: arrayRemove(getAuth().currentUser.uid)
   });
-};
-
-export const dislike = (id, viejoLike) => {
-  updateDoc(doc(firestore, 'post', id), {
-    likes: arrayRemove(viejoLike),
-  });
-};
+}
 
 export {
   getAuth,
