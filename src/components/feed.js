@@ -1,11 +1,17 @@
 import { toNavigate } from "../main.js";
 import { auth, logout } from "../Firebase/firebase.js";
-import { savePost, onGetPosts, deletePost } from "../Firebase/firestore.js";
+import {
+	savePost,
+	onGetPosts,
+	deletePost,
+	updatePost,
+	getPost,
+} from "../Firebase/firestore.js";
 
 export const feed = () => {
 	const feedDiv = document.createElement("div");
 	const containerNewPost = document.createElement("div");
-	const newPostForm = document.createElement("form");
+	const postForm = document.createElement("form");
 	const textAreaNewPost = document.createElement("textarea");
 	const inputLocation = document.createElement("input");
 	const buttonPost = document.createElement("button");
@@ -14,7 +20,7 @@ export const feed = () => {
 
 	feedDiv.className = "div-container-feed";
 	containerNewPost.className = "div-container-newpost";
-	newPostForm.className = "form-newpost";
+	postForm.className = "form-newpost";
 	textAreaNewPost.className = "text-area-write-post";
 	inputLocation.className = "input-post-location";
 	buttonPost.className = "button-post";
@@ -27,11 +33,13 @@ export const feed = () => {
 	feedDiv.appendChild(containerNewPost);
 	feedDiv.appendChild(containerTimeLine);
 	feedDiv.appendChild(buttonSignOut);
-	containerNewPost.appendChild(newPostForm);
-	newPostForm.appendChild(textAreaNewPost);
-	newPostForm.appendChild(inputLocation);
-	newPostForm.appendChild(buttonPost);
+	containerNewPost.appendChild(postForm);
+	postForm.appendChild(textAreaNewPost);
+	postForm.appendChild(inputLocation);
+	postForm.appendChild(buttonPost);
 
+	let editPostStatus = false;
+	let id = "";
 	buttonSignOut.addEventListener("click", () => toNavigate("/"));
 	buttonSignOut.addEventListener("click", async (e) => {
 		e.preventDefault(); //cancela comportamiento por defecto de refrescar la pagina
@@ -43,12 +51,18 @@ export const feed = () => {
 		}
 	});
 
-	newPostForm.addEventListener("submit", (e) => {
+	postForm.addEventListener("submit", (e) => {
 		e.preventDefault();
-		console.log("publicando en Firestore");
-
-		savePost(textAreaNewPost.value, inputLocation.value);
-		newPostForm.reset();
+		// console.log("publicando en Firestore");
+		if (editPostStatus) {
+			updatePost(id, {
+				postContent: textAreaNewPost.value,
+				location: inputLocation.value,
+			});
+		} else {
+			savePost(textAreaNewPost.value, inputLocation.value);
+		}
+		postForm.reset();
 	});
 
 	window.addEventListener("DOMContentLoaded", async () => {
@@ -63,17 +77,35 @@ export const feed = () => {
 				<h3>${post.location} </h3>
 				<p>${post.postContent} </p>
 				<button class = "button-trash" data-id="${doc.id}">Trash</button>
+				<button class = "button-edit" data-id="${doc.id}">Edit</button>
 			</div>`;
 			});
 			containerTimeLine.innerHTML = html;
+
 			const buttonsTrashPost = containerTimeLine.querySelectorAll(".button-trash");
-			buttonsTrashPost.forEach((buttomTrash) => {
-				buttomTrash.addEventListener("click", (e) => {
+			buttonsTrashPost.forEach((buttonTrash) => {
+				buttonTrash.addEventListener("click", (e) => {
 					const postId = e.target.dataset;
 					deletePost(postId.id);
 				});
 			});
-			console.log(buttonsTrashPost);
+
+			const buttonsEditPost = containerTimeLine.querySelectorAll(".button-edit");
+			buttonsEditPost.forEach((buttonEdit) => {
+				console.log(buttonEdit);
+				buttonEdit.addEventListener("click", async (e) => {
+					const doc = await getPost(e.target.dataset.id);
+					const postData = doc.data();
+
+					textAreaNewPost.value = postData.postContent;
+					inputLocation.value = postData.location;
+
+					editPostStatus = true;
+					id = e.target.dataset.id;
+
+					buttonPost.textContent = "Guardar";
+				});
+			});
 		});
 	});
 	return feedDiv;
