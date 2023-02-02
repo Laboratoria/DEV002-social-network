@@ -2,6 +2,7 @@
 import { Login } from './pages/login.js';
 // eslint-disable-next-line import/no-cycle, import/no-unresolved
 import { Register } from './pages/Register.js';
+// eslint-disable-next-line import/no-cycle
 import { timeLine } from './pages/timeLine.js';
 import { profile } from './pages/profile.js';
 
