@@ -2,13 +2,33 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {
-  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile, 
+  createUserWithEmailAndPassword,
+  getAuth,
+  signInWithPopup,
+  GoogleAuthProvider,
+  onAuthStateChanged,
+  signOut,
+  updateProfile,
+  sendEmailVerification,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import {
-  getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp, query, orderBy, onSnapshot, arrayUnion,
+  getFirestore,
+  collection,
+  doc,
+  addDoc,
+  getDoc,
+  getDocs,
+  deleteDoc,
+  updateDoc,
+  Timestamp,
+  query,
+  orderBy,
+  onSnapshot,
+  arrayUnion,
   arrayRemove,
+// eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
-import { sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 
 // const auth = getAuth();
 
@@ -29,20 +49,20 @@ export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 export const user = () => auth.currentUser;
 
-export const saveTask = (description, name) => addDoc(collection(db, 'tasks'), {
+export const saveTask = (description) => addDoc(collection(db, 'tasks'), {
   description,
   name: auth.currentUser.displayName,
   uid: auth.currentUser.uid,
   likes: [],
-  createdDateTime: Timestamp.fromDate(new Date())
+  createdDateTime: Timestamp.fromDate(new Date()),
 });
 
 export const saveUser = (name, uid, email, pais) => addDoc(collection(db, 'users'), {
-  name: name,
-  uid: uid,
-  email: email,
-  pais: pais,
-  createdDateTime: Timestamp.fromDate(new Date())
+  name,
+  uid,
+  email,
+  pais,
+  createdDateTime: Timestamp.fromDate(new Date()),
 });
 
 export const getTasks = () => getDocs(collection(db, 'tasks'));
@@ -59,18 +79,18 @@ export const dateTask = (querySnapshot) => {
 export function registerUser(email, password, name, pais, callback) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log(name)
+      console.log(name);
       updateProfile(auth.currentUser, {
-       displayName: name,
-        
-     })
+        displayName: name,
+
+      });
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
       const user = userCredential.user;
       const userId = user.uid;
       user.displayName = name;
       console.log(user, userId);
-      saveUser(user.displayName, userId, email, pais)
+      saveUser(user.displayName, userId, email, pais);
       callback(true);
     })
     .catch((error) => {
@@ -86,9 +106,9 @@ export function registerUser(email, password, name, pais, callback) {
       }
       callback(false);
     })
-    .then (function(){
-        sendEmailVerification(auth.currentUser)
-    })
+    .then(() => {
+      sendEmailVerification(auth.currentUser);
+    });
 }
 
 // Sign in with Google
@@ -107,7 +127,7 @@ export const authGoogle = async () => {
   }
 };
 
-//Cerrar sesión
+// Cerrar sesión
 
 export const onAuth = (auth, user) => onAuthStateChanged(auth, user);
 export const signOutFirebase = (auth) => signOut(auth);
@@ -116,18 +136,16 @@ onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log('user is signed in');
     const uid = user.uid;
-
   } else if (signOutFirebase) {
     console.log('user is signed out');
   }
 });
 
-
 export const logOut = async (next) => {
   try {
-    await signOut(auth);  
+    await signOut(auth);
     next('/login');
-    console.log("cerró sesión");
+    console.log('cerró sesión');
   } catch (error) {
     console.error(error);
   }

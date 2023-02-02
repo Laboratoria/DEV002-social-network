@@ -1,5 +1,5 @@
+import { next } from '../main.js';
 
-import { next} from "../main.js";
 export const timeLine = () => {
   const divTimeLine = document.createElement('div');
   divTimeLine.setAttribute('class', 'container-div-timeLine');
@@ -57,14 +57,12 @@ export const timeLine = () => {
 `;
   divTimeLine.innerHTML = viewTimeLine;
 
-  document.addEventListener('DOMContentLoaded', function() {
+  document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.li-navbar-logout').addEventListener('click', () => {
       console.log('botón cerrar sesión');
       logOut(next);
     });
   });
-  
-  
-    
+
   return divTimeLine;
 };
