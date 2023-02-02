@@ -2,12 +2,14 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {
-  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut,updateProfile
+  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile, 
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import {
   getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp, query, orderBy, onSnapshot, arrayUnion,
   arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
+import { sendEmailVerification } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
+
 // const auth = getAuth();
 
 // Your web app's Firebase configuration
@@ -27,23 +29,12 @@ export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 export const user = () => auth.currentUser;
 
-// export const saveTask = (description) =>
-//     addDoc(collection(db, 'tasks'),{ description, likes:[], name:""});
-// export const saveTask = (description) =>
-// addDoc(collection(db, 'tasks'),{
-//   description: description,
-//   name:auth.currentUser.displayName,
-//   uid:auth.currentUser.uid,
-//   likes:[],
-//   createdDateTime: Timestamp.fromDate(new Date())
-// });
-
 export const saveTask = (description, name) => addDoc(collection(db, 'tasks'), {
   description,
   name: auth.currentUser.displayName,
   uid: auth.currentUser.uid,
   likes: [],
-  createdDateTime: Timestamp.fromDate(new Date()),
+  createdDateTime: Timestamp.fromDate(new Date())
 });
 
 export const saveUser = (name, uid, email, pais) => addDoc(collection(db, 'users'), {
@@ -55,13 +46,11 @@ export const saveUser = (name, uid, email, pais) => addDoc(collection(db, 'users
 });
 
 export const getTasks = () => getDocs(collection(db, 'tasks'));
-
 export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
 export const dateTask = (querySnapshot) => {
   const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));
-
   onSnapshot(q, querySnapshot);
 };
 
@@ -79,7 +68,7 @@ export function registerUser(email, password, name, pais, callback) {
       console.log('Usuario registrado correctamente');
       const user = userCredential.user;
       const userId = user.uid;
-      user.displayName = name
+      user.displayName = name;
       console.log(user, userId);
       saveUser(user.displayName, userId, email, pais)
       callback(true);
@@ -96,7 +85,10 @@ export function registerUser(email, password, name, pais, callback) {
         alert('Completa todos los campos');
       }
       callback(false);
-    });
+    })
+    .then (function(){
+        sendEmailVerification(auth.currentUser)
+    })
 }
 
 // Sign in with Google
@@ -115,22 +107,31 @@ export const authGoogle = async () => {
   }
 };
 
+//Cerrar sesión
+
 export const onAuth = (auth, user) => onAuthStateChanged(auth, user);
 export const signOutFirebase = (auth) => signOut(auth);
 
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log('user is signed in');
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
     const uid = user.uid;
-    // ...
-  } else if (signOut) {
+
+  } else if (signOutFirebase) {
     console.log('user is signed out');
-    // User is signed out
-    // ...
   }
 });
+
+
+export const logOut = async (next) => {
+  try {
+    await signOut(auth);  
+    next('/login');
+    console.log("cerró sesión");
+  } catch (error) {
+    console.error(error);
+  }
+};
 
 // Like function
 
@@ -141,8 +142,6 @@ export const tapLike = (id, newLike) => {
         newLike,
       ),
   });
-  // .then(() => console.log("+1 like"))
-  // .catch((error) => console.error("Error", error));
 };
 
 export const dislike = (id, oldLike) => {
@@ -152,8 +151,6 @@ export const dislike = (id, oldLike) => {
         oldLike,
       ),
   });
-  // .then(() => console.log("-1 like"))
-  // .catch((error) => console.error("Error", error));
 };
 
 export {
@@ -169,5 +166,5 @@ export {
   arrayRemove,
   Timestamp,
   updateProfile,
-  onAuthStateChanged
+  onAuthStateChanged,
 };

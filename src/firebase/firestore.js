@@ -1,4 +1,5 @@
 // import { async } from 'regenerator-runtime';
+import { next } from '../main.js';
 import {
   saveTask, deleteTask, getTask, updateTask, tapLike, dislike, user, auth, dateTask,
 } from './configuracion.js';
@@ -62,6 +63,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     });
 
     tasksContainer.innerHTML = html;
+    
 
     const userId = user().uid;
     const botonLike = tasksContainer.querySelectorAll('.like-logo');
