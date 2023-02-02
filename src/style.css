@@ -292,7 +292,6 @@ header {
     height: 100px;
     width: 90%;
     background-color: white;
-    background-color: white;
     cursor: pointer;
     border-color: grey;
     border-radius: 10px;
@@ -302,7 +301,7 @@ header {
 
 #modal-content-post {
     width: 92%;
-    background-color: #94B49F;
+    background-color: #dbefe2;
     border-radius: 20px;
     cursor: pointer;
     display: none;
