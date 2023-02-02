@@ -15,7 +15,7 @@
 
 ## 1. Introducción al proyecto:
 
-En este proyecto nos propusimos desarrollar una red social para los amantes de los libros. Creamos un espacio para que los usuarios creen su perfil y puedan compartir reseñas de los libros que han leído y así disfrutar de dar y responder a diferentes opiniones.
+En este proyecto nos propusimos desarrollar una red social para los amantes de los libros. Creamos un espacio para que los usuarios creen su perfil y puedan compartir reseñas de los libros que han leído y así disfrutar de dar y responder a diferentes opiniones. https://dev-002-social-network-readingclub.vercel.app/
 
 ![Logo1](src/images/logo.png)
 
@@ -40,6 +40,7 @@ Obtuvimos feedback de pares y coaches hasta que consideramos que la página esta
 ### Prototipo de alta fidelidad
 ![Prototipoalta1](src/images/Prototipo1.png)
 ![Prototipoalta2](src/images/Prototipo2.png)
+![Prototipoalta3](src/images/Prototipo3.png)
 
 
 
