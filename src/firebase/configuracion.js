@@ -52,7 +52,7 @@ export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 export const user = () => auth.currentUser;
 
-export const saveTask = (description) => addDoc(collection(db, 'tasks'), {
+export const saveTask = (description, name) => addDoc(collection(db, 'tasks'), {
   description,
   name: auth.currentUser.displayName,
   uid: auth.currentUser.uid,
@@ -132,28 +132,44 @@ export const authGoogle = async () => {
 
 // Cerrar sesión
 
-export const onAuth = (auth, user) => onAuthStateChanged(auth, user);
-export const signOutFirebase = (auth) => signOut(auth);
+export const signOutFirebase = (auth) => auth.signOut();
 
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log('user is signed in');
-    // eslint-disable-next-line no-unused-vars
-    const uid = user.uid;
-  } else if (signOutFirebase) {
-    console.log('user is signed out');
-  }
-});
-
-export const logOut = async (next) => {
-  try {
-    await signOut(auth);
-    next('/login');
-    console.log('cerró sesión');
-  } catch (error) {
-    console.error(error);
-  }
+export const onAuth = (auth) => {
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      console.log('user is signed in');
+      const uid = user.uid;
+    } else {
+      console.log('user is signed out');
+    }
+  });
 };
+
+
+
+// export const onAuth = (auth, user) => onAuthStateChanged(auth, user);
+// export const signOutFirebase = (auth) => signOut(auth);
+
+// onAuthStateChanged(auth, (user) => {
+//   if (user) {
+//     console.log('user is signed in');
+//     const uid = user.uid;
+//   } else if (signOutFirebase) {
+//     console.log('user is signed out');
+//   }
+// });
+
+//   export const logOut = (auth) => signOut(auth);
+
+  // export const logOut = async (next) => {
+//   try {
+//     await signOut(auth);
+//     next('/login');
+//     console.log('cerró sesión');
+//   } catch (error) {
+//     console.error(error);
+//   }
+//};
 
 // Like function
 
@@ -189,4 +205,5 @@ export {
   Timestamp,
   updateProfile,
   onAuthStateChanged,
+  signOut
 };
