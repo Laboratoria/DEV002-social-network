@@ -1,3 +1,5 @@
+/* eslint-disable no-undef */
+/* eslint-disable import/no-cycle */
 import { next } from '../main.js';
 
 export const timeLine = () => {
@@ -59,7 +61,7 @@ export const timeLine = () => {
 
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('.li-navbar-logout').addEventListener('click', () => {
-      console.log('botón cerrar sesión');
+      // console.log('botón cerrar sesión');
       logOut(next);
     });
   });

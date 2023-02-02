@@ -1,3 +1,6 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+/* eslint-disable no-shadow */
 // Importa la biblioteca de Firebase
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
@@ -79,17 +82,17 @@ export const dateTask = (querySnapshot) => {
 export function registerUser(email, password, name, pais, callback) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      console.log(name);
       updateProfile(auth.currentUser, {
         displayName: name,
 
       });
       // El usuario ha sido registrado correctamente
+      // eslint-disable-next-line no-console
       console.log('Usuario registrado correctamente');
       const user = userCredential.user;
       const userId = user.uid;
       user.displayName = name;
-      console.log(user, userId);
+      // console.log(user, userId);
       saveUser(user.displayName, userId, email, pais);
       callback(true);
     })
@@ -135,6 +138,7 @@ export const signOutFirebase = (auth) => signOut(auth);
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log('user is signed in');
+    // eslint-disable-next-line no-unused-vars
     const uid = user.uid;
   } else if (signOutFirebase) {
     console.log('user is signed out');

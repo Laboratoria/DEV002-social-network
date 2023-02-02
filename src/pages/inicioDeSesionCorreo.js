@@ -1,3 +1,7 @@
+/* eslint-disable no-alert */
+/* eslint-disable no-console */
+/* eslint-disable no-unused-vars */
+/* eslint-disable import/no-unresolved */
 import { signInWithEmailAndPassword } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import { auth } from '../firebase/configuracion.js';
 

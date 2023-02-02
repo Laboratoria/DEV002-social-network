@@ -1,3 +1,4 @@
+/* eslint-disable no-restricted-globals */
 // import { onNavigate } from "../../main.js";
 import { registerUser } from '../firebase/configuracion.js';
 import { next } from '../main.js';
@@ -85,7 +86,7 @@ export const Register = () => {
     const registerButton = document.getElementById('register-button');
     registerButton.addEventListener('click', (event) => {
       event.preventDefault();
-      console.log('click register se ejecutó');
+      // console.log('click register se ejecutó');
       const email = document.getElementById('emailRegister').value;
       const password = document.getElementById('passwordRegister').value;
       const nombreUsuaria = document.getElementById('name-usuaria').value;
