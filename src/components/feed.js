@@ -10,7 +10,7 @@ import {
 	collection,
 	db,
 	onSnapshot,
-	deletePost,
+	deletePost, query, orderBy, onGetDates,
 } from "../Firebase/firestore.js";
 import { postPrint } from "./post.js";
 
@@ -56,20 +56,23 @@ export const feed = () => {
 	newPostContainer.appendChild(newPostButton);
 	feedDiv.appendChild(postFeed);
 
-	window.addEventListener("DOMContentLoaded", async () => {
-		onGetPosts((querySnapshot) => {
-			postFeed.innerHTML = "";
-			querySnapshot.forEach((doc) => {
-				const postDiv = document.createElement("div");
-				//console.log(doc.data())
-				postDiv.className = "postDiv";
-				const printedPost = postPrint(doc);
-				postDiv.innerHTML = printedPost;
-				postFeed.appendChild(postDiv);
-				//postDiv.innerHTML += `
-				//<div class = post"> ${doc.data().post}</div>
-				//`
-			});
+    window.addEventListener('DOMContentLoaded', async () => {
+
+        const queryRef = query(collection(db, 'documents'), orderBy('createdAt', 'desc'));
+        console.log(queryRef)
+        onSnapshot(queryRef, (querySnapshot) => {
+            postFeed.innerHTML = ''
+            querySnapshot.forEach(doc => {
+                const postDiv = document.createElement('div')
+                //console.log(doc.data())
+                postDiv.className = "postDiv"
+                const printedPost = postPrint(doc)
+                postDiv.innerHTML = printedPost
+                postFeed.appendChild(postDiv)
+                //postDiv.innerHTML += `
+                //<div class = post"> ${doc.data().post}</div>
+                //`              
+            });
 
 			const btnDelete = postFeed.querySelectorAll(".buttonDelete");
 			btnDelete.forEach((btn) => {
