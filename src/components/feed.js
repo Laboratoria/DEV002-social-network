@@ -1,6 +1,6 @@
 import { toNavigate } from "../main.js";
 import { auth, logout } from "../Firebase/firebase.js";
-import { savePost, onGetPosts } from "../Firebase/firestore.js";
+import { savePost, onGetPosts, deletePost } from "../Firebase/firestore.js";
 
 export const feed = () => {
 	const feedDiv = document.createElement("div");
@@ -62,9 +62,18 @@ export const feed = () => {
 			<div>
 				<h3>${post.location} </h3>
 				<p>${post.postContent} </p>
+				<button class = "button-trash" data-id="${doc.id}">Trash</button>
 			</div>`;
 			});
 			containerTimeLine.innerHTML = html;
+			const buttonsTrashPost = containerTimeLine.querySelectorAll(".button-trash");
+			buttonsTrashPost.forEach((buttomTrash) => {
+				buttomTrash.addEventListener("click", (e) => {
+					const postId = e.target.dataset;
+					deletePost(postId.id);
+				});
+			});
+			console.log(buttonsTrashPost);
 		});
 	});
 	return feedDiv;
