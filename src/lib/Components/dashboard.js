@@ -60,7 +60,7 @@ export const login = () => {
   const btnExit = divLogin.querySelector('.btn-exit');
   const divModalBackground = divLogin.querySelector('#modal-background-post');
   const divModalContent = divLogin.querySelector('#modal-content-post');
-  
+
   // apertura visual del modal
   const showModal = () => {
     divModalBackground.style.display = 'flex';
@@ -73,16 +73,14 @@ export const login = () => {
     divModalContent.style.display = 'none';
     document.body.style.overflow = 'visible';
     inputPostText.value = '';
-
   };
-  //onclick detelePost
+  // onclick detelePost
   const deletePostListener = (event) => {
     const postId = event.target.dataset.id;
-    let opcion = confirm('Desea eliminar el comentario?');
-    if (opcion === false) { }
-    else {
+    const opcion = confirm('Desea eliminar el comentario?');
+    if (opcion === false) { } else {
       deletePost(postId);
-    };
+    }
     refreshPosts();
   };
 
@@ -95,31 +93,29 @@ export const login = () => {
     btnPost.disabled = false;
     btnPost.doc = docToEdit;
   };
-   //onclikc likedPost
-   const likedPost = async (event) => {
-    const doc = await getTask(event.target.dataset.id); 
+  // onclikc likedPost
+  const likedPost = async (event) => {
+    const doc = await getTask(event.target.dataset.id);
     const docData = doc.data();
 
-    if (docData.likes.some(like => like === currentUserInfo().uid)) {
-      dislike(doc.id).then(response => { 
+    if (docData.likes.some((like) => like === currentUserInfo().uid)) {
+      dislike(doc.id).then((response) => {
         refreshPosts();
       });
-    }
-    else {
+    } else {
       giveLike(event.target.dataset.id)
-          .then((response) => {
-            refreshPosts();
-            
-          })
-          .catch();
+        .then((response) => {
+          refreshPosts();
+        })
+        .catch();
     }
   };
-  
-  //funcion que llama getDocs de firestore y re pinta los html elements para mostrar
+
+  // funcion que llama getDocs de firestore y re pinta los html elements para mostrar
   const refreshPosts = () => {
     getAllPosts().then((posts) => {
       divTimeLine.innerHTML = '';
-      posts.forEach((post => {
+      posts.forEach(((post) => {
         const postData = post.data();
         const uid = currentUserInfo().uid;
         const divPostEntry = document.createElement('div');
@@ -159,10 +155,9 @@ export const login = () => {
 
         if (postData.likes.some((like) => like === uid)) {
           likePost.setAttribute('src', '/images/2dolike.png');
-          }
-        else {
+        } else {
           likePost.setAttribute('src', '/images/1erlike.png');
-         }
+        }
 
         likeNumber.innerHTML = postData.likes.length;
 
@@ -193,7 +188,6 @@ export const login = () => {
     });
   };
 
- 
   btnPost.addEventListener('click', (event) => {
     const doc = event.currentTarget.doc;
 
@@ -205,20 +199,18 @@ export const login = () => {
         closeModal();
         refreshPosts();
       });
-    }
-    else {
+    } else {
       submitPost(inputPostText.value).then((response) => {
         closeModal();
         refreshPosts();
         alert('Reseña creada', response);
       });
-    };
+    }
   });
 
   // aqui se manda llamar el getDocs al cargar la pagina en Dashboard
   refreshPosts();
   // Funcion cerrar sesion
-
 
   btnLogout.addEventListener('click', () => {
     logOut(onNavigate);
@@ -226,7 +218,6 @@ export const login = () => {
 
   // Funcion crear post
 
-  
   btnCreatePost.addEventListener('click', () => {
     showModal();
     inputPostText.focus();
@@ -235,14 +226,13 @@ export const login = () => {
   // Listener cerrar modal
   btnExit.addEventListener('click', () => closeModal());
 
-
-  //Funcion activacion boton publicar
+  // Funcion activacion boton publicar
   inputPostText.addEventListener('keyup', () => {
     const valueInput = inputPostText.value.trim();
     if (valueInput === '') {
-      btnPost.disabled = true; 
+      btnPost.disabled = true;
     } else {
-      btnPost.disabled = false; 
+      btnPost.disabled = false;
     }
   });
 
