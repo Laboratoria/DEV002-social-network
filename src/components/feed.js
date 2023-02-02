@@ -1,7 +1,7 @@
 import { toNavigate } from "../main.js";
 import { register } from "../components/register.js"
 import { auth, logout, viewer } from "../Firebase/firebase.js";
-import { addPost, postCollection, userCollection, getPosts, collection, db, onSnapshot } from "../Firebase/firestore.js";
+import { addPost, onGetPosts, postCollection, userCollection, getPosts, collection, db, onSnapshot } from "../Firebase/firestore.js";
 //import { postPrint } from "./post.js";
 
 export const feed = () => {
@@ -48,22 +48,26 @@ export const feed = () => {
     feedDiv.appendChild(postFeed);
 
     window.addEventListener('DOMContentLoaded', async () => {
-
-        const querySnapshot = await getPosts()
-         querySnapshot.forEach(doc => {
-            //const printedPost = postPrint(doc.data())
-            //console.log(doc.data(), postFeed)
-            const postDiv = document.createElement('div')
-            postDiv.innerHTML += `
-            <div class = post"> ${doc.data().post}</div>
-            `
-            postDiv.className = "postDiv"
-            //console.log("aber", printedPost)
-            postFeed.appendChild(postDiv)
-
+        
+        
+        onGetPosts((querySnapshot) => {
+            postFeed.innerHTML = ''
+            querySnapshot.forEach(doc => {
+                //const printedPost = postPrint(doc.data())
+                //console.log(doc.data(), postFeed)
+                const postDiv = document.createElement('div')
+                postDiv.innerHTML += `
+                <div class = post"> ${doc.data().post}</div>
+                `
+                postDiv.className = "postDiv"
+                //console.log("aber", printedPost)
+                postFeed.appendChild(postDiv)
+    
+            });
         });
-
     })
+    
+    
 
 
     buttonSignOut.addEventListener("click", () => toNavigate("/"));
@@ -83,8 +87,8 @@ export const feed = () => {
         try {
             const postContent = newPostInput.value;
             const contenidoPost = await addPost(postContent)
-            console.log(postContent);
-            console.log(contenidoPost)
+            //console.log(postContent);
+            //console.log(contenidoPost)
             newPostContainer.reset();
 
         } catch (error) {

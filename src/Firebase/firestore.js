@@ -10,7 +10,7 @@ export const postCollection = () => getDocs(collection(db, "posts"));
 export const getDocContent = (id) => getDoc(doc(db, "documents", id));
 export const getPosts = () => getDocs(collection(db, 'documents'))
 export const deletePost = (id) => deleteDoc(doc(db, "documents", id));
-export const instantTime = (doc)
+export const onGetPosts = (callback) => onSnapshot(collection(db, 'documents'), callback)
 export const editPost = (id, newPost) => updateDoc(doc(db, "documents", id), newPost);
 export const addPost = (post) => addDoc (collection(db, "documents"), {
     post,
