@@ -10,7 +10,9 @@ import {
 	deleteDoc,
 	updateDoc,
 	addDoc,
-	onSnapshot, serverTimestamp, query,,
+	onSnapshot, 
+    serverTimestamp, 
+    query,
 orderBy} from "https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js";
 import { auth } from "./firebase.js";
 
