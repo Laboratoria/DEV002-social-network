@@ -1,7 +1,7 @@
 import { toNavigate } from "../main.js";
 import { register } from "../components/register.js"
 import { auth, logout, viewer } from "../Firebase/firebase.js";
-import { addPost, onGetPosts, postCollection, userCollection, getPosts, collection, db, onSnapshot, deletePost } from "../Firebase/firestore.js";
+import { addPost, onGetPosts, postCollection, userCollection, getPosts, collection, db, onSnapshot, deletePost, query, orderBy, onGetDates } from "../Firebase/firestore.js";
 import { postPrint } from "./post.js";
 
 export const feed = () => {
@@ -49,8 +49,9 @@ export const feed = () => {
 
     window.addEventListener('DOMContentLoaded', async () => {
 
-
-        onGetPosts((querySnapshot) => {
+        const queryRef = query(collection(db, 'documents'), orderBy('createdAt', 'desc'));
+        console.log(queryRef)
+        onSnapshot(queryRef, (querySnapshot) => {
             postFeed.innerHTML = ''
             querySnapshot.forEach(doc => {
                 const postDiv = document.createElement('div')
