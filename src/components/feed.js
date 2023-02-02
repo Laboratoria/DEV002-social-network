@@ -1,8 +1,8 @@
 import { toNavigate } from "../main.js";
 import { register } from "../components/register.js"
 import { auth, logout, viewer } from "../Firebase/firebase.js";
-import { addPost, onGetPosts, postCollection, userCollection, getPosts, collection, db, onSnapshot } from "../Firebase/firestore.js";
-//import { postPrint } from "./post.js";
+import { addPost, onGetPosts, postCollection, userCollection, getPosts, collection, db, onSnapshot, deletePost } from "../Firebase/firestore.js";
+import { postPrint } from "./post.js";
 
 export const feed = () => {
 
@@ -48,26 +48,39 @@ export const feed = () => {
     feedDiv.appendChild(postFeed);
 
     window.addEventListener('DOMContentLoaded', async () => {
-        
-        
+
+
         onGetPosts((querySnapshot) => {
             postFeed.innerHTML = ''
             querySnapshot.forEach(doc => {
-                //const printedPost = postPrint(doc.data())
-                //console.log(doc.data(), postFeed)
                 const postDiv = document.createElement('div')
-                postDiv.innerHTML += `
-                <div class = post"> ${doc.data().post}</div>
-                `
+                //console.log(doc.data())
                 postDiv.className = "postDiv"
-                //console.log("aber", printedPost)
+                const printedPost = postPrint(doc)
+                postDiv.innerHTML = printedPost
                 postFeed.appendChild(postDiv)
-    
+                //postDiv.innerHTML += `
+                //<div class = post"> ${doc.data().post}</div>
+                //`              
+            });
+
+            const btnDelete = postFeed.querySelectorAll('.buttonDelete')
+            btnDelete.forEach(btn => {
+                btn.addEventListener("click", async ({target: {dataset}}) => {
+                    try{
+                        await deletePost(dataset.id);
+                    }
+                    catch (error) {
+                        console.log(error)
+                    }
+                })
+                
             });
         });
+
     })
-    
-    
+
+
 
 
     buttonSignOut.addEventListener("click", () => toNavigate("/"));
