@@ -112,17 +112,19 @@ export const updateTask = (id, docData) => updateDoc(doc(firestore, 'post', id),
   postText: docData.postText,
 });
 
-export const giveLike = (id, nuevoLike) => {
-  updateDoc(doc(firestore, 'post', id), {
-    likes: arrayUnion(nuevoLike),
+// funcion like
+export const giveLike = (id) => {
+  return updateDoc(doc(firestore, 'post', id), {
+    likes: arrayUnion(getAuth().currentUser.uid)
   });
-};
+}
 
-export const dislike = (id, viejoLike) => {
-  updateDoc(doc(firestore, 'post', id), {
-    likes: arrayRemove(viejoLike),
+//funcion dislike
+export const dislike = (id) => {
+  return updateDoc(doc(firestore,'post', id), {
+    likes: arrayRemove(getAuth().currentUser.uid)
   });
-};
+}
 
 export {
   getAuth,
