@@ -84,7 +84,6 @@ window.addEventListener('DOMContentLoaded', async () => {
     const btnsDelete = tasksContainer.querySelectorAll('.btn-delete');
     btnsDelete.forEach((btn) => {
       btn.addEventListener('click', ({ target: { dataset } }) => {
-        // eslint-disable-next-line no-restricted-globals, no-alert
         if (confirm('¿Estás segura de que deseas eliminar esta publicación?')) {
           deleteTask(dataset.id);
         }
