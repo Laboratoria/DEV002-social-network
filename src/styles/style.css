@@ -311,7 +311,7 @@ p {
     border-style:solid;
     border-width: 1.5px;
     border-radius: 10px;
-    width: 27rem;
+    width: 70%;
     margin: auto;
     margin-top: 2rem;
 
@@ -321,7 +321,6 @@ p {
     font-size: 1.7rem;
     text-align: center;
     padding: 1rem;
-    width: 27rem;
 }
 
 .input-about-me{
@@ -335,7 +334,6 @@ p {
     font-family: 'Raleway', sans-serif;
     padding: 1rem;
     margin-bottom: 1.5rem;
-    width: 27rem;
 }
 
 

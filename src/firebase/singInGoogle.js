@@ -1,6 +1,3 @@
-/* eslint-disable no-unused-vars */
-/* eslint-disable no-console */
-/* eslint-disable no-undef */
 // eslint-disable-next-line import/no-unresolved
 import { signInWithPopup, GoogleAuthProvider } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 
@@ -10,8 +7,8 @@ const provider = new GoogleAuthProvider();
 export const authGoogle = async () => {
   try {
     const userResult = await signInWithPopup(auth, provider);
-    // console.log(userResult);
-    // console.log('probando');
+    console.log(userResult);
+    console.log('probando');
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
