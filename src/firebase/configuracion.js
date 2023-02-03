@@ -2,7 +2,7 @@
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {
-  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut,updateProfile
+  createUserWithEmailAndPassword, getAuth, signInWithPopup, GoogleAuthProvider, onAuthStateChanged, signOut, updateProfile
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import {
   getFirestore, collection, doc, addDoc, getDoc, getDocs, deleteDoc, updateDoc, Timestamp, query, orderBy, onSnapshot, arrayUnion,
@@ -47,10 +47,10 @@ export const saveTask = (description, name) => addDoc(collection(db, 'tasks'), {
 });
 
 export const saveUser = (name, uid, email, pais) => addDoc(collection(db, 'users'), {
-  name: name,
-  uid: uid,
-  email: email,
-  pais: pais,
+  name,
+  uid,
+  email,
+  pais,
   createdDateTime: Timestamp.fromDate(new Date())
 });
 
@@ -61,7 +61,6 @@ export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
 export const dateTask = (querySnapshot) => {
   const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));
-
   onSnapshot(q, querySnapshot);
 };
 
@@ -72,14 +71,14 @@ export function registerUser(email, password, name, pais, callback) {
     .then((userCredential) => {
       console.log(name)
       updateProfile(auth.currentUser, {
-       displayName: name,
-        
-     })
+        displayName: name,
+
+      });
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
       const user = userCredential.user;
       const userId = user.uid;
-      user.displayName = name
+      user.displayName = name;
       console.log(user, userId);
       saveUser(user.displayName, userId, email, pais)
       callback(true);
