@@ -148,8 +148,6 @@ export {
   arrayRemove,
   Timestamp,
   updateProfile,
-
   onAuthStateChanged,
   signOut,
-
 };
