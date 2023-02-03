@@ -1,8 +1,7 @@
-
+/* eslint-disable no-console */
 /* eslint-disable no-undef */
 /* eslint-disable import/no-cycle */
 import { signOutFirebase, auth } from '../firebase/configuracion.js';
-
 
 export const timeLine = () => {
   const divTimeLine = document.createElement('div');
@@ -35,7 +34,7 @@ export const timeLine = () => {
             <li class="li-navbar"> Perfil </li>
         </a>
         <a href="/login">
-            <li class="li-navbar-logout"> Cerrar sesión </li>
+            <li class="li-navbar-logout" id="li-navbar-logout"> Cerrar sesión </li>
         </a>
     </nav>
 
@@ -61,7 +60,6 @@ export const timeLine = () => {
 `;
   divTimeLine.innerHTML = viewTimeLine;
 
-
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#li-navbar-logout').addEventListener('click', () => {
       console.log('botón cerrar sesión');
@@ -70,7 +68,6 @@ export const timeLine = () => {
     });
   });
 
-
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#log-out').addEventListener('click', () => {
       console.log('botón cerrar sesión');
@@ -78,8 +75,6 @@ export const timeLine = () => {
       console.log('cerró sesión');
     });
   });
-
-
 
   return divTimeLine;
 };
