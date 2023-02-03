@@ -1,4 +1,3 @@
-/* eslint-disable no-console */
 // import { onNavigate, next } from '../main.js';
 import { inicioDeSesionEmail } from './inicioDeSesionCorreo.js';
 // import { signInWithGoogle } from '../firebase/singInGoogle.js';
@@ -42,12 +41,12 @@ export const Login = () => {
     const logInButton = document.getElementById('ingresar');
     logInButton.addEventListener('click', (event) => {
       event.preventDefault();
+      console.log('click se ejecutó');
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       const alertLogin = (valid) => {
         if (valid) {
           next('/timeLine');
-          // eslint-disable-next-line no-restricted-globals
           location.reload();
         }
       };
@@ -58,6 +57,7 @@ export const Login = () => {
     const googleButton = document.getElementById('inicio-sesion-google');
     googleButton.addEventListener('click', async (event) => {
       event.preventDefault();
+      console.log('click botón google');
       await authGoogle();
     });
   });
