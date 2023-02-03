@@ -1,8 +1,8 @@
 /* eslint-disable no-console */
 // import { onNavigate, next } from '../main.js';
-import { inicioDeSesionEmail } from './inicioDeSesionCorreo.js';
+// import { inicioDeSesionEmail } from './inicioDeSesionCorreo';
 // import { signInWithGoogle } from '../firebase/singInGoogle.js';
-import { authGoogle } from '../firebase/configuracion.js';
+import { authGoogle, inicioDeSesionEmail } from '../firebase/configuracion.js';
 // eslint-disable-next-line import/no-cycle
 import { next } from '../main.js';
 

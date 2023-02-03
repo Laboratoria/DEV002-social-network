@@ -131,4 +131,3 @@ taskForm.addEventListener('submit', (e) => {
     taskForm.reset();
   }
 });
-
