@@ -10,17 +10,17 @@ export const Register = () => {
   <figure class="logo-inicio-sesion">
     <img class="logo" src="./images/logo.png" alt="Imagen de un avión dando la vuelta al mundo">
   </figure>
-<section class="section-register" id="sectionOne">
-  <h1 class="title">Journey Mates 🛫 </h1>
-  <h2 class="inicia-sesion-h2">Regístrate</h2>
+  <section class="section-register" id="sectionOne">
+    <h1 class="title">Journey Mates 🛫 </h1>
+    <h2 class="inicia-sesion-h2">Regístrate</h2>
   <form id="userForm">
-  <input type="name" id="name-usuaria" class="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
-  <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
-  <input id="passwordRegister" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
-  <div class="container-paises">
-    <label for="paises" class="lista-paises"> País de procedencia * </label> <br>
-    <select id="paises" class="paises" name="paises" required>
-      <option value="">Elige un país</option>
+      <input type="name" id="name-usuaria" class="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
+      <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
+      <input id="passwordRegister" type="password" placeholder="Contraseña*" autocomplete="current-password" required> <br>
+      <div class="container-paises">
+        <label for="paises" class="lista-paises"> País de procedencia * </label> <br>
+        <select id="paises" class="paises" name="paises" required>
+          <option value="">Elige un país</option>
       <option value="Argentina">Argentina</option>
       <option value="Bolivia">Bolivia</option>
       <option value="Brasil">Brasil</option>
