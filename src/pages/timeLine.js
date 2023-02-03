@@ -1,5 +1,4 @@
 
-/* eslint-disable no-undef */
 /* eslint-disable import/no-cycle */
 import { signOutFirebase, auth } from '../firebase/configuracion.js';
 
