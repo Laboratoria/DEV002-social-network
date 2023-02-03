@@ -34,6 +34,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       likeImg();
 
       // console.log(auth.currentUser);
+
       html += `
                 <div class = 'contenedor-padre'> 
                   <p class="name-post"> ${task.name} </p>
