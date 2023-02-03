@@ -34,7 +34,7 @@ export const timeLine = () => {
             <li class="li-navbar"> Perfil </li>
         </a>
         <a href="/login">
-            <li class="li-navbar-logout"> Cerrar sesión </li>
+            <li class="li-navbar-logout" id="li-navbar-logout"> Cerrar sesión </li>
         </a>
     </nav>
 

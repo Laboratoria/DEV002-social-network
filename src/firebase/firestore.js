@@ -32,7 +32,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       likeImg();
 
       // Este código tomará la fecha almacenada en createdDateTime, la convertirá a un objeto Date, y luego utilizará toLocaleString() para mostrarla en el formato deseado
-     console.log(auth.currentUser)
+    // console.log(auth.currentUser)
       html += `
                 <div class = 'contenedor-padre'> 
                   <p class="name-post"> ${task.name} </p>
