@@ -9,7 +9,6 @@ import {
   arrayRemove,
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 // const auth = getAuth();
-
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: 'AIzaSyAAHfvbH9LChUrOwAbR4cydwCsmHa7Q330',
@@ -26,7 +25,6 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 export const user = () => auth.currentUser;
-
 // export const saveTask = (description) =>
 //     addDoc(collection(db, 'tasks'),{ description, likes:[], name:""});
 // export const saveTask = (description) =>
@@ -37,7 +35,6 @@ export const user = () => auth.currentUser;
 //   likes:[],
 //   createdDateTime: Timestamp.fromDate(new Date())
 // });
-
 export const saveTask = (description, name) => addDoc(collection(db, 'tasks'), {
   description,
   name: auth.currentUser.displayName,
@@ -45,7 +42,6 @@ export const saveTask = (description, name) => addDoc(collection(db, 'tasks'), {
   likes: [],
   createdDateTime: Timestamp.fromDate(new Date()),
 });
-
 export const saveUser = (name, uid, email, pais) => addDoc(collection(db, 'users'), {
   name,
   uid,
@@ -53,9 +49,7 @@ export const saveUser = (name, uid, email, pais) => addDoc(collection(db, 'users
   pais,
   createdDateTime: Timestamp.fromDate(new Date())
 });
-
 export const getTasks = () => getDocs(collection(db, 'tasks'));
-
 export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
 export const getTask = (id) => getDoc(doc(db, 'tasks', id));
 export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
@@ -63,16 +57,13 @@ export const dateTask = (querySnapshot) => {
   const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));
   onSnapshot(q, querySnapshot);
 };
-
 // Create new users
-
 export function registerUser(email, password, name, pais, callback) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
       console.log(name)
       updateProfile(auth.currentUser, {
         displayName: name,
-
       });
       // El usuario ha sido registrado correctamente
       console.log('Usuario registrado correctamente');
@@ -97,9 +88,7 @@ export function registerUser(email, password, name, pais, callback) {
       callback(false);
     });
 }
-
 // Sign in with Google
-
 export const authGoogle = async () => {
   try {
     const userResult = await signInWithPopup(auth, provider);
@@ -113,10 +102,8 @@ export const authGoogle = async () => {
     // console.log(error);
   }
 };
-
 export const onAuth = (auth, user) => onAuthStateChanged(auth, user);
 export const signOutFirebase = (auth) => signOut(auth);
-
 onAuthStateChanged(auth, (user) => {
   if (user) {
     console.log('user is signed in');
@@ -130,9 +117,7 @@ onAuthStateChanged(auth, (user) => {
     // ...
   }
 });
-
 // Like function
-
 export const tapLike = (id, newLike) => {
   updateDoc(doc(db, 'tasks', id), {
     likes:
@@ -143,7 +128,6 @@ export const tapLike = (id, newLike) => {
   // .then(() => console.log("+1 like"))
   // .catch((error) => console.error("Error", error));
 };
-
 export const dislike = (id, oldLike) => {
   updateDoc(doc(db, 'tasks', id), {
     likes:
@@ -154,7 +138,6 @@ export const dislike = (id, oldLike) => {
   // .then(() => console.log("-1 like"))
   // .catch((error) => console.error("Error", error));
 };
-
 export {
   collection,
   addDoc,
