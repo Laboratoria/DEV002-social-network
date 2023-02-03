@@ -31,10 +31,19 @@ export const addPost = (post) => addDoc (collection(db, "documents"), {
     likes: [],
     createdAt: serverTimestamp() 
 
-});
+export const savePost = (postContent, location) =>
+	addDoc(postCollection, {
+		postContent,
+		location,
+	});
 
+//export const getPosts = () => getDocs(postCollection);
+export const onGetPosts = (callback) => onSnapshot(postCollection, callback);
 
 
 export { collection, onSnapshot, db, query, orderBy }
 
+export const updatePost = (id, newDocPost) =>
+	updateDoc(doc(db, "posts", id), newDocPost);
 
+export const getPost = (id) => getDoc(doc(db, "posts", id));
