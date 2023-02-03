@@ -25,17 +25,10 @@ export const auth = getAuth(app);
 export const provider = new GoogleAuthProvider(app);
 export const db = getFirestore(app);
 export const user = () => auth.currentUser;
-// export const saveTask = (description) =>
-//     addDoc(collection(db, 'tasks'),{ description, likes:[], name:""});
-// export const saveTask = (description) =>
-// addDoc(collection(db, 'tasks'),{
-//   description: description,
-//   name:auth.currentUser.displayName,
-//   uid:auth.currentUser.uid,
-//   likes:[],
-//   createdDateTime: Timestamp.fromDate(new Date())
-// });
-export const saveTask = (description, name) => addDoc(collection(db, 'tasks'), {
+
+
+export const saveTask = (description) => addDoc(collection(db, 'tasks'), {
+
   description,
   name: auth.currentUser.displayName,
   uid: auth.currentUser.uid,
@@ -102,21 +95,24 @@ export const authGoogle = async () => {
     // console.log(error);
   }
 };
-export const onAuth = (auth, user) => onAuthStateChanged(auth, user);
-export const signOutFirebase = (auth) => signOut(auth);
-onAuthStateChanged(auth, (user) => {
-  if (user) {
-    console.log('user is signed in');
-    // User is signed in, see docs for a list of available properties
-    // https://firebase.google.com/docs/reference/js/firebase.User
-    const uid = user.uid;
-    // ...
-  } else if (signOut) {
-    console.log('user is signed out');
-    // User is signed out
-    // ...
-  }
-});
+
+
+// Cerrar sesión
+
+export const signOutFirebase = (auth) => auth.signOut();
+
+export const onAuth = (auth) => {
+  auth.onAuthStateChanged((user) => {
+    if (user) {
+      console.log('user is signed in');
+      // const uid = user.uid;
+    } else {
+      console.log('user is signed out');
+    }
+  });
+};
+
+
 // Like function
 export const tapLike = (id, newLike) => {
   updateDoc(doc(db, 'tasks', id), {
@@ -139,6 +135,7 @@ export const dislike = (id, oldLike) => {
   // .catch((error) => console.error("Error", error));
 };
 export {
+  createUserWithEmailAndPassword,
   collection,
   addDoc,
   getDocs,
@@ -151,5 +148,8 @@ export {
   arrayRemove,
   Timestamp,
   updateProfile,
-  onAuthStateChanged
+
+  onAuthStateChanged,
+  signOut,
+
 };

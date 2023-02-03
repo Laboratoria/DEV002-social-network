@@ -1,8 +1,12 @@
 // importamos la funcion que vamos a testear
-import { myFunction } from '../src/lib/index';
 
-describe('myFunction', () => {
+// eslint-disable-next-line import/no-unresolved
+import { createUserWithEmailAndPassword } from '../src/firebase/configuracion.js';
+
+
+
+describe('createUser', () => {
   it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+    expect(typeof createUserWithEmailAndPassword).toBe('function');
   });
 });
