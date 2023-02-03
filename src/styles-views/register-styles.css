@@ -6,32 +6,182 @@
 
 :root {
     --main-color: #03a678;
+    --main-color-two: #7cc2ae;
     --neutral-background: #201f1f;
+    --neutral-font: #201f1f;
+    --neutral-color-select: #ffffff;
+    --bg-image: url("../img/25x25 patron.png");
+    --bg-image-opacity: .25;
     --tittles-font-family: 'Oleo Script', cursive;
     --secundary-font-family: 'Roboto', sans-serif;
 }
 
 .register-div {
-    background-color: var(--neutral-background);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    justify-items: center;
+    align-content: center;
+    row-gap: 5px;
+    width: 100%;
+    height: 100vh;
+    font-family: var(--secundary-font-family);
+    min-height: 500px;
+    background-image: var(--bg-image);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+    isolation: isolate;
 }
 
-.inputNameUser{
-    width: 70px;
+.register-div::after {
+    content: "";
+    z-index: -1;
+    inset: 0;
+    background: white;
+    opacity: .8;
+    position: absolute;
+}
+
+.container-logo-register {
+    display: flex;
+    justify-content: center;
+}
+
+.img-logo-register {
+    width: 95px;
+    transform: rotate(45deg);
+}
+
+.container-register {
+    margin: 40px;
+    grid-row-start: 1;
+    grid-row-end: 2;
+    display: flex;
+    flex-direction: column;
+    align-items:center;
+    justify-content: center;
+    margin-top: 90px;
+    
+}
+
+.register-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    margin: 20px;
+    
+
+}
+
+.input-Name-User {
+    width: 285px;
     height: 30px;
     border-color: var(--main-color);
+    border-radius: 15px;
+    margin-top: 0px;
+    padding: 7px;
+    text-align: left;
 }
 
-#selectVegan{
+.input-City-User {
+    width: 285px;
+    height: 30px;
+    border-color: var(--main-color);
+    border-radius: 15px;
+    margin-top: 0px;
+    padding: 7px;
+}
+
+.input-Mail-User {
+    width: 285px;
+    height: 30px;
+    border-color: var(--main-color);
+    border-radius: 15px;
+    margin-top: 0px;
+    padding: 7px;
+}
+
+.input-Pass-User {
+    width: 285px;
+    height: 30px;
+    border-color: var(--main-color);
+    border-radius: 15px;
+    margin-top: 0px;
+    padding: 7px;
+}
+
+.input-Check-Pass {
+    width: 285px;
+    height: 30px;
+    border-color: var(--main-color);
+    border-radius: 15px;
+    margin-top: 0px;
+    padding: 7px;
+}
+
+.userName {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 13px;
+}
+
+.userCity{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 13px;
+}
+
+.userMail{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 13px;
+}
+
+.userPassword{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 13px;
+}
+
+.userCheckPass{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 13px;
+}
+
+.label-user-select{
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 13px;
+}
+
+#selectVegan {
     width: 270px;
-    height: 30px;
+    height: 35px;
+    font-size: 15px;
+    font-family: var(--secundary-font-family);
+    padding: 7px;
+    margin-top: 0px;
     border-color: var(--main-color);
 }
 
-#selectVegan, option {
-    background-color: var(--main-color);
+
+#selectVegan,
+option {
+    background-color: var(--main-color-two) ;
+    border-radius: 15px;
 }
 
 .button-Register {
+    width: 270px;
+  height: 40px;
+  border-radius: 30px;
+  color: var(--neutral-font);
+  font-size: 18px;
+  font-weight: bold;
+  border-style: none;
+    margin: 30px;
     background-color: var(--main-color);
 }
-

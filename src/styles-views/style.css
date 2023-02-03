@@ -16,11 +16,10 @@
   --secundary-font-family: 'Roboto', sans-serif;
 }
 
-.container {
+.div-container {
   display: grid;
-  grid-column: 1fr;
-  grid-template-rows: repeat(7, 1fr);
-  place-items: center;
+  grid-template-columns: 1fr;
+  grid-template-rows: repeat(6, 1fr);
   row-gap: 15px;
   width: 100%;
   height: 100vh;
@@ -28,57 +27,67 @@
   font-family: var(--secundary-font-family);
 }
 
-.container-logo {
-  grid-row-start: 2;
-  grid-row-end: 3;
+.container {
+  grid-row-start: 1;
+  grid-row-end: 7;
   display: flex;
   flex-direction: column;
   justify-items: center;
-  align-self: flex-end;
-  margin-bottom: 5px;
+  align-items: center;
+}
+
+.container-header {
+  grid-row-start: 1;
+  grid-row-end: 2;
+  display: flex;
+  flex-direction: column;
+  place-items: center;
+  margin-top: 70px;
 }
 
 .img-logo {
-  width: 230px;
+  width: 250px;
 }
 
 .container-form {
   grid-row-start: 3;
   grid-row-end: 5;
-  display: flex;
-  flex-direction: column;
-  align-self: flex-start;
-  justify-content: center;
-  align-items: center;
+  margin-top: 60px;
 }
 
 .login-form {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-self: flex-start;
-  gap: 5px;
-  margin-top: 15px;
-  align-items: center;
-
+  align-items: left;
+  gap: 10px;
 }
 
-.labels{
+.labels {
   color: var(--neutral-font);
   font-size: 15px;
   font-weight: bold;
 }
 
-/*.inputs{
+.inputs {
   width: 270px;
   height: 30px;
   border-radius: 20px;
-  font-size: 15px;
   font-weight: lighter;
   border-style: none;
-  text-align: left;
   padding: 10px;
 }
+
+.inputs::placeholder {
+  color: rgba(31, 30, 28, 0.5);
+  font-style: italic;
+  font-size: 14px;
+}
+
+.inputs:focus {
+  border:2px solid #03a678;
+  transform: scale(1.05);
+  outline: none;
+  }
 
 .buttons {
   width: 270px;
@@ -88,57 +97,45 @@
   font-size: 15px;
   font-weight: bold;
   border-style: none;
-}*/
+}
+
+.buttons:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+}
 
 .button-login {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  text-align: center;
   background-color: var(--main-color);
-  margin-top: 60px;
+  margin-top: 40px;
 }
 
 .container-google {
   grid-row-start: 5;
   grid-row-end: 6;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  justify-items: center;
-  align-self: flex-start;
-  gap: 3px;
-  margin-top: 45px;
+  margin-top: 10px;
 }
 
 .button-google {
   background-color: var(--secondary-red);
   padding-right: 20px;
   padding-bottom: 3px;
-  text-align: center;
 }
 
 .fa-google {
   float: left;
   width: 35px;
   font-size: 18px;
-  padding-left: 50px;
-}
-
-.button-google:hover {
-  cursor: pointer;
+  padding-left: 40px;
 }
 
 .container-register {
   grid-row-start: 6;
   grid-row-end: 7;
-  text-align: center;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start;
-  align-self: flex-start;
-  margin-bottom: 75px;
+  place-items: center;
+  gap: 10px;
+  margin-top: 20px;
 }
 
 .href-register {
@@ -148,126 +145,115 @@
   text-decoration: underline;
 }
 
-@media screen and (min-width: 500px) {
-
-  .container {
-    row-gap: 25px;
+.href-register:hover {
+  cursor: pointer;
+  transform: scale(1.1);
   }
 
-  .container-logo {
-    margin-bottom: 30px;
+@media screen and (min-width: 390px) {
+
+  .container-header {
+    margin-top: 80px;
   }
 
   .img-logo {
-    width: 250px;
+    width: 270px;
   }
 
-  .login-form {
-    gap: 8px;
-    margin-top: 40px;
+  .container-form {
+    margin-top: 70px;
   }
 
   .labels {
-    font-size: 16px;
+    font-size: 17px;
   }
 
   .inputs {
-    width: 370px;
-    height: 40px;
-    border-radius: 30px;
+    width: 300px;
     font-size: 17px;
   }
 
   .buttons {
-    width: 370px;
-    height: 45px;
-    border-radius: 35px;
-    font-size: 18px;
+    width: 300px;
+
+    font-size: 17px;
   }
 
   .button-login {
-    margin-top: 70px;
+    margin-top: 80px;
   }
 
   .container-google {
-    margin-top: 30px;
-  }
-
-  .button-google {
-    padding-right: 35px;
-  }
-
-  .fa-google {
-    width: 65px;
-    font-size: 23px;
-    padding-left: 80px;
+    margin-top: 15px;
   }
 
   .href-register {
     font-size: 18px;
   }
-
 }
 
 @media screen and (min-width: 700px) {
 
-  .container {
-    row-gap: 18px;
-    width: 100%;
-    height: 100vh;
-  }
-
-  .container-logo {
-    margin-bottom: 30px;
+  .container-header {
+    margin-top: 80px;
   }
 
   .img-logo {
-    width: 350px;
+    width: 370px;
+  }
+
+  .container-form {
+    margin-top: 90px;
   }
 
   .login-form {
-    gap: 10px;
-    margin-top: 45px;
+    gap: 25px;
   }
 
   .labels {
-    font-size: 18px;
+    font-size: 20px;
+    margin-bottom: -20px;
   }
 
   .inputs {
-    width: 470px;
-    height: 45px;
+    width: 400px;
+    height: 40px;
     border-radius: 40px;
-    font-size: 17px;
+    font-size: 20px;
+    gap: 30px;
+    ;
   }
 
   .buttons {
-    width: 470px;
+    width: 400px;
     height: 50px;
-    border-radius: 45px;
+    border-radius: 30px;
     font-size: 20px;
   }
 
   .button-login {
-    margin-top: 90px;
+    margin-top: 80px;
   }
 
   .container-google {
-    margin-top: 55px;
+    margin-top: 15px;
   }
 
   .button-google {
-    padding-right: 65px;
+    padding-right: 40px;
   }
 
   .fa-google {
-    width: 75px;
-    font-size: 28px;
-    padding-left: 110px;
+    font-size: 24px;
+    padding-left: 80px;
+  }
+
+  .container-register {
+    gap: 25px;
+    margin-top: 80px;
   }
 
   .href-register {
-    font-size: 20px;
+    font-size: 21px;
   }
-
 }
