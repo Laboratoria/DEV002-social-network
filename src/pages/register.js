@@ -8,11 +8,14 @@ export const Register = () => {
   divRegister.setAttribute('class', 'container-div-register');
   const viewRegister = `<div class="containerRegister" id="containerRegister">
   <figure class="logo-inicio-sesion">
-    <img class="logo" src="./images/logo.png" alt="Imagen de un avión dando la vuelta al mundo">
+   <img class="logo" src="./images/logo.png" alt="Imagen de un avión dando la vuelta al mundo">
   </figure>
+  
 <section class="section-register" id="sectionOne">
-  <h1 class="title">Journey Mates 🛫 </h1>
-  <h2 class="inicia-sesion-h2">Regístrate</h2>
+ <h1 class="title">Journey Mates 🛫 </h1>
+ <h2 class="inicia-sesion-h2">Regístrate</h2>
+
+
   <form id="userForm">
   <input type="name" id="name-usuaria" class="name" placeholder="Nombre completo*" autocomplete="name" required> <br>
   <input id="emailRegister" type="email" placeholder="Correo electrónico*" autocomplete="email" required> <br>
@@ -94,3 +97,12 @@ export const Register = () => {
   return divRegister;
 };
 export default Register;
+
+
+
+
+
+
+
+
+
