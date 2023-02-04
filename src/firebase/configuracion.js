@@ -116,31 +116,26 @@ export function registerUser(email, password, name, pais, callback) {
 }
 
 // inicio de sesión con email
-
-export function inicioDeSesionEmail(email, password, callback) {
-  signInWithEmailAndPassword(auth, email, password)
-    .then((userCredential) => {
-      console.log('signed in');
-      const user = userCredential.user;
-      const userId = user.uid;
-      console.log(user, userId);
-      callback(true);
-    // ...
-    })
-    .catch((error) => {
-      // const errorCode = error.code;
-      // const errorMessage = error.message;
-      if (error.code === 'auth/email-already-in-use') {
-        alert('Este correo ya está registrado');
-      } else if (error.code === 'auth/weak-password') {
-        alert('Tu contraseña no es segura');
-      } else if (error.code === 'auth/invalid-email') {
-        alert('Este correo no existe o es inválido');
-      } else if (error.code === 'auth/internal-error') {
-        alert('Completa todos los campos');
-      }
-      callback(false);
-    });
+export async function inicioDeSesionEmail(email, password) {
+  try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    console.log('signed in');
+    const user = userCredential.user;
+    const userId = user.uid;
+    console.log(user, userId);
+    return true;
+  } catch (error) {
+    if (error.code === 'auth/email-already-in-use') {
+      alert('Este correo ya está registrado');
+    } else if (error.code === 'auth/weak-password') {
+      alert('Tu contraseña no es segura');
+    } else if (error.code === 'auth/invalid-email') {
+      alert('Este correo no existe o es inválido');
+    } else if (error.code === 'auth/internal-error') {
+      alert('Completa todos los campos');
+    }
+    return false;
+  }
 }
 
 // Sign in with Google
@@ -210,4 +205,5 @@ export {
   updateProfile,
   onAuthStateChanged,
   signOut,
+  signInWithEmailAndPassword,
 };

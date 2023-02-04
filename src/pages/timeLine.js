@@ -45,7 +45,7 @@ export const timeLine = () => {
                     <p class="nombreUsuaria" id="nombreUsuaria"> </p>
                     <p class="pais-actual id="pais-actual"> </p>
                     <label for="description"> </label>
-                    <textarea  id="task-description" rows="3" class="input-recomendaciones" type="text" placeholder="¿Cuáles son tus  recomendaciones de hoy?"></textarea> 
+                    <textarea  id="task-description" rows="6" class="input-recomendaciones" type="text" placeholder="¿Cuáles son tus  recomendaciones de hoy?"></textarea> 
                     <button class="btn-publicar" id="btn-publicar">Publicar</button>
                  </form>
         </div>

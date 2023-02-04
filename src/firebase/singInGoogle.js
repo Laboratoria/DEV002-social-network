@@ -44,3 +44,8 @@ export function signInWithGoogle(callback) {
       // ...
     });
 }
+
+export {
+  signInWithPopup,
+  GoogleAuthProvider,
+};

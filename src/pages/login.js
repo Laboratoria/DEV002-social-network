@@ -1,9 +1,11 @@
+/* eslint-disable no-alert */
+/* eslint-disable indent */
 /* eslint-disable no-console */
 /* eslint-disable no-restricted-globals */
 // import { onNavigate, next } from '../main.js';
 // import { inicioDeSesionEmail } from './inicioDeSesionCorreo';
 // import { signInWithGoogle } from '../firebase/singInGoogle.js';
-import { authGoogle, inicioDeSesionEmail } from '../firebase/configuracion.js';
+import { authGoogle, signInWithEmailAndPassword, auth } from '../firebase/configuracion.js';
 // eslint-disable-next-line import/no-cycle
 import { next } from '../main.js';
 
@@ -39,22 +41,36 @@ export const Login = () => {
   
 `;
   divLogin.innerHTML = viewLogin;
-  document.addEventListener('DOMContentLoaded', () => {
+  document.addEventListener('DOMContentLoaded', async () => {
     const logInButton = document.getElementById('ingresar');
-    logInButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      console.log('click se ejecutó');
-      const email = document.getElementById('email').value;
-      const password = document.getElementById('password').value;
-      const alertLogin = (valid) => {
-        if (valid) {
-          next('/timeLine');
-          location.reload();
-        }
-      };
-      inicioDeSesionEmail(email, password, alertLogin);
+    logInButton.addEventListener('click', async (event) => {
+    event.preventDefault();
+    console.log('click se ejecutó');
+
+    const email = document.getElementById('email').value;
+    const password = document.getElementById('password').value;
+    try {
+    const userCredential = await signInWithEmailAndPassword(auth, email, password);
+    console.log('signed in');
+    const user = userCredential.user;
+    const userId = user.uid;
+    console.log(user, userId);
+      next('/timeLine');
+      location.reload();
+    } catch (error) {
+    if (error.code === 'auth/email-already-in-use') {
+    alert('Este correo ya está registrado');
+    } else if (error.code === 'auth/weak-password') {
+    alert('Tu contraseña no es segura');
+    } else if (error.code === 'auth/invalid-email') {
+    alert('Este correo no existe o es inválido');
+    } else if (error.code === 'auth/internal-error') {
+    alert('Completa todos los campos');
+    }
+    }
     });
-  });
+    });
+
   document.addEventListener('DOMContentLoaded', () => {
     const googleButton = document.getElementById('inicio-sesion-google');
     googleButton.addEventListener('click', async (event) => {
