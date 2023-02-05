@@ -16,17 +16,9 @@ import {
   createUserWithEmailAndPassword,
   auth,
   onAuthStateChanged,
-  signOut,
   signInWithEmailAndPassword,
-  inicioDeSesionEmail,
-  tapLike,
-  registerUser,
-  saveTask,
-  saveUser,
   signOutFirebase,
-  signInWithGoogle,
   signInWithPopup,
-  GoogleAuthProvider,
 } from '../src/firebase/configuracion.js';
 
 jest.mock('../src/firebase/configuracion.js', () => {

@@ -208,4 +208,6 @@ export {
   signInWithEmailAndPassword,
   signInWithPopup,
   GoogleAuthProvider,
+  getFirestore,
+
 };
