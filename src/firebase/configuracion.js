@@ -206,4 +206,6 @@ export {
   onAuthStateChanged,
   signOut,
   signInWithEmailAndPassword,
+  signInWithPopup,
+  GoogleAuthProvider,
 };

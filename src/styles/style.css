@@ -74,7 +74,7 @@ button {
 }
 
 .ingresar {
-    height: 4rem;
+    height: 7rem;
     cursor: pointer;
     margin: 2.5rem;
 }
@@ -226,12 +226,12 @@ li {
     background-color: aliceblue;
     color: black;
     width: 70%;
-    height: 5rem;
+    height: 10rem;
     margin: 2rem 1rem 0.5rem 1rem;
     border-radius: 8px;
     padding: 1rem;
     font-family: 'Raleway', sans-serif;
-    font-size: 1.7rem;
+    font-size: 1.2rem;
 }
 
 .btn-edit{
