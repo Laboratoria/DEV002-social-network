@@ -21,7 +21,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       // const fecha=Timestamp.fromDate(new Date())
       const likes = task.likes;
       const likesNumber = likes.length;
-      const userId = user();
+      const userId = user().uid;
       const currentLike = likes.indexOf(userId);
       let likeSrc = '';
       const likeImg = () => {
