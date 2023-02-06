@@ -24,10 +24,10 @@ import {
     dislike,
     tapLike,
     getTask,
+    addDoc,
     getDoc,
     doc,
     db,
-    addDoc,
 } from '../src/firebase/configuracion.js';
 
 jest.mock('../src/firebase/configuracion.js', () => {
@@ -111,23 +111,6 @@ jest.mock('../src/firebase/configuracion.js', () => {
         }),
     }
 });
-
-// describe('Test for saveTask', () => {
-//     it('saveTask should be a function', () => {
-//         expect(typeof saveTask).toBe('function')
-//     });
-
-//     it('saveTask should call addDoc with its parameters.', () => {
-//         saveTask('test description', []);
-//         expect(addDoc).toHaveBeenCalledWith(
-//             collection(db, 'tasks'),
-//             {
-//                 description: 'test description',
-//                 likes: [],
-//             },
-//         )
-//     });
-// });
 
 describe('Test for saveTask', () => {
     it('saveTask should be a function', () => {
