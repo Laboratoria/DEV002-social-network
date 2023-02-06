@@ -27,6 +27,7 @@ import {
     getDoc,
     doc,
     db,
+    addDoc,
 } from '../src/firebase/configuracion.js';
 
 jest.mock('../src/firebase/configuracion.js', () => {
@@ -46,8 +47,8 @@ jest.mock('../src/firebase/configuracion.js', () => {
         arrayUnion: jest.fn(),
         arrayRemove: jest.fn(),
 
-        saveTask: jest.fn((description, likes) => {
-            if (!description || likes === undefined) {
+        saveTask: jest.fn((description) => {
+            if (!description) {
                 throw new Error('ERROR');
             }
             return Promise.resolve({ user: 'admin' });
@@ -133,16 +134,10 @@ describe('Test for saveTask', () => {
       expect(typeof saveTask).toBe('function')
     });
 
-    it('saveTask should call addDoc with its parameters.', () => {
-      saveTask('test description', []);
-      expect(saveTask).toHaveBeenCalledWith(
-        collection(db, 'tasks'),
-        {
-        description: 'test description', likes: [],
-        },
-      )
+    it('saveTask should call addDoc with its parameters.', async () => {
+      await saveTask('test description')
+      expect(addDoc).toHaveBeenCalledWith('test description')
     });
-  });
 
 describe('Test for saveUser', () => {
     it('saveUser should be a function', () => {
@@ -230,3 +225,4 @@ describe('Test for dislike', () => {
         })
     })
 });
+})
