@@ -6,7 +6,8 @@
 * [ii. Historias de Usuario](#2-historias-de-usuario)
 * [iii. Prototipos](#3-prototipos)
 * [iv. Consideraciones generales](#4-consideraciones-generales)
-* [v. Listado de problemas que detectaste a través de tests de usabilidad](#v-listado-de-problemas-que-detectaste-a-través-de-tests-de-usabilidad)
+* [v. Proyectos desplegados](#4-consideraciones-generales)
+* [vi. Tests de usabilidad](#v-listado-de-problemas-que-detectaste-a-través-de-tests-de-usabilidad)
 
 
 ***
@@ -163,7 +164,7 @@ para compartir en mi perfil lo que estoy haciendo.
 
     *El código pasa los tests necesarios.
 
-    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.![](https://github.com/dvnielx/DEV002-data-lovers/blob/main/src/images/Prototipos/HU%20Orden%20A-Z%20y%20HU%20Porcentajes.png)
+    *La página se puede abrir tanto en computadora como en dispositivos móviles y es funcional.
 
     *Puedes editar cada una de tus publicaciones a través de un botón de editar.
 
@@ -201,18 +202,26 @@ para interactuar con las publicaciones.
 
 * Prototipo de baja fidelidad
 
-![img](./src/images/)
-
 
 * Prototipo de alta fidelidad
 
+![img](./src/images/Prototipo%20de%20baja_mobile.JPG)
+![img](./src/images/Prototipo%20de%20baja_desktop.JPG)
 
-## iv. Proyectos desplegados
+![img](./src/images/1.png)
+![img](./src/images/2.png)
+![img](./src/images/3.png)
+![img](./src/images/4.png)
 
-* 💻 Carmen: 
+
+## iv. Consideraciones generales
+
+## v. Proyectos desplegados
+
 * 💻 Daniela:
+* 💻 Carmen: 
 * 💻 Miriam:
 
 
-## v. Tests de usabilidad
+## vi. Tests de usabilidad
 
