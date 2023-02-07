@@ -1,8 +1,22 @@
 // importamos la funcion que vamos a testear
-import { popupRegister } from '../src/lib/firebase/registerFir.js';
+import { createUserWithEmailAndPassword, verifiedEmail }
+  from '../src/lib/firebase/registerFir.js';
 
-describe('myFunction', () => {
-  it('debería ser una función', () => {
-    expect(typeof myFunction).toBe('function');
+jest.mock('../src/lib/firebase/registerFir.js', () => ({
+  createUserWithEmailAndPassword: jest.fn((email, password) => {
+    if (!email || !password) {
+      throw new Error('ERROR');
+    }
+    return Promise.resolve({ userCredential: 'admin' });
+  }),
+}));
+
+describe('test para la funcion de login', () => {
+  const email = 'petblr@test.com';
+  const password = 'Petblrlomejor123';
+
+  it('Should call signInWithEmailAndPassword', async () => {
+    await verifiedEmail(email, password);
+    expect(createUserWithEmailAndPassword).toHaveBeenCalled();
   });
 });

@@ -1,71 +1,71 @@
-import { onNavigate } from "../main.js";
-import { saveTask , getTasks } from "../lib/firebase/muroFir.js";
+// eslint-disable-next-line import/no-cycle
+import { saveTask } from '../lib/firebase/muroFir.js';
 
 export const vistaGeneral = () => {
-    const homeDiv = document.createElement('div');
-    const navFijo = document.createElement('nav');
-    const tituloFijo = document.createElement('h2');
-    const formMuro = document.createElement('form'); 
-    const labelTitle = document.createElement('label');
-    const inpuText = document.createElement('input');
-    const labelDescrip = document.createElement('label');
-    const textArea = document.createElement('textarea');
-    const buttonGuardar = document.createElement('button');
-    const divContainer = document.createElement('div');
+  const homeDiv = document.createElement('div');
+  const navFijo = document.createElement('nav');
+  const tituloFijo = document.createElement('h2');
+  const formMuro = document.createElement('form');
+  const labelTitle = document.createElement('label');
+  const inpuText = document.createElement('input');
+  const labelDescrip = document.createElement('label');
+  const textArea = document.createElement('textarea');
+  const buttonGuardar = document.createElement('button');
+  const divContainer = document.createElement('div');
 
-    navFijo.className = 'navFijo';
-    tituloFijo.className = 'nameFijo';
-    formMuro.className = 'task-form';
-    labelTitle.className = 'labelTitle';
-    inpuText.className = 'inpuText';
-    labelDescrip.className = 'labelDescrip';
-    textArea.className = 'textArea';
-    buttonGuardar.className = 'buttonGuardar';
-    divContainer.className = 'divContainer';
+  navFijo.className = 'navFijo';
+  tituloFijo.className = 'nameFijo';
+  formMuro.className = 'task-form';
+  labelTitle.className = 'labelTitle';
+  inpuText.className = 'inpuText';
+  labelDescrip.className = 'labelDescrip';
+  textArea.className = 'textArea';
+  buttonGuardar.className = 'buttonGuardar';
+  divContainer.className = 'divContainer';
 
-    formMuro.id = 'task-form';
-    inpuText.id = 'inpuText';
-    textArea.id = 'task-description';
-    buttonGuardar.id = 'btn-task-save';
-    divContainer.id = 'tasks-container';
-    
-    document.getElementById('task-form');
+  formMuro.id = 'task-form';
+  inpuText.id = 'inpuText';
+  textArea.id = 'task-description';
+  buttonGuardar.id = 'btn-task-save';
+  divContainer.id = 'tasks-container';
 
-    inpuText.type = 'text';
+  document.getElementById('task-form');
 
-    inpuText.placeholder = 'Task Title';
-    textArea.placeholder = 'Task Description';
+  inpuText.type = 'text';
 
-    labelTitle.for = 'title';
-    labelDescrip.for = 'description';
+  inpuText.placeholder = 'Task Title';
+  textArea.placeholder = 'Task Description';
 
-    textArea.rows = '3';
+  labelTitle.for = 'title';
+  labelDescrip.for = 'description';
 
-    tituloFijo.textContent = "¿Que comemos hoy?";
-    labelTitle.textContent = "Title:";
-    labelDescrip.textContent = "Description";
-    buttonGuardar.textContent = "Save";
+  textArea.rows = '3';
 
-    formMuro.addEventListener('submit', (e) =>{
-        e.preventDefault()
+  tituloFijo.textContent = '¿Que comemos hoy?';
+  labelTitle.textContent = 'Title:';
+  labelDescrip.textContent = 'Description';
+  buttonGuardar.textContent = 'Save';
 
-        const title = formMuro['inpuText']
-        const description = formMuro['task-description']
+  formMuro.addEventListener('submit', (e) => {
+    e.preventDefault();
 
-        saveTask(title.value, description.value)
+    const title = formMuro.inpuText;
+    const description = formMuro['task-description'];
 
-        formMuro.reset()
-    })
+    saveTask(title.value, description.value);
 
-    homeDiv.appendChild(navFijo);
-    navFijo.appendChild(tituloFijo);
-    homeDiv.appendChild(formMuro);
-    formMuro.appendChild(labelTitle);
-    formMuro.appendChild(inpuText);
-    formMuro.appendChild(labelDescrip);
-    formMuro.appendChild(textArea);
-    formMuro.appendChild(buttonGuardar);
-    homeDiv.appendChild(divContainer);
+    formMuro.reset();
+  });
 
-    return homeDiv;
-}
+  homeDiv.appendChild(navFijo);
+  navFijo.appendChild(tituloFijo);
+  homeDiv.appendChild(formMuro);
+  formMuro.appendChild(labelTitle);
+  formMuro.appendChild(inpuText);
+  formMuro.appendChild(labelDescrip);
+  formMuro.appendChild(textArea);
+  formMuro.appendChild(buttonGuardar);
+  homeDiv.appendChild(divContainer);
+
+  return homeDiv;
+};
