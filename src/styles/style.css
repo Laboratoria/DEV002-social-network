@@ -72,11 +72,13 @@ button {
     border-radius: 10px;
     font-size: 1.8rem;
     cursor: pointer;
+    color: #35123C;
 }
 
 .ingresar {
     cursor: pointer;
     margin: 2.5rem;
+    color: #35123C;
 }
 
 /*Register*/
@@ -94,13 +96,12 @@ button {
 .paises {
     font-family: 'Raleway', sans-serif;
     margin: 1.6rem;
-    font-size: 2rem;
+    font-size: 1.7rem;
     padding: 0.5rem;
     border-radius: 10px;
-}
-
-.fecha-nacimiento {
-    width: 15rem;
+    color: #f6f6f6;
+    background-color: #35123C;
+    width: 18rem;
 }
 
 /*Timeline-Muro*/
