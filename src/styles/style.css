@@ -6,6 +6,7 @@
 
 html {
     font-size: 62.5%; 
+    scroll-behavior: smooth;
 }
 
 body {
@@ -74,7 +75,6 @@ button {
 }
 
 .ingresar {
-    height: 7rem;
     cursor: pointer;
     margin: 2.5rem;
 }
@@ -179,7 +179,7 @@ li {
 .input-recomendaciones {
     height: 8rem;
     width: 23rem;
-    font-size: 20px;
+    font-size: 1.6rem;
     resize: none;
     border-radius: 8px;
     padding: 1rem;
@@ -334,6 +334,8 @@ p {
     font-family: 'Raleway', sans-serif;
     padding: 1rem;
     margin-bottom: 1.5rem;
+    width: 30rem;
+    font-size: 1.8rem;
 }
 
 

@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
 /* eslint-disable no-shadow */
@@ -6,31 +7,31 @@
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-app.js';
 import {
   createUserWithEmailAndPassword,
-  getAuth,
-  signInWithPopup,
+  signInWithEmailAndPassword,
+  sendEmailVerification,
   GoogleAuthProvider,
   onAuthStateChanged,
-  signOut,
+  signInWithPopup,
   updateProfile,
-  sendEmailVerification,
-  signInWithEmailAndPassword,
+  getAuth,
+  signOut,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-auth.js';
 import {
   getFirestore,
+  arrayRemove,
+  onSnapshot,
+  arrayUnion,
   collection,
-  doc,
-  addDoc,
-  getDoc,
-  getDocs,
   deleteDoc,
   updateDoc,
   Timestamp,
-  query,
+  getDocs,
   orderBy,
-  onSnapshot,
-  arrayUnion,
-  arrayRemove,
+  addDoc,
+  getDoc,
+  query,
+  doc,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.15.0/firebase-firestore.js';
 
@@ -95,7 +96,7 @@ export function registerUser(email, password, name, pais, callback) {
       user.displayName = name;
       // console.log(user, userId);
       saveUser(user.displayName, userId, email, pais);
-      callback(true);
+      callback(true); // permite que la función Register User proporcione un resultado a través de una función que se pasa como argumento.
     })
     .catch((error) => {
       console.error(error.code);
