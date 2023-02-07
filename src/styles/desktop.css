@@ -162,11 +162,10 @@ a:visited {
 }
 
 .contenedor-likes {
-    display: grid;
-    grid-template-columns: 30px 30px;
-    align-items: self-end;
-    margin-left: 55rem;
-    margin-bottom: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
 }
 
 /*Perfil*/
