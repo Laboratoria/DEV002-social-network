@@ -3,5 +3,5 @@ import {
 } from './metFirebase.js';
 
 /* eslint no-return-await: "error" */
-export const popupRegister = async () => await signInWithPopup(auth, provider);
+export const popupRegister = () => signInWithPopup(auth, provider);
 export const verifiedEmail = (email, password) => createUserWithEmailAndPassword(auth, email, password);
