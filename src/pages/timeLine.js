@@ -62,17 +62,13 @@ export const timeLine = () => {
 
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#li-navbar-logout').addEventListener('click', () => {
-      console.log('botón cerrar sesión');
       signOutFirebase(auth);
-      console.log('cerró sesión');
     });
   });
 
   document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#log-out').addEventListener('click', () => {
-      console.log('botón cerrar sesión');
       signOutFirebase(auth);
-      console.log('cerró sesión');
     });
   });
 

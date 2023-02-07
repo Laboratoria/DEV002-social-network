@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable max-len */
 /* eslint-disable no-alert */
 /* eslint-disable no-console */
@@ -94,7 +95,6 @@ export function registerUser(email, password, name, pais, callback) {
       const user = userCredential.user;
       const userId = user.uid;
       user.displayName = name;
-      // console.log(user, userId);
       saveUser(user.displayName, userId, email, pais);
       callback(true); // / Se llama una función de callback para indicar que el registro se ha realizado correctamente.
     })
@@ -111,7 +111,7 @@ export function registerUser(email, password, name, pais, callback) {
       }
       callback(false);
     })
-    .then(() => {
+    .then(() => { // mover a arriba
       sendEmailVerification(auth.currentUser);
     });
 }
@@ -120,10 +120,8 @@ export function registerUser(email, password, name, pais, callback) {
 export async function inicioDeSesionEmail(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
-    console.log('signed in');
     const user = userCredential.user;
     const userId = user.uid;
-    console.log(user, userId);
     return true; // Si la operación es exitosa, la función imprime un mensaje "signed in" y devuelve true.
   } catch (error) {
     if (error.code === 'auth/email-already-in-use') {
@@ -144,13 +142,8 @@ export async function inicioDeSesionEmail(email, password) {
 export const authGoogle = async () => {
   try {
     const userResult = await signInWithPopup(auth, provider);
-    console.log(userResult);
-    console.log('probando');
     window.location.href = '/timeLine';
   } catch (error) {
-    // const errorCode = error.code;
-    // const errorMessage = error.message;
-    // const correo = error.customData.email;
     // console.log(error);
   }
 };
@@ -163,7 +156,6 @@ export const onAuth = (auth) => {
   auth.onAuthStateChanged((user) => {
     if (user) {
       console.log('user is signed in');
-      // const uid = user.uid;
     } else {
       console.log('user is signed out');
     }

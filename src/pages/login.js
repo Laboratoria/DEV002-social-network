@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 /* eslint-disable no-alert */
 /* eslint-disable indent */
 /* eslint-disable no-console */
@@ -46,16 +47,14 @@ export const Login = () => {
     const logInButton = document.getElementById('ingresar');
     logInButton.addEventListener('click', async (event) => {
       event.preventDefault();
-      console.log('click se ejecutó');
 
       const email = document.getElementById('email').value;
       const password = document.getElementById('password').value;
       try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
-        console.log('signed in');
+
         const user = userCredential.user;
         const userId = user.uid;
-        console.log(user, userId);
         next('/timeLine');
         location.reload();
       } catch (error) {
@@ -76,7 +75,6 @@ export const Login = () => {
     const googleButton = document.getElementById('inicio-sesion-google');
     googleButton.addEventListener('click', async (event) => {
       event.preventDefault();
-      // console.log('click botón google');
       await authGoogle();
     });
   });

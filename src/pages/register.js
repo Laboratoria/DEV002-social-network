@@ -77,7 +77,6 @@ export const Register = () => {
     const registerButton = document.getElementById('register-button');
     registerButton.addEventListener('click', (event) => {
       event.preventDefault();
-      // console.log('click register se ejecutó');
       const email = document.getElementById('emailRegister').value;
       const password = document.getElementById('passwordRegister').value;
       const nombreUsuaria = document.getElementById('name-usuaria').value;

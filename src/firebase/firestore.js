@@ -1,3 +1,4 @@
+/* eslint-disable max-len */
 /* eslint-disable no-alert */
 /* eslint-disable no-restricted-globals */
 /* eslint-disable no-console */
@@ -33,8 +34,6 @@ window.addEventListener('DOMContentLoaded', async () => {
       };
       likeImg();
 
-      // console.log(auth.currentUser);
-
       html += `
                 <div class = 'contenedor-padre'> 
                   <p class="name-post"> ${task.name} </p>
@@ -69,17 +68,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     const botonLike = tasksContainer.querySelectorAll('.like-logo');
 
     botonLike.forEach((btn) => {
-      btn.addEventListener('click', async (e) => {
+      btn.addEventListener('click', async (e) => { //  Al hacer clic, se obtiene su identificador único a partir de su atributo 'data-id'
         const id1 = e.target.dataset.id;
-        console.log('id', id1);
-        const doc = await getTask(id1);
-        console.log('doc', doc);
+        const doc = await getTask(id1); // se llama a la función 'getTask' pasándole ese identificador como argumento
         const likes = doc.data().likes;
         const currentLike = likes.indexOf(userId);
 
-        console.log(likes);
         if (currentLike === -1) {
-          tapLike(id1, userId);
+          tapLike(id1, userId); // se busca el valor 'userId' dentro de ese arreglo y se llama a la función 'tapLike' pasándole el identificador y el 'userId'
         } else {
           dislike(id1, userId);
         }
@@ -91,7 +87,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       btnsDelete.forEach((btn) => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
           if (confirm('¿Estás segura de que deseas eliminar esta publicación?')) {
-            deleteTask(dataset.id);
+            deleteTask(dataset.id); // se llama a la función deleteTask(dataset.id), pasándole como argumento el identificador de la tarea (que está almacenado en el atributo de datos dataset.id del botón)
           }
         });
       });
@@ -100,8 +96,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     const btnsEdit = tasksContainer.querySelectorAll('.btn-edit');
     btnsEdit.forEach((btn) => {
       btn.addEventListener('click', async (e) => {
-        const doc = await getTask(e.target.dataset.id);
-        console.log(doc.data());
+        const doc = await getTask(e.target.dataset.id); // "target" es utilizada para acceder al elemento que lanzó el evento click
         const task = doc.data();
 
         taskForm['task-description'].value = task.description;

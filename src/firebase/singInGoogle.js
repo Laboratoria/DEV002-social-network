@@ -10,13 +10,10 @@ const provider = new GoogleAuthProvider();
 export const authGoogle = async () => {
   try {
     const userResult = await signInWithPopup(auth, provider);
-    console.log(userResult);
-    console.log('probando');
   } catch (error) {
     const errorCode = error.code;
     const errorMessage = error.message;
     const correo = error.customData.email;
-    console.log(errorCode, errorMessage, correo, credential);
   }
 };
 
@@ -27,7 +24,6 @@ export const signInWithGoogle = async (callback) => {
     const token = credential.accessToken;
     const user = result.user;
     const email = result.user.email;
-    console.log('signed in');
     callback(true);
   } catch (error) {
     const credential = GoogleAuthProvider.credentialFromError(error);
