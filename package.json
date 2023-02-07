@@ -5,12 +5,14 @@
   "main": "src/index.html",
   "keywords": [
     "javascript",
+    "firebase",
     "jest"
   ],
   "license": "MIT",
   "scripts": {
     "htmlhint": "htmlhint dist/*.html ",
     "eslint": "eslint --ext .js src/ test/",
+    "eslint:fix":"eslint --fix --ext .js src/ test/",
     "stylelint": "stylelint --aei src/**/*.css",
     "pretest": "npm run htmlhint && npm run eslint && npm run stylelint",
     "test": "jest --coverage",
