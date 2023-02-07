@@ -225,9 +225,9 @@ para interactuar con las publicaciones.
 
 ## v. Proyectos desplegados
 
-* 💻 Daniela:
-* 💻 Carmen: 
-* 💻 Miriam:
+* 💻 Daniela: https://journey-mates.netlify.app/
+* 💻 Carmen: https://journey-mates.netlify.app/
+* 💻 Miriam: https://journey-mates.netlify.app/
 
 
 
