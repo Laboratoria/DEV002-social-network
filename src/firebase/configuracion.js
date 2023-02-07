@@ -48,11 +48,11 @@ const firebaseConfig = {
 };
 
 // Inicializa la aplicación de Firebase
-export const app = initializeApp(firebaseConfig); // Inicializa una instancia de Firebase
-export const auth = getAuth(app); // Obtiene un servicio de autenticación de Firebase a partir de la instancia inicializada
-export const provider = new GoogleAuthProvider(app);// Crea un proveedor de autenticación de Google a partir de la instancia de Firebase.
-export const db = getFirestore(app);// Obtiene un servicio de base de datos de Firestore de Firebase a partir de la instancia inicializada.
-export const user = () => auth.currentUser;// Define una función que devuelve el usuario actualmente autenticado en Firebase.
+export const app = initializeApp(firebaseConfig);
+export const auth = getAuth(app);
+export const provider = new GoogleAuthProvider(app);
+export const db = getFirestore(app);
+export const user = () => auth.currentUser;
 
 export const saveTask = (description) => addDoc(collection(db, 'tasks'), {
   description,
@@ -71,13 +71,13 @@ export const saveUser = (name, uid, email, pais) => addDoc(collection(db, 'users
 });
 
 // Estas funciones realizan una operación específica en la colección de tareas en Firestore.
-export const getTasks = () => getDocs(collection(db, 'tasks')); // Obtiene todos los documentos de la colección de tareas utilizando la función getDocs.
-export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id)); // Elimina un documento específico de la colección de tareas utilizando la función deleteDoc con su id.
-export const getTask = (id) => getDoc(doc(db, 'tasks', id));// Obtiene un documento específico de la colección de tareas utilizando la función getDoc con el id.
-export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);// Actualiza un documento específico de la colección de tareas utilizando la función updateDoc.
-export const dateTask = (querySnapshot) => { // 0rdena todos los documentos en la colección de tareas por fecha y hora de creación en orden descendente utilizando la función query y orderBy
-  const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));// escucha los cambios de la coleccion con la función onSnapshot
-  onSnapshot(q, querySnapshot);// querySnapshot contiene información sobre los documentos devueltos por la consulta en tiempo real.
+export const getTasks = () => getDocs(collection(db, 'tasks'));
+export const deleteTask = (id) => deleteDoc(doc(db, 'tasks', id));
+export const getTask = (id) => getDoc(doc(db, 'tasks', id));
+export const updateTask = (id, newFields) => updateDoc(doc(db, 'tasks', id), newFields);
+export const dateTask = (querySnapshot) => {
+  const q = query(collection(db, 'tasks'), orderBy('createdDateTime', 'desc'));
+  onSnapshot(q, querySnapshot);
 };
 
 // Create new users
@@ -85,18 +85,17 @@ export const dateTask = (querySnapshot) => { // 0rdena todos los documentos en l
 export function registerUser(email, password, name, pais, callback) {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
+      sendEmailVerification(auth.currentUser);
       updateProfile(auth.currentUser, {
         displayName: name,
 
       });
-      // El usuario ha sido registrado correctamente
-      // eslint-disable-next-line no-console
-      console.log('Usuario registrado correctamente');
+
       const user = userCredential.user;
       const userId = user.uid;
       user.displayName = name;
       saveUser(user.displayName, userId, email, pais);
-      callback(true); // / Se llama una función de callback para indicar que el registro se ha realizado correctamente.
+      callback(true); // Se llama una función de callback para indicar que el registro se ha realizado correctamente.
     })
     .catch((error) => {
       console.error(error.code);
@@ -110,13 +109,11 @@ export function registerUser(email, password, name, pais, callback) {
         alert('Completa todos los campos');
       }
       callback(false);
-    })
-    .then(() => { // mover a arriba
-      sendEmailVerification(auth.currentUser);
     });
 }
 
-// inicio de sesión con email
+// Inicio de sesión con email
+
 export async function inicioDeSesionEmail(email, password) {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -144,7 +141,7 @@ export const authGoogle = async () => {
     const userResult = await signInWithPopup(auth, provider);
     window.location.href = '/timeLine';
   } catch (error) {
-    // console.log(error);
+    console.log(error);
   }
 };
 
