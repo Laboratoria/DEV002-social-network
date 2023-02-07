@@ -130,7 +130,6 @@ export const login = () => {
         const likeNumber = document.createElement('h3');
 
         divPostEntry.className = 'timeLine-post';
-        divPostEntry.className = 'timeLine-post';
         imgUser.setAttribute('src', 'images/user.png');
         imgUser.className = 'iconUser';
         imgUser.className = 'iconUser';
@@ -228,7 +227,7 @@ export const login = () => {
 
   // Funcion activacion boton publicar
   inputPostText.addEventListener('keyup', () => {
-    const valueInput = inputPostText.value.trim();
+    const valueInput = inputPostText.value.trim();  // trim() metodo que no permite activar boton con espacio
     if (valueInput === '') {
       btnPost.disabled = true;
     } else {

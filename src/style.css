@@ -210,7 +210,7 @@ footer {
 }
 
 #img-input {
-    margin-top: 5px;
+    margin-top: 8px;
     width: 50px;
     height: 50px;
     margin-left: 10px;
@@ -268,6 +268,7 @@ header {
     border-radius: 10px;
     display: flex;
     left: 80px;
+    cursor: pointer;
 }
 
 #line {
@@ -343,8 +344,8 @@ header {
 
 .iconUser {
     position: absolute;
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
 }
 
 .textPost {
@@ -355,7 +356,7 @@ header {
     width: 80%;
     height: auto;
     border-radius: 10px;
-    font-weight: lighter;
+    font-weight: light;
     padding: 5%;
     left: 20px;
 }
@@ -365,6 +366,8 @@ header {
     font-size: large;
     justify-content: center;
     padding: 5px;
+    color: white;
+    position: relative;
 }
 
 #modal-content-post p {
@@ -377,7 +380,6 @@ header {
     position: relative;
     font-size: 13px;
     letter-spacing: 1px;
-
 }
 
 .primer-like {
@@ -385,7 +387,8 @@ header {
     left: 10px;
     width: 25px;
     height: 25px;
-    top: 10px;
+    top: 30px;
+    cursor: pointer;
 
 }
 
@@ -394,15 +397,17 @@ header {
     left: 160px;
     width: 20px;
     height: 25px;
-    top: 50px;
+    bottom: 35px;
+    cursor: pointer;
 }
 
 .delete-icon {
     position: relative;
-    left: 190px;
     width: 20px;
     height: 20px;
-    top: 30px;
+    bottom: 55px;
+    cursor: pointer;
+    left: 190px;
 }
 
 .footInit {
@@ -435,7 +440,7 @@ header {
     left: 45px;
     bottom: 25px;
     font-size: smaller;
-    margin-top: 7px;
+    top: 5px;
 }
 
 @media only screen and (min-width: 600px) {
