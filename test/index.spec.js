@@ -1,30 +1,60 @@
 // importamos la funcion que vamos a testear
-import { verifiedEmail } from '../src/lib/firebase/registerFir.js';
-import { auth, createUserWithEmailAndPassword } from '../src/lib/firebase/metFirebase.js';
+import { verifiedEmail, popupRegister } from '../src/lib/firebase/registerFir.js';
+import {
+  auth, provider, createUserWithEmailAndPassword, signInWithPopup,
+} from '../src/lib/firebase/metFirebase.js';
 
-jest.mock('../src/lib/firebase/metFirebase.js', () => {
-  return { 
-    auth: jest.fn(() => ({ auth: 'test' })),
+jest.mock('../src/lib/firebase/metFirebase.js', () => ({
+  auth: jest.fn(() => ({ auth: 'test' })),
+  provider: jest.fn(() => ({ provider: 'test' })),
 
-    createUserWithEmailAndPassword: jest.fn ((auth, email, password) => {
-      return Promise.resolve({usar: "admin"})
-    })
-    
-  }
-})
+  /* eslint-disable no-shadow */
+  /* eslint-disable no-unused-vars */
+  createUserWithEmailAndPassword: jest.fn((auth, email, password) => Promise.resolve({ user: 'admin' })),
 
-describe('test para registrarse', () => {
-  const email = 'petblr@test.com';
-  const password = '093848583';
+  signInWithPopup: jest.fn((auth, email, password) => Promise.resolve({ user: 'admin' })),
+}));
 
-  it('debería llamar a createUserWithEmailPassword', async () => {
-    await verifiedEmail(email, password)
-    expect(createUserWithEmailAndPassword).toHaveBeenCalled()
-  })
+describe('test para la funcion de login', () => {
+  const email = 'example@hotmail.com';
+  const password = 'Plomejor123';
 
-  it('debería llamar a createUserWithEmailPassword con auth, email y pasar los argumentos' , async () => {
+  it('llamar a createUserWithEmailAndPassword', async () => {
+    await verifiedEmail(email, password);
+    expect(createUserWithEmailAndPassword).toHaveBeenCalled();
+  });
+
+  it('pasar parametros createUserWithEmailAndPassword', async () => {
     createUserWithEmailAndPassword.mockClear();
-    await verifiedEmail(email, password)
-    expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(auth, email, password)
-  }) 
-})
+    await verifiedEmail(email, password);
+    expect(createUserWithEmailAndPassword).toHaveBeenCalledWith(auth, email, password);
+  });
+
+  it('error createUserWithEmailAndPassword', async () => {
+    const invalidoEmail = 'invalidoEmail';
+    await verifiedEmail(invalidoEmail, password);
+  });
+
+  it('vacio createUserWithEmailAndPassword', async () => {
+    await verifiedEmail();
+  });
+});
+
+describe('test para probar la funcion de login', () => {
+  const email = 'example@hotmail.com';
+  const password = 'Plomejor123';
+
+  it('llamar a signInWithPopup', async () => {
+    await popupRegister();
+    expect(signInWithPopup).toHaveBeenCalled();
+  });
+
+  it('pasar parametros signInWithPopup', async () => {
+    await popupRegister();
+    expect(signInWithPopup).toHaveBeenCalledWith(auth, provider);
+  });
+
+  it('error signInWithPopup', async () => {
+    await popupRegister();
+  });
+});
