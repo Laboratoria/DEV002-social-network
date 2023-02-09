@@ -7,8 +7,4 @@ const firebaseConfig = {
   appId: '1:684300619009:web:2eaa21fa8154ec431a9f00',
 };
 
-// Initialize Firebase
-// createUserWithEmailAndPassword(auth, email, password)
-// signInWithEmailAndPassword
-
 export default firebaseConfig;
