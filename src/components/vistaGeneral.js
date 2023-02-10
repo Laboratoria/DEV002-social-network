@@ -1,5 +1,25 @@
 // eslint-disable-next-line import/no-cycle
-import { saveTask } from '../lib/firebase/muroFir.js';
+import { saveTask, getTasks } from '../lib/firebase/muroFir.js';
+
+const tasksContainer = document.getElementById('tasks-container');
+
+window.addEventListener('DOMContentLoaded', async () => {
+  const querySnapshot = await getTasks()
+
+  let html = "";
+
+  querySnapshot.forEach((doc) => {
+    const task = doc.data();
+    html += `
+    <div>
+      <h3> ${task.title} </h3>
+      <p> ${task.description}</p>
+    </div> 
+    `;
+  });
+  tasksContainer.innerHTML = html;
+});
+ 
 
 export const vistaGeneral = () => {
   const homeDiv = document.createElement('div');
@@ -31,6 +51,7 @@ export const vistaGeneral = () => {
 
   document.getElementById('task-form');
 
+
   inpuText.type = 'text';
 
   inpuText.placeholder = 'Task Title';
@@ -46,8 +67,10 @@ export const vistaGeneral = () => {
   labelDescrip.textContent = 'Description';
   buttonGuardar.textContent = 'Save';
 
+
   formMuro.addEventListener('submit', (e) => {
     e.preventDefault();
+
 
     const title = formMuro.inpuText;
     const description = formMuro['task-description'];
@@ -55,6 +78,7 @@ export const vistaGeneral = () => {
     saveTask(title.value, description.value);
 
     formMuro.reset();
+
   });
 
   homeDiv.appendChild(navFijo);
