@@ -37,8 +37,7 @@ export const register = () => {
   hrefHome.textContent = 'Regresar al home';
 
   buttonGoogle.addEventListener('click', async () => {
-    const prueba = await popupRegister();
-    console.log(prueba);
+    await popupRegister();
     onNavigate('/vistaGeneral');
   });
   buttonCorreo.addEventListener('click', () => {

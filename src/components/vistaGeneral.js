@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { saveTask } from '../lib/firebase/muroFir.js';
+import { saveTask, getTasks } from '../lib/firebase/muroFir.js';
 
 export const vistaGeneral = () => {
   const homeDiv = document.createElement('div');
@@ -29,8 +29,6 @@ export const vistaGeneral = () => {
   buttonGuardar.id = 'btn-task-save';
   divContainer.id = 'tasks-container';
 
-  document.getElementById('task-form');
-
   inpuText.type = 'text';
 
   inpuText.placeholder = 'Task Title';
@@ -46,6 +44,27 @@ export const vistaGeneral = () => {
   labelDescrip.textContent = 'Description';
   buttonGuardar.textContent = 'Save';
 
+  /*document.getElementById('task-form');
+  document.getElementById('task-container');*/
+
+  window.addEventListener('DOMContentLoaded', async () => {
+    const querySnapshot = await getTasks();
+    
+  let html = ''
+
+    querySnapshot.forEach(doc => {
+      const task = doc.data()
+      html +=`
+        <div>
+          <h3>${task.title}</h3>
+          <p>${task.description}</p>
+        </div>
+      `
+    });
+
+    divContainer.innerHTML = html
+  });
+  
   formMuro.addEventListener('submit', (e) => {
     e.preventDefault();
 
