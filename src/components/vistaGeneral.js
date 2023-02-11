@@ -1,5 +1,7 @@
 // eslint-disable-next-line import/no-cycle
-import { saveTask, getTasks, onSnapshot, collection, db, } from '../lib/firebase/muroFir.js';
+import {
+  saveTask, onGetTasks, deleteTask, getTask, updateTask,
+} from '../lib/firebase/muroFir.js';
 
 export const vistaGeneral = () => {
   const homeDiv = document.createElement('div');
@@ -44,36 +46,68 @@ export const vistaGeneral = () => {
   labelDescrip.textContent = 'Description';
   buttonGuardar.textContent = 'Save';
 
-  /*document.getElementById('task-form');
-  document.getElementById('task-container');*/
+  let editStatus = false;
+  let id = '';
 
   window.addEventListener('DOMContentLoaded', async () => {
-    
-    onSnapshot(collection(db, 'tasks'), (querySnapshot)=> {
+    onGetTasks((querySnapshot) => {
       let html = '';
 
-    querySnapshot.forEach((doc) => {
-      const task = doc.data();
-      html +=`
+      querySnapshot.forEach((doc) => {
+        const task = doc.data();
+        html += `
         <div>
           <h3>${task.title}</h3>
           <p>${task.description}</p>
+          <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
+          <button class='btn-edit' data-id="${doc.id}">Editar</button>
         </div>
       `;
-    });
+      });
 
-    divContainer.innerHTML = html;
-    });
+      divContainer.innerHTML = html;
 
+      const btnDelete = divContainer.querySelectorAll('.btn-delete');
+      // eslint-disable-next-line arrow-parens
+      btnDelete.forEach(btn => {
+        btn.addEventListener('click', ({ target: { dataset } }) => {
+          deleteTask(dataset.id);
+        });
+      });
+
+      const btnsEdit = divContainer.querySelectorAll('.btn-edit');
+      btnsEdit.forEach((btn) => {
+        btn.addEventListener('click', async (e) => {
+          const doc = await getTask(e.target.dataset.id);
+          const task = doc.data();
+
+          // eslint-disable-next-line dot-notation
+          formMuro['inpuText'].value = task.title;
+          formMuro['task-description'].value = task.description;
+
+          editStatus = true;
+          id = doc.id;
+          formMuro['btn-task-save'].innerText = 'Actualizar';
+        });
+      });
+    });
   });
-  
   formMuro.addEventListener('submit', (e) => {
     e.preventDefault();
 
     const title = formMuro.inpuText;
     const description = formMuro['task-description'];
 
-    saveTask(title.value, description.value);
+    if (!editStatus) {
+      saveTask(title.value, description.value);
+    } else {
+      updateTask(id, {
+        title: title.value,
+        description: description.value,
+      });
+
+      editStatus = false;
+    }
 
     formMuro.reset();
   });
