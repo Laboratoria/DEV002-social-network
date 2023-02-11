@@ -1,5 +1,5 @@
 // eslint-disable-next-line import/no-cycle
-import { saveTask, getTasks } from '../lib/firebase/muroFir.js';
+import { saveTask, getTasks, onSnapshot, collection, db, } from '../lib/firebase/muroFir.js';
 
 export const vistaGeneral = () => {
   const homeDiv = document.createElement('div');
@@ -48,21 +48,23 @@ export const vistaGeneral = () => {
   document.getElementById('task-container');*/
 
   window.addEventListener('DOMContentLoaded', async () => {
-    const querySnapshot = await getTasks();
     
-  let html = ''
+    onSnapshot(collection(db, 'tasks'), (querySnapshot)=> {
+      let html = '';
 
-    querySnapshot.forEach(doc => {
-      const task = doc.data()
+    querySnapshot.forEach((doc) => {
+      const task = doc.data();
       html +=`
         <div>
           <h3>${task.title}</h3>
           <p>${task.description}</p>
         </div>
-      `
+      `;
     });
 
-    divContainer.innerHTML = html
+    divContainer.innerHTML = html;
+    });
+
   });
   
   formMuro.addEventListener('submit', (e) => {
