@@ -95,6 +95,7 @@ export const vistaGeneral = () => {
   formMuro.addEventListener('submit', (e) => {
     e.preventDefault();
 
+
     const title = formMuro.inpuText;
     const description = formMuro['task-description'];
 
@@ -110,6 +111,7 @@ export const vistaGeneral = () => {
     }
 
     formMuro.reset();
+
   });
 
   homeDiv.appendChild(navFijo);
