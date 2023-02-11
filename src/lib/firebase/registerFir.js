@@ -4,5 +4,4 @@ import {
 
 /* eslint no-return-await: "error" */
 export const popupRegister = () => signInWithPopup(auth, provider);
-export const verifiedEmail = (email, password) => crea2teUserWithEmailAndPassword(auth, email, password);
-export const getTasks = () => console.log("si funciona");
+export const verifiedEmail = (email, password) => createUserWithEmailAndPassword(auth, email, password);
