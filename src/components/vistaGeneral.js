@@ -125,5 +125,5 @@ export const vistaGeneral = () => {
   homeDiv.appendChild(divContainer);
 
   return homeDiv;
-  /*tengo problemas para hacer push, agregando modificacion para push*/
+  /*tengo problemas para hacer push y sigo intentando, agregando modificacion para push*/
 };
