@@ -31,10 +31,10 @@ export const register = () => {
   iconCorreo.src = 'images/gmail.png';
 
   nombreApp.textContent = 'INSPIRACIÓN PARA TUS COMIDAS';
-  registrateH1.textContent = 'Registrate';
-  buttonGoogle.textContent = 'REGISTRATE CON GOOGLE';
-  buttonCorreo.textContent = 'REGISTRATE CON EMAIL';
-  hrefHome.textContent = 'Regresar al home';
+  registrateH1.textContent = 'Regístrate';
+  buttonGoogle.textContent = 'REGÍSTRATE CON GOOGLE';
+  buttonCorreo.textContent = 'REGÍSTRATE CON EMAIL';
+  hrefHome.textContent = 'Inicio';
 
   buttonGoogle.addEventListener('click', async () => {
     await popupRegister();

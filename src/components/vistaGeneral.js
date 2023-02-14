@@ -33,18 +33,18 @@ export const vistaGeneral = () => {
 
   inpuText.type = 'text';
 
-  inpuText.placeholder = 'Task Title';
-  textArea.placeholder = 'Task Description';
+  inpuText.placeholder = 'Ingresar título';
+  textArea.placeholder = 'Ingresar descripción';
 
   labelTitle.for = 'title';
   labelDescrip.for = 'description';
 
   textArea.rows = '3';
 
-  tituloFijo.textContent = '¿Que comemos hoy?';
-  labelTitle.textContent = 'Title:';
-  labelDescrip.textContent = 'Description';
-  buttonGuardar.textContent = 'Save';
+  tituloFijo.textContent = '¿Qué comemos hoy?';
+  labelTitle.textContent = 'Título';
+  labelDescrip.textContent = 'Descripción';
+  buttonGuardar.textContent = 'Guardar';
 
   let editStatus = false;
   let id = '';
@@ -56,9 +56,13 @@ export const vistaGeneral = () => {
       querySnapshot.forEach((doc) => {
         const task = doc.data();
         html += `
-        <div>
+        <div class= "post">
           <h3>${task.title}</h3>
           <p>${task.description}</p>
+        <div class="like-container">
+         <img src="images/flame.png" class= "imagenLike" alt="flama"/>
+         <span class="like-count">0</span>
+        </div>
           <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
           <button class='btn-edit' data-id="${doc.id}">Editar</button>
         </div>
@@ -71,7 +75,9 @@ export const vistaGeneral = () => {
       // eslint-disable-next-line arrow-parens
       btnDelete.forEach(btn => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
+         if (confirm("¿Estás seguro de que deseas eliminar esta tarea?")){
           deleteTask(dataset.id);
+        } 
         });
       });
 
@@ -92,9 +98,9 @@ export const vistaGeneral = () => {
       });
     });
   });
+
   formMuro.addEventListener('submit', (e) => {
     e.preventDefault();
-
 
     const title = formMuro.inpuText;
     const description = formMuro['task-description'];
@@ -111,8 +117,16 @@ export const vistaGeneral = () => {
     }
 
     formMuro.reset();
-
   });
+
+  /*const likeButton = document.querySelector(".imagenLike");
+  const likeCount = document.querySelector(".like-count");
+  let count = 0;
+
+  likeButton.addEventListener('click', () => {
+    count++;
+    likeCount.innerHTML = count;
+  });*/
 
   homeDiv.appendChild(navFijo);
   navFijo.appendChild(tituloFijo);
@@ -125,5 +139,4 @@ export const vistaGeneral = () => {
   homeDiv.appendChild(divContainer);
 
   return homeDiv;
-  /*tengo problemas para hacer push y sigo intentando, agregando modificacion para push*/
 };

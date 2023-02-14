@@ -34,12 +34,12 @@ export const login = () => {
   imageLogo.src = 'images/logo-quecomemoshoy.png';
 
   nombreApp.textContent = 'INSPIRACIÓN PARA TUS COMIDAS';
-  registrateH4.textContent = 'Login';
+  registrateH4.textContent = 'Ingresar';
   button.textContent = 'ENTRAR';
-  hrefHome.textContent = 'Regresar al home';
+  hrefHome.textContent = 'Inicio';
 
   inputUser.placeholder = 'USUARIO';
-  inputPassword.placeholder = 'PASSWORD';
+  inputPassword.placeholder = 'CONTRASEÑA';
 
   inputUser.type = 'user';
   inputPassword.type = 'password';

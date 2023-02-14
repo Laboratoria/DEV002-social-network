@@ -22,8 +22,8 @@ export const home = () => {
 
   nombreApp.textContent = 'INSPIRACIÓN PARA TUS COMIDAS';
   bienvenidaH1.textContent = 'Bienvenido';
-  buttonRegister.textContent = 'Registrate';
-  buttonLogin.textContent = 'Inicia sesion';
+  buttonRegister.textContent = 'Regístrate';
+  buttonLogin.textContent = 'Inicia sesión';
 
   buttonRegister.addEventListener('click', () => onNavigate('/register'));
   buttonLogin.addEventListener('click', () => onNavigate('/login'));
