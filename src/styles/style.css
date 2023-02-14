@@ -1,0 +1,316 @@
+* {
+    box-sizing: border-box;
+    margin: 0%;
+    padding: 0%;
+}
+
+html {
+    font-size: 62.5%; 
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: #492C4E;
+    font-family: 'Raleway', sans-serif;
+    color: aliceblue;
+    font-size: 1.7rem;
+}
+
+/*Login*/
+
+.title {
+    font-size: 2.5rem;
+    color: aliceblue;
+    margin: 1rem;
+}
+
+.logo-inicio-sesion {
+    display: flex;
+    justify-content: center;
+    margin: 7%;
+}
+
+.logo {
+    width: 27rem;
+    height: 27rem;
+    margin-top: 4rem;
+}
+
+.section-inicio-sesion {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.inicia-sesion-h2 {
+    font-size: 2rem;
+    color: #FFF799;
+    margin: 1.5rem 0rem 3rem 0rem;
+}
+
+.logo-google {
+    width: 25rem;
+    cursor: pointer;
+}
+
+.or {
+    color: aliceblue;
+    font-size: 2rem;
+}
+
+input {
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.8rem;
+    margin: 1rem;
+    padding: .8rem;
+    border-radius: 10px;
+    width: 25rem;
+}
+
+button {
+    margin: 1rem;
+    padding: .8rem;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: #35123C;
+}
+
+.ingresar {
+    cursor: pointer;
+    margin: 2.5rem;
+    color: #35123C;
+}
+
+/*Register*/
+
+.section-register {
+    text-align: center;
+    margin-top: 4rem;
+}
+
+.container-paises {
+    margin-top: 2rem;
+    margin-bottom: .5rem;
+}
+
+.paises {
+    font-family: 'Raleway', sans-serif;
+    margin: 1.6rem;
+    font-size: 1.7rem;
+    padding: 0.5rem;
+    border-radius: 10px;
+    color: #f6f6f6;
+    background-color: #35123C;
+    width: 18rem;
+}
+
+/*Timeline-Muro*/
+
+.contenedor-nav {
+    background-color: #35123C;
+    display: grid;
+    grid-template-columns: 300px 60px;
+}
+
+.logo-nav {
+    margin: -1rem;
+    width: 4rem;
+}
+
+.navbar {
+    display: grid;
+    grid-template-columns: 127px 127px 127px;
+    align-items: center;
+    top:92%;
+    width:100%;
+    background-color:#35123C;
+    position: fixed;
+}
+
+.navbar-desktop {
+    display: none;
+}
+
+.navbar-img {
+    width: 3rem;
+}
+
+li {
+    font-family: 'Raleway', sans-serif;
+    font-size: 2.5rem;
+    background-color: #35123C;
+    height: 6rem;
+    text-align:center;
+    list-style: none;
+    padding: 1.5rem;
+}
+
+.li-navbar{
+    padding: 1rem;
+}
+
+.li-navbar-logout {
+    padding: 1rem;
+}
+
+.perfil-nav {
+    margin-left: 30%;
+}
+
+/*Sección publicar 1*/
+
+.seccion-publicar {
+    text-align: end;
+}
+
+.contenedor-publicaciones {
+    display: grid;
+    grid-template-columns: 85px 300px;
+    margin-top: 2rem;
+}
+
+.task-form {
+    margin-right: 1rem;
+}
+
+.user-logo-publicaciones {
+    width: 5rem;
+    margin: 0.5rem;
+}
+
+.input-recomendaciones {
+    height: 8rem;
+    width: 23rem;
+    font-size: 1.6rem;
+    resize: none;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.btn-publicar {
+    width: 7rem;
+    height: 3.5rem;
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+/*Sección publicar 2*/
+
+.seccion-publicar2 {
+    text-align: end;
+}
+
+.contenedor-publicaciones2 {
+    text-align: left;
+}
+
+.contenedor-padre{
+    align-items: center;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+.pais-post{
+    text-align: left;
+    margin-left: 30%;
+}
+
+.name-post{
+    margin-top: 3rem;
+}
+
+.date{
+    font-size: 1.3rem;
+    color: #D1FFAD;
+}
+
+.div-post-publicado{
+    background-color: aliceblue;
+    color: black;
+    width: 70%;
+    height: 10rem;
+    margin: 2rem 1rem 0.5rem 1rem;
+    border-radius: 8px;
+    padding: 1rem;
+    font-family: 'Raleway', sans-serif;
+    font-size: 1.2rem;
+}
+
+.btn-edit{
+    width: 1.5rem; 
+    position:absolute;
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.btn-delete{
+    width: 1.5rem; 
+    cursor: pointer; 
+    margin-bottom: 0.5rem;          
+}
+
+.contenedor-likes{
+    display: grid;
+    grid-template-columns: 30px 30px;
+    align-items: self-end;
+    margin-left: 15%;
+    margin-bottom: 3rem;
+}
+
+.like-logo{
+    width: 25px;
+    cursor: pointer;
+}
+
+p {
+    padding: 1px;
+}
+
+ /*Perfil*/
+
+ .foto-perfil {
+    text-align: center;
+    margin-top: 3rem;
+    font-size: 1.3rem;
+}
+
+.user-logo {
+    width: 9rem;
+}
+
+.p-actualizar-foto {
+    padding: .5rem;
+}
+
+.about-me {
+    border-style:solid;
+    border-width: 1.5px;
+    border-radius: 10px;
+    width: 70%;
+    margin: auto;
+    margin-top: 2rem;
+
+}
+
+.datos-personales{
+    font-size: 1.7rem;
+    text-align: center;
+    padding: 1rem;
+}
+
+.input-about-me{
+    text-align: center;
+    margin-top: 2rem;
+    font-family: 'Raleway', sans-serif;
+}
+
+.textArea {
+    border-radius: 10px;
+    font-family: 'Raleway', sans-serif;
+    padding: 1rem;
+    margin-bottom: 1.5rem;
+    width: 27rem;
+    font-size: 1.8rem;
+}
+
+
