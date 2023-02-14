@@ -60,8 +60,8 @@ export const vistaGeneral = () => {
           <h3>${task.title}</h3>
           <p>${task.description}</p>
         <div class="like-container">
-         <img src="images/flame.png" class= "imagenLike" alt="flama"/>
-         <span class="like-count">0</span>
+          <img src="images/flame.png" class= "imagenLike" alt="flama"/>
+          <span class="like-count">${task.likes}</span>
         </div>
           <button class='btn-delete' data-id="${doc.id}">Eliminar</button>
           <button class='btn-edit' data-id="${doc.id}">Editar</button>
@@ -71,13 +71,22 @@ export const vistaGeneral = () => {
 
       divContainer.innerHTML = html;
 
+      const likeButton = document.querySelector(".imagenLike");
+      const likeCount = document.querySelector(".like-count");
+      let count = 0;
+
+      likeButton.addEventListener("click", function() {
+        count++;
+        likeCount.innerHTML = count;
+      });
+
       const btnDelete = divContainer.querySelectorAll('.btn-delete');
       // eslint-disable-next-line arrow-parens
       btnDelete.forEach(btn => {
         btn.addEventListener('click', ({ target: { dataset } }) => {
-         if (confirm("¿Estás seguro de que deseas eliminar esta tarea?")){
-          deleteTask(dataset.id);
-        } 
+          if (confirm('¿Estás seguro de que deseas eliminar esta tarea?')) {
+            deleteTask(dataset.id);
+          }
         });
       });
 
@@ -112,21 +121,10 @@ export const vistaGeneral = () => {
         title: title.value,
         description: description.value,
       });
-
       editStatus = false;
     }
-
     formMuro.reset();
   });
-
-  /*const likeButton = document.querySelector(".imagenLike");
-  const likeCount = document.querySelector(".like-count");
-  let count = 0;
-
-  likeButton.addEventListener('click', () => {
-    count++;
-    likeCount.innerHTML = count;
-  });*/
 
   homeDiv.appendChild(navFijo);
   navFijo.appendChild(tituloFijo);
