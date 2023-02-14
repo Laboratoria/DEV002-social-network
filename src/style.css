@@ -277,7 +277,86 @@ input::placeholder {
     /*align-items: center;*/
     font-size: 50px;
 }
+.task-form{
+    background-color: #658361;
+    border-radius: 40px;
+    width: 1200px;
+    height: 300px;
+    margin-left: 350px;
+}
 
+.labelTitle,
+ .labelDescrip{
+    padding: 10px;
+    font-size: 20px;
+    color: #F9DE79;
+    display: block;
+    margin-top: 20px;
+}
+
+.inpuText{
+    left: 10px;
+    display: inline-block;
+    margin-top: 20px;
+    height: 40px;
+    width: 500px;
+}
+
+textArea{
+    left: 10px;
+    display: inline-block;
+    margin-top: 20px;
+    margin-left: 2px;
+    height: 60px;
+    width: 500px;
+}
+
+
+.buttonGuardar{
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    height: 30px;
+    width: 150px;
+    color: #ffffff;
+    border: 2px solid #F9DE79;
+    margin: 5px;
+    margin-left: 520px;
+    margin-top: 20px;
+    
+}
+
+.divContainer{
+    margin-top: 50px;
+    padding: 30px;
+    margin-left: 300px;
+}
+
+.post{
+    background-color:#e1dbdb;
+    /*border-radius: 40px;*/
+    width: 1200px;
+    height: 150px;
+    margin: 70px;
+    /*border: 2px solid #F9DE79;*/
+
+}
+
+.like-container{
+    width: 120px;
+    height: 45px;
+    display: inline-block;
+    justify-content: center;
+    align-content: center;
+}
+
+.imagenLike{
+    width:35px;
+    height: 35px;
+    margin-right: 250px;
+    cursor: pointer;
+}
 
 /*responsive*/
 @media (max-width: 592px) {

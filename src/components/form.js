@@ -30,7 +30,7 @@ export const form = () => {
   nombreForm.textContent = 'REGISTRA TUS DATOS AQUÍ';
   buttonForm.textContent = 'REGISTRAR';
 
-  inputFormUser.placeholder = 'example@gmail.com';
+  inputFormUser.placeholder = 'ejemplo@gmail.com';
   inputFormPassword.placeholder = '********';
 
   inputFormUser.name = 'email';
