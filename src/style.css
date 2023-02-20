@@ -1,0 +1,383 @@
+/*vista de home*/
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #F8FAE4;
+    margin-top: -40px;
+}
+
+#root{
+    text-align:center;
+}
+
+.sectionDiv{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nombreAplicacion {
+    display: flex;
+    text-align: center;
+    margin-top: 150px;
+    font-size: 40px;
+    color: #aa8b56;
+}
+
+.imageLogo {
+    display: flex;
+    align-items: center;
+    position: absolute;
+    top: 230px;
+    width: 300px;
+    height: 300px;
+}
+
+.welcomeh1 {
+    margin-top: 360px;
+    color: #aa8b56;
+    font-size: 40px;
+}
+
+.buttonRegister, .buttonLogin {
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    text-transform: uppercase;
+    height: 40px;
+    width: 50%;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+}
+
+
+
+/*vista de regitrarse*/
+.registrate{
+    margin-top: 420px;
+    color: #aa8b56;
+    font-size: 40px;
+}
+
+.google {
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    align-items: center;
+    justify-content: space-around;
+    background: #ffffff;
+    height: 40px;
+    width: 350px;
+    color: #000000;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+.iconGoogle{
+    height: 22px;
+    width: 22px;
+    margin-left: 2%;
+}
+
+.iconCorreo{
+    height: 25px;
+    width: 25px;
+    margin-left: 2%;
+}
+
+.correo {
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    align-items: center;
+    justify-content: space-around;
+    background: #1BA87E;
+    height: 40px;
+    width: 350px;
+    color: #ffffff;
+    border: 1px solid #658351;
+    margin: 5px;
+    padding: 5px;
+    margin-left: 170px;
+}
+
+/*#home{
+    font-size: 14px;
+    height: 30px;
+    width: 50%;
+    color: #000000;
+    border: 1px solid #658351;
+    margin: 2px;
+    padding: 2px;
+}*/
+
+/*Login css */
+
+.login{
+    margin-top: 390px;
+    font-size: 40px;
+    color: #aa8b56;
+}
+
+.contenedorForm{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: -25px;
+}
+
+.userpassword,
+.username {
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    display: block;
+    font-size: 18px;
+    background: #F8FAE4;
+    height: 30px;
+    width: 250px;
+    border: 2px solid #658351;
+    border-radius: 40px;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 15px;
+}
+
+.button {
+    text-align: center;
+    position:relative;
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    background: #AA8B56;
+    height: 30px;
+    width: 250px;
+    color: #ffffff;
+    border: 1.5px solid #658351;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 20px;
+    left: 7px;
+}
+
+.hrefHome{
+    margin-top: 20px;
+    display: block;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+  /* Dar color más tenue al placeholder de los input */
+input::placeholder {
+    color: hwb(210 59% 39%);
+}
+
+ /* formulario de correo */
+.bienvenidaForm{
+    display:contents;
+    width: 40px;
+    height: 40px;
+}
+
+.imageLogoForm{
+    display: flex;
+    position: absolute;
+    width: 280px;
+    height: 280px;
+}
+
+.nombreForm{
+    color: #aa8b56;
+    font-size: 50px;
+}
+
+.password,
+.email {
+    line-height: 24px;
+    align-items: center;
+    text-align: center;
+    justify-content: center;
+    position:relative;
+    display: block;
+    font-size: 18px;
+    height: 30px;
+    width: 250px;
+    color: #658351;
+    border: 2px solid #658351;
+    border-radius: 40px;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 20px;
+    top: 350px;
+
+}
+
+.buttonForm{
+    justify-content: center;
+    position:relative;
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    background: #aa8b56;
+    height: 30px;
+    width: 250px;
+    color: #ffffff;
+    border: 1.5px solid #658351;
+    margin: 5px;
+    padding: 5px;
+    margin-top: 25px;
+    top:350px;
+    left: 7px;
+}
+
+
+
+/*Vista General*/
+.navFijo{
+    background-color:#AA8B56;
+    width: 1800px;
+    height: 70px;
+    margin-top: 0%;
+    position: grid;
+}
+
+.nameFijo{
+    color: #ffffff;
+    justify-content: center;
+    /*align-items: center;*/
+    font-size: 50px;
+}
+.task-form{
+    background-color: #F9DE79;
+    border-radius: 40px;
+    width: 800px;
+    height: 300px;
+    margin-left: 500px;
+    border: 2px solid #658361;
+    margin-top: 40px;
+}
+
+.labelTitle,
+ .labelDescrip{
+    padding: 10px;
+    font-size: 20px;
+    color:#658361;
+    display: block;
+    margin-top: 20px;
+  
+}
+
+.inpuText, .textArea{
+    display: inline-block;
+    margin-top: 20px;
+    height: 40px;
+    width: 500px;
+    border-radius: 20px;
+    border: 2px solid #658361;
+
+}
+
+.buttonGuardar{
+    display: block;
+    border-radius: 40px;
+    font-size: 18px;
+    background: #658351;
+    height: 30px;
+    width: 150px;
+    color: #ffffff;
+    border: 2px solid #F9DE79;
+    margin: 5px;
+    margin-left: 520px;
+    margin-top: 20px;
+    
+}
+
+.divContainer{
+    margin-top: 20px;
+    padding: 30px;
+    margin-left: 400px;
+}
+.post{
+    background-color:#AA8B56;
+    font-size: 15px;
+    color: #ffffff;
+    border-radius: 40px;
+    width: 800px;
+    height: 200px;
+    margin: 70px;
+    border: 5px solid #F9DE79;
+
+}
+.btn-delete,.btn-edit{
+    flex-direction:row;
+    border-radius: 40px;
+    font-size: 15px;
+    background: #658351;
+    height: 30px;
+    width: 100px;
+    color: #ffffff;
+    border: 2px solid #F9DE79;
+    margin: 5px;
+
+}
+
+
+.like-container{
+    width: 100px;
+    height: 50px;
+    display: inline-block;
+    justify-content: center;
+    align-content: center;
+}
+
+.like-count{
+flex-direction: row;
+}
+
+.imagenLike{
+    width:35px;
+    height: 36px;
+    margin-top: 50px;
+    cursor: pointer;
+}
+
+/*responsive*/
+@media (max-width: 592px) {
+    .nombreAplicacion{
+        font-size: 30px;
+    }
+
+    .imageLogo {
+        top: 210px;
+        width: 260px;
+        height: 260px;
+    }
+    
+    .welcomeh1, .registrate{
+        margin-top: 300px;
+    }
+
+    .imageLogoForm{
+        top: 150px;
+    }
+
+    .google, .correo{
+        font-size: 13px;
+        margin-left: 10px;
+     }
+     
+     .nombreForm{
+        font-size: 30px;
+        margin-top: 70px;
+    }
+
+    .login{
+        margin-top: 280px;
+    }
+
+}
