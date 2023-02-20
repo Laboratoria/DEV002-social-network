@@ -14,6 +14,8 @@ export const home = () => {
   nombreApp.className = 'nombreAplicacion';
   imageLogo.className = 'imageLogo';
   bienvenidaH1.className = 'welcomeh1';
+  buttonLogin.className = 'buttonLogin';
+  buttonRegister.className = 'buttonRegister';
 
   imageLogo.src = 'images/logo-quecomemoshoy.png';
 

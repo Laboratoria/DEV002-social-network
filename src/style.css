@@ -40,7 +40,7 @@ body {
     font-size: 40px;
 }
 
-#buttonRegister {
+.buttonRegister, .buttonLogin {
     border-radius: 40px;
     font-size: 18px;
     background: #658351;
@@ -53,18 +53,7 @@ body {
     padding: 5px;
 }
 
-#buttonLogin {
-    border-radius: 40px;
-    font-size: 18px;
-    background: #658351;
-    text-transform: uppercase;
-    height: 40px;
-    width: 50%;
-    color: #ffffff;
-    border: 1px solid #658351;
-    margin: 5px;
-    padding: 5px;
-}
+
 
 /*vista de regitrarse*/
 .registrate{
@@ -73,7 +62,7 @@ body {
     font-size: 40px;
 }
 
-#google {
+.google {
     display: block;
     border-radius: 40px;
     font-size: 18px;
@@ -101,7 +90,7 @@ body {
     margin-left: 2%;
 }
 
-#correo {
+.correo {
     display: block;
     border-radius: 40px;
     font-size: 18px;
@@ -117,7 +106,7 @@ body {
     margin-left: 170px;
 }
 
-#home{
+/*#home{
     font-size: 14px;
     height: 30px;
     width: 50%;
@@ -125,7 +114,7 @@ body {
     border: 1px solid #658351;
     margin: 2px;
     padding: 2px;
-}
+}*/
 
 /*Login css */
 
@@ -246,25 +235,11 @@ input::placeholder {
     left: 7px;
 }
 
-/*.labelForm{
-    display: block;
-    top:300px;
-    left: 2px;
-    font-size: 20px;
-    position: relative;
-}
 
-.label{
-    display: block;
-    top:310px;
-    left: 2px;
-    font-size: 20px;
-    position: relative;
-}*/
 
-/*muro de la web*/
+/*Vista General*/
 .navFijo{
-    background-color: #F9DE79;
+    background-color:#AA8B56;
     width: 1800px;
     height: 70px;
     margin-top: 0%;
@@ -272,45 +247,40 @@ input::placeholder {
 }
 
 .nameFijo{
-    color: #658361;
+    color: #ffffff;
     justify-content: center;
     /*align-items: center;*/
     font-size: 50px;
 }
 .task-form{
-    background-color: #658361;
+    background-color: #F9DE79;
     border-radius: 40px;
-    width: 1200px;
+    width: 800px;
     height: 300px;
-    margin-left: 350px;
+    margin-left: 500px;
+    border: 2px solid #658361;
+    margin-top: 40px;
 }
 
 .labelTitle,
  .labelDescrip{
     padding: 10px;
     font-size: 20px;
-    color: #F9DE79;
+    color:#658361;
     display: block;
     margin-top: 20px;
+  
 }
 
-.inpuText{
-    left: 10px;
+.inpuText, .textArea{
     display: inline-block;
     margin-top: 20px;
     height: 40px;
     width: 500px;
-}
+    border-radius: 20px;
+    border: 2px solid #658361;
 
-textArea{
-    left: 10px;
-    display: inline-block;
-    margin-top: 20px;
-    margin-left: 2px;
-    height: 60px;
-    width: 500px;
 }
-
 
 .buttonGuardar{
     display: block;
@@ -328,33 +298,51 @@ textArea{
 }
 
 .divContainer{
-    margin-top: 50px;
+    margin-top: 20px;
     padding: 30px;
-    margin-left: 300px;
+    margin-left: 400px;
 }
-
 .post{
-    background-color:#e1dbdb;
-    /*border-radius: 40px;*/
-    width: 1200px;
-    height: 150px;
+    background-color:#AA8B56;
+    font-size: 15px;
+    color: #ffffff;
+    border-radius: 40px;
+    width: 800px;
+    height: 200px;
     margin: 70px;
-    /*border: 2px solid #F9DE79;*/
+    border: 5px solid #F9DE79;
 
 }
+.btn-delete,.btn-edit{
+    flex-direction:row;
+    border-radius: 40px;
+    font-size: 15px;
+    background: #658351;
+    height: 30px;
+    width: 100px;
+    color: #ffffff;
+    border: 2px solid #F9DE79;
+    margin: 5px;
+
+}
+
 
 .like-container{
-    width: 120px;
-    height: 45px;
+    width: 100px;
+    height: 50px;
     display: inline-block;
     justify-content: center;
     align-content: center;
 }
 
+.like-count{
+flex-direction: row;
+}
+
 .imagenLike{
     width:35px;
     height: 35px;
-    margin-right: 250px;
+    margin-top: 50px;
     cursor: pointer;
 }
 
@@ -370,11 +358,7 @@ textArea{
         height: 260px;
     }
     
-    .welcomeh1{
-        margin-top: 300px;
-    }
-
-    .registrate{
+    .welcomeh1, .registrate{
         margin-top: 300px;
     }
 
@@ -382,18 +366,12 @@ textArea{
         top: 150px;
     }
 
-    #google{
+    .google, .correo{
         font-size: 13px;
         margin-left: 10px;
-        
-    }
-
-    #correo{
-        font-size: 13px;
-        margin-left: 10px;  
-    }
-
-    .nombreForm{
+     }
+     
+     .nombreForm{
         font-size: 30px;
         margin-top: 70px;
     }
@@ -402,6 +380,4 @@ textArea{
         margin-top: 280px;
     }
 
-    
- 
 }
